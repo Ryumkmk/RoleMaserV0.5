@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+
+	"RMV0.5/app/config"
 )
 
 func generateHTML(w http.ResponseWriter, data interface{}, filenames ...string) {
@@ -13,4 +15,11 @@ func generateHTML(w http.ResponseWriter, data interface{}, filenames ...string) 
 	}
 	templates := template.Must(template.ParseFiles(files...))
 	templates.ExecuteTemplate(w, "layout", data)
+}
+
+func StartMainServer() error {
+	files := http.FileServer(http.Dir(config.Config.Static))
+	http.Handle("/static/", http.StripPrefix("/static/", files))
+
+	return http.ListenAndServe(":"+config.Config.Port, nil)
 }
