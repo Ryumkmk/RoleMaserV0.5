@@ -4,13 +4,12 @@
     <h2>今月のシフト</h2>
 </div>
 <div class="xlsxUp">
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" accept=".xlsx">
+    <form id="upload-form" enctype="multipart/form-data">
+        <input type="file" id="file-input" name="file" accept=".xlsx">
         <br>
-        <input type="submit" value="Upload">
+        <input type="button" id="upload-button" value="Upload">
     </form>
-    {{range .Files}}
     {{.}}
-    {{end}}
+    
 </div>
 {{end}}

@@ -22,6 +22,7 @@ func StartMainServer() error {
 	http.Handle("/static/", http.StripPrefix("/static/", files))
 	http.HandleFunc("/top", top)
 	http.HandleFunc("/upload", upload)
+	
 	fmt.Println("Stated Server")
 	return http.ListenAndServe(":"+config.Config.Port, nil)
 }
