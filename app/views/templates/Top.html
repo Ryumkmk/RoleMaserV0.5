@@ -1,0 +1,12 @@
+{{define "content"}}
+<div class="mainTitle">
+    <h1>RoleMaster</h1>
+    <h2>今月のシフト</h2>
+</div>
+<div class="xlsxUp">
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+</div>
+{{end}}
