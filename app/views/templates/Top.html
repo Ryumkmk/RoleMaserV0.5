@@ -5,8 +5,12 @@
 </div>
 <div class="xlsxUp">
     <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="file">
+        <input type="file" name="file" accept=".xlsx">
+        <br>
         <input type="submit" value="Upload">
     </form>
+    {{range .Files}}
+    {{.}}
+    {{end}}
 </div>
 {{end}}
