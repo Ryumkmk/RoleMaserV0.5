@@ -23,7 +23,7 @@ func StartMainServer() error {
 	http.HandleFunc("/top", top)
 	http.HandleFunc("/upload", upload)
 	http.HandleFunc("/delete", delete)
-	http.HandleFunc("/index", index)
+	http.HandleFunc("/", index)
 	http.HandleFunc("/typingpage", typingpage)
 
 	fmt.Println("Stated Server")

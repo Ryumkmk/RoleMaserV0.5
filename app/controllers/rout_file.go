@@ -36,10 +36,9 @@ func delete(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 	}
 	file := r.PostFormValue("filename")
-	fmt.Println(file)
 	err = os.Remove("./xlsx/" + file)
 	if err != nil {
 		fmt.Println(err)
 	}
-	http.Redirect(w, r, "/index", 302)
+	http.Redirect(w, r, "/", 302)
 }
