@@ -1,0 +1,15 @@
+{{define "content"}}
+<div class="mainTitle">
+    <h1>RoleMaster</h1>
+    <h2>今月のシフト</h2>
+</div>
+<div class="xlsxUp">
+    <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data" >
+        <label for="file-input">今月のシフトのエクセルファイルを選んで下さい</label>
+        <br>
+        <input type="file" id="file-input" name="file" accept=".xlsx" required>
+        <br>
+        <input type="submit" value="Upload">
+    </form>
+</div>
+{{end}}

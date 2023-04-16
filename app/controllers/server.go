@@ -22,7 +22,10 @@ func StartMainServer() error {
 	http.Handle("/static/", http.StripPrefix("/static/", files))
 	http.HandleFunc("/top", top)
 	http.HandleFunc("/upload", upload)
-	
+	http.HandleFunc("/delete", delete)
+	http.HandleFunc("/index", index)
+	http.HandleFunc("/typingpage", typingpage)
+
 	fmt.Println("Stated Server")
 	return http.ListenAndServe(":"+config.Config.Port, nil)
 }
