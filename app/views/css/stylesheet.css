@@ -11,14 +11,40 @@
   outline: 1px #2589d0 solid;
   border-radius: 1%;
 }
+.wrapper tbody tr {
+  border-top: 1px solid #2589d0;
+}
 .wrapper tbody tr .ampm {
   text-align: center;
   border-bottom: 1px #2589d0 solid;
 }
 .wrapper tbody tr .jobName {
   width: 32%;
-  font-size: 14px;
-  border-bottom: 1px #2589d0 double;
+  font-size: 11px;
+  position: relative;
+  padding: 0.3em 0 0.2em 1em;
+  border-bottom: 3px solid #2589d0;
+  color: #333333;
+}
+.wrapper tbody tr .jobName:before {
+  position: absolute;
+  top: 0;
+  left: 0.3em;
+  transform: rotate(55deg);
+  height: 11px;
+  width: 12px;
+  background: #2589d0;
+  content: "";
+}
+.wrapper tbody tr .jobName::after {
+  position: absolute;
+  transform: rotate(15deg);
+  top: 0.6em;
+  left: 0;
+  height: 8px;
+  width: 8px;
+  background: #2589d0;
+  content: "";
 }
 .wrapper tbody tr td {
   text-align: left;
@@ -26,6 +52,10 @@
 }
 .wrapper tbody tr td input {
   width: 70%;
+  border: none;
+}
+.wrapper tbody tr td span {
+  font-size: 11px;
 }
 .wrapper .heading-018 {
   border: 2px solid #2589d0;
