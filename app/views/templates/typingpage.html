@@ -1,3 +1,176 @@
 {{define "content"}}
-{{.}}
+<div class="wrapper">
+    <a href = "/top">Top</a>
+    <div class="AM">
+        <table>
+            <tbody>
+                <tr>
+                    <th name = "date-form" class="jobName">{{.}}</th>
+                    <td class="ampm" colspan="2">AM</td>
+                </tr>
+                <tr>
+                    <th class="jobName">Wルーム</th>
+                    <td><span>作</span><input type="text" name="wroommain"></td>
+                    <td><span>聞</span><input type="text" name="wroomsub"></td>
+
+                </tr>
+                <tr>
+                    <th class="jobName">クローク</th>
+                    <td colspan="2"><input type="text" name="cloak"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">門番/駐車場</th>
+                    <td><input type="text" name="gatekeeper"></td>
+                    <td><input type="text" name="parkkeeper"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">リーダー</th>
+                    <td colspan="2"><input type="text" name="leader"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">ドリカン両親係</th>
+                    <td><span>メイン</span><input type="text" name="drinkmain"></td>
+                    <td><span>サブ</span><input type="text" name="drinksub"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">シャンパン＆ワイン</th>
+                    <td colspan="2"><input type="text" name="champagne"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">シルバー＆ワイン</th>
+                    <td colspan="2"><input type="text" name="silver"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">アペ＆水</th>
+                    <td colspan="2"><input type="text" name="ape"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">コーヒー＆デトックス</th>
+                    <td colspan="2"><input type="text" name="coffee"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">トイレタバコチェック＆ガーデンヒーター</th>
+                    <td><span>男性＆タバコ、ヒーター</span><input type="text" name="toiletman"></td>
+                    <td><span>女性＆多目的</span><input type="text" name="toiletlady"></td>
+
+                </tr>
+                <tr>
+                    <th class="jobName">クローク補助</th>
+                    <td colspan="2"><input type="text" name="cloaksub"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">洗い場</th>
+                    <td><input type="text" name="wash1"></td>
+                    <td><input type="text" name="wash2"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">インカム盛り上げリーダー</th>
+                    <td colspan="2"><input type="text" name="leader"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">ウェイティング迎賓係</th>
+                    <td colspan="2"><input type="text" name="wtreception"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">迎賓時アルコール係</th>
+                    <td colspan="2"><input type="text" name="alreception"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">チャペル誘導係</th>
+                    <td colspan="2"><input type="text" name="chreception"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">おしぼり回収（プルミエの後）</th>
+                    <td colspan="2"><input type="text" name="towel"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="PM">
+        <table>
+            <tbody>
+                <tr>
+                    <th class="jobName">&nbsp;</th>
+                    <td class="ampm" colspan="2">PM</td>
+                </tr>
+                <tr>
+                    <th class="jobName">Wルーム</th>
+                    <td><span>作</span><input type="text" name="wroommain"></td>
+                    <td><span>聞</span><input type="text" name="wroomsub"></td>
+
+                </tr>
+                <tr>
+                    <th class="jobName">クローク</th>
+                    <td colspan="2"><input type="text" name="cloak"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">門番/駐車場</th>
+                    <td><input type="text" name="gatekeeper"></td>
+                    <td><input type="text" name="parkkeeper"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">リーダー</th>
+                    <td colspan="2"><input type="text" name="leader"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">ドリカン両親係</th>
+                    <td><span>メイン</span><input type="text" name="drinkmain"></td>
+                    <td><span>サブ</span><input type="text" name="drinksub"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">シャンパン＆ワイン</th>
+                    <td colspan="2"><input type="text" name="champagne"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">シルバー＆ワイン</th>
+                    <td colspan="2"><input type="text" name="silver"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">アペ＆水</th>
+                    <td colspan="2"><input type="text" name="ape"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">コーヒー＆デトックス</th>
+                    <td colspan="2"><input type="text" name="coffee"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">トイレタバコチェック＆ガーデンヒーター</th>
+                    <td><span>男性＆タバコ、ヒーター</span><input type="text" name="toiletman"></td>
+                    <td><span>女性＆多目的</span><input type="text" name="toiletlady"></td>
+
+                </tr>
+                <tr>
+                    <th class="jobName">クローク補助</th>
+                    <td colspan="2"><input type="text" name="cloaksub"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">洗い場</th>
+                    <td><input type="text" name="wash1"></td>
+                    <td><input type="text" name="wash2"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">インカム盛り上げリーダー</th>
+                    <td colspan="2"><input type="text" name="leader"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">ウェイティング迎賓係</th>
+                    <td colspan="2"><input type="text" name="wtreception"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">迎賓時アルコール係</th>
+                    <td colspan="2"><input type="text" name="alreception"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">チャペル誘導係</th>
+                    <td colspan="2"><input type="text" name="chreception"></td>
+                </tr>
+                <tr>
+                    <th class="jobName">おしぼり回収（プルミエの後）</th>
+                    <td colspan="2"><input type="text" name="towel"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 {{end}}

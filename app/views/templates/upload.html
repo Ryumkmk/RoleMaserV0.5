@@ -1,15 +1,19 @@
 {{define "content"}}
-<h1 class="maintitle">RoleMaster</h1>
-<div class="xlsxUp">
-    <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
-        <div class="button_solid007">
-            <p>今月のシフトを選んでね</p>
-            <label for="file-input" id="file-input-label">ファイルを選択してください</label>
-            <input class="file-input-button" type="file" id="file-input" name="file" accept=".xlsx" required>
-        </div>
-        <div class="button_solid015">
-            <input type="submit" value="Upload">
-        </div>
-    </form>
+<div class="wrapper">
+
+    <h1 class="maintitle heading-018">RoleMaster</h1>
+    <div class="xlsxUp">
+        <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+            <div class="button_solid007">
+                <p>今月のシフトを選んでね</p>
+                <label for="file-input" id="file-input-label">ファイルを選択してください</label>
+                <input class="file-input-button" type="file" id="file-input" name="file" accept=".xlsx" required>
+            </div>
+            <div class="button_solid015">
+                <input type="submit" value="アップロード">
+            </div>
+        </form>
+    </div>
 </div>
+
 {{end}}

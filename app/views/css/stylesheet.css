@@ -1,8 +1,5 @@
-body * {
-  outline: 1px solid red;
-}
-
-body {
+@charset "UTF-8";
+.wrapper {
   width: 94%;
   margin: 32px auto 0 auto;
   line-height: 2;
@@ -10,7 +7,33 @@ body {
   /* solid007 */
   /* solid015 */
 }
-body .maintitle {
+.wrapper tbody {
+  outline: 1px #2589d0 solid;
+  border-radius: 1%;
+}
+.wrapper tbody tr .ampm {
+  text-align: center;
+  border-bottom: 1px #2589d0 solid;
+}
+.wrapper tbody tr .jobName {
+  width: 32%;
+  font-size: 14px;
+  border-bottom: 1px #2589d0 double;
+}
+.wrapper tbody tr td {
+  text-align: left;
+  border-bottom: 1px #2589d0 solid;
+}
+.wrapper tbody tr td input {
+  width: 70%;
+}
+.wrapper .heading-018 {
+  border: 2px solid #2589d0;
+  box-shadow: 5px 5px #2589d0;
+  color: #2589d0;
+  display: inline-block;
+}
+.wrapper .maintitle {
   font-family: "Chakra Petch", sans-serif;
   font-family: "M PLUS Rounded 1c", sans-serif;
   font-family: "Noto Serif JP", serif;
@@ -19,19 +42,16 @@ body .maintitle {
   display: flex;
   justify-content: center;
 }
-body .now-title p {
-  border-bottom: #6bb6ff;
-}
-body .file-name-title {
+.wrapper .file-name-title {
   position: relative;
-  background: #80bcf7;
-  box-shadow: 0px 0px 0px 5px #80bcf7;
+  background: #2589d0;
+  box-shadow: 0px 0px 0px 5px #2589d0;
   border: dashed 2px white;
   padding: 0.2em 0.5em;
-  color: #0d0055;
+  color: #ffffff;
   display: inline-block;
 }
-body .file-name-title:after {
+.wrapper .file-name-title:after {
   position: absolute;
   content: "";
   left: -7px;
@@ -41,36 +61,36 @@ body .file-name-title:after {
   border-color: #fff #fff #6e94ad;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
-body .button_solid007 {
+.wrapper .button_solid007 {
   text-align: center;
 }
-body .button_solid007 p {
+.wrapper .button_solid007 p {
   margin-bottom: 5px;
   font-weight: 600;
-  color: #6bb6ff;
+  color: #2589d0;
   letter-spacing: 0.04rem;
   display: inline-block;
   position: relative;
 }
-body .button_solid007:before, body .button_solid007:after {
+.wrapper .button_solid007 p:before, .wrapper .button_solid007 p:after {
   display: inline-block;
   position: absolute;
   top: 45%;
   width: 20px;
   height: 3px;
   border-radius: 5px;
-  background-color: #6bb6ff;
+  background-color: #2589d0;
   content: "";
 }
-body .button_solid007:before {
+.wrapper .button_solid007 p:before {
   left: -30px;
   transform: rotate(50deg);
 }
-body .button_solid007:after {
+.wrapper .button_solid007 p:after {
   right: -30px;
   transform: rotate(-50deg);
 }
-body .button_solid007 label {
+.wrapper .button_solid007 label {
   position: relative;
   display: flex;
   justify-content: space-around;
@@ -81,22 +101,37 @@ body .button_solid007 label {
   color: #fff;
   transition: 0.3s ease-in-out;
   font-weight: 600;
-  background: #6bb6ff;
+  background: #2589d0;
   filter: drop-shadow(0px 2px 4px #ccc);
   border-radius: 3px;
 }
-body .button_solid007:hover {
+.wrapper .button_solid007 label:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.1);
 }
-body .xlsxUp {
+.wrapper .xlsxUp {
   text-align: center;
 }
-body .button_solid015 {
+.wrapper .box2 {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  display: inline-block;
+  font-weight: bold;
+  color: #6091d3; /*文字色*/
+  background: #fff;
+  border: solid 3px #6091d3; /*線*/
+  border-radius: 10px; /*角の丸み*/
+  font-size: 12px;
+}
+.wrapper .box2 p {
+  margin: 0;
+  padding: 0;
+}
+.wrapper .button_solid015 {
   text-align: center;
   margin-top: 30px;
 }
-body .button_solid015 input {
+.wrapper .button_solid015 input {
   position: relative;
   display: flex;
   justify-content: space-around;
@@ -107,16 +142,16 @@ body .button_solid015 input {
   color: #fff;
   transition: 0.3s ease-in-out;
   font-weight: 600;
-  background: #6bb6ff;
+  background: #2589d0;
   filter: drop-shadow(0px 2px 4px #ccc);
   border-radius: 50px;
   border: none;
 }
-body .button_solid015 input:hover {
+.wrapper .button_solid015 input:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.1);
 }
-body .button_solid015 input:after {
+.wrapper .button_solid015 input:after {
   position: absolute;
   top: 50%;
   right: 20px;
@@ -126,6 +161,6 @@ body .button_solid015 input:after {
   font-weight: 900;
   transform: translateY(-54%);
 }
-body .file-input-button {
+.wrapper .file-input-button {
   display: none;
 }/*# sourceMappingURL=stylesheet.css.map */
