@@ -1,5 +1,5 @@
 @page {
-    margin: 10mm;
+    margin: 0;
     size: 297mm 210mm;
 }
 
@@ -8,12 +8,15 @@
         .top-button {
             display: none;
         }
+        footer {
+            display: none;
+        }
         display: flex;
         margin: 30px 60px 70px 30px;
         width: 1190px;
         font-size: 11px;
         tbody {
-            font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+            // font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
             tr {
                 .jobName {
                     width: 32%;
@@ -50,20 +53,18 @@
                     border: 1px #000000 solid;
                     background-color: rgb(255, 255, 255);
                     border-radius: 5px;
-                    text-align: left;
+                    text-align: center;
                     &.ampm {
                         text-align: center;
                     }
                     input {
                         width: 50%;
-                        border: none;
-                        outline: none;
                         margin: 0 3px;
                         font-size: 23px;
-                        appearance: none;
-                        -webkit-appearance: none;
-                        -moz-appearance: none;
                         padding: 2px 0 2px 2px;
+                        text-align: center;
+                        border: none;
+                        box-shadow: none;
                     }
                     span {
                         font-size: 14px;
@@ -87,11 +88,11 @@
         .AM {
             width: 43%;
             border-bottom: none;
-            margin-right: 10px;
+            margin: 0 20px;
         }
         .PM {
             width: 43%;
-            margin-left: 10px;
+            margin: 0 20px;
         }
     }
 }

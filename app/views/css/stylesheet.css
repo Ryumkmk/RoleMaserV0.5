@@ -7,7 +7,8 @@
   /* solid007 */
   /* solid015 */
 }
-.wrapper .top-button {
+.wrapper .top-button,
+.wrapper .print-button {
   text-decoration: none;
   color: #000655;
   position: relative;
@@ -25,7 +26,8 @@
   border-radius: 50px;
   border: none;
 }
-.wrapper .top-button:hover {
+.wrapper .top-button:hover,
+.wrapper .print-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.1);
 }
@@ -36,6 +38,9 @@
 }
 .wrapper tbody {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.wrapper tbody tr .date-print:before, .wrapper tbody tr .date-print:after {
+  display: none;
 }
 .wrapper tbody tr .jobName {
   width: 32%;
@@ -205,9 +210,10 @@
 }
 .wrapper .button_solid015 {
   text-align: center;
-  margin-top: 30px;
+  margin: 30px auto;
 }
-.wrapper .button_solid015 input {
+.wrapper .button_solid015 input,
+.wrapper .button_solid015 button {
   position: relative;
   display: flex;
   justify-content: space-around;
@@ -223,20 +229,14 @@
   border-radius: 50px;
   border: none;
 }
-.wrapper .button_solid015 input:hover {
+.wrapper .button_solid015 input:hover,
+.wrapper .button_solid015 button:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.1);
 }
-.wrapper .button_solid015 input:after {
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transition: 0.2s ease-in-out;
-  content: "\f0da";
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  transform: translateY(-54%);
-}
 .wrapper .file-input-button {
   display: none;
+}
+.wrapper footer {
+  display: flex;
 }/*# sourceMappingURL=stylesheet.css.map */
