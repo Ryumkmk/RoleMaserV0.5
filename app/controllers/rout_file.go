@@ -7,6 +7,8 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+
+	"RMV0.5/app/config"
 )
 
 func upload(w http.ResponseWriter, r *http.Request) {
@@ -19,7 +21,7 @@ func upload(w http.ResponseWriter, r *http.Request) {
 	}
 	defer file.Close()
 
-	f, err := os.OpenFile("./xlsx/"+filepath.Base(header.Filename), os.O_WRONLY|os.O_CREATE, 0666)
+	f, err := os.OpenFile(config.Config.Xlsxpath+"/"+filepath.Base(header.Filename), os.O_WRONLY|os.O_CREATE, 0666)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -36,7 +38,7 @@ func delete(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 	}
 	file := r.PostFormValue("filename")
-	err = os.Remove("./xlsx/" + file)
+	err = os.Remove(config.Config.Xlsxpath + "/" + file)
 	if err != nil {
 		fmt.Println(err)
 	}

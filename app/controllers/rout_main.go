@@ -7,10 +7,12 @@ import (
 	"net/http"
 	"os"
 	"strings"
+
+	"RMV0.5/app/config"
 )
 
 func top(w http.ResponseWriter, r *http.Request) {
-	files, err := os.ReadDir("./xlsx/")
+	files, err := os.ReadDir(config.Config.Xlsxpath)
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -23,7 +25,7 @@ func top(w http.ResponseWriter, r *http.Request) {
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
-	files, err := os.ReadDir("./xlsx/")
+	files, err := os.ReadDir(config.Config.Xlsxpath)
 	if err != nil {
 		log.Println(err)
 	}
