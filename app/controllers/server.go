@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	"os"
 
 	"RMV0.5/app/config"
 )
@@ -27,7 +28,7 @@ func StartMainServer() error {
 	http.HandleFunc("/", index)
 	http.HandleFunc("/typingpage", typingpage)
 
-	fmt.Println("Stated Server")
-	// port := os.Getenv("PORT")
-	return http.ListenAndServe(":"+"8080", nil)
+	// fmt.Println("Stated Server")
+	port := os.Getenv("PORT")
+	return http.ListenAndServe(":"+port, nil)
 }
