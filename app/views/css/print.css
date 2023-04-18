@@ -4,6 +4,9 @@
   size: 297mm 210mm;
 }
 @media print {
+  body * {
+    outline: 1px solid red;
+  }
   .wrapper {
     display: flex;
     margin: 30px 60px 70px 30px;
@@ -16,9 +19,14 @@
   .wrapper footer {
     display: none;
   }
+  .wrapper .ampm {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+  }
   .wrapper tbody tr .jobName {
-    width: 32%;
-    font-size: 12px;
+    width: 26%;
+    font-size: 11px;
     position: relative;
     padding: 0.3em 0 0.2em 1em;
     border-bottom: 2px solid #000000;
@@ -47,47 +55,83 @@
     background: #000000;
     content: "〇";
   }
+  .wrapper tbody tr .small-jobname {
+    font-size: 8px;
+    border: none;
+    color: #000000;
+    padding: 0;
+    text-align: left;
+    position: relative;
+    padding-left: 10px;
+  }
+  .wrapper tbody tr .small-jobname:before {
+    position: absolute;
+    transform: rotate(15deg);
+    content: "☆";
+  }
+  .wrapper tbody tr .small-jobname:after {
+    transform: rotate(0deg);
+    top: auto;
+    left: auto;
+    content: "・・・";
+  }
   .wrapper tbody tr td {
     border: 1px #000000 solid;
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
-    text-align: center;
+    position: relative;
   }
   .wrapper tbody tr td.ampm {
     text-align: center;
   }
   .wrapper tbody tr td input {
-    width: 50%;
-    margin: 0 3px;
-    font-size: 23px;
+    width: 70%;
+    vertical-align: middle;
+    font-size: 20px;
     padding: 2px 0 2px 2px;
     text-align: center;
     border: none;
     box-shadow: none;
   }
   .wrapper tbody tr td span {
-    font-size: 14px;
-    font-weight: 500;
+    vertical-align: middle;
+    font-size: 12px;
+    font-weight: 700;
     margin: 0;
-    padding: 0;
-    padding-left: 6px;
+    padding-left: 3px;
     border-left: 1px solid #000000;
   }
   .wrapper tbody tr td.ampm {
     border: 2px solid #000000;
     border-radius: 5px;
   }
+  .wrapper tbody tr .small-td {
+    border: none;
+    text-align: left;
+  }
+  .wrapper tbody tr .small-td input {
+    margin: 0 3px;
+    font-size: 18px;
+    padding: 0;
+    text-align: left;
+    border: none;
+    box-shadow: none;
+  }
   .wrapper tbody tr .date-print {
     border: 2px solid #000000;
     border-radius: 5px;
   }
   .wrapper .AM {
-    width: 43%;
+    width: 44%;
     border-bottom: none;
-    margin: 0 20px;
+    margin-right: 20px;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
   .wrapper .PM {
-    width: 43%;
-    margin: 0 20px;
+    width: 44%;
+    margin-left: 20px;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 }/*# sourceMappingURL=print.css.map */

@@ -4,12 +4,20 @@
 }
 
 @media print {
+    body * {
+        outline: 1px solid red;
+    }
     .wrapper {
         .top-button {
             display: none;
         }
         footer {
             display: none;
+        }
+        .ampm {
+            font-size: 18px;
+            margin: 0;
+            padding: 0;
         }
         display: flex;
         margin: 30px 60px 70px 30px;
@@ -19,8 +27,8 @@
             // font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
             tr {
                 .jobName {
-                    width: 32%;
-                    font-size: 12px;
+                    width: 26%;
+                    font-size: 11px;
                     position: relative;
                     padding: 0.3em 0 0.2em 1em;
                     border-bottom: 2px solid #000000;
@@ -28,55 +36,90 @@
                     color: #000000;
                     background-color: rgb(255, 255, 255);
                     border-radius: 5px;
-                    // &:before {
-                    //     position: absolute;
-                    //     top: 0;
-                    //     left: 0.3em;
-                    //     transform: rotate(55deg);
-                    //     height: 0px;
-                    //     width: 0px;
-                    //     background: #000000;
-                    //     content: "●";
-                    // }
-                    // &:after {
-                    //     position: absolute;
-                    //     transform: rotate(15deg);
-                    //     top: 0.6em;
-                    //     left: 0;
-                    //     height: 0px;
-                    //     width: 0px;
-                    //     background: #000000;
-                    //     content: "〇";
+                    &:before {
+                        position: absolute;
+                        top: 0;
+                        left: 0.3em;
+                        transform: rotate(55deg);
+                        height: 0px;
+                        width: 0px;
+                        background: #000000;
+                        content: "●";
+                    }
+                    &:after {
+                        position: absolute;
+                        transform: rotate(15deg);
+                        top: 0.6em;
+                        left: 0;
+                        height: 0px;
+                        width: 0px;
+                        background: #000000;
+                        content: "〇";
+                    }
+                }
+                .small-jobname {
+                    font-size: 8px;
+                    border: none;
+                    color: #000000;
+                    padding: 0;
+                    text-align: left;
+                    position: relative;
+                    padding-left: 10px;
+                    &:before {
+                        position: absolute;
+                        transform: rotate(15deg);
+                        content: "☆";
+                    }
+                    &:after {
+                        transform: rotate(0deg);
+                        top: auto;
+                        left: auto;
+                        content: "・・・";
                     }
                 }
                 td {
                     border: 1px #000000 solid;
                     background-color: rgb(255, 255, 255);
                     border-radius: 5px;
-                    text-align: center;
+                    // text-align: center;
+                    position: relative;
                     &.ampm {
                         text-align: center;
                     }
                     input {
-                        width: 50%;
-                        margin: 0 3px;
-                        font-size: 23px;
+                        width: 70%;
+                        vertical-align: middle;
+                        font-size: 20px;
                         padding: 2px 0 2px 2px;
                         text-align: center;
                         border: none;
                         box-shadow: none;
                     }
+
                     span {
-                        font-size: 14px;
-                        font-weight: 500;
+                        vertical-align: middle;
+                        font-size: 12px;
+                        font-weight: 700;
                         margin: 0;
-                        padding: 0;
-                        padding-left: 6px;
+                        padding-left: 3px;
                         border-left: 1px solid #000000;
                     }
                     &.ampm {
                         border: 2px solid #000000;
                         border-radius: 5px;
+                    }
+                }
+                .small-td {
+                    border: none;
+                    text-align: left;
+                    input {
+                        margin: 0 3px;
+                        font-size: 18px;
+                        padding: 0;
+                        text-align: left;
+                        
+                        border: none;
+                        box-shadow: none;
                     }
                 }
                 .date-print {
@@ -86,13 +129,17 @@
             }
         }
         .AM {
-            width: 43%;
+            width: 44%;
             border-bottom: none;
-            margin: 0 20px;
+            margin-right: 20px;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
         .PM {
-            width: 43%;
-            margin: 0 20px;
+            width: 44%;
+            margin-left: 20px;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
     }
 }
