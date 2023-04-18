@@ -239,4 +239,7 @@
 }
 .wrapper footer {
   display: flex;
+}
+.wrapper .sub-space p {
+  display: none;
 }/*# sourceMappingURL=stylesheet.css.map */

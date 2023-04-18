@@ -38,6 +38,5 @@ func typingpage(w http.ResponseWriter, r *http.Request) {
 	mm := r.PostFormValue("month")
 	dd := r.PostFormValue("day")
 	date := fmt.Sprintf("%s月%s日", mm, dd)
-	fmt.Println(date)
 	generateHTML(w, date, "layout", "typingpage")
 }

@@ -4,9 +4,9 @@
 }
 
 @media print {
-    body * {
-        outline: 1px solid red;
-    }
+    // body * {
+    //     outline: 1px red solid;
+    // }
     .wrapper {
         .top-button {
             display: none;
@@ -27,7 +27,7 @@
             // font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
             tr {
                 .jobName {
-                    width: 26%;
+                    width: 24%;
                     font-size: 11px;
                     position: relative;
                     padding: 0.3em 0 0.2em 1em;
@@ -89,7 +89,7 @@
                     input {
                         width: 70%;
                         vertical-align: middle;
-                        font-size: 20px;
+                        font-size: 18px;
                         padding: 2px 0 2px 2px;
                         text-align: center;
                         border: none;
@@ -117,7 +117,7 @@
                         font-size: 18px;
                         padding: 0;
                         text-align: left;
-                        
+
                         border: none;
                         box-shadow: none;
                     }
@@ -129,17 +129,29 @@
             }
         }
         .AM {
-            width: 44%;
+            width: 48%;
             border-bottom: none;
-            margin-right: 20px;
+            margin-right: 0px;
             margin-bottom: 0;
             padding-bottom: 0;
         }
         .PM {
-            width: 44%;
-            margin-left: 20px;
+            width: 48%;
+            margin-left: 0px;
             margin-bottom: 0;
             padding-bottom: 0;
+        }
+        .sub-space {
+            p{
+                display: inline;
+            }
+            width: 40px;
+            border: 1px solid #000000;
+            margin-left: 0;
+            margin-right: 4px;
+            margin-top: 1px;
+            margin-bottom: 128px;
+            border-radius: 5px;
         }
     }
 }

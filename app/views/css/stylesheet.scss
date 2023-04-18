@@ -1,7 +1,3 @@
-body * {
-    // outline: 1px solid red;
-}
-
 .wrapper {
     width: 94%;
     margin: 16px auto 0 auto;
@@ -109,7 +105,6 @@ body * {
                     font-weight: 500;
                     padding-left: 6px;
                     border-left: 1px dotted #000d86;
-                    
                 }
             }
         }
@@ -255,5 +250,10 @@ body * {
     }
     footer {
         display: flex;
+    }
+    .sub-space {
+        p {
+            display: none;
+        }
     }
 }
