@@ -10,7 +10,7 @@
     <form id="delete-form" action="/delete" method="post">
         <input type="hidden" name="filename" value={{.}}>
         <div class="button_solid015">
-            <input type="submit" value="削除">
+            <input type="submit" value="削除" onclick="confirmDelete(event)">
         </div>
         <div class="box2">
             <p>※月が変わったらファイルを削除してください</p>
@@ -20,8 +20,6 @@
         <div class="button_solid007">
             <p>作りたいシフトの日付を入力してね</p>
         </div>
-
-
         <div class="selectdiv">
             <div class="cp_ipselect cp_sl01">
                 <select name="month" required>

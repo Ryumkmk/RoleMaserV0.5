@@ -28,25 +28,25 @@
                     color: #000000;
                     background-color: rgb(255, 255, 255);
                     border-radius: 5px;
-                    &:before {
-                        position: absolute;
-                        top: 0;
-                        left: 0.3em;
-                        transform: rotate(55deg);
-                        height: 0px;
-                        width: 0px;
-                        background: #000000;
-                        content: "●";
-                    }
-                    &:after {
-                        position: absolute;
-                        transform: rotate(15deg);
-                        top: 0.6em;
-                        left: 0;
-                        height: 0px;
-                        width: 0px;
-                        background: #000000;
-                        content: "〇";
+                    // &:before {
+                    //     position: absolute;
+                    //     top: 0;
+                    //     left: 0.3em;
+                    //     transform: rotate(55deg);
+                    //     height: 0px;
+                    //     width: 0px;
+                    //     background: #000000;
+                    //     content: "●";
+                    // }
+                    // &:after {
+                    //     position: absolute;
+                    //     transform: rotate(15deg);
+                    //     top: 0.6em;
+                    //     left: 0;
+                    //     height: 0px;
+                    //     width: 0px;
+                    //     background: #000000;
+                    //     content: "〇";
                     }
                 }
                 td {

@@ -22,3 +22,11 @@ function copyValue2(input, targetName, copyName) {
     targetInput.value = input.value;
     copyInput.value = input.value;
 }
+
+function confirmDelete(event) {
+    event.preventDefault();
+    if (confirm("本当に削除しますか？")) {
+        // 削除処理
+        document.getElementById("delete-form").submit();
+    }
+}
