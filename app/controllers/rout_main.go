@@ -2,9 +2,11 @@ package controllers
 
 import (
 	"fmt"
+	"io/fs"
 	"log"
 	"net/http"
 	"os"
+	"strings"
 )
 
 func top(w http.ResponseWriter, r *http.Request) {
@@ -12,8 +14,12 @@ func top(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println(err)
 	}
-	file := files[0]
-	generateHTML(w, file.Name(), "layout", "top")
+	for _, file := range files {
+		if strings.HasSuffix(file.Name(), ".xlsx") {
+			generateHTML(w, file.Name(), "layout", "top")
+			break
+		}
+	}
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
@@ -21,13 +27,19 @@ func index(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println(err)
 	}
-
-	if len(files) == 0 {
-		generateHTML(w, "ファイルがありせん", "layout", "upload")
-	} else {
-		file := files[0]
-		generateHTML(w, file.Name(), "layout", "top")
+	var xlsxfile fs.DirEntry
+	for _, file := range files {
+		if strings.HasSuffix(file.Name(), ".xlsx") {
+			xlsxfile = file
+			break
+		}
 	}
+	if xlsxfile == nil {
+		generateHTML(w, nil, "layout", "upload")
+	} else {
+		generateHTML(w, xlsxfile.Name(), "layout", "top")
+	}
+
 }
 
 func typingpage(w http.ResponseWriter, r *http.Request) {
