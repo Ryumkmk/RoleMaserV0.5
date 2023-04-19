@@ -43,6 +43,6 @@ func typingpage(w http.ResponseWriter, r *http.Request) {
 		pj.Date = fmt.Sprintf("%s月%s日", mm, dd)
 		pjs = append(pjs, pj)
 	}
-	fmt.Println(pjs)
+	// fmt.Println(pjs)
 	generateHTML(w, pjs, "layout", "typingpage")
 }
