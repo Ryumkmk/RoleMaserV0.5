@@ -5,6 +5,7 @@ import (
 	"io/fs"
 	"log"
 	"os"
+	"regexp"
 	"strings"
 
 	"RMV0.5/app/config"
@@ -29,11 +30,13 @@ func GetPjs(day string) ([]string, []string) {
 	allPjsNames := getAllPjsNames(xf, sheetName)
 	// fmt.Println(allPjsNames)
 	Num, time := getShiftDayPjNum(xf, sheetName, day)
-	fmt.Println(time)
+	// fmt.Println(time)
 	pjsNames := make([]string, 0)
 	if Num == nil {
 		nopj := "Pjを取得出来ませんでした"
+		notime := "日付をもう一度確認して下さい"
 		pjsNames = append(pjsNames, nopj)
+		time = append(time, notime)
 	} else {
 		// fmt.Println(Num)
 		for _, v := range Num {
@@ -71,14 +74,18 @@ func getShiftDayPjNum(f *excelize.File, sheetName string, day string) (Nums []in
 	}
 	allShiftDays := getAllShiftDays(f, sheetName)
 	dayInt := getShiftColNum(day, allShiftDays)
+
+	re := regexp.MustCompile(`\d{1,2}:\d{2}-\d{1,2}:\d{2}`)
+
 	if dayInt == -1 {
 		return nil, nil
 	} else {
 		col := cols[dayInt]
-		for i, okOrno := range col {
-			if len(okOrno) >= 8 {
+		for i, v := range col {
+			matches := re.FindStringSubmatch(v)
+			if len(matches) > 0 {
 				Nums = append(Nums, i-13)
-				time = append(time, okOrno)
+				time = append(time, matches...)
 			}
 		}
 		return Nums, time

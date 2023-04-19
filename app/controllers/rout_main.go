@@ -36,9 +36,10 @@ func typingpage(w http.ResponseWriter, r *http.Request) {
 	var pjs []models.Pj
 
 	gotpjsName, gotpjsTime := models.GetPjs(dd)
-	for i, _ := range gotpjsName {
+	// fmt.Println(len(gotpjsName), len(gotpjsTime))
+	for i, v := range gotpjsName {
 		var pj models.Pj
-		pj.Names = gotpjsName[i]
+		pj.Names = v
 		pj.Time = gotpjsTime[i]
 		pj.Date = fmt.Sprintf("%s月%s日", mm, dd)
 		pjs = append(pjs, pj)

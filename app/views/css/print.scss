@@ -81,16 +81,16 @@
                     border: 1px #000000 solid;
                     background-color: rgb(255, 255, 255);
                     border-radius: 5px;
-                    // text-align: center;
+                    text-align: center;
                     position: relative;
                     &.ampm {
                         text-align: center;
                     }
                     input {
-                        width: 70%;
+                        width: 76%;
                         vertical-align: middle;
-                        font-size: 18px;
-                        padding: 2px 0 2px 2px;
+                        font-size: 16px;
+                        padding: 1px 0 1px 1px;
                         text-align: center;
                         border: none;
                         box-shadow: none;
@@ -158,16 +158,18 @@
         }
         .pjs-list {
             border: none;
-            display: inline-block;
-            margin: 0 0 0 0;
-            padding: 0 0 0 0;
+            display: block;
+            margin: 0px;
+            padding: 0px;
             .pjs-item {
-                font-size: 12px;
+                font-size: 10px;
                 border: none;
-                padding: 0 0 0 0;
-                margin: 0 0 0 0;
-                .Time{
+                // margin: 0px;
+                // padding: 0px;
+
+                .Time {
                     display: none;
+                    // line-height: 1.2em;
                 }
             }
         }
