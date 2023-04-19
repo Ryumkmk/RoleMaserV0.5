@@ -11,12 +11,13 @@ import (
 	"github.com/xuri/excelize/v2"
 )
 
-type Pjs struct {
+type Pj struct {
 	Date  string
-	Names []string
+	Names string
+	Time  string
 }
 
-func GetPjs(day string) []string {
+func GetPjs(day string) ([]string, []string) {
 	f := ReadXlsxFile()
 	xf, err := excelize.OpenFile(config.Config.Xlsxpath + "/" + f.Name())
 	defer xf.Close()
@@ -27,9 +28,9 @@ func GetPjs(day string) []string {
 
 	allPjsNames := getAllPjsNames(xf, sheetName)
 	// fmt.Println(allPjsNames)
-	Num := getShiftDayPjNum(xf, sheetName, day)
+	Num, time := getShiftDayPjNum(xf, sheetName, day)
+	fmt.Println(time)
 	pjsNames := make([]string, 0)
-
 	if Num == nil {
 		nopj := "Pjを取得出来ませんでした"
 		pjsNames = append(pjsNames, nopj)
@@ -41,8 +42,7 @@ func GetPjs(day string) []string {
 			}
 		}
 	}
-	return pjsNames
-
+	return pjsNames, time
 }
 
 func getAllPjsNames(f *excelize.File, sheetName string) []string {
@@ -64,7 +64,7 @@ func getAllShiftDays(f *excelize.File, sheetName string) []string {
 	return row
 }
 
-func getShiftDayPjNum(f *excelize.File, sheetName string, day string) (Nums []int) {
+func getShiftDayPjNum(f *excelize.File, sheetName string, day string) (Nums []int, time []string) {
 	cols, err := f.GetCols(sheetName)
 	if err != nil {
 		log.Println(err)
@@ -72,15 +72,16 @@ func getShiftDayPjNum(f *excelize.File, sheetName string, day string) (Nums []in
 	allShiftDays := getAllShiftDays(f, sheetName)
 	dayInt := getShiftColNum(day, allShiftDays)
 	if dayInt == -1 {
-		return nil
+		return nil, nil
 	} else {
 		col := cols[dayInt]
 		for i, okOrno := range col {
 			if len(okOrno) >= 8 {
 				Nums = append(Nums, i-13)
+				time = append(time, okOrno)
 			}
 		}
-		return Nums
+		return Nums, time
 	}
 }
 

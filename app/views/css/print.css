@@ -158,4 +158,7 @@
     padding: 0 0 0 0;
     margin: 0 0 0 0;
   }
+  .wrapper .pjs-list .pjs-item .Time {
+    display: none;
+  }
 }/*# sourceMappingURL=print.css.map */

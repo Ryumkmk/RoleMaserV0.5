@@ -33,8 +33,16 @@ func typingpage(w http.ResponseWriter, r *http.Request) {
 	}
 	mm := r.PostFormValue("month")
 	dd := r.PostFormValue("day")
-	var pjs models.Pjs
-	pjs.Date = fmt.Sprintf("%s月%s日", mm, dd)
-	pjs.Names = models.GetPjs(dd)	
+	var pjs []models.Pj
+
+	gotpjsName, gotpjsTime := models.GetPjs(dd)
+	for i, _ := range gotpjsName {
+		var pj models.Pj
+		pj.Names = gotpjsName[i]
+		pj.Time = gotpjsTime[i]
+		pj.Date = fmt.Sprintf("%s月%s日", mm, dd)
+		pjs = append(pjs, pj)
+	}
+	fmt.Println(pjs)
 	generateHTML(w, pjs, "layout", "typingpage")
 }

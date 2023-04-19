@@ -1,17 +1,22 @@
 {{define "content"}}
 <div class="wrapper">
     <a class="top-button button_solid015" href="/top">Top</a>
-    <p class = "pjs-list-title">出勤PJ一覧</p>
+    <p class="pjs-list-title">出勤PJ一覧</p>
     <div class="pjs-list">
-        {{range .Names}}
-        <div class="pjs-item">{{.}}</div>
+        {{range .}}
+        <div class="pjs-item">{{.Names}}<br><span class="Time">{{.Time}}</span></div>
         {{end}}
     </div>
     <div class="AM">
         <table>
             <tbody>
                 <tr>
-                    <th name="date-form" class="jobName date-print">{{.Date}}</th>
+                    <th name="date-form" class="jobName date-print">
+                        {{range $i,$pj := .}}
+                        {{if eq $i 0}}
+                        {{$pj.Date}}
+                        {{end}}
+                        {{end}}</th>
                     <td class="ampm" colspan="2">AM</td>
                 </tr>
                 <tr>
@@ -111,7 +116,12 @@
         <table>
             <tbody>
                 <tr>
-                    <th name="date-form" class="jobName date-print">{{.Date}}</th>
+                    <th name="date-form" class="jobName date-print"> 
+                        {{range $i,$pj := .}}
+                        {{if eq $i 0}}
+                        {{$pj.Date}}
+                        {{end}}
+                        {{end}}</th>
                     <td class="ampm" colspan="2">PM</td>
                 </tr>
                 <tr>
