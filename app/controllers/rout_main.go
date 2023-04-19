@@ -2,13 +2,8 @@ package controllers
 
 import (
 	"fmt"
-	"io/fs"
 	"log"
 	"net/http"
-	"os"
-	"strings"
-
-	"RMV0.5/app/config"
 )
 
 func top(w http.ResponseWriter, r *http.Request) {
@@ -19,21 +14,12 @@ func top(w http.ResponseWriter, r *http.Request) {
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
-	files, err := os.ReadDir(config.Config.Xlsxpath)
-	if err != nil {
-		log.Println(err)
-	}
-	var xlsxfile fs.DirEntry
-	for _, file := range files {
-		if strings.HasSuffix(file.Name(), ".xlsx") {
-			xlsxfile = file
-			break
-		}
-	}
-	if xlsxfile == nil {
+
+	f := ReadXlsxFile()
+	if f == nil {
 		generateHTML(w, nil, "layout", "upload")
 	} else {
-		generateHTML(w, xlsxfile.Name(), "layout", "top")
+		generateHTML(w, f.Name(), "layout", "top")
 	}
 
 }

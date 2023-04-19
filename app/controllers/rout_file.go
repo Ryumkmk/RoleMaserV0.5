@@ -57,5 +57,5 @@ func ReadXlsxFile() (f fs.DirEntry) {
 			return f
 		}
 	}
-	return f
+	return nil
 }
