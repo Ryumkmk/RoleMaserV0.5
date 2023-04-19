@@ -51,13 +51,13 @@ function confirmDelete(event) {
 }
 
 // input要素を取得
-// const input = document.querySelector('input[name="drinkmain"]');
+const input2 = document.querySelector('input[name="drinkmain"]');
 
 // pjs-item要素を取得
 const items = document.querySelectorAll('.pjs-item');
 
 // inputの入力値が変更されたら
-input.addEventListener('input', function (event) {
+input2.addEventListener('input', function (event) {
     // 入力値を取得
     const inputValue = event.target.value;
     console.log(inputValue);
