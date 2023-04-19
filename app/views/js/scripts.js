@@ -51,10 +51,10 @@ function confirmDelete(event) {
 }
 
 // input要素を取得
-const input = document.querySelector('input[name="drinkmain"]');
+// const input = document.querySelector('input[name="drinkmain"]');
 
 // pjs-item要素を取得
-const items = document.querySelectorAll('.pjs-list');
+const items = document.querySelectorAll('.pjs-item');
 
 // inputの入力値が変更されたら
 input.addEventListener('input', function (event) {
@@ -64,8 +64,7 @@ input.addEventListener('input', function (event) {
     // pjs-item要素をループ
     for (const item of items) {
         // itemの名前を取得
-        const itemName = item.querySelector('.pjs-item').textContent;
-
+        const itemName = item.querySelector('.Names').textContent;
         // itemNameがinputValueを含むかどうかを判定
         if (itemName.includes(inputValue)) {
             // 背景色を変更
