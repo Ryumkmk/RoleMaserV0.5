@@ -3,12 +3,10 @@ package controllers
 import (
 	"fmt"
 	"io"
-	"io/fs"
 	"log"
 	"net/http"
 	"os"
 	"path/filepath"
-	"strings"
 
 	"RMV0.5/app/config"
 )
@@ -45,17 +43,4 @@ func delete(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 	}
 	http.Redirect(w, r, "/", 302)
-}
-
-func ReadXlsxFile() (f fs.DirEntry) {
-	files, err := os.ReadDir(config.Config.Xlsxpath)
-	if err != nil {
-		fmt.Println(err)
-	}
-	for _, f = range files {
-		if strings.HasSuffix(f.Name(), ".xlsx") {
-			return f
-		}
-	}
-	return nil
 }

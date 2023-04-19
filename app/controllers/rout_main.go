@@ -4,10 +4,12 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+
+	"RMV0.5/app/models"
 )
 
 func top(w http.ResponseWriter, r *http.Request) {
-	file := ReadXlsxFile()
+	file := models.ReadXlsxFile()
 	fmt.Println(file.Name())
 	generateHTML(w, file.Name(), "layout", "top")
 
@@ -15,7 +17,7 @@ func top(w http.ResponseWriter, r *http.Request) {
 
 func index(w http.ResponseWriter, r *http.Request) {
 
-	f := ReadXlsxFile()
+	f := models.ReadXlsxFile()
 	if f == nil {
 		generateHTML(w, nil, "layout", "upload")
 	} else {
@@ -31,8 +33,8 @@ func typingpage(w http.ResponseWriter, r *http.Request) {
 	}
 	mm := r.PostFormValue("month")
 	dd := r.PostFormValue("day")
-	// pjs := models.GetPjs(dd)
-	// fmt.Println(pjs)
-	date := fmt.Sprintf("%s月%s日", mm, dd)
-	generateHTML(w, date, "layout", "typingpage")
+	var pjs models.Pjs
+	pjs.Date = fmt.Sprintf("%s月%s日", mm, dd)
+	pjs.Names = models.GetPjs(dd)	
+	generateHTML(w, pjs, "layout", "typingpage")
 }

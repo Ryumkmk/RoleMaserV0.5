@@ -1,11 +1,16 @@
 {{define "content"}}
 <div class="wrapper">
     <a class="top-button button_solid015" href="/top">Top</a>
+    <div class="pjs">
+        {{range .Names}}
+        <div>{{.}}</div>
+        {{end}}
+    </div>
     <div class="AM">
         <table>
             <tbody>
                 <tr>
-                    <th name="date-form" class="jobName date-print">{{.}}</th>
+                    <th name="date-form" class="jobName date-print">{{.Date}}</th>
                     <td class="ampm" colspan="2">AM</td>
                 </tr>
                 <tr>
@@ -105,7 +110,7 @@
         <table>
             <tbody>
                 <tr>
-                    <th name="date-form" class="jobName date-print">{{.}}</th>
+                    <th name="date-form" class="jobName date-print">{{.Date}}</th>
                     <td class="ampm" colspan="2">PM</td>
                 </tr>
                 <tr>

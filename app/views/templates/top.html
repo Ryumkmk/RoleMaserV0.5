@@ -10,7 +10,7 @@
     <form id="delete-form" action="/delete" method="post">
         <input type="hidden" name="filename" value={{.}}>
         <div class="button_solid015">
-            <input type="submit" value="削除" onclick="confirmDelete(event)">
+            <input type="hidden" value="削除" onclick="confirmDelete(event)">
         </div>
         <div class="box2">
             <p>※月が変わったらファイルを削除してください</p>
