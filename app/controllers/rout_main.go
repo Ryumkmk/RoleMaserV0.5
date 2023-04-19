@@ -12,16 +12,10 @@ import (
 )
 
 func top(w http.ResponseWriter, r *http.Request) {
-	files, err := os.ReadDir(config.Config.Xlsxpath)
-	if err != nil {
-		fmt.Println(err)
-	}
-	for _, file := range files {
-		if strings.HasSuffix(file.Name(), ".xlsx") {
-			generateHTML(w, file.Name(), "layout", "top")
-			break
-		}
-	}
+	file := ReadXlsxFile()
+	fmt.Println(file.Name())
+	generateHTML(w, file.Name(), "layout", "top")
+
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
@@ -51,6 +45,8 @@ func typingpage(w http.ResponseWriter, r *http.Request) {
 	}
 	mm := r.PostFormValue("month")
 	dd := r.PostFormValue("day")
+	// pjs := models.GetPjs(dd)
+	// fmt.Println(pjs)
 	date := fmt.Sprintf("%s月%s日", mm, dd)
 	generateHTML(w, date, "layout", "typingpage")
 }
