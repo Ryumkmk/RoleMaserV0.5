@@ -54,17 +54,17 @@ function confirmDelete(event) {
 const input = document.querySelector('input[name="drinkmain"]');
 
 // pjs-item要素を取得
-const items = document.querySelectorAll('.pjs-item');
+const items = document.querySelectorAll('.pjs-list');
 
 // inputの入力値が変更されたら
 input.addEventListener('input', function (event) {
     // 入力値を取得
     const inputValue = event.target.value;
-
+    console.log(inputValue);
     // pjs-item要素をループ
     for (const item of items) {
         // itemの名前を取得
-        const itemName = item.querySelector('.Names').textContent;
+        const itemName = item.querySelector('.pjs-item').textContent;
 
         // itemNameがinputValueを含むかどうかを判定
         if (itemName.includes(inputValue)) {
