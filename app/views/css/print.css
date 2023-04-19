@@ -156,6 +156,7 @@
   .wrapper .pjs-list .pjs-item {
     font-size: 10px;
     border: none;
+    background: none; /*背景色*/
   }
   .wrapper .pjs-list .pjs-item .Time {
     display: none;
