@@ -1,9 +1,10 @@
 {{define "content"}}
 <div class="wrapper">
     <a class="top-button button_solid015" href="/top">Top</a>
-    <div class="pjs">
+    <p class = "pjs-list-title">出勤PJ一覧</p>
+    <div class="pjs-list">
         {{range .Names}}
-        <div>{{.}}</div>
+        <div class="pjs-item">{{.}}</div>
         {{end}}
     </div>
     <div class="AM">

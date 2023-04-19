@@ -142,7 +142,7 @@
             padding-bottom: 0;
         }
         .sub-space {
-            p{
+            p {
                 display: inline;
             }
             width: 40px;
@@ -152,6 +152,21 @@
             margin-top: 1px;
             margin-bottom: 128px;
             border-radius: 5px;
+        }
+        .pjs-list-title {
+            display: none;
+        }
+        .pjs-list {
+            border: none;
+            display: inline-block;
+            margin: 0 0 0 0;
+            padding: 0 0 0 0;
+            .pjs-item {
+                font-size: 12px;
+                border: none;
+                padding: 0 0 0 0;
+                margin: 0 0 0 0;
+            }
         }
     }
 }

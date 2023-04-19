@@ -143,4 +143,19 @@
   .wrapper .sub-space p {
     display: inline;
   }
+  .wrapper .pjs-list-title {
+    display: none;
+  }
+  .wrapper .pjs-list {
+    border: none;
+    display: inline-block;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+  }
+  .wrapper .pjs-list .pjs-item {
+    font-size: 12px;
+    border: none;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+  }
 }/*# sourceMappingURL=print.css.map */

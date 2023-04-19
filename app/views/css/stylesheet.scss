@@ -244,7 +244,6 @@
                 box-shadow: 0 15px 30px -5px rgb(0 0 0 / 15%), 0 0 5px rgb(0 0 0 / 10%);
             }
         }
-    
     }
     .file-input-button {
         display: none;
@@ -256,5 +255,37 @@
         p {
             display: none;
         }
+    }
+    .pjs-list-title {
+        position: relative;
+        background: #dfefff;
+        box-shadow: 0px 0px 0px 5px #dfefff;
+        border: dashed 2px white;
+        width: 30%;
+        margin: auto;
+        &:after {
+            position: absolute;
+            content: "";
+            left: -7px;
+            top: -7px;
+            border-width: 0 0 15px 15px;
+            border-style: solid;
+            border-color: #fff #fff #a8d4ff;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+        }
+    }
+    .pjs-list {
+        // font-size:50px;
+        .pjs-item {
+            font-size: 14px;
+            color: #010101; /*文字色*/
+            background: #eaf3ff; /*背景色*/
+            border-bottom: solid 3px #516ab6; /*下線*/
+            border-radius: 3px;
+        }
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-gap: 3px;
+        margin: 10px auto;
     }
 }
