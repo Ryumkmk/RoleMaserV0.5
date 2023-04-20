@@ -36,7 +36,28 @@ window.addEventListener("load", function () {
 });
 
 function addToHomeScreen() {
-    // ホームに追加する処理
+    var userAgent = navigator.userAgent.toLowerCase();
+    var isSafari = userAgent.indexOf('safari') !== -1 && userAgent.indexOf('chrome') === -1;
+    if (isSafari) {
+        var appleTouchIcons = [
+            { href: '/RoleMaster.png', sizes: '500x500' }
+        ];
+        window.addEventListener('load', function () {
+            if (window.navigator.standalone === true) {
+                // Already installed
+                document.getElementById('addToHomeScreenButton').style.display = 'none';
+            } else {
+                var lastTouchIcon = appleTouchIcons[appleTouchIcons.length - 1];
+                var link = document.createElement('link');
+                link.setAttribute('rel', 'apple-touch-icon');
+                link.setAttribute('sizes', lastTouchIcon.sizes);
+                link.setAttribute('href', lastTouchIcon.href);
+                document.head.appendChild(link);
+            }
+        });
+    } else {
+        alert('ホーム画面に追加できません。');
+    }
 }
 
 
