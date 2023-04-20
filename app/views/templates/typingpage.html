@@ -1,6 +1,10 @@
 {{define "content"}}
 <div class="wrapper">
-    <a class="top-button button_solid015" href="/top">Top</a>
+    
+    <div class="button_solid015">
+        <a class="top-button button_solid015" href="/top">Top</a>
+        <button onclick="history.back()">戻る</button>
+    </div>
     <p class="pjs-list-title">出勤PJ一覧</p>
     <div class="pjs-list">
         {{range .}}
@@ -65,7 +69,8 @@
                     </tr>
                     <tr>
                         <th class=" jobName">アペ＆水</th>
-                        <td colspan="2"><input type="text" name="ape" oninput="copyValue(this, 'ape', 'towel')"></td>
+                        <td colspan="2"><input type="text" name="ape" oninput="copyValue(this, 'ape', 'towel')">
+                        </td>
                     </tr>
 
                     <tr>
@@ -173,7 +178,8 @@
                     </tr>
                     <tr>
                         <th class=" jobName">アペ＆水</th>
-                        <td colspan="2"><input type="text" name="apeP" oninput="copyValue2(this, 'apeP', 'towelP')"></td>
+                        <td colspan="2"><input type="text" name="apeP" oninput="copyValue2(this, 'apeP', 'towelP')">
+                        </td>
                     </tr>
 
                     <tr>
@@ -222,17 +228,13 @@
             </table>
 
         </div>
-        <input type="submit" value="Check">
+        <div class="button_solid015">
+            <input type="submit" value="確認">
+        </div>
     </form>
     <div class="sub-space">
         <p>サブ</p>
     </div>
-    <footer>
-        <!-- <div class="button_solid015">
-            <button class="print-button" onclick="window.print()">印刷</button>
-        </div> -->
-    </footer>
-
 </div>
 
 {{end}}

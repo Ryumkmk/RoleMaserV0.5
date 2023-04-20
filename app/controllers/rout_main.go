@@ -59,7 +59,6 @@ func CheakPj(w http.ResponseWriter, r *http.Request) {
 
 	for n, v := range r.Form {
 		var role models.Role
-
 		role.PjName = v[0]
 		role.RoleName = n
 		whatJob.Roles = append(whatJob.Roles, role)
@@ -81,6 +80,7 @@ func CheakPj(w http.ResponseWriter, r *http.Request) {
 		pj.Check = false
 		whatJob.Pjs = append(whatJob.Pjs, pj)
 	}
-	fmt.Println(whatJob)
+	whatJob = models.IsInputPjs(gotpjsName, &whatJob)
+	// fmt.Println(whatJob.Pjs)
 	generateHTML(w, whatJob, "layout", "checkpage")
 }

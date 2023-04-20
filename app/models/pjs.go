@@ -12,16 +12,15 @@ import (
 	"github.com/xuri/excelize/v2"
 )
 
+type WhatJob struct {
+	Roles []Role
+	Pjs   []Pj
+}
 type Pj struct {
 	Date  string
 	Names string
 	Time  string
 	Check bool
-}
-
-type WhatJob struct {
-	Roles []Role
-	Pjs  []Pj
 }
 
 type Role struct {
@@ -123,4 +122,25 @@ func ReadXlsxFile() (f fs.DirEntry) {
 		}
 	}
 	return nil
+}
+
+func IsInputPjs(n []string, j *WhatJob) WhatJob {
+	var existPjs []string
+	for _, v := range j.Roles {
+		for _, v2 := range n {
+			if strings.Contains(v.PjName, v2) {
+				existPjs = append(existPjs, v2)
+			}
+		}
+	}
+	// fmt.Println(existPjs)
+	for _, v := range existPjs {
+		for i, v2 := range j.Pjs {
+			if v == v2.Names {
+				j.Pjs[i].Check = true
+			}
+		}
+	}
+	fmt.Println(j.Pjs)
+	return *j
 }

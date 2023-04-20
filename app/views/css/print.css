@@ -10,6 +10,9 @@
     width: 1190px;
     font-size: 11px;
   }
+  .wrapper .box2 {
+    display: none;
+  }
   .wrapper .top-button {
     display: none;
   }
