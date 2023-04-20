@@ -36,29 +36,32 @@ window.addEventListener("load", function () {
 });
 
 function addToHomeScreen() {
-    var userAgent = navigator.userAgent.toLowerCase();
-    var isSafari = userAgent.indexOf('safari') !== -1 && userAgent.indexOf('chrome') === -1;
-    if (isSafari) {
-        var appleTouchIcons = [
-            { href: '/RoleMaster.png', sizes: '500x500' }
-        ];
-        window.addEventListener('load', function () {
-            if (window.navigator.standalone === true) {
-                // Already installed
-                document.getElementById('addToHomeScreenButton').style.display = 'none';
-            } else {
-                var lastTouchIcon = appleTouchIcons[appleTouchIcons.length - 1];
-                var link = document.createElement('link');
-                link.setAttribute('rel', 'apple-touch-icon');
-                link.setAttribute('sizes', lastTouchIcon.sizes);
-                link.setAttribute('href', lastTouchIcon.href);
-                document.head.appendChild(link);
-            }
-        });
+    var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    var isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    var isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+    
+    if (isiOS && isSafari && !isStandalone) {
+      var manifest = {
+        "name": "RoleMaster",
+        "short_name": "RoleMaster",
+        "icons": [
+          {
+            "src": "RoleMaster.png",
+            "sizes": "500x500"
+          }
+        ],
+        "start_url": "/",
+        "display": "standalone",
+        "background_color": "#ffffff",
+        "theme_color": "#ffffff"
+      };
+      
+      // iOS Safariでホーム画面に追加するための処理
+      var addToHomeScreen = window.addToHomeScreen || {};
+      addToHomeScreen.show(true, manifest);
     } else {
-        alert('ホーム画面に追加できません。');
+      alert('ホーム画面に追加できるのは、iOS Safariのみです。');
     }
-}
-
+  }
 
 
