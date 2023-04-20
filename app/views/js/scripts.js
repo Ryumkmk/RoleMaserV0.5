@@ -21,4 +21,23 @@ function confirmDelete(event) {
     }
 }
 
+function checkInstalled() {
+    if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone == true) {
+        // ホームに追加済み
+        document.getElementById("addToHomeScreenButton").style.display = "none";
+    } else {
+        // まだ追加されていない
+        document.getElementById("addToHomeScreenButton").style.display = "block";
+    }
+}
+
+window.addEventListener("load", function () {
+    checkInstalled();
+});
+
+function addToHomeScreen() {
+    // ホームに追加する処理
+}
+
+
 

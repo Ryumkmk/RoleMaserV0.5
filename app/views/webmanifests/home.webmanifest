@@ -2,16 +2,10 @@
     "name": "RoleMaster",
     "short_name": "RoleMaster",
     "icons": [
-      {
-        "src": "RoleMaster.svg",
-        "type": "image/svg+xml",
-        "sizes": "192x192"
-      },
-      {
-        "src": "RoleMaster.svg",
-        "type": "image/svg+xml",
-        "sizes": "512x512"
-      }
+        {
+            "src": "RoleMaster.png",
+            "sizes": "500x500"
+        }
     ],
     "start_url": "/",
     "display": "standalone",
