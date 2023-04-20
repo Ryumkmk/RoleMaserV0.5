@@ -4,6 +4,9 @@
   size: 297mm 210mm;
 }
 @media print {
+  @page {
+    size: landscape;
+  }
   .wrapper {
     display: flex;
     margin: 30px 60px 70px 30px;

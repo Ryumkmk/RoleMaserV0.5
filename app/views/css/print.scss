@@ -7,6 +7,9 @@
     // body * {
     //     outline: 1px red solid;
     // }
+    @page{
+        size: landscape;
+    }
     .wrapper {
         .box2{
             display: none;
