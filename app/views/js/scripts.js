@@ -20,3 +20,5 @@ function confirmDelete(event) {
         document.getElementById("delete-form").submit();
     }
 }
+
+
