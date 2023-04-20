@@ -26,6 +26,7 @@
     font-size: 11px;
     position: relative;
     padding: 0.3em 0 0.2em 1em;
+    line-height: 1em;
     border-bottom: 2px solid #000000;
     border-top: 2px solid #000000;
     color: #000000;
@@ -82,20 +83,25 @@
   .wrapper tbody tr td.ampm {
     text-align: center;
   }
-  .wrapper tbody tr td input {
-    width: 76%;
-    vertical-align: middle;
+  .wrapper tbody tr td div {
     font-size: 16px;
-    padding: 1px 0 1px 1px;
+    line-height: 1em;
     text-align: center;
+    display: inline-block; /* インラインブロック要素にする */
+    vertical-align: center; /* ベースラインに合わせる */
+    padding: 0; /* パディングを0に設定 */
+    margin: 0; /* マージンを0に設定 */
     border: none;
     box-shadow: none;
   }
   .wrapper tbody tr td span {
-    vertical-align: middle;
-    font-size: 12px;
+    line-height: 1em;
+    display: inline-block; /* インラインブロック要素にする */
+    vertical-align: center; /* ベースラインに合わせる */
+    font-size: 14px;
     font-weight: 700;
-    margin: 0;
+    padding: 0; /* パディングを0に設定 */
+    margin: 0; /* マージンを0に設定 */
     padding-left: 3px;
     border-left: 1px solid #000000;
   }

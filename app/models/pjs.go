@@ -16,6 +16,17 @@ type Pj struct {
 	Date  string
 	Names string
 	Time  string
+	Check bool
+}
+
+type WhatJob struct {
+	Roles []Role
+	Pjs  []Pj
+}
+
+type Role struct {
+	RoleName string
+	PjName   string
 }
 
 func GetPjs(day string) ([]string, []string) {

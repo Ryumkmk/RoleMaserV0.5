@@ -42,8 +42,45 @@ func typingpage(w http.ResponseWriter, r *http.Request) {
 		pj.Names = v
 		pj.Time = gotpjsTime[i]
 		pj.Date = fmt.Sprintf("%s月%s日", mm, dd)
+		pj.Check = false
 		pjs = append(pjs, pj)
 	}
 	// fmt.Println(pjs)
 	generateHTML(w, pjs, "layout", "typingpage")
+}
+
+func CheakPj(w http.ResponseWriter, r *http.Request) {
+	var whatJob models.WhatJob
+	err := r.ParseForm()
+	if err != nil {
+		log.Println(err)
+	}
+	date := r.PostFormValue("date-form")
+
+	for n, v := range r.Form {
+		var role models.Role
+
+		role.PjName = v[0]
+		role.RoleName = n
+		whatJob.Roles = append(whatJob.Roles, role)
+	}
+	dateDay := date[2:]
+	dateDaySt := ""
+	for _, ch := range dateDay {
+		if '0' <= ch && ch <= '9' {
+			dateDaySt += string(ch)
+		}
+	}
+	gotpjsName, gotpjsTime := models.GetPjs(dateDaySt)
+	// fmt.Println(len(gotpjsName), len(gotpjsTime))
+	for i, v := range gotpjsName {
+		var pj models.Pj
+		pj.Names = v
+		pj.Time = gotpjsTime[i]
+		pj.Date = date
+		pj.Check = false
+		whatJob.Pjs = append(whatJob.Pjs, pj)
+	}
+	fmt.Println(whatJob)
+	generateHTML(w, whatJob, "layout", "checkpage")
 }

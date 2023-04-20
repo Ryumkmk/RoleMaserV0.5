@@ -7,220 +7,230 @@
         <div class="pjs-item Names">{{.Names}}<br><span class="Time">{{.Time}}</span></div>
         {{end}}
     </div>
-    <div class="AM">
-        <table>
-            <tbody>
-                <tr>
-                    <th name="date-form" class="jobName date-print">
-                        {{range $i,$pj := .}}
-                        {{if eq $i 0}}
-                        {{$pj.Date}}
-                        {{end}}
-                        {{end}}</th>
-                    <td class="ampm" colspan="2">AM</td>
-                </tr>
-                <tr>
-                    <th class="jobName">Wルーム</th>
-                    <td>
-                        <input type="text" name="wroommain"
-                            oninput="copyValue(this, 'wroommain', 'drinkmain');copyValue(this, 'wroommain', 'wtreception')"><span>作</span>
-                    </td>
-                    <td><input type="text" name="wroomsub"
-                            oninput="copyValue(this, 'wroomsub', 'drinksub')"><span>聞</span></td>
-                </tr>
-                <tr>
-                    <th class="jobName">クローク</th>
-                    <td colspan="2"><input type="text" name="cloak"></td>
-                </tr>
-                <tr>
-                    <th class="jobName">門番/駐車場</th>
-                    <td><input type="text" name="gatekeeper"
-                            oninput="copyValue(this, 'gatekeeper', 'wash1')"><span>第一</span></td>
-                    <td><input type="text" name="parkkeeper"
-                            oninput="copyValue(this, 'parkkeeper', 'wash2')"><span>第二</span></td>
-                </tr>
-                <tr>
-                    <th class="jobName">リーダー</th>
-                    <td colspan="2"><input type="text" name="leader" oninput="copyValue(this, 'leader', 'leader-up')">
-                    </td>
-                </tr>
-                <tr>
-                    <th class="jobName">ドリカン両親係</th>
-                    <td><input type="text" name="drinkmain"><span>郎側</span></td>
-                    <td><input type="text" name="drinksub"><span>婦側</span></td>
-                </tr>
-                <tr>
-                    <th class="jobName">シャンパン＆ワイン</th>
-                    <td colspan="2"><input type="text" name="champagne"></td>
-                </tr>
-                <tr>
-                    <th class="jobName">シルバー＆ワイン</th>
-                    <td colspan="2"><input type="text" name="silver" oninput="copyValue(this, 'silver', 'alreception')">
-                    </td>
-                </tr>
-                <tr>
-                    <th class=" jobName">アペ＆水</th>
-                    <td colspan="2"><input type="text" name="ape" oninput="copyValue(this, 'ape', 'towel')"></td>
-                </tr>
+    <form action="/checkPj" method="post">
+        <div class="AM">
+            <table>
+                <tbody>
+                    <tr>
+                        <th name="date-form" class="jobName date-print">
+                            {{range $i,$pj := .}}
+                            {{if eq $i 0}}
+                            <input type="hidden" value={{$pj.Date}}>
+                            {{$pj.Date}}
+                            {{end}}
+                            {{end}}
+                        </th>
+                        <td class="ampm" colspan="2">AM</td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">Wルーム</th>
+                        <td>
+                            <input type="text" name="wroommain"
+                                oninput="copyValue(this, 'wroommain', 'drinkmain');copyValue(this, 'wroommain', 'wtreception')"><span>作</span>
+                        </td>
+                        <td><input type="text" name="wroomsub"
+                                oninput="copyValue(this, 'wroomsub', 'drinksub')"><span>聞</span></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">クローク</th>
+                        <td colspan="2"><input type="text" name="cloak"></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">門番/駐車場</th>
+                        <td><input type="text" name="gatekeeper"
+                                oninput="copyValue(this, 'gatekeeper', 'wash1')"><span>第一</span></td>
+                        <td><input type="text" name="parkkeeper"
+                                oninput="copyValue(this, 'parkkeeper', 'wash2')"><span>第二</span></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">リーダー</th>
+                        <td colspan="2"><input type="text" name="leader"
+                                oninput="copyValue(this, 'leader', 'leader-up')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">ドリカン両親係</th>
+                        <td><input type="text" name="drinkmain"><span>郎側</span></td>
+                        <td><input type="text" name="drinksub"><span>婦側</span></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">シャンパン＆ワイン</th>
+                        <td colspan="2"><input type="text" name="champagne"></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">シルバー＆ワイン</th>
+                        <td colspan="2"><input type="text" name="silver"
+                                oninput="copyValue(this, 'silver', 'alreception')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class=" jobName">アペ＆水</th>
+                        <td colspan="2"><input type="text" name="ape" oninput="copyValue(this, 'ape', 'towel')"></td>
+                    </tr>
 
-                <tr>
-                    <th class="jobName">コーヒー＆デトックス</th>
-                    <td colspan="2"><input type="text" name="coffee"></td>
-                </tr>
-                <tr>
-                    <th class="jobName">トイレタバコチェック＆ガーデンヒーター</th>
-                    <td><input type="text" name="toiletman"><span>男性＆タバコ</span></td>
-                    <td><input type="text" name="toiletlady"><span>女性＆多目的</span></td>
+                    <tr>
+                        <th class="jobName">コーヒー＆デトックス</th>
+                        <td colspan="2"><input type="text" name="coffee"></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">トイレタバコチェック＆ガーデンヒーター</th>
+                        <td><input type="text" name="toiletman"><span>男性＆タバコ</span></td>
+                        <td><input type="text" name="toiletlady"><span>女性＆多目的</span></td>
 
-                </tr>
-                <tr>
-                    <th class="jobName">クローク補助</th>
-                    <td colspan="2"><input type="text" name="cloaksub"></td>
-                </tr>
-                <tr>
-                    <th class="jobName">洗い場</th>
-                    <td><input type="text" name="wash1"><span>洗い</span>
-                    </td>
-                    <td><input type="text" name="wash2"><span>拭き</span>
-                    </td>
-                </tr>
-                <tr>
-                    <th class="jobName">インカム盛り上げ</th>
-                    <td colspan="2"><input type="text" name="leader-up"
-                            oninput="copyValue(this, 'leader', 'leader-up')"></td>
-                </tr>
-                <tr>
-                    <th class="jobName small-jobname">ウェイティング迎賓係</th>
-                    <td class="small-td" colspan="2"><input type="text" name="wtreception"></td>
-                </tr>
-                <tr>
-                    <th class="jobName small-jobname">迎賓時アルコール係</th>
-                    <td class="small-td" colspan="2"><input type="text" name="alreception"></td>
-                </tr>
-                <tr>
-                    <th class="jobName small-jobname">チャペル誘導係</th>
-                    <td class="small-td" colspan="2"><input type="text" name="chreception"></td>
-                </tr>
-                <tr>
-                    <th class="jobName small-jobname">おしぼり回収・プルミエ後</th>
-                    <td class="small-td" colspan="2"><input type="text" name="towel"></td>
-                </tr>
-            </tbody>
-        </table>
-        <br>
-    </div>
-    <div class="sub-space">
-        <p>サブ</p>
-    </div>
-    <div class="PM">
-        <table>
-            <tbody>
-                <tr>
-                    <th name="date-form" class="jobName date-print"> 
-                        {{range $i,$pj := .}}
-                        {{if eq $i 0}}
-                        {{$pj.Date}}
-                        {{end}}
-                        {{end}}</th>
-                    <td class="ampm" colspan="2">PM</td>
-                </tr>
-                <tr>
-                    <th class="jobName">Wルーム</th>
-                    <td><input type="text" name="wroommain"
-                            oninput="copyValue2(this, 'wroommain', 'drinkmain');copyValue2(this, 'wroommain', 'wtreception')"><span>作</span>
-                    </td>
-                    <td><input type="text" name="wroomsub"
-                            oninput="copyValue2(this, 'wroomsub', 'drinksub')"><span>聞</span></td>
-                </tr>
-                <tr>
-                    <th class="jobName">クローク</th>
-                    <td colspan="2"><input type="text" name="cloak"></td>
-                </tr>
-                <tr>
-                    <th class="jobName">門番/駐車場</th>
-                    <td><input type="text" name="gatekeeper"
-                            oninput="copyValue2(this, 'gatekeeper', 'wash1')"><span>第一</span></td>
-                    <td><input type="text" name="parkkeeper"
-                            oninput="copyValue2(this, 'parkkeeper', 'wash2')"><span>第二</span></td>
-                </tr>
-                <tr>
-                    <th class="jobName">リーダー</th>
-                    <td colspan="2"><input type="text" name="leader" oninput="copyValue2(this, 'leader', 'leader-up')">
-                    </td>
-                </tr>
-                <tr>
-                    <th class="jobName">ドリカン両親係</th>
-                    <td><input type="text" name="drinkmain"><span>郎側</span></td>
-                    <td><input type="text" name="drinksub"><span>婦側</span></td>
-                </tr>
-                <tr>
-                    <th class="jobName">シャンパン＆ワイン</th>
-                    <td colspan="2"><input type="text" name="champagne"></td>
-                </tr>
-                <tr>
-                    <th class="jobName">シルバー＆ワイン</th>
-                    <td colspan="2"><input type="text" name="silver"
-                            oninput="copyValue2(this, 'silver', 'alreception')">
-                    </td>
-                </tr>
-                <tr>
-                    <th class=" jobName">アペ＆水</th>
-                    <td colspan="2"><input type="text" name="ape" oninput="copyValue2(this, 'ape', 'towel')"></td>
-                </tr>
+                    </tr>
+                    <tr>
+                        <th class="jobName">クローク補助</th>
+                        <td colspan="2"><input type="text" name="cloaksub"></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">洗い場</th>
+                        <td><input type="text" name="wash1"><span>洗い</span>
+                        </td>
+                        <td><input type="text" name="wash2"><span>拭き</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">インカム盛り上げ</th>
+                        <td colspan="2"><input type="text" name="leader-up"
+                                oninput="copyValue(this, 'leader', 'leader-up')"></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName small-jobname">ウェイティング迎賓係</th>
+                        <td class="small-td" colspan="2"><input type="text" name="wtreception"></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName small-jobname">迎賓時アルコール係</th>
+                        <td class="small-td" colspan="2"><input type="text" name="alreception"></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName small-jobname">チャペル誘導係</th>
+                        <td class="small-td" colspan="2"><input type="text" name="chreception"></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName small-jobname">おしぼり回収・プルミエ後</th>
+                        <td class="small-td" colspan="2"><input type="text" name="towel"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+        </div>
+        <div class="sub-space">
+            <p>サブ</p>
+        </div>
+        <div class="PM">
+            <table>
+                <tbody>
+                    <tr>
+                        <th class="jobName date-print">
+                            {{range $i,$pj := .}}
+                            {{if eq $i 0}}
+                            <input type="hidden" name="date-form" value={{$pj.Date}}>
+                            {{$pj.Date}}
+                            {{end}}
+                            {{end}}
+                        </th>
+                        <td class="ampm" colspan="2">PM</td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">Wルーム</th>
+                        <td><input type="text" name="wroommainP"
+                                oninput="copyValue2(this, 'wroommainP', 'drinkmainP');copyValue2(this, 'wroommainP', 'wtreceptionP')"><span>作</span>
+                        </td>
+                        <td><input type="text" name="wroomsubP"
+                                oninput="copyValue2(this, 'wroomsubP', 'drinksubP')"><span>聞</span></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">クローク</th>
+                        <td colspan="2"><input type="text" name="cloakP"></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">門番/駐車場</th>
+                        <td><input type="text" name="gatekeeperP"
+                                oninput="copyValue2(this, 'gatekeeperP', 'wash1P')"><span>第一</span></td>
+                        <td><input type="text" name="parkkeeperP"
+                                oninput="copyValue2(this, 'parkkeeperP', 'wash2P')"><span>第二</span></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">リーダー</th>
+                        <td colspan="2"><input type="text" name="leaderP"
+                                oninput="copyValue2(this, 'leaderP', 'leader-upP')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">ドリカン両親係</th>
+                        <td><input type="text" name="drinkmainP"><span>郎側</span></td>
+                        <td><input type="text" name="drinksubP"><span>婦側</span></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">シャンパン＆ワイン</th>
+                        <td colspan="2"><input type="text" name="champagneP"></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">シルバー＆ワイン</th>
+                        <td colspan="2"><input type="text" name="silverP"
+                                oninput="copyValue2(this, 'silverP', 'alreceptionP')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class=" jobName">アペ＆水</th>
+                        <td colspan="2"><input type="text" name="apeP" oninput="copyValue2(this, 'apeP', 'towelP')"></td>
+                    </tr>
 
-                <tr>
-                    <th class="jobName">コーヒー＆デトックス</th>
-                    <td colspan="2"><input type="text" name="coffee"></td>
-                </tr>
-                <tr>
-                    <th class="jobName">トイレタバコチェック＆ガーデンヒーター</th>
-                    <td><input type="text" name="toiletman"><span>男性＆タバコ</span></td>
-                    <td><input type="text" name="toiletlady"><span>女性＆多目的</span></td>
+                    <tr>
+                        <th class="jobName">コーヒー＆デトックス</th>
+                        <td colspan="2"><input type="textP" name="coffeeP"></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">トイレタバコチェック＆ガーデンヒーター</th>
+                        <td><input type="text" name="toiletmanP"><span>男性＆タバコ</span></td>
+                        <td><input type="text" name="toiletladyP"><span>女性＆多目的</span></td>
 
-                </tr>
-                <tr>
-                    <th class="jobName">クローク補助</th>
-                    <td colspan="2"><input type="text" name="cloaksub"></td>
-                </tr>
-                <tr>
-                    <th class="jobName">洗い場</th>
-                    <td><input type="text" name="wash1"><span>洗い</span>
-                    </td>
-                    <td><input type="text" name="wash2"><span>拭き</span>
-                    </td>
-                </tr>
-                <tr>
-                    <th class="jobName">インカム盛り上げ</th>
-                    <td colspan="2"><input type="text" name="leader-up"
-                            oninput="copyValue2(this, 'leader', 'leader-up')"></td>
-                </tr>
-                <tr>
-                    <th class="jobName small-jobname">ウェイティング迎賓係</th>
-                    <td class="small-td" colspan="2"><input type="text" name="wtreception"></td>
-                </tr>
-                <tr>
-                    <th class="jobName small-jobname">迎賓時アルコール係</th>
-                    <td class="small-td" colspan="2"><input type="text" name="alreception"></td>
-                </tr>
-                <tr>
-                    <th class="jobName small-jobname">チャペル誘導係</th>
-                    <td class="small-td" colspan="2"><input type="text" name="chreception"></td>
-                </tr>
-                <tr>
-                    <th class="jobName small-jobname">おしぼり回収・プルミエ後</th>
-                    <td class="small-td" colspan="2"><input type="text" name="towel"></td>
-                </tr>
-            </tbody>
-        </table>
+                    </tr>
+                    <tr>
+                        <th class="jobName">クローク補助</th>
+                        <td colspan="2"><input type="text" name="cloaksubP"></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">洗い場</th>
+                        <td><input type="text" name="wash1P"><span>洗い</span>
+                        </td>
+                        <td><input type="text" name="wash2P"><span>拭き</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">インカム盛り上げ</th>
+                        <td colspan="2"><input type="text" name="leader-upP"
+                                oninput="copyValue2(this, 'leaderP', 'leader-upP')"></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName small-jobname">ウェイティング迎賓係</th>
+                        <td class="small-td" colspan="2"><input type="text" name="wtreceptionP"></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName small-jobname">迎賓時アルコール係</th>
+                        <td class="small-td" colspan="2"><input type="text" name="alreceptionP"></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName small-jobname">チャペル誘導係</th>
+                        <td class="small-td" colspan="2"><input type="text" name="chreceptionP"></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName small-jobname">おしぼり回収・プルミエ後</th>
+                        <td class="small-td" colspan="2"><input type="text" name="towelP"></td>
+                    </tr>
+                </tbody>
+            </table>
 
-    </div>
+        </div>
+        <input type="submit" value="Check">
+    </form>
     <div class="sub-space">
         <p>サブ</p>
     </div>
     <footer>
-        <div class="button_solid015">
+        <!-- <div class="button_solid015">
             <button class="print-button" onclick="window.print()">印刷</button>
-        </div>
+        </div> -->
     </footer>
 
 </div>
