@@ -124,7 +124,7 @@ func ReadXlsxFile() (f fs.DirEntry) {
 	return nil
 }
 
-func IsInputPjs(n []string, j *WhatJob) WhatJob {
+func IsInputPjs(n []string, j *WhatJob) {
 	var existPjs []string
 	for _, v := range j.Roles {
 		for _, v2 := range n {
@@ -142,5 +142,5 @@ func IsInputPjs(n []string, j *WhatJob) WhatJob {
 		}
 	}
 	// fmt.Println(j.Pjs)
-	return *j
+	// return *j
 }
