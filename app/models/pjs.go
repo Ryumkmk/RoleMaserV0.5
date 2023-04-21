@@ -141,6 +141,6 @@ func IsInputPjs(n []string, j *WhatJob) WhatJob {
 			}
 		}
 	}
-	fmt.Println(j.Pjs)
+	// fmt.Println(j.Pjs)
 	return *j
 }

@@ -49,7 +49,7 @@ func typingpage(w http.ResponseWriter, r *http.Request) {
 	generateHTML(w, pjs, "layout", "typingpage")
 }
 
-func CheakPj(w http.ResponseWriter, r *http.Request) {
+func cheakPj(w http.ResponseWriter, r *http.Request) {
 	var whatJob models.WhatJob
 	err := r.ParseForm()
 	if err != nil {
