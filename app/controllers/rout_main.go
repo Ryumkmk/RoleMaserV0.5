@@ -82,7 +82,6 @@ func cheakPj(w http.ResponseWriter, r *http.Request) {
 	}
 	// whatJob = models.IsInputPjs(gotpjsName, &whatJob)
 	models.IsInputPjs(gotpjsName, &whatJob)
-
 	// fmt.Println(whatJob.Pjs)
 	generateHTML(w, whatJob, "layout", "checkpage")
 }
