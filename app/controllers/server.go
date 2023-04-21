@@ -28,8 +28,7 @@ func StartMainServer() error {
 	http.HandleFunc("/", index)
 	http.HandleFunc("/typingpage", typingpage)
 
-	http.HandleFunc("/checkPj", CheakPj)
-
+	http.HandleFunc("/checkPj", cheakPj)
 	fmt.Println("Stated Server")
 	port := os.Getenv("PORT")
 	return http.ListenAndServe(":"+port, nil)
