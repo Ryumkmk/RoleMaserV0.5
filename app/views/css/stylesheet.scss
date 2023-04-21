@@ -143,7 +143,6 @@
                         border: 1px double #6dfff3;
                     }
                     &:focus {
-                        // border: 1px double #ff3030;
                         outline: 0;
                         box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
                     }
@@ -274,9 +273,7 @@
     .button_solid015 {
         text-align: center;
         margin: 30px auto;
-        // input,
         button {
-            // outline: 1px solid red;
             position: relative;
             display: flex;
             justify-content: space-around;
@@ -333,7 +330,6 @@
         }
     }
     .pjs-list {
-        // font-size:50px;
         .pjs-item {
             font-size: 14px;
             color: #010101; /*文字色*/
@@ -361,7 +357,6 @@
         font-size: 12px;
         background: #2589d0;
         input {
-            // display: inline-block;
             color: #fff;
             border: none;
             outline: none;
@@ -369,13 +364,9 @@
         }
         filter: drop-shadow(0px 2px 4px #ccc);
         border-radius: 50px;
-        // border: none;
         &:hover {
             transform: translateY(-2px);
             box-shadow: 0 15px 30px -5px rgb(0 0 0 / 15%), 0 0 5px rgb(0 0 0 / 10%);
         }
-    }
-    * {
-        outline: 1px solid red;
     }
 }
