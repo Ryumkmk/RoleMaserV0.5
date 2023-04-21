@@ -138,7 +138,9 @@
                     -webkit-appearance: none;
                     -moz-appearance: none;
                     padding: 2px 0 2px 2px;
-
+                    div {
+                        color: rgb(255, 160, 160);
+                    }
                     &:hover {
                         border: 1px double #6dfff3;
                     }
