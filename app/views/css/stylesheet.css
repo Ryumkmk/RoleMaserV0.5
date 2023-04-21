@@ -53,7 +53,6 @@
     transform: none;
   }
 }
-.wrapper .top-button,
 .wrapper .print-button {
   text-decoration: none;
   color: #000655;
@@ -72,7 +71,6 @@
   border-radius: 50px;
   border: none;
 }
-.wrapper .top-button:hover,
 .wrapper .print-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.1);
@@ -261,7 +259,6 @@
   text-align: center;
   margin: 30px auto;
 }
-.wrapper .button_solid015 input,
 .wrapper .button_solid015 button {
   position: relative;
   display: flex;
@@ -278,7 +275,6 @@
   border-radius: 50px;
   border: none;
 }
-.wrapper .button_solid015 input:hover,
 .wrapper .button_solid015 button:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.1);
@@ -329,4 +325,31 @@
 }
 .wrapper .pjs-list .pjs-item.Check {
   background-color: rgb(255, 217, 217);
+}
+.wrapper .btn-design-1 {
+  border: none;
+  outline: none;
+  position: relative;
+  display: inline-block;
+  margin: 18px auto 18px auto;
+  padding: 5px 15px;
+  transition: 0.3s ease-in-out;
+  font-weight: 300;
+  font-size: 12px;
+  background: #2589d0;
+  filter: drop-shadow(0px 2px 4px #ccc);
+  border-radius: 50px;
+}
+.wrapper .btn-design-1 input {
+  color: #fff;
+  border: none;
+  outline: none;
+  background: #2589d0;
+}
+.wrapper .btn-design-1:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.wrapper * {
+  outline: 1px solid red;
 }/*# sourceMappingURL=stylesheet.css.map */

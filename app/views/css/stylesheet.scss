@@ -3,6 +3,7 @@
     margin: 16px auto 0 auto;
     line-height: 2;
     text-align: center;
+
     .btn-box {
         button {
             width: 200px;
@@ -50,7 +51,7 @@
             transform: none;
         }
     }
-    .top-button,
+    // .top-button,
     .print-button {
         text-decoration: none;
         color: #000655;
@@ -273,7 +274,7 @@
     .button_solid015 {
         text-align: center;
         margin: 30px auto;
-        input,
+        // input,
         button {
             // outline: 1px solid red;
             position: relative;
@@ -347,5 +348,34 @@
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         grid-gap: 3px;
         margin: 10px auto;
+    }
+    .btn-design-1 {
+        border: none;
+        outline: none;
+        position: relative;
+        display: inline-block;
+        margin: 18px auto 18px auto;
+        padding: 5px 15px;
+        transition: 0.3s ease-in-out;
+        font-weight: 300;
+        font-size: 12px;
+        background: #2589d0;
+        input {
+            // display: inline-block;
+            color: #fff;
+            border: none;
+            outline: none;
+            background: #2589d0;
+        }
+        filter: drop-shadow(0px 2px 4px #ccc);
+        border-radius: 50px;
+        // border: none;
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgb(0 0 0 / 15%), 0 0 5px rgb(0 0 0 / 10%);
+        }
+    }
+    * {
+        outline: 1px solid red;
     }
 }
