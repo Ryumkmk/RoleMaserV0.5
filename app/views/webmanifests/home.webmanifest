@@ -3,12 +3,11 @@
     "short_name": "RoleMaster",
     "icons": [
         {
-            "src": "RoleMaster.png",
-            "sizes": "514x514"
+            "src": "/RoleMaster.png",
+            "sizes": "514x514",
+            "type": "image/png"
         }
     ],
     "start_url": "/",
-    "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#ffffff"
+    "display": "standalone"
 }
