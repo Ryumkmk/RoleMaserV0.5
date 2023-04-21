@@ -9,6 +9,7 @@ import (
 	"RMV0.5/app/config"
 )
 
+// Htmlを生成する関数
 func generateHTML(w http.ResponseWriter, data interface{}, filenames ...string) {
 	var files []string
 	for _, file := range filenames {
@@ -18,6 +19,7 @@ func generateHTML(w http.ResponseWriter, data interface{}, filenames ...string) 
 	templates.ExecuteTemplate(w, "layout", data)
 }
 
+// アプリを起動する関数
 func StartMainServer() error {
 	files := http.FileServer(http.Dir(config.Config.Static))
 	http.Handle("/static/", http.StripPrefix("/static/", files))

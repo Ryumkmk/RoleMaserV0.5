@@ -8,6 +8,7 @@ import (
 	"RMV0.5/app/models"
 )
 
+// TopページのHtmlを生成
 func top(w http.ResponseWriter, r *http.Request) {
 	file := models.ReadXlsxFile()
 	fmt.Println(file.Name())
@@ -15,6 +16,7 @@ func top(w http.ResponseWriter, r *http.Request) {
 
 }
 
+// アクセス時のHtmlを生成
 func index(w http.ResponseWriter, r *http.Request) {
 
 	f := models.ReadXlsxFile()
@@ -26,6 +28,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 
 }
 
+// 入力ページのHtmlを生成
 func typingpage(w http.ResponseWriter, r *http.Request) {
 	err := r.ParseForm()
 	if err != nil {
@@ -35,7 +38,7 @@ func typingpage(w http.ResponseWriter, r *http.Request) {
 	dd := r.PostFormValue("day")
 	var pjs []models.Pj
 
-	gotpjsName, gotpjsTime := models.GetPjs(dd)
+	gotpjsName, gotpjsTime := models.GetPjs(mm, dd)
 	// fmt.Println(len(gotpjsName), len(gotpjsTime))
 	for i, v := range gotpjsName {
 		var pj models.Pj
@@ -49,6 +52,7 @@ func typingpage(w http.ResponseWriter, r *http.Request) {
 	generateHTML(w, pjs, "layout", "typingpage")
 }
 
+// 確認ページのHtmlを生成
 func cheakPj(w http.ResponseWriter, r *http.Request) {
 	var whatJob models.WhatJob
 	err := r.ParseForm()
@@ -64,13 +68,21 @@ func cheakPj(w http.ResponseWriter, r *http.Request) {
 		whatJob.Roles = append(whatJob.Roles, role)
 	}
 	dateDay := date[2:]
+	dateMonth := date[:1]
 	dateDaySt := ""
+	dateMonthSt := ""
+
 	for _, ch := range dateDay {
 		if '0' <= ch && ch <= '9' {
 			dateDaySt += string(ch)
 		}
 	}
-	gotpjsName, gotpjsTime := models.GetPjs(dateDaySt)
+	for _, ch := range dateMonth {
+		if '0' <= ch && ch <= '9' {
+			dateMonthSt += string(ch)
+		}
+	}
+	gotpjsName, gotpjsTime := models.GetPjs(dateMonthSt, dateDaySt)
 	// fmt.Println(len(gotpjsName), len(gotpjsTime))
 	for i, v := range gotpjsName {
 		var pj models.Pj
