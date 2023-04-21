@@ -138,9 +138,6 @@
   -moz-appearance: none;
   padding: 2px 0 2px 2px;
 }
-.wrapper tbody tr td input div {
-  color: rgb(255, 160, 160);
-}
 .wrapper tbody tr td input:hover {
   border: 1px double #6dfff3;
 }
@@ -148,10 +145,15 @@
   outline: 0;
   box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
 }
+.wrapper tbody tr td div {
+  color: rgb(221, 120, 120);
+  font-weight: 550;
+}
 .wrapper tbody tr td span {
   font-size: 11px;
   font-weight: 500;
   padding-left: 6px;
+  color: black;
   border-left: 1px dotted #000d86;
 }
 .wrapper .heading-018 {
