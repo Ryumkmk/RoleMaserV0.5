@@ -9,8 +9,18 @@
     <p class="pjs-list-title">出勤PJ一覧</p>
     <div class="pjs-list">
         {{range .Pjs}}
-        <div class="pjs-item Names{{if .Check}} Check{{end}}">{{.Names}}<br><span class="Time">{{.Time}}</span></div>
+        {{if or (eq .AmPm "ダブル") (eq .AmPm "AM")}}
+        <div class="pjs-item Names{{if or (and .CheckAM .CheckPM) (and .CheckAM (not .CheckPM))}} CheckAM{{end}}">
+            {{.Names}}
+            <p class="AmPm">{{.AmPm}}</p>
+        </div>
         {{end}}
+        {{end}}
+        <!-- {{range .Pjs}}
+        {{if eq .AmPm "AM"}}
+        <div class="pjs-item Names{{if and .CheckAM (not .CheckPM)}} CheckAM{{end}}">{{.Names}}</div>
+        {{end}}
+        {{end}} -->
     </div>
     <div class="box2">
         <p class="checked-mes">※赤色は入力済Pj
@@ -33,25 +43,62 @@
                     <td class="ampm" colspan="2">AM</td>
                 </tr>
                 <tr>
-                    <th class="jobName">Wルーム</th>
-                    <td>
-                        <div class="wroommain">
+                    <th class="jobName">サブPJ</th>
+                    <td colspan="2">
+                        <div class="subpj">
                             {{range .Roles}}
-                            {{if ne .RoleName "wroommain"}}{{else}}{{.PjName}}{{end}}
+                            {{if ne .RoleName "subpj"}}{{else}}{{.PjName}}{{end}}
                             {{end}}
-                            <span>作</span>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="wroomsub">
-                            {{range .Roles}}
-                            {{if ne .RoleName "wroomsub"}}{{else}}{{.PjName}}{{end}}
-                            {{end}}
-                            <span>聞</span>
                         </div>
                     </td>
                 </tr>
+
+                <tr>
+                    <th class="jobName in">リーダー</th>
+                    <td colspan="2">
+                        <div class="leader">
+                            {{range .Roles}}
+                            {{if ne .RoleName "leader"}}{{else}}{{.PjName}}{{end}}
+                            {{end}}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="jobName in">リターンリーダー</th>
+                    <td colspan="2">
+                        <div class="returnleader">
+                            {{range .Roles}}
+                            {{if ne .RoleName "returnleader"}}{{else}}{{.PjName}}{{end}}
+                            {{end}}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="jobName in">門番/駐車場</th>
+                    <td>
+                        <div class="gatekeeper">
+                            {{range .Roles}}
+                            {{if ne .RoleName "gatekeeper"}}{{else}}{{.PjName}}{{end}}
+                            {{end}}
+                            <span>第一</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="parkkeeper1">
+                            {{range .Roles}}
+                            {{if ne .RoleName "parkkeeper1"}}{{else}}{{.PjName}}{{end}}
+                            {{end}}
+                        </div>
+                        <div class="dotted">,</div>
+                        <div class="parkkeeper2">
+                            {{range .Roles}}
+                            {{if ne .RoleName "parkkeeper2"}}{{else}}{{.PjName}}{{end}}
+                            {{end}}
+                            <span>第二</span>
+                        </div>
+                    </td>
+                </tr>
+
                 <tr>
                     <th class="jobName">クローク</th>
                     <td colspan="2">
@@ -63,30 +110,21 @@
                     </td>
                 </tr>
                 <tr>
-                    <th class="jobName">門番/駐車場</th>
-                    <td>
-                        <div class="gatekeeper">
+                    <th class="jobName">クロークサブ</th>
+                    <td colspan="2">
+                        <div class="cloaksub">
                             {{range .Roles}}
-                            {{if ne .RoleName "gatekeeper"}}{{else}}{{.PjName}}{{end}}
+                            {{if ne .RoleName "cloaksub"}}{{else}}{{.PjName}}{{end}}
                             {{end}}
-                            <span>第一</span>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="parkkeeper">
-                            {{range .Roles}}
-                            {{if ne .RoleName "parkkeeper"}}{{else}}{{.PjName}}{{end}}
-                            {{end}}
-                            <span>第二</span>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <th class="jobName">リーダー</th>
+                    <th class="jobName">コーヒー＆デトックス</th>
                     <td colspan="2">
-                        <div class="leader">
+                        <div class="coffee">
                             {{range .Roles}}
-                            {{if ne .RoleName "leader"}}{{else}}{{.PjName}}{{end}}
+                            {{if ne .RoleName "coffee"}}{{else}}{{.PjName}}{{end}}
                             {{end}}
                         </div>
                     </td>
@@ -97,33 +135,47 @@
                         <div class="drinkmain">
                             {{range .Roles}}
                             {{if ne .RoleName "drinkmain"}}{{else}}{{.PjName}}{{end}}
-                            {{end}}<span>郎側</span>
+                            {{end}}<span>作&郎側</span>
                         </div>
                     </td>
                     <td>
                         <div class="drinksub">
                             {{range .Roles}}
                             {{if ne .RoleName "drinksub"}}{{else}}{{.PjName}}{{end}}
-                            {{end}}<span>婦側</span>
+                            {{end}}<span>聞&婦側</span>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <th class="jobName">シャンパン＆ワイン</th>
-                    <td colspan="2">
-                        <div class="champagne">
+                    <td>
+                        <div class="champagne1">
                             {{range .Roles}}
-                            {{if ne .RoleName "champagne"}}{{else}}{{.PjName}}{{end}}
+                            {{if ne .RoleName "champagne1"}}{{else}}{{.PjName}}{{end}}
+                            {{end}}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="champagne2">
+                            {{range .Roles}}
+                            {{if ne .RoleName "champagne2"}}{{else}}{{.PjName}}{{end}}
                             {{end}}
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <th class="jobName">シルバー＆ワイン</th>
-                    <td colspan="2">
-                        <div class="silver">
+                    <td>
+                        <div class="silver1">
                             {{range .Roles}}
-                            {{if ne .RoleName "silver"}}{{else}}{{.PjName}}{{end}}
+                            {{if ne .RoleName "silver1"}}{{else}}{{.PjName}}{{end}}
+                            {{end}}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="silver2">
+                            {{range .Roles}}
+                            {{if ne .RoleName "silver2"}}{{else}}{{.PjName}}{{end}}
                             {{end}}
                         </div>
                     </td>
@@ -131,22 +183,17 @@
                 <tr>
                     <th class=" jobName">アペ＆水</th>
                     <td colspan="2">
-                        <div class="ape">
+                        <div class="ape1">
                             {{range .Roles}}
-                            {{if ne .RoleName "ape"}}{{else}}{{.PjName}}{{end}}
+                            {{if ne .RoleName "ape1"}}{{else}}{{.PjName}}{{end}}
+                            {{end}}
+                        </div>
+                        <div class="ape2">
+                            {{range .Roles}}
+                            {{if ne .RoleName "ape2"}}{{else}}{{.PjName}}{{end}}
                             {{end}}
                         </div>
                     </td>
-                </tr>
-
-                <tr>
-                    <th class="jobName">コーヒー＆デトックス</th>
-                    <td colspan="2">
-                        <div class="coffee">
-                            {{range .Roles}}
-                            {{if ne .RoleName "coffee"}}{{else}}{{.PjName}}{{end}}
-                            {{end}}
-                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -168,16 +215,6 @@
 
                 </tr>
                 <tr>
-                    <th class="jobName">クローク補助</th>
-                    <td colspan="2">
-                        <div class="cloaksub">
-                            {{range .Roles}}
-                            {{if ne .RoleName "cloaksub"}}{{else}}{{.PjName}}{{end}}
-                            {{end}}
-                        </div>
-                    </td>
-                </tr>
-                <tr>
                     <th class="jobName">洗い場</th>
                     <td>
                         <div class="wash1">
@@ -194,16 +231,7 @@
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <th class="jobName">インカム盛り上げ</th>
-                    <td colspan="2">
-                        <div class="leader-up">
-                            {{range .Roles}}
-                            {{if ne .RoleName "leader-up"}}{{else}}{{.PjName}}{{end}}
-                            {{end}}
-                        </div>
-                    </td>
-                </tr>
+
                 <tr>
                     <th class="jobName small-jobname">ウェイティング迎賓係</th>
                     <td class="small-td" colspan="2">
@@ -217,9 +245,16 @@
                 <tr>
                     <th class="jobName small-jobname">迎賓時アルコール係</th>
                     <td class="small-td" colspan="2">
-                        <div class="alreception">
+                        <div class="alreception1">
                             {{range .Roles}}
-                            {{if ne .RoleName "alreception"}}{{else}}{{.PjName}}{{end}}
+                            {{if ne .RoleName "alreception1"}}{{else}}{{.PjName}}{{end}}
+                            {{end}}
+                        </div>
+                        <div class="dotted">,</div>
+
+                        <div class="alreception2">
+                            {{range .Roles}}
+                            {{if ne .RoleName "alreception2"}}{{else}}{{.PjName}}{{end}}
                             {{end}}
                         </div>
                     </td>
@@ -227,9 +262,16 @@
                 <tr>
                     <th class="jobName small-jobname">チャペル誘導係</th>
                     <td class="small-td" colspan="2">
-                        <div class="chreception">
+                        <div class="chreception1">
                             {{range .Roles}}
-                            {{if ne .RoleName "chreception"}}{{else}}{{.PjName}}{{end}}
+                            {{if ne .RoleName "chreception1"}}{{else}}{{.PjName}}{{end}}
+                            {{end}}
+                        </div>
+                        <div class="dotted">,</div>
+
+                        <div class="chreception2">
+                            {{range .Roles}}
+                            {{if ne .RoleName "chreception2"}}{{else}}{{.PjName}}{{end}}
                             {{end}}
                         </div>
                     </td>
@@ -237,9 +279,16 @@
                 <tr>
                     <th class="jobName small-jobname">おしぼり回収・プルミエ後</th>
                     <td class="small-td" colspan="2">
-                        <div class="towel">
+                        <div class="towel1">
                             {{range .Roles}}
-                            {{if ne .RoleName "towel"}}{{else}}{{.PjName}}{{end}}
+                            {{if ne .RoleName "towel1"}}{{else}}{{.PjName}}{{end}}
+                            {{end}}
+                        </div>
+                        <div class="dotted">,</div>
+
+                        <div class="towel2">
+                            {{range .Roles}}
+                            {{if ne .RoleName "towel2"}}{{else}}{{.PjName}}{{end}}
                             {{end}}
                         </div>
                     </td>
@@ -248,9 +297,20 @@
         </table>
         <br>
     </div>
-
-    <div class="sub-space">
-        <p>サブ</p>
+    <div class="pjs-list">
+        {{range .Pjs}}
+        {{if or (eq .AmPm "ダブル") (eq .AmPm "PM")}}
+        <div class="pjs-item Names{{if or (and .CheckAM .CheckPM) (and .CheckPM (not .CheckAM))}} CheckAM{{end}}">
+            {{.Names}}
+            <p class="AmPm">{{.AmPm}}</p>
+        </div>
+        {{end}}
+        {{end}}
+        <!-- {{range .Pjs}}
+        {{if eq .AmPm "PM"}}
+        <div class="pjs-item Names{{if and .CheckPM (not .CheckAM)}} CheckPM{{end}}">{{.Names}}</div>
+        {{end}}
+        {{end}} -->
     </div>
     <div class="PM">
         <table>
@@ -264,34 +324,34 @@
                         {{end}}
                         {{end}}
                     </th>
-                    <td class="ampm" colspan="2">AM</td>
+                    <td class="ampm" colspan="2">PM Or 試食会</td>
                 </tr>
                 <tr>
-                    <th class="jobName">Wルーム</th>
-                    <td>
-                        <div class="wroommainP">
-                            {{range .Roles}}
-                            {{if ne .RoleName "wroommainP"}}{{else}}{{.PjName}}{{end}}
-                            {{end}}
-                            <span>作</span>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="wroomsubP">
-                            {{range .Roles}}
-                            {{if ne .RoleName "wroomsubP"}}{{else}}{{.PjName}}{{end}}
-                            {{end}}
-                            <span>聞</span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th class="jobName">クローク</th>
+                    <th class="jobName">サブPJ</th>
                     <td colspan="2">
-                        <div class="cloakP">
+                        <div class="subpjP">
                             {{range .Roles}}
-                            {{if ne .RoleName "cloakP"}}{{else}}{{.PjName}}{{end}}
+                            {{if ne .RoleName "subpjP"}}{{else}}{{.PjName}}{{end}}
+                            {{end}}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="jobName">リーダー</th>
+                    <td colspan="2">
+                        <div class="leaderP">
+                            {{range .Roles}}
+                            {{if ne .RoleName "leaderP"}}{{else}}{{.PjName}}{{end}}
+                            {{end}}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="jobName">リターンリーダー</th>
+                    <td colspan="2">
+                        <div class="returnleaderP">
+                            {{range .Roles}}
+                            {{if ne .RoleName "returnleaderP"}}{{else}}{{.PjName}}{{end}}
                             {{end}}
                         </div>
                     </td>
@@ -307,20 +367,48 @@
                         </div>
                     </td>
                     <td>
-                        <div class="parkkeeperP">
+                        <div class="parkkeeper1P">
                             {{range .Roles}}
-                            {{if ne .RoleName "parkkeeperP"}}{{else}}{{.PjName}}{{end}}
+                            {{if ne .RoleName "parkkeeper1P"}}{{else}}{{.PjName}}{{end}}
+                            {{end}}
+                        </div>
+                        <div class="dotted">,</div>
+
+                        <div class="parkkeeper2P">
+                            {{range .Roles}}
+                            {{if ne .RoleName "parkkeeper2P"}}{{else}}{{.PjName}}{{end}}
                             {{end}}
                             <span>第二</span>
                         </div>
                     </td>
                 </tr>
+
                 <tr>
-                    <th class="jobName">リーダー</th>
+                    <th class="jobName">クローク</th>
                     <td colspan="2">
-                        <div class="leaderP">
+                        <div class="cloakP">
                             {{range .Roles}}
-                            {{if ne .RoleName "leaderP"}}{{else}}{{.PjName}}{{end}}
+                            {{if ne .RoleName "cloakP"}}{{else}}{{.PjName}}{{end}}
+                            {{end}}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="jobName">クロークサブ</th>
+                    <td colspan="2">
+                        <div class="cloaksubP">
+                            {{range .Roles}}
+                            {{if ne .RoleName "cloaksubP"}}{{else}}{{.PjName}}{{end}}
+                            {{end}}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="jobName">コーヒー＆デトックス</th>
+                    <td colspan="2">
+                        <div class="coffeeP">
+                            {{range .Roles}}
+                            {{if ne .RoleName "coffeeP"}}{{else}}{{.PjName}}{{end}}
                             {{end}}
                         </div>
                     </td>
@@ -331,33 +419,47 @@
                         <div class="drinkmainP">
                             {{range .Roles}}
                             {{if ne .RoleName "drinkmainP"}}{{else}}{{.PjName}}{{end}}
-                            {{end}}<span>郎側</span>
+                            {{end}}<span>作&郎側</span>
                         </div>
                     </td>
                     <td>
                         <div class="drinksubP">
                             {{range .Roles}}
                             {{if ne .RoleName "drinksubP"}}{{else}}{{.PjName}}{{end}}
-                            {{end}}<span>婦側</span>
+                            {{end}}<span>聞&婦側</span>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <th class="jobName">シャンパン＆ワイン</th>
-                    <td colspan="2">
-                        <div class="champagneP">
+                    <td>
+                        <div class="champagne1P">
                             {{range .Roles}}
-                            {{if ne .RoleName "champagneP"}}{{else}}{{.PjName}}{{end}}
+                            {{if ne .RoleName "champagne1P"}}{{else}}{{.PjName}}{{end}}
+                            {{end}}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="champagne2P">
+                            {{range .Roles}}
+                            {{if ne .RoleName "champagne2P"}}{{else}}{{.PjName}}{{end}}
                             {{end}}
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <th class="jobName">シルバー＆ワイン</th>
-                    <td colspan="2">
-                        <div class="silverP">
+                    <td>
+                        <div class="silver1P">
                             {{range .Roles}}
-                            {{if ne .RoleName "silverP"}}{{else}}{{.PjName}}{{end}}
+                            {{if ne .RoleName "silver1P"}}{{else}}{{.PjName}}{{end}}
+                            {{end}}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="silver2P">
+                            {{range .Roles}}
+                            {{if ne .RoleName "silver2P"}}{{else}}{{.PjName}}{{end}}
                             {{end}}
                         </div>
                     </td>
@@ -365,22 +467,17 @@
                 <tr>
                     <th class=" jobName">アペ＆水</th>
                     <td colspan="2">
-                        <div class="apeP">
+                        <div class="ape1P">
                             {{range .Roles}}
-                            {{if ne .RoleName "apeP"}}{{else}}{{.PjName}}{{end}}
+                            {{if ne .RoleName "ape1P"}}{{else}}{{.PjName}}{{end}}
+                            {{end}}
+                        </div>
+                        <div class="ape2P">
+                            {{range .Roles}}
+                            {{if ne .RoleName "ape2P"}}{{else}}{{.PjName}}{{end}}
                             {{end}}
                         </div>
                     </td>
-                </tr>
-
-                <tr>
-                    <th class="jobName">コーヒー＆デトックス</th>
-                    <td colspan="2">
-                        <div class="coffeeP">
-                            {{range .Roles}}
-                            {{if ne .RoleName "coffeeP"}}{{else}}{{.PjName}}{{end}}
-                            {{end}}
-                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -402,16 +499,6 @@
 
                 </tr>
                 <tr>
-                    <th class="jobName">クローク補助</th>
-                    <td colspan="2">
-                        <div class="cloaksubP">
-                            {{range .Roles}}
-                            {{if ne .RoleName "cloaksubP"}}{{else}}{{.PjName}}{{end}}
-                            {{end}}
-                        </div>
-                    </td>
-                </tr>
-                <tr>
                     <th class="jobName">洗い場</th>
                     <td>
                         <div class="wash1P">
@@ -428,16 +515,7 @@
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <th class="jobName">インカム盛り上げ</th>
-                    <td colspan="2">
-                        <div class="leader-upP">
-                            {{range .Roles}}
-                            {{if ne .RoleName "leader-upP"}}{{else}}{{.PjName}}{{end}}
-                            {{end}}
-                        </div>
-                    </td>
-                </tr>
+
                 <tr>
                     <th class="jobName small-jobname">ウェイティング迎賓係</th>
                     <td class="small-td" colspan="2">
@@ -451,9 +529,16 @@
                 <tr>
                     <th class="jobName small-jobname">迎賓時アルコール係</th>
                     <td class="small-td" colspan="2">
-                        <div class="alreceptionP">
+                        <div class="alreception1P">
                             {{range .Roles}}
-                            {{if ne .RoleName "alreceptionP"}}{{else}}{{.PjName}}{{end}}
+                            {{if ne .RoleName "alreception1P"}}{{else}}{{.PjName}}{{end}}
+                            {{end}}
+                        </div>
+                        <div class="dotted">,</div>
+
+                        <div class="alreception2P">
+                            {{range .Roles}}
+                            {{if ne .RoleName "alreception2P"}}{{else}}{{.PjName}}{{end}}
                             {{end}}
                         </div>
                     </td>
@@ -461,9 +546,16 @@
                 <tr>
                     <th class="jobName small-jobname">チャペル誘導係</th>
                     <td class="small-td" colspan="2">
-                        <div class="chreceptionP">
+                        <div class="chreception1P">
                             {{range .Roles}}
-                            {{if ne .RoleName "chreceptionP"}}{{else}}{{.PjName}}{{end}}
+                            {{if ne .RoleName "chreception1P"}}{{else}}{{.PjName}}{{end}}
+                            {{end}}
+                        </div>
+                        <div class="dotted">,</div>
+
+                        <div class="chreception2P">
+                            {{range .Roles}}
+                            {{if ne .RoleName "chreception2P"}}{{else}}{{.PjName}}{{end}}
                             {{end}}
                         </div>
                     </td>
@@ -471,19 +563,22 @@
                 <tr>
                     <th class="jobName small-jobname">おしぼり回収・プルミエ後</th>
                     <td class="small-td" colspan="2">
-                        <div class="towelP">
+                        <div class="towel1P">
                             {{range .Roles}}
-                            {{if ne .RoleName "towelP"}}{{else}}{{.PjName}}{{end}}
+                            {{if ne .RoleName "towel1P"}}{{else}}{{.PjName}}{{end}}
+                            {{end}}
+                        </div>
+                        <div class="dotted">,</div>
+
+                        <div class="towel2P">
+                            {{range .Roles}}
+                            {{if ne .RoleName "towel2P"}}{{else}}{{.PjName}}{{end}}
                             {{end}}
                         </div>
                     </td>
                 </tr>
             </tbody>
         </table>
-
-    </div>
-    <div class="sub-space">
-        <p>サブ</p>
     </div>
     <footer>
         <div class="button_solid015">
@@ -491,7 +586,6 @@
             <button class="print-button" onclick="window.print()">印刷</button>
         </div>
     </footer>
-
 </div>
 
 {{end}}

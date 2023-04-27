@@ -20,10 +20,13 @@ type WhatJob struct {
 
 // Pjの構造体
 type Pj struct {
-	Date  string //出勤日付
-	Names string //出勤Pj名
-	Time  string //出勤時間
-	Check bool   //入力済チェック
+	Date    string //出勤日付
+	Names   string //出勤Pj名
+	Time    string //出勤時間
+	AmPm    string //午前か午後
+	CheckAM bool   //AM入力済チェック
+	CheckPM bool   //PM入力済チェック
+
 }
 
 // 仕事の構造体
@@ -33,7 +36,7 @@ type Role struct {
 }
 
 // 日付から出勤するpj一覧を取得する、返り値は(出勤するPjの名前,出勤時間)
-func GetPjs(month string, day string) (pjsNames []string, time []string) {
+func GetPjs(month string, day string) (pjsNames []string, time []string, ampm []string) {
 
 	//xlsx（シフト）ファイルを読み込む
 	f := ReadXlsxFile()
@@ -51,22 +54,26 @@ func GetPjs(month string, day string) (pjsNames []string, time []string) {
 		//シートが存在しない場合
 		nopj := "Pjを取得出来ませんでした"
 		notime := "日付をもう一度確認して下さい"
+		noampm := "日付をもう一度確認して下さい"
 		pjsNames = append(pjsNames, nopj)
 		time = append(time, notime)
-		return pjsNames, time
-
+		ampm = append(ampm, noampm)
+		return pjsNames, time, ampm
 	} else {
 
 		//シートが存在する場合
 		allPjsNames := getAllPjsNames(xf, sheetName)
-		Num, time := getShiftDayPjNum(xf, sheetName, day)
+		Num, time, ampm := getShiftDayPjNum(xf, sheetName, day)
 		if Num == nil {
 
 			//出勤日が存在しない場合
 			nopj := "Pjを取得出来ませんでした"
 			notime := "日付をもう一度確認して下さい"
+			noampm := "日付をもう一度確認して下さい"
 			pjsNames = append(pjsNames, nopj)
 			time = append(time, notime)
+			ampm = append(ampm, noampm)
+
 		} else {
 
 			//出勤日が存在する場合
@@ -76,7 +83,7 @@ func GetPjs(month string, day string) (pjsNames []string, time []string) {
 				}
 			}
 		}
-		return pjsNames, time
+		return pjsNames, time, ampm
 	}
 }
 
@@ -104,7 +111,7 @@ func getAllShiftDays(f *excelize.File, sheetName string) []string {
 }
 
 // 引数の日にちからその日出勤するPjのIdと出勤時間を取得
-func getShiftDayPjNum(f *excelize.File, sheetName string, day string) (Nums []int, time []string) {
+func getShiftDayPjNum(f *excelize.File, sheetName string, day string) (Nums []int, time []string, ampm []string) {
 	cols, err := f.GetCols(sheetName)
 	if err != nil {
 		log.Println(err)
@@ -116,7 +123,7 @@ func getShiftDayPjNum(f *excelize.File, sheetName string, day string) (Nums []in
 	if dayInt == -1 {
 
 		//出勤日が存在しない場合
-		return nil, nil
+		return nil, nil, nil
 	} else {
 
 		//出勤日が存在する場合
@@ -125,10 +132,27 @@ func getShiftDayPjNum(f *excelize.File, sheetName string, day string) (Nums []in
 			matches := re.FindStringSubmatch(v)
 			if len(matches) > 0 {
 				Nums = append(Nums, i-13)
-				time = append(time, matches...)
+				//出勤時間を一つの文字列に
+				timeString := strings.Join(matches, "")
+				//-が現れる位置を取得
+				index := strings.Index(timeString, "-")
+				//出勤時間と退勤時間を取得
+				startString := strings.TrimSpace(timeString[:index])
+				endString := strings.TrimSpace(timeString[index+1:])
+
+				startT := string(startString[0])
+				endT := string(endString[0])
+				if (startT == "8" || startT == "9") && (endT == "2") {
+					ampm = append(ampm, "ダブル")
+				} else if (startT == "8" || startT == "9") && (endT == "1") {
+					ampm = append(ampm, "AM")
+				} else {
+					ampm = append(ampm, "PM")
+				}
+				time = append(time, timeString)
 			}
 		}
-		return Nums, time
+		return Nums, time, ampm
 	}
 }
 
@@ -158,18 +182,53 @@ func ReadXlsxFile() (f fs.DirEntry) {
 
 // 入力済みかチェックする
 func IsInputPjs(n []string, j *WhatJob) {
-	var existPjs []string
+	var amExistPjs []string
+	var pmExistPjs []string
+	var dubleExsitPjs []string
 	for _, v := range j.Roles {
-		for _, v2 := range n {
-			if strings.Contains(v.PjName, v2) {
-				existPjs = append(existPjs, v2)
+		lastRoleName := string(v.RoleName[len(v.RoleName)-1])
+		if lastRoleName != "P" {
+			for _, v2 := range n {
+				if strings.Contains(v.PjName, v2) {
+					amExistPjs = append(amExistPjs, v2)
+				}
+			}
+		} else {
+			for _, v2 := range n {
+				if strings.Contains(v.PjName, v2) {
+					pmExistPjs = append(pmExistPjs, v2)
+				}
 			}
 		}
 	}
-	for _, v := range existPjs {
+	for _, v := range amExistPjs {
+		for _, v2 := range pmExistPjs {
+			if v == v2 {
+				dubleExsitPjs = append(dubleExsitPjs, v)
+			}
+		}
+	}
+
+	fmt.Println(amExistPjs, pmExistPjs, dubleExsitPjs)
+	for _, v := range dubleExsitPjs {
 		for i, v2 := range j.Pjs {
 			if v == v2.Names {
-				j.Pjs[i].Check = true
+				j.Pjs[i].CheckAM = true
+				j.Pjs[i].CheckPM = true
+			}
+		}
+	}
+	for _, v := range amExistPjs {
+		for i, v2 := range j.Pjs {
+			if v == v2.Names {
+				j.Pjs[i].CheckAM = true
+			}
+		}
+	}
+	for _, v := range pmExistPjs {
+		for i, v2 := range j.Pjs {
+			if v == v2.Names {
+				j.Pjs[i].CheckPM = true
 			}
 		}
 	}

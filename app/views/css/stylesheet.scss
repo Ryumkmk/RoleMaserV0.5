@@ -81,6 +81,7 @@
     }
     tbody {
         font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
         tr {
             .date-print {
                 &:before,
@@ -89,7 +90,7 @@
                 }
             }
             .jobName {
-                width: 32%;
+                width: 30%;
                 font-size: 11px;
                 position: relative;
                 padding: 0.3em 0 0.2em 1em;
@@ -118,16 +119,21 @@
                     content: "";
                 }
             }
+
             td {
+                width: 35%;
                 border-bottom: 2px #2589d0 dotted;
                 background-color: rgba(156, 191, 236, 0.596);
                 border-radius: 5px;
                 text-align: left;
+                .dotted {
+                    display: none;
+                }
                 &.ampm {
                     text-align: center;
                 }
                 input {
-                    width: 50%;
+                    width: 80%;
                     border: none;
                     border: 1px double #a0a0a0;
                     box-shadow: 0 0 0 1px #ccc inset;
@@ -336,13 +342,43 @@
     }
     .pjs-list {
         .pjs-item {
-            font-size: 14px;
+            font-size: 16px;
             color: #010101; /*文字色*/
-            background: #eaf3ff; /*背景色*/
+            background-color: rgba(156, 191, 236, 0.5);
             border-bottom: solid 3px #516ab6; /*下線*/
             border-radius: 3px;
-            &.Check {
-                background-color: rgb(255, 217, 217);
+            .AmPm {
+                font-size: 12px;
+                border-top: 2px dotted #7995e7;
+                color: #310000;
+                background: #eaf3ff; /*背景色*/
+                padding: 0 0;
+                margin: 0 0;
+                border-radius: 3px;
+            }
+        }
+        .CheckAM {
+            background-color: rgba(255, 217, 217, 0.822);
+            .AmPm {
+                font-size: 12px;
+                border-top: 2px dotted #7995e7;
+                color: #310000;
+                background-color: rgba(255, 217, 217, 0.822);
+                padding: 0 0;
+                margin: 0 0;
+                border-radius: 3px;
+            }
+        }
+        .CheckPM {
+            background-color: rgb(255, 217, 217);
+            .AmPm {
+                font-size: 12px;
+                border-top: 2px dotted #7995e7;
+                color: #310000;
+                background-color: rgba(255, 217, 217, 0.822);
+                padding: 0 0;
+                margin: 0 0;
+                border-radius: 3px;
             }
         }
         display: grid;
@@ -350,6 +386,9 @@
         grid-gap: 3px;
         margin: 10px auto;
     }
+    // * {
+    //     outline: 1px red solid;
+    // }
     .btn-design-1 {
         border: none;
         outline: none;

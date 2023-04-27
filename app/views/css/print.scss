@@ -30,7 +30,7 @@
             tr {
                 .jobName {
                     width: 24%;
-                    font-size: 11px;
+                    font-size: 12px;
                     position: relative;
                     padding: 0.3em 0 0.2em 1em;
                     line-height: 1em;
@@ -86,6 +86,10 @@
                     border-radius: 5px;
                     text-align: center;
                     position: relative;
+                    .dotted {
+                        display: inline;
+                        color: #000000;
+                    }
                     &.ampm {
                         text-align: center;
                     }
@@ -130,15 +134,6 @@
                 .small-td {
                     border: none;
                     text-align: left;
-                    // input {
-                    //     margin: 0 3px;
-                    //     font-size: 18px;
-                    //     padding: 0;
-                    //     text-align: left;
-
-                    //     border: none;
-                    //     box-shadow: none;
-                    // }
                 }
                 .date-print {
                     border: 2px solid #000000;
@@ -159,34 +154,24 @@
             margin-bottom: 0;
             padding-bottom: 0;
         }
-        .sub-space {
-            p {
-                display: inline;
-            }
-            width: 40px;
-            border: 1px solid #000000;
-            margin-left: 0;
-            margin-right: 4px;
-            margin-top: 1px;
-            margin-bottom: 128px;
-            border-radius: 5px;
-        }
+
         .pjs-list-title {
             display: none;
         }
         .pjs-list {
-            border: none;
             display: block;
             margin: 0px;
             padding: 0px;
             background-color: rgb(255, 255, 255);
+            
             .pjs-item {
                 font-size: 10px;
-                border: none;
+                border-bottom: 1px dotted black;
                 background: none; /*背景色*/
-                // margin: 0px;
-                // padding: 0px;
                 white-space: nowrap;
+                .AmPm{
+                    display: none;
+                }
                 &.Check {
                     background-color: rgb(255, 255, 255);
                 }

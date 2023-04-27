@@ -87,7 +87,7 @@
   display: none;
 }
 .wrapper tbody tr .jobName {
-  width: 32%;
+  width: 30%;
   font-size: 11px;
   position: relative;
   padding: 0.3em 0 0.2em 1em;
@@ -117,16 +117,20 @@
   content: "";
 }
 .wrapper tbody tr td {
+  width: 35%;
   border-bottom: 2px #2589d0 dotted;
   background-color: rgba(156, 191, 236, 0.596);
   border-radius: 5px;
   text-align: left;
 }
+.wrapper tbody tr td .dotted {
+  display: none;
+}
 .wrapper tbody tr td.ampm {
   text-align: center;
 }
 .wrapper tbody tr td input {
-  width: 50%;
+  width: 80%;
   border: none;
   border: 1px double #a0a0a0;
   box-shadow: 0 0 0 1px #ccc inset;
@@ -322,14 +326,44 @@
   margin: 10px auto;
 }
 .wrapper .pjs-list .pjs-item {
-  font-size: 14px;
+  font-size: 16px;
   color: #010101; /*文字色*/
-  background: #eaf3ff; /*背景色*/
+  background-color: rgba(156, 191, 236, 0.5);
   border-bottom: solid 3px #516ab6; /*下線*/
   border-radius: 3px;
 }
-.wrapper .pjs-list .pjs-item.Check {
+.wrapper .pjs-list .pjs-item .AmPm {
+  font-size: 12px;
+  border-top: 2px dotted #7995e7;
+  color: #310000;
+  background: #eaf3ff; /*背景色*/
+  padding: 0 0;
+  margin: 0 0;
+  border-radius: 3px;
+}
+.wrapper .pjs-list .CheckAM {
+  background-color: rgba(255, 217, 217, 0.822);
+}
+.wrapper .pjs-list .CheckAM .AmPm {
+  font-size: 12px;
+  border-top: 2px dotted #7995e7;
+  color: #310000;
+  background-color: rgba(255, 217, 217, 0.822);
+  padding: 0 0;
+  margin: 0 0;
+  border-radius: 3px;
+}
+.wrapper .pjs-list .CheckPM {
   background-color: rgb(255, 217, 217);
+}
+.wrapper .pjs-list .CheckPM .AmPm {
+  font-size: 12px;
+  border-top: 2px dotted #7995e7;
+  color: #310000;
+  background-color: rgba(255, 217, 217, 0.822);
+  padding: 0 0;
+  margin: 0 0;
+  border-radius: 3px;
 }
 .wrapper .btn-design-1 {
   border: none;

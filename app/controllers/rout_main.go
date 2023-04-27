@@ -38,17 +38,17 @@ func typingpage(w http.ResponseWriter, r *http.Request) {
 	dd := r.PostFormValue("day")
 	var pjs []models.Pj
 
-	gotpjsName, gotpjsTime := models.GetPjs(mm, dd)
-	// fmt.Println(len(gotpjsName), len(gotpjsTime))
+	gotpjsName, gotpjsTime, gotpjsAmPm := models.GetPjs(mm, dd)
 	for i, v := range gotpjsName {
 		var pj models.Pj
 		pj.Names = v
 		pj.Time = gotpjsTime[i]
+		pj.AmPm = gotpjsAmPm[i]
 		pj.Date = fmt.Sprintf("%s月%s日", mm, dd)
-		pj.Check = false
+		pj.CheckAM = false
+		pj.CheckPM = false
 		pjs = append(pjs, pj)
 	}
-	// fmt.Println(pjs)
 	generateHTML(w, pjs, "layout", "typingpage")
 }
 
@@ -60,7 +60,6 @@ func cheakPj(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 	}
 	date := r.PostFormValue("date-form")
-
 	for n, v := range r.Form {
 		var role models.Role
 		role.PjName = v[0]
@@ -82,18 +81,19 @@ func cheakPj(w http.ResponseWriter, r *http.Request) {
 			dateMonthSt += string(ch)
 		}
 	}
-	gotpjsName, gotpjsTime := models.GetPjs(dateMonthSt, dateDaySt)
+	gotpjsName, gotpjsTime, gotpjsAmPm := models.GetPjs(dateMonthSt, dateDaySt)
 	// fmt.Println(len(gotpjsName), len(gotpjsTime))
 	for i, v := range gotpjsName {
 		var pj models.Pj
 		pj.Names = v
 		pj.Time = gotpjsTime[i]
+		pj.AmPm = gotpjsAmPm[i]
 		pj.Date = date
-		pj.Check = false
+		pj.CheckAM = false
+		pj.CheckPM = false
 		whatJob.Pjs = append(whatJob.Pjs, pj)
 	}
-	// whatJob = models.IsInputPjs(gotpjsName, &whatJob)
-	models.IsInputPjs(gotpjsName, &whatJob)
 	// fmt.Println(whatJob.Pjs)
+	models.IsInputPjs(gotpjsName, &whatJob)
 	generateHTML(w, whatJob, "layout", "checkpage")
 }
