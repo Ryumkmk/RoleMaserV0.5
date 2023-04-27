@@ -4,27 +4,30 @@
   size: 297mm 210mm;
 }
 @media print {
-  .wrapper {
+  #page1 {
+    page-break-after: always;
+  }
+  #page1 .wrapper {
     display: flex;
-    margin: 30px 60px 70px 30px;
+    margin: 20px;
     width: 1190px;
     font-size: 11px;
   }
-  .wrapper .box2 {
+  #page1 .wrapper .box2 {
     display: none;
   }
-  .wrapper .top-button {
+  #page1 .wrapper .top-button {
     display: none;
   }
-  .wrapper footer {
+  #page1 .wrapper footer {
     display: none;
   }
-  .wrapper .ampm {
+  #page1 .wrapper .ampm {
     font-size: 18px;
     margin: 0;
     padding: 0;
   }
-  .wrapper tbody tr .jobName {
+  #page1 .wrapper tbody tr .jobName {
     width: 24%;
     font-size: 12px;
     position: relative;
@@ -36,7 +39,7 @@
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
   }
-  .wrapper tbody tr .jobName:before {
+  #page1 .wrapper tbody tr .jobName:before {
     position: absolute;
     top: 0;
     left: 0.3em;
@@ -46,7 +49,7 @@
     background: #000000;
     content: "●";
   }
-  .wrapper tbody tr .jobName:after {
+  #page1 .wrapper tbody tr .jobName:after {
     position: absolute;
     transform: rotate(15deg);
     top: 0.6em;
@@ -56,7 +59,7 @@
     background: #000000;
     content: "〇";
   }
-  .wrapper tbody tr .small-jobname {
+  #page1 .wrapper tbody tr .small-jobname {
     font-size: 8px;
     border: none;
     color: #000000;
@@ -65,32 +68,32 @@
     position: relative;
     padding-left: 10px;
   }
-  .wrapper tbody tr .small-jobname:before {
+  #page1 .wrapper tbody tr .small-jobname:before {
     position: absolute;
     transform: rotate(15deg);
     content: "☆";
   }
-  .wrapper tbody tr .small-jobname:after {
+  #page1 .wrapper tbody tr .small-jobname:after {
     transform: rotate(0deg);
     top: auto;
     left: auto;
     content: "・・・";
   }
-  .wrapper tbody tr td {
+  #page1 .wrapper tbody tr td {
     border: 1px #000000 solid;
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
     text-align: center;
     position: relative;
   }
-  .wrapper tbody tr td .dotted {
+  #page1 .wrapper tbody tr td .dotted {
     display: inline;
     color: #000000;
   }
-  .wrapper tbody tr td.ampm {
+  #page1 .wrapper tbody tr td.ampm {
     text-align: center;
   }
-  .wrapper tbody tr td div {
+  #page1 .wrapper tbody tr td div {
     font-family: "Chakra Petch", sans-serif;
     font-family: "Kaisei Opti", serif;
     font-family: "Klee One", cursive;
@@ -109,7 +112,7 @@
     border: none;
     box-shadow: none;
   }
-  .wrapper tbody tr td span {
+  #page1 .wrapper tbody tr td span {
     line-height: 1em;
     display: inline-block; /* インラインブロック要素にする */
     vertical-align: center; /* ベースラインに合わせる */
@@ -120,53 +123,65 @@
     padding-left: 3px;
     border-left: 1px solid #000000;
   }
-  .wrapper tbody tr td.ampm {
+  #page1 .wrapper tbody tr td.ampm {
     border: 2px solid #000000;
     border-radius: 5px;
   }
-  .wrapper tbody tr .small-td {
+  #page1 .wrapper tbody tr .small-td {
     border: none;
     text-align: left;
   }
-  .wrapper tbody tr .date-print {
+  #page1 .wrapper tbody tr .date-print {
     border: 2px solid #000000;
     border-radius: 5px;
   }
-  .wrapper .AM {
+  #page1 .wrapper .AM {
     width: 48%;
     border-bottom: none;
-    margin-right: 0px;
+    margin-right: 5px;
     margin-bottom: 0;
     padding-bottom: 0;
   }
-  .wrapper .PM {
+  #page1 .wrapper .PM {
     width: 48%;
     margin-left: 0px;
     margin-bottom: 0;
     padding-bottom: 0;
   }
-  .wrapper .pjs-list-title {
+  #page1 .wrapper .pjs-list-title {
     display: none;
   }
-  .wrapper .pjs-list {
+  #page1 .wrapper .pjs-list {
     display: block;
     margin: 0px;
     padding: 0px;
     background-color: rgb(255, 255, 255);
   }
-  .wrapper .pjs-list .pjs-item {
+  #page1 .wrapper .pjs-list .pjs-item {
     font-size: 10px;
     border-bottom: 1px dotted black;
     background: none; /*背景色*/
     white-space: nowrap;
   }
-  .wrapper .pjs-list .pjs-item .AmPm {
+  #page1 .wrapper .pjs-list .pjs-item .AmPm {
     display: none;
   }
-  .wrapper .pjs-list .pjs-item.Check {
+  #page1 .wrapper .pjs-list .pjs-item.Check {
     background-color: rgb(255, 255, 255);
   }
-  .wrapper .pjs-list .pjs-item .Time {
+  #page1 .wrapper .pjs-list .pjs-item .Time {
+    display: none;
+  }
+  #page2 {
+    display: block;
+  }
+  #page2 .rest {
+    display: flex;
+  }
+  #page2 * {
+    outline: 1px solid red;
+  }
+  #page2 span {
     display: none;
   }
 }/*# sourceMappingURL=print.css.map */

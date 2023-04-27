@@ -208,8 +208,6 @@ func IsInputPjs(n []string, j *WhatJob) {
 			}
 		}
 	}
-
-	fmt.Println(amExistPjs, pmExistPjs, dubleExsitPjs)
 	for _, v := range dubleExsitPjs {
 		for i, v2 := range j.Pjs {
 			if v == v2.Names {

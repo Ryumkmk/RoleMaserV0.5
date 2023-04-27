@@ -7,179 +7,194 @@
     // body * {
     //     outline: 1px red solid;
     // }
-    .wrapper {
-        .box2 {
-            display: none;
-        }
-        .top-button {
-            display: none;
-        }
-        footer {
-            display: none;
-        }
-        .ampm {
-            font-size: 18px;
-            margin: 0;
-            padding: 0;
-        }
-        display: flex;
-        margin: 30px 60px 70px 30px;
-        width: 1190px;
-        font-size: 11px;
-        tbody {
-            tr {
-                .jobName {
-                    width: 24%;
-                    font-size: 12px;
-                    position: relative;
-                    padding: 0.3em 0 0.2em 1em;
-                    line-height: 1em;
-                    border-bottom: 2px solid #000000;
-                    border-top: 2px solid #000000;
-                    color: #000000;
-                    background-color: rgb(255, 255, 255);
-                    border-radius: 5px;
-                    &:before {
-                        position: absolute;
-                        top: 0;
-                        left: 0.3em;
-                        transform: rotate(55deg);
-                        height: 0px;
-                        width: 0px;
-                        background: #000000;
-                        content: "●";
-                    }
-                    &:after {
-                        position: absolute;
-                        transform: rotate(15deg);
-                        top: 0.6em;
-                        left: 0;
-                        height: 0px;
-                        width: 0px;
-                        background: #000000;
-                        content: "〇";
-                    }
-                }
-                .small-jobname {
-                    font-size: 8px;
-                    border: none;
-                    color: #000000;
-                    padding: 0;
-                    text-align: left;
-                    position: relative;
-                    padding-left: 10px;
-                    &:before {
-                        position: absolute;
-                        transform: rotate(15deg);
-                        content: "☆";
-                    }
-                    &:after {
-                        transform: rotate(0deg);
-                        top: auto;
-                        left: auto;
-                        content: "・・・";
-                    }
-                }
-                td {
-                    border: 1px #000000 solid;
-                    background-color: rgb(255, 255, 255);
-                    border-radius: 5px;
-                    text-align: center;
-                    position: relative;
-                    .dotted {
-                        display: inline;
-                        color: #000000;
-                    }
-                    &.ampm {
-                        text-align: center;
-                    }
-                    div {
-                        // width: 76%;
-                        // vertical-align: middle;
-                        font-family: "Chakra Petch", sans-serif;
-                        font-family: "Kaisei Opti", serif;
-                        font-family: "Klee One", cursive;
-                        font-family: "M PLUS Rounded 1c", sans-serif;
-                        font-family: "Noto Serif JP", serif;
-                        font-family: "Pacifico", cursive;
-                        font-family: "Roboto Condensed", sans-serif;
-                        font-size: 16px;
-                        color: #000000;
+    #page1 {
+        page-break-after: always;
+        .wrapper {
+            .box2 {
+                display: none;
+            }
+            .top-button {
+                display: none;
+            }
+            footer {
+                display: none;
+            }
+            .ampm {
+                font-size: 18px;
+                margin: 0;
+                padding: 0;
+            }
+            display: flex;
+            margin: 20px;
+            width: 1190px;
+            font-size: 11px;
+            tbody {
+                tr {
+                    .jobName {
+                        width: 24%;
+                        font-size: 12px;
+                        position: relative;
+                        padding: 0.3em 0 0.2em 1em;
                         line-height: 1em;
-                        text-align: center;
-                        display: inline-block; /* インラインブロック要素にする */
-                        vertical-align: center; /* ベースラインに合わせる */
-                        padding: 0; /* パディングを0に設定 */
-                        margin: 0; /* マージンを0に設定 */
+                        border-bottom: 2px solid #000000;
+                        border-top: 2px solid #000000;
+                        color: #000000;
+                        background-color: rgb(255, 255, 255);
+                        border-radius: 5px;
+                        &:before {
+                            position: absolute;
+                            top: 0;
+                            left: 0.3em;
+                            transform: rotate(55deg);
+                            height: 0px;
+                            width: 0px;
+                            background: #000000;
+                            content: "●";
+                        }
+                        &:after {
+                            position: absolute;
+                            transform: rotate(15deg);
+                            top: 0.6em;
+                            left: 0;
+                            height: 0px;
+                            width: 0px;
+                            background: #000000;
+                            content: "〇";
+                        }
+                    }
+                    .small-jobname {
+                        font-size: 8px;
                         border: none;
-                        box-shadow: none;
+                        color: #000000;
+                        padding: 0;
+                        text-align: left;
+                        position: relative;
+                        padding-left: 10px;
+                        &:before {
+                            position: absolute;
+                            transform: rotate(15deg);
+                            content: "☆";
+                        }
+                        &:after {
+                            transform: rotate(0deg);
+                            top: auto;
+                            left: auto;
+                            content: "・・・";
+                        }
                     }
+                    td {
+                        border: 1px #000000 solid;
+                        background-color: rgb(255, 255, 255);
+                        border-radius: 5px;
+                        text-align: center;
+                        position: relative;
+                        .dotted {
+                            display: inline;
+                            color: #000000;
+                        }
+                        &.ampm {
+                            text-align: center;
+                        }
+                        div {
+                            // width: 76%;
+                            // vertical-align: middle;
+                            font-family: "Chakra Petch", sans-serif;
+                            font-family: "Kaisei Opti", serif;
+                            font-family: "Klee One", cursive;
+                            font-family: "M PLUS Rounded 1c", sans-serif;
+                            font-family: "Noto Serif JP", serif;
+                            font-family: "Pacifico", cursive;
+                            font-family: "Roboto Condensed", sans-serif;
+                            font-size: 16px;
+                            color: #000000;
+                            line-height: 1em;
+                            text-align: center;
+                            display: inline-block; /* インラインブロック要素にする */
+                            vertical-align: center; /* ベースラインに合わせる */
+                            padding: 0; /* パディングを0に設定 */
+                            margin: 0; /* マージンを0に設定 */
+                            border: none;
+                            box-shadow: none;
+                        }
 
-                    span {
-                        line-height: 1em;
-                        display: inline-block; /* インラインブロック要素にする */
-                        vertical-align: center; /* ベースラインに合わせる */
-                        font-size: 14px;
-                        font-weight: 700;
-                        padding: 0; /* パディングを0に設定 */
-                        margin: 0; /* マージンを0に設定 */
-                        padding-left: 3px;
-                        border-left: 1px solid #000000;
+                        span {
+                            line-height: 1em;
+                            display: inline-block; /* インラインブロック要素にする */
+                            vertical-align: center; /* ベースラインに合わせる */
+                            font-size: 14px;
+                            font-weight: 700;
+                            padding: 0; /* パディングを0に設定 */
+                            margin: 0; /* マージンを0に設定 */
+                            padding-left: 3px;
+                            border-left: 1px solid #000000;
+                        }
+                        &.ampm {
+                            border: 2px solid #000000;
+                            border-radius: 5px;
+                        }
                     }
-                    &.ampm {
+                    .small-td {
+                        border: none;
+                        text-align: left;
+                    }
+                    .date-print {
                         border: 2px solid #000000;
                         border-radius: 5px;
                     }
                 }
-                .small-td {
-                    border: none;
-                    text-align: left;
-                }
-                .date-print {
-                    border: 2px solid #000000;
-                    border-radius: 5px;
-                }
             }
-        }
-        .AM {
-            width: 48%;
-            border-bottom: none;
-            margin-right: 0px;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .PM {
-            width: 48%;
-            margin-left: 0px;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
+            .AM {
+                width: 48%;
+                border-bottom: none;
+                margin-right: 5px;
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+            .PM {
+                width: 48%;
+                margin-left: 0px;
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
 
-        .pjs-list-title {
-            display: none;
-        }
-        .pjs-list {
-            display: block;
-            margin: 0px;
-            padding: 0px;
-            background-color: rgb(255, 255, 255);
-            
-            .pjs-item {
-                font-size: 10px;
-                border-bottom: 1px dotted black;
-                background: none; /*背景色*/
-                white-space: nowrap;
-                .AmPm{
-                    display: none;
-                }
-                &.Check {
-                    background-color: rgb(255, 255, 255);
-                }
-                .Time {
-                    display: none;
-                    // line-height: 1.2em;
+            .pjs-list-title {
+                display: none;
+            }
+            .pjs-list {
+                display: block;
+                margin: 0px;
+                padding: 0px;
+                background-color: rgb(255, 255, 255);
+
+                .pjs-item {
+                    font-size: 10px;
+                    border-bottom: 1px dotted black;
+                    background: none; /*背景色*/
+                    white-space: nowrap;
+                    .AmPm {
+                        display: none;
+                    }
+                    &.Check {
+                        background-color: rgb(255, 255, 255);
+                    }
+                    .Time {
+                        display: none;
+                        // line-height: 1.2em;
+                    }
                 }
             }
         }
     }
+    #page2 {
+        display: block;
+        .rest{
+            display: flex;
+        }
+        *{
+            outline: 1px solid red;
+        }
+        span{
+            display: none;
+        }
+      }
 }

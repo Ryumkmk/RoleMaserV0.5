@@ -75,7 +75,12 @@
                     <tr>
                         <th class="jobName">ドリカン両親係</th>
                         <td><input type="text" name="drinkmain"><span>作&郎側</span></td>
-                        <td><input type="text" name="drinksub"><span>聞&婦側</span></td>
+                        <td><input type="text" name="drinksub"
+                            oninput="copyValue(this, 'drinksub', 'wtreception')"><span>聞&婦側</span></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">ドリカンサブ</th>
+                        <td colspan="2"><input type="text" name="drinksubsub"></td>
                     </tr>
                     <tr>
                         <th class="jobName">シャンパン＆ワイン</th>
@@ -207,7 +212,12 @@
                     <tr>
                         <th class="jobName">ドリカン両親係</th>
                         <td><input type="text" name="drinkmainP"><span>作&郎側</span></td>
-                        <td><input type="text" name="drinksubP"><span>聞&婦側</span></td>
+                        <td><input type="text" name="drinksubP"
+                            oninput="copyValue2(this, 'drinksubP', 'wtreceptionP')"><span>聞&婦側</span></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">ドリカンサブ</th>
+                        <td colspan="2"><input type="text" name="drinksubsubP"></td>
                     </tr>
                     <tr>
                         <th class="jobName">シャンパン＆ワイン</th>

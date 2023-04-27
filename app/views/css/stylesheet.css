@@ -388,4 +388,8 @@
 .wrapper .btn-design-1:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#page2 {
+  display: none;
 }/*# sourceMappingURL=stylesheet.css.map */
