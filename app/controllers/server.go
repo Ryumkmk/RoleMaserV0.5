@@ -34,4 +34,5 @@ func StartMainServer() error {
 	fmt.Println("Stated Server")
 	port := os.Getenv("PORT")
 	return http.ListenAndServe(":"+port, nil)
+	// return http.ListenAndServe(":"+config.Config.Port, nil)
 }
