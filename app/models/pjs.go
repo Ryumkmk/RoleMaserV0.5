@@ -142,7 +142,8 @@ func getShiftDayPjNum(f *excelize.File, sheetName string, day string) (Nums []in
 
 				startT := string(startString[0])
 				endT := string(endString[0])
-				if (startT == "8" || startT == "9") && (endT == "2") {
+				// fmt.Printf("%v,%v\n", startT, endT)
+				if (startT == "8" || startT == "9" || startT == "0") && (endT == "2") {
 					ampm = append(ampm, "ダブル")
 				} else if (startT == "8" || startT == "9") && (endT == "1") {
 					ampm = append(ampm, "AM")
@@ -152,6 +153,7 @@ func getShiftDayPjNum(f *excelize.File, sheetName string, day string) (Nums []in
 				time = append(time, timeString)
 			}
 		}
+		// fmt.Println(time)
 		return Nums, time, ampm
 	}
 }
