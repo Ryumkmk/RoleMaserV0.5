@@ -210,8 +210,7 @@
     padding: 0 1em;
     margin: 0px auto 8px auto;
     width: 70%;
-    border-top: dotted 1px black;
-    border-bottom: solid 2px black;
+    border-bottom: double 4px black;
   }
   #page2 .rest .rest-ampm-container h3:before {
     top: 48%;
