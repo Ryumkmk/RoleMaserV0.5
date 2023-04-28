@@ -187,14 +187,13 @@
     }
     #page2 {
         display: block;
-        .rest{
-            display: flex;
-        }
+        margin: 30px 30px ;
         *{
             outline: 1px solid red;
         }
-        span{
-            display: none;
+        .rest{
+            display: flex;
         }
+       
       }
 }
