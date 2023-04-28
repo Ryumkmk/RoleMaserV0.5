@@ -32,10 +32,11 @@
   }
   #page1 .wrapper tbody tr .jobName {
     width: 24%;
+    height: 24px;
     font-size: 13px;
     font-weight: 700;
     position: relative;
-    padding: 0.3em 0 0.2em 1em;
+    padding: 0.3em 0 0.3em 1em;
     line-height: 1em;
     border-bottom: 1px solid #000000;
     color: #000000;
@@ -84,7 +85,7 @@
   }
   #page1 .wrapper tbody tr td {
     border-bottom: 1px #000000 solid;
-    border-left: 1px #000000 solid;
+    border-left: 1px #000000 dotted;
     border-right: 1px #000000 solid;
     background-color: rgb(255, 255, 255);
     border-radius: 0px;
