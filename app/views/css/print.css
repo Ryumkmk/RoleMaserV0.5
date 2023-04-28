@@ -101,6 +101,8 @@
     font-family: "Noto Serif JP", serif;
     font-family: "Pacifico", cursive;
     font-family: "Roboto Condensed", sans-serif;
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 900;
     font-size: 16px;
     color: #000000;
     line-height: 1em;
@@ -175,13 +177,12 @@
   #page2 {
     display: block;
     margin: 30px 30px;
+    width: 94%;
   }
   #page2 * {
-    outline: 1px solid red;
+    outline: 1px dotted red;
   }
   #page2 h2 {
-    position: relative;
-    left: 25%;
     display: inline;
     padding: 3px 5px;
   }
@@ -199,5 +200,27 @@
   #page2 .rest .rest-ampm-container p {
     margin: 0 0;
     white-space: nowrap;
+  }
+  #page2 .rest .rest-ampm-container th {
+    font-weight: 600;
+  }
+  #page2 .rest .rest-ampm-container th p {
+    font-weight: 500;
+  }
+  #page2 .rest .rest-ampm-container td {
+    width: 80%;
+    font-family: "Chakra Petch", sans-serif;
+    font-family: "Kaisei Opti", serif;
+    font-family: "Klee One", cursive;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-family: "Noto Serif JP", serif;
+    font-family: "Pacifico", cursive;
+    font-family: "Roboto Condensed", sans-serif;
+    font-family: "Zen Old Mincho", serif;
+    font-size: 16px;
+    padding: 5px 10px;
+  }
+  #page2 .rest .rest-ampm-container td.td-title {
+    text-align: center;
   }
 }/*# sourceMappingURL=print.css.map */
