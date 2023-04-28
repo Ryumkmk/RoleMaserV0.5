@@ -126,7 +126,7 @@
                             line-height: 1em;
                             display: inline-block; /* インラインブロック要素にする */
                             vertical-align: center; /* ベースラインに合わせる */
-                            font-size: 14px;
+                            font-size: 12px;
                             font-weight: 700;
                             padding: 0; /* パディングを0に設定 */
                             margin: 0; /* マージンを0に設定 */
@@ -223,24 +223,13 @@
 
                     &:before {
                         top: 48%;
-                        right: 10%;
+                        right: 0%;
                         position: absolute;
                         transform: translateY(-50%);
                         display: inline-block;
                         content: url(/static/imgs/shiba.svg);
                     }
-                    &:after {
-                        top: 48%;
-                        right: 50%;
-                        position: absolute;
-                        transform: translateY(-50%);
-                        font-weight: 100;
-                        font-size: 20px;
-                        content: "Z z";
-                    }
-
                 }
-
                 table {
                     &.rest-tbl-design {
                         margin: 0 auto;
@@ -306,7 +295,6 @@
                             border-right: 1px solid black;
                             border-left: 1px dotted black;
                             position: relative;
-
                             &.td-title {
                                 font-family: none;
                                 text-align: center;
