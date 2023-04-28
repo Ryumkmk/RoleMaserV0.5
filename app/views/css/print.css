@@ -26,20 +26,21 @@
   }
   #page1 .wrapper .ampm {
     font-size: 18px;
+    font-weight: 700;
     margin: 0;
     padding: 0;
   }
   #page1 .wrapper tbody tr .jobName {
     width: 24%;
-    font-size: 12px;
+    font-size: 13px;
+    font-weight: 700;
     position: relative;
     padding: 0.3em 0 0.2em 1em;
     line-height: 1em;
-    border-bottom: 2px solid #000000;
-    border-top: 2px solid #000000;
+    border-bottom: 1px solid #000000;
     color: #000000;
     background-color: rgb(255, 255, 255);
-    border-radius: 5px;
+    border-radius: 0px;
   }
   #page1 .wrapper tbody tr .jobName:before {
     position: absolute;
@@ -82,18 +83,17 @@
     content: "・・・";
   }
   #page1 .wrapper tbody tr td {
-    border: 1px #000000 solid;
+    border-bottom: 1px #000000 solid;
+    border-left: 1px #000000 solid;
+    border-right: 1px #000000 solid;
     background-color: rgb(255, 255, 255);
-    border-radius: 5px;
+    border-radius: 0px;
     text-align: center;
     position: relative;
   }
   #page1 .wrapper tbody tr td .dotted {
     display: inline;
     color: #000000;
-  }
-  #page1 .wrapper tbody tr td.ampm {
-    text-align: center;
   }
   #page1 .wrapper tbody tr td div {
     font-family: "Chakra Petch", sans-serif;
@@ -129,16 +129,20 @@
     border-left: 1px solid #000000;
   }
   #page1 .wrapper tbody tr td.ampm {
-    border: 2px solid #000000;
-    border-radius: 5px;
+    border-top: 1px dotted black;
+    border-bottom: 1px solid #000000;
+    border-radius: 0px;
   }
   #page1 .wrapper tbody tr .small-td {
     border: none;
     text-align: left;
   }
   #page1 .wrapper tbody tr .date-print {
-    border: 2px solid #000000;
-    border-radius: 5px;
+    border-bottom: 1px solid #000000;
+    border-left: 1px solid #000000;
+    border-top: 1px dotted black;
+    font-size: 18px;
+    border-radius: 0px;
   }
   #page1 .wrapper .AM {
     width: 48%;
@@ -181,7 +185,7 @@
     display: block;
     margin: 30px 30px;
     size: 297mm 210mm;
-    width: 94%;
+    width: 1190px;
   }
   #page2 h2 {
     display: inline;
@@ -190,10 +194,11 @@
   }
   #page2 .rest {
     display: flex;
+    justify-content: space-around;
   }
   #page2 .rest .rest-ampm-container {
     margin: 10px 20px;
-    width: 33%;
+    width: 460px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -210,11 +215,17 @@
   }
   #page2 .rest .rest-ampm-container h3:before {
     top: 48%;
-    right: 0%;
+    right: -20%;
     position: absolute;
     transform: translateY(-50%);
     display: inline-block;
     content: url(/static/imgs/shiba.svg);
+  }
+  #page2 .rest .rest-ampm-container h3:after {
+    font-weight: 100;
+    padding-left: 125px;
+    font-size: 21px;
+    content: "Zz";
   }
   #page2 .rest .rest-ampm-container table.rest-tbl-design {
     margin: 0 auto;

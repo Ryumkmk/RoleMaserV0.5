@@ -23,6 +23,7 @@
             }
             .ampm {
                 font-size: 18px;
+                font-weight: 700;
                 margin: 0;
                 padding: 0;
             }
@@ -34,15 +35,16 @@
                 tr {
                     .jobName {
                         width: 24%;
-                        font-size: 12px;
+                        font-size: 13px;
+                        font-weight: 700;
                         position: relative;
                         padding: 0.3em 0 0.2em 1em;
                         line-height: 1em;
-                        border-bottom: 2px solid #000000;
-                        border-top: 2px solid #000000;
+                        border-bottom: 1px solid #000000;
+                        // border-top: 1px solid #000000;
                         color: #000000;
                         background-color: rgb(255, 255, 255);
-                        border-radius: 5px;
+                        border-radius: 0px;
                         &:before {
                             position: absolute;
                             top: 0;
@@ -63,6 +65,7 @@
                             background: #000000;
                             content: "〇";
                         }
+                        
                     }
                     .small-jobname {
                         font-size: 8px;
@@ -85,18 +88,18 @@
                         }
                     }
                     td {
-                        border: 1px #000000 solid;
+                        border-bottom: 1px #000000 solid;
+                        border-left: 1px #000000 solid;
+                        border-right: 1px #000000 solid;
                         background-color: rgb(255, 255, 255);
-                        border-radius: 5px;
+                        border-radius: 0px;
                         text-align: center;
                         position: relative;
                         .dotted {
                             display: inline;
                             color: #000000;
                         }
-                        &.ampm {
-                            text-align: center;
-                        }
+                        
                         div {
                             // width: 76%;
                             // vertical-align: middle;
@@ -134,8 +137,10 @@
                             border-left: 1px solid #000000;
                         }
                         &.ampm {
-                            border: 2px solid #000000;
-                            border-radius: 5px;
+                            
+                            border-top: 1px dotted black;
+                            border-bottom: 1px solid #000000;
+                            border-radius: 0px;
                         }
                     }
                     .small-td {
@@ -143,8 +148,11 @@
                         text-align: left;
                     }
                     .date-print {
-                        border: 2px solid #000000;
-                        border-radius: 5px;
+                        border-bottom: 1px solid #000000;
+                        border-left: 1px solid #000000;
+                        border-top: 1px dotted black ;
+                        font-size: 18px;
+                        border-radius: 0px;
                     }
                 }
             }
@@ -197,7 +205,8 @@
         display: block;
         margin: 30px 30px;
         size: 297mm 210mm;
-        width: 94%;
+        width: 1190px;
+
         h2 {
             display: inline;
             padding: 3px 5px;
@@ -205,9 +214,10 @@
         }
         .rest {
             display: flex;
+            justify-content: space-around;
             .rest-ampm-container {
                 margin: 10px 20px;
-                width: 33%;
+                width: 460px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -223,11 +233,17 @@
 
                     &:before {
                         top: 48%;
-                        right: 0%;
+                        right: -20%;
                         position: absolute;
                         transform: translateY(-50%);
                         display: inline-block;
                         content: url(/static/imgs/shiba.svg);
+                    }
+                    &:after{
+                        font-weight: 100;
+                        padding-left: 125px;
+                        font-size: 21px;
+                        content: "Zz";
                     }
                 }
                 table {
