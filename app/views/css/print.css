@@ -213,7 +213,7 @@
     border-bottom: double 4px black;
   }
   #page2 .rest .rest-ampm-container h3:before {
-    top: 48%;
+    top: 40%;
     right: -20%;
     position: absolute;
     transform: translateY(-50%);
