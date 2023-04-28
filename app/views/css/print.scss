@@ -188,49 +188,123 @@
         }
     }
     #page2 {
-        * {
-            outline: 1px dotted red;
-        }
+        // * {
+        //     outline: 1px dotted red;
+        // }
         display: block;
         margin: 30px 30px;
         width: 94%;
         h2 {
             display: inline;
             padding: 3px 5px;
+            border-left: 2px solid black;
         }
         .rest {
             display: flex;
             .rest-ampm-container {
-                margin: 10px 10px;
+                margin: 10px 20px;
+                width: 33%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
                 h3 {
+                    position: relative;
                     text-align: center;
-                    margin: 8px auto;
-                    padding: 2px 4px;
-                }
-                p {
-                    margin: 0 0;
-                    white-space: nowrap;
-                }
-                th{
-                    font-weight: 600;
-                    p{
-                        font-weight: 500;
+                    padding: 0.25em 1em;
+                    margin: 0px auto 8px auto;
+                    width: 40%;
+                    border-top: solid 1px black;
+                    border-bottom: solid 1px black;
+                    &:before,
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        top: -7px;
+                        width: 2px;
+                        height: -webkit-calc(100% + 14px);
+                        height: calc(100% + 14px);
+                        background-color: black;
+                    }
+                    &:before {
+                        left: 7px;
+                    }
+                    &:after {
+                        right: 7px;
                     }
                 }
-                td {
-                    width: 80%;
-                    font-family: "Chakra Petch", sans-serif;
-                    font-family: "Kaisei Opti", serif;
-                    font-family: "Klee One", cursive;
-                    font-family: "M PLUS Rounded 1c", sans-serif;
-                    font-family: "Noto Serif JP", serif;
-                    font-family: "Pacifico", cursive;
-                    font-family: "Roboto Condensed", sans-serif;
-                    font-family: "Zen Old Mincho", serif;
-                    font-size: 16px;
-                    padding: 5px 10px;
-                    &.td-title{
-                        text-align: center;
+
+                table {
+                    &.rest-tbl-design {
+                        margin: 0 auto;
+                        border: none;
+                        border-collapse: separate;
+                        border-spacing: 0 0px;
+                        background: #f5f5f5;
+                        border-top: solid 1px #000000;
+                        th {
+                            vertical-align: middle;
+                            height: 53px;
+                            width: 124px;
+                            border-bottom: solid 1px #000000;
+                            margin: 0;
+                            text-align: center;
+                            color: #333;
+                            font-size: 16px;
+                            font-weight: bold;
+                            position: relative;
+                            font-weight: 600;
+                            &:after {
+                                left: 92%;
+                                top: 50%;
+                                position: absolute;
+                                transform: translateY(-50%) rotate(90deg);
+                                display: inline-block;
+                                font-size: 1px;
+                                content: "...........";
+                            }
+                            &:before {
+                                right: 98%;
+                                top: 50%;
+                                position: absolute;
+                                transform: translateY(-50%);
+                                content: "";
+                                background-image: url(/static/imgs/coffee.svg);
+                                width: 40px;
+                                height: 40px;
+                                display: inline-block;
+                            }
+                            p {
+                                font-weight: 500;
+                                margin: 0 0;
+                                white-space: nowrap;
+                                border-top: 1px dotted black;
+                            }
+                        }
+                        td {
+                            width: 80%;
+                            font-family: "Chakra Petch", sans-serif;
+                            font-family: "Kaisei Opti", serif;
+                            font-family: "Klee One", cursive;
+                            font-family: "M PLUS Rounded 1c", sans-serif;
+                            font-family: "Noto Serif JP", serif;
+                            font-family: "Pacifico", cursive;
+                            font-family: "Roboto Condensed", sans-serif;
+                            font-family: "Zen Old Mincho", serif;
+                            font-size: 16px;
+                            padding-left: 15px;
+                            border-bottom: solid 1px #000000;
+                            letter-spacing: 0.05em;
+                            border-right: 1px solid black;
+
+                            &.td-title {
+                                font-family: none;
+                                text-align: center;
+                                font-size: 16px;
+                                font-weight: bold;
+                                position: relative;
+                                font-weight: 600;
+                            }
+                        }
                     }
                 }
             }
