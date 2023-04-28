@@ -111,6 +111,7 @@
                             color: #000000;
                             line-height: 1em;
                             text-align: center;
+                            white-space: nowrap;
                             display: inline-block; /* インラインブロック要素にする */
                             vertical-align: center; /* ベースラインに合わせる */
                             padding: 0; /* パディングを0に設定 */
@@ -239,7 +240,7 @@
                         border: none;
                         border-collapse: separate;
                         border-spacing: 0 0px;
-                        background: #f5f5f5;
+                        background: #ffffff;
                         border-top: solid 1px #000000;
                         th {
                             vertical-align: middle;
