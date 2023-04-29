@@ -8,10 +8,17 @@
     //     outline: 1px red solid;
     // }
     #page1 {
+        // * {
+        //     outline: 1px red solid;
+        // }
         margin: 0;
-        size: 297mm 210mm;
+        // size: 297mm 210mm;
         page-break-after: always;
-
+        display: block;
+        margin: 3px;
+        // width: 1200px;
+        width: 297mm;
+        height: 210mm;
         .wrapper {
             .box2 {
                 display: none;
@@ -29,17 +36,12 @@
                 padding: 0;
             }
             display: flex;
-            margin: 10px;
-            width: 1200px;
-            // height: 841;
-            // outline: 1px red solid;
-            font-size: 11px;
             tbody {
                 tr {
                     .jobName {
-                        width: 24%;
-                        height: 33px;
-                        font-size: 15px;
+                        width: 33%;
+                        height: 30px;
+                        font-size: 13px;
                         font-weight: 700;
                         position: relative;
                         padding: 0.3em 0 0.3em 1em;
@@ -82,7 +84,7 @@
                         padding-left: 10px;
                         &:before {
                             position: absolute;
-                            
+
                             transform: rotate(15deg);
                             content: "☆";
                         }
@@ -183,12 +185,14 @@
                 margin: 0px;
                 padding: 0px;
                 background-color: rgb(255, 255, 255);
-
                 .pjs-item {
                     font-size: 10px;
-                    border-bottom: 1px dotted black;
+                    border-bottom: none;
                     background: none; /*背景色*/
                     white-space: nowrap;
+                    &:before{
+                        content: "☆";
+                    }
                     .AmPm {
                         display: none;
                     }
@@ -208,10 +212,11 @@
         //     outline: 1px dotted red;
         // }
         display: block;
-        margin: 30px 30px;
-        size: 297mm 210mm;
-        width: 1200px;
-
+        margin: 5px;
+        // size: 297mm 210mm;
+        // width: 1200px;
+        width: 297mm;
+        height: 210mm;
         h2 {
             display: inline;
             padding: 3px 5px;
