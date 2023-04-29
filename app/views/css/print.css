@@ -6,16 +6,19 @@
   body {
     margin: 0;
   }
+  body * {
+    outline: 1px red solid;
+  }
   #page1 {
     margin: 0;
     page-break-after: always;
     display: block;
-    width: 297mm;
-    height: 210mm;
+    width: 1200px;
     page-break-before: avoid;
     page-break-after: avoid;
   }
   #page1 .wrapper {
+    height: 100vh;
     display: flex;
   }
   #page1 .wrapper .box2 {
@@ -191,8 +194,6 @@
     display: block;
     margin: 3px;
     width: 1200px;
-    page-break-before: avoid;
-    page-break-after: avoid;
   }
   #page2 h2 {
     display: inline;
