@@ -6,9 +6,6 @@
   body {
     margin: 0;
   }
-  body * {
-    outline: 1px red solid;
-  }
   #page1 {
     margin: 0;
     page-break-after: always;
@@ -18,7 +15,6 @@
     page-break-after: avoid;
   }
   #page1 .wrapper {
-    height: 100vh;
     display: flex;
   }
   #page1 .wrapper .box2 {
