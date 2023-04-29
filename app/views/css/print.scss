@@ -38,7 +38,7 @@
                 tr {
                     .jobName {
                         width: 24%;
-                        height: 33px;
+                        height: 40px;
                         font-size: 15px;
                         font-weight: 700;
                         position: relative;
@@ -129,6 +129,7 @@
                             margin: 0; /* マージンを0に設定 */
                             border: none;
                             box-shadow: none;
+                            // height: 33px;
                         }
 
                         span {
