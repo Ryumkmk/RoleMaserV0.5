@@ -11,8 +11,6 @@
     page-break-after: always;
     display: block;
     width: 1200px;
-    page-break-before: avoid;
-    page-break-after: avoid;
   }
   #page1 .wrapper {
     display: flex;
@@ -108,7 +106,7 @@
     font-family: "Pacifico", cursive;
     font-family: "Roboto Condensed", sans-serif;
     font-family: "Zen Old Mincho", serif;
-    font-weight: 900;
+    font-weight: 700;
     font-size: 16px;
     color: #000000;
     line-height: 1em;
@@ -188,7 +186,7 @@
   }
   #page2 {
     display: block;
-    margin: 3px;
+    margin: 10px;
     width: 1200px;
   }
   #page2 h2 {
