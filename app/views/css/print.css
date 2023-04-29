@@ -85,19 +85,6 @@
     content: "・・・";
   }
   #page1 .wrapper tbody tr td {
-    border-bottom: 1px #000000 solid;
-    border-left: 1px #000000 dotted;
-    border-right: 1px #000000 solid;
-    background-color: rgb(255, 255, 255);
-    border-radius: 0px;
-    text-align: center;
-    position: relative;
-  }
-  #page1 .wrapper tbody tr td .dotted {
-    display: inline;
-    color: #000000;
-  }
-  #page1 .wrapper tbody tr td div {
     font-family: "Chakra Petch", sans-serif;
     font-family: "Kaisei Opti", serif;
     font-family: "Klee One", cursive;
@@ -108,11 +95,22 @@
     font-family: "Zen Old Mincho", serif;
     font-weight: 700;
     font-size: 16px;
+    border-bottom: 1px #000000 solid;
+    border-left: 1px #000000 dotted;
+    border-right: 1px #000000 solid;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0px;
+    width: 80%;
+    text-align: center;
+    position: relative;
+  }
+  #page1 .wrapper tbody tr td .dotted {
+    display: inline;
+    color: #000000;
+  }
+  #page1 .wrapper tbody tr td div {
     color: #000000;
     line-height: 1em;
-    text-align: center;
-    display: inline-block; /* インラインブロック要素にする */
-    vertical-align: center; /* ベースラインに合わせる */
     padding: 0; /* パディングを0に設定 */
     margin: 0; /* マージンを0に設定 */
     border: none;
@@ -136,6 +134,7 @@
   #page1 .wrapper tbody tr .small-td {
     border: none;
     text-align: left;
+    display: flex;
   }
   #page1 .wrapper tbody tr .date-print {
     border-bottom: 1px solid #000000;

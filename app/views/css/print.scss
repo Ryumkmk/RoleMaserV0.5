@@ -100,37 +100,36 @@
                         }
                     }
                     td {
+                        font-family: "Chakra Petch", sans-serif;
+                        font-family: "Kaisei Opti", serif;
+                        font-family: "Klee One", cursive;
+                        font-family: "M PLUS Rounded 1c", sans-serif;
+                        font-family: "Noto Serif JP", serif;
+                        font-family: "Pacifico", cursive;
+                        font-family: "Roboto Condensed", sans-serif;
+                        font-family: "Zen Old Mincho", serif;
+                        font-weight: 700;
+                        font-size: 16px;
                         border-bottom: 1px #000000 solid;
                         border-left: 1px #000000 dotted;
                         border-right: 1px #000000 solid;
                         background-color: rgb(255, 255, 255);
                         border-radius: 0px;
+                        width: 80%;
                         text-align: center;
                         position: relative;
                         .dotted {
                             display: inline;
                             color: #000000;
                         }
-
                         div {
                             // width: 76%;
                             // vertical-align: middle;
-                            font-family: "Chakra Petch", sans-serif;
-                            font-family: "Kaisei Opti", serif;
-                            font-family: "Klee One", cursive;
-                            font-family: "M PLUS Rounded 1c", sans-serif;
-                            font-family: "Noto Serif JP", serif;
-                            font-family: "Pacifico", cursive;
-                            font-family: "Roboto Condensed", sans-serif;
-                            font-family: "Zen Old Mincho", serif;
-                            font-weight: 700;
-                            font-size: 16px;
                             color: #000000;
                             line-height: 1em;
-                            text-align: center;
                             // white-space: nowrap;
-                            display: inline-block; /* インラインブロック要素にする */
-                            vertical-align: center; /* ベースラインに合わせる */
+                            // display: inline-block; /* インラインブロック要素にする */
+                            // vertical-align: center; /* ベースラインに合わせる */
                             padding: 0; /* パディングを0に設定 */
                             margin: 0; /* マージンを0に設定 */
                             border: none;
@@ -157,6 +156,7 @@
                     .small-td {
                         border: none;
                         text-align: left;
+                        display: flex;
                     }
                     .date-print {
                         border-bottom: 1px solid #000000;
