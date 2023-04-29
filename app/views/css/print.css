@@ -113,7 +113,6 @@
     border: none;
     text-align: left;
     white-space: nowrap;
-    border-bottom: 1px dotted black;
   }
   #page1 .wrapper tbody tr td.small-td div {
     white-space: nowrap;
