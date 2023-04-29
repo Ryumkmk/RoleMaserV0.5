@@ -109,6 +109,21 @@
     border: none;
     box-shadow: none;
   }
+  #page1 .wrapper tbody tr td.small-td {
+    border: none;
+    text-align: left;
+    white-space: nowrap;
+    border-bottom: 1px dotted black;
+  }
+  #page1 .wrapper tbody tr td.small-td div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+  }
+  #page1 .wrapper tbody tr td.small-td div:after {
+    content: "  ";
+  }
   #page1 .wrapper tbody tr td span {
     line-height: 1em;
     display: inline-block; /* インラインブロック要素にする */
@@ -123,11 +138,6 @@
     border-top: 1px dotted black;
     border-bottom: 1px solid #000000;
     border-radius: 0px;
-  }
-  #page1 .wrapper tbody tr .small-td {
-    border: none;
-    text-align: left;
-    display: flex;
   }
   #page1 .wrapper tbody tr .date-print {
     border-bottom: 1px solid #000000;

@@ -119,6 +119,21 @@
                             box-shadow: none;
                             // height: 33px;
                         }
+                        &.small-td {
+                            border: none;
+                            text-align: left;
+                            white-space: nowrap;
+                            border-bottom: 1px dotted black;
+                            div {
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                display: inline-block;
+                                &:after{
+                                    content: "\00A0\00A0";
+                                }
+                            }
+                        }
 
                         span {
                             line-height: 1em;
@@ -136,11 +151,7 @@
                             border-radius: 0px;
                         }
                     }
-                    .small-td {
-                        border: none;
-                        text-align: left;
-                        display: flex;
-                    }
+
                     .date-print {
                         border-bottom: 1px solid #000000;
                         border-left: 1px solid #000000;
