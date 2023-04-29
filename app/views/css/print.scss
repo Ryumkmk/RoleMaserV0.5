@@ -1,6 +1,6 @@
 @page {
-    margin: 0;
-    size: 297mm 210mm;
+    // margin: 0;
+    // size: 297mm 210mm;
 }
 
 @media print {
@@ -15,10 +15,12 @@
         // size: 297mm 210mm;
         page-break-after: always;
         display: block;
-        margin: 3px;
+        // margin: 3px;
         // width: 1200px;
         width: 297mm;
         height: 210mm;
+        page-break-before: avoid;
+        page-break-after: avoid;
         .wrapper {
             .box2 {
                 display: none;
@@ -40,7 +42,7 @@
                 tr {
                     .jobName {
                         width: 33%;
-                        height: 30px;
+                        height: 26px;
                         font-size: 13px;
                         font-weight: 700;
                         position: relative;
@@ -170,6 +172,7 @@
                 margin-bottom: 0;
                 padding-bottom: 0;
             }
+
             .PM {
                 width: 48%;
                 margin-left: 0px;
@@ -190,7 +193,7 @@
                     border-bottom: none;
                     background: none; /*背景色*/
                     white-space: nowrap;
-                    &:before{
+                    &:before {
                         content: "☆";
                     }
                     .AmPm {
@@ -216,7 +219,9 @@
         // size: 297mm 210mm;
         // width: 1200px;
         width: 297mm;
-        height: 210mm;
+        height: 200mm;
+        page-break-before: avoid;
+        page-break-after: avoid;
         h2 {
             display: inline;
             padding: 3px 5px;
