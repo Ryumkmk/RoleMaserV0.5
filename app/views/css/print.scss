@@ -11,6 +11,7 @@
         margin: 0;
         size: 297mm 210mm;
         page-break-after: always;
+
         .wrapper {
             .box2 {
                 display: none;
@@ -28,15 +29,17 @@
                 padding: 0;
             }
             display: flex;
-            margin: 20px;
-            width: 1190px;
+            margin: 10px;
+            width: 1200px;
+            // height: 841;
+            // outline: 1px red solid;
             font-size: 11px;
             tbody {
                 tr {
                     .jobName {
                         width: 24%;
-                        height: 24px;
-                        font-size: 13px;
+                        height: 33px;
+                        font-size: 15px;
                         font-weight: 700;
                         position: relative;
                         padding: 0.3em 0 0.3em 1em;
@@ -66,18 +69,20 @@
                             background: #000000;
                             content: "〇";
                         }
-                        
                     }
                     .small-jobname {
+                        // outline: 1px red solid;
                         font-size: 8px;
                         border: none;
                         color: #000000;
-                        padding: 0;
+                        // display: inline;
                         text-align: left;
                         position: relative;
+                        padding: 0;
                         padding-left: 10px;
                         &:before {
                             position: absolute;
+                            
                             transform: rotate(15deg);
                             content: "☆";
                         }
@@ -100,7 +105,7 @@
                             display: inline;
                             color: #000000;
                         }
-                        
+
                         div {
                             // width: 76%;
                             // vertical-align: middle;
@@ -132,13 +137,11 @@
                             vertical-align: center; /* ベースラインに合わせる */
                             font-size: 12px;
                             font-weight: 700;
-                            padding: 0; /* パディングを0に設定 */
+                            padding: 1px 3px; /* パディングを0に設定 */
                             margin: 0; /* マージンを0に設定 */
-                            padding-left: 3px;
-                            border-left: 1px solid #000000;
+                            border: 1px dotted #000000;
                         }
                         &.ampm {
-                            
                             border-top: 1px dotted black;
                             border-bottom: 1px solid #000000;
                             border-radius: 0px;
@@ -151,7 +154,7 @@
                     .date-print {
                         border-bottom: 1px solid #000000;
                         border-left: 1px solid #000000;
-                        border-top: 1px dotted black ;
+                        border-top: 1px dotted black;
                         font-size: 18px;
                         border-radius: 0px;
                     }
@@ -206,7 +209,7 @@
         display: block;
         margin: 30px 30px;
         size: 297mm 210mm;
-        width: 1190px;
+        width: 1200px;
 
         h2 {
             display: inline;
@@ -240,7 +243,7 @@
                         display: inline-block;
                         content: url(/static/imgs/shiba.svg);
                     }
-                    &:after{
+                    &:after {
                         font-weight: 100;
                         padding-left: 125px;
                         font-size: 21px;

@@ -11,8 +11,8 @@
   }
   #page1 .wrapper {
     display: flex;
-    margin: 20px;
-    width: 1190px;
+    margin: 10px;
+    width: 1200px;
     font-size: 11px;
   }
   #page1 .wrapper .box2 {
@@ -32,8 +32,8 @@
   }
   #page1 .wrapper tbody tr .jobName {
     width: 24%;
-    height: 24px;
-    font-size: 13px;
+    height: 33px;
+    font-size: 15px;
     font-weight: 700;
     position: relative;
     padding: 0.3em 0 0.3em 1em;
@@ -67,9 +67,9 @@
     font-size: 8px;
     border: none;
     color: #000000;
-    padding: 0;
     text-align: left;
     position: relative;
+    padding: 0;
     padding-left: 10px;
   }
   #page1 .wrapper tbody tr .small-jobname:before {
@@ -124,10 +124,9 @@
     vertical-align: center; /* ベースラインに合わせる */
     font-size: 12px;
     font-weight: 700;
-    padding: 0; /* パディングを0に設定 */
+    padding: 1px 3px; /* パディングを0に設定 */
     margin: 0; /* マージンを0に設定 */
-    padding-left: 3px;
-    border-left: 1px solid #000000;
+    border: 1px dotted #000000;
   }
   #page1 .wrapper tbody tr td.ampm {
     border-top: 1px dotted black;
@@ -186,7 +185,7 @@
     display: block;
     margin: 30px 30px;
     size: 297mm 210mm;
-    width: 1190px;
+    width: 1200px;
   }
   #page2 h2 {
     display: inline;
