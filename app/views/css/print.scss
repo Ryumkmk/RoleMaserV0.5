@@ -1,12 +1,12 @@
 @page {
-    // margin: 0;
+    margin: 0;
     // size: 297mm 210mm;
 }
 
 @media print {
-    // body * {
-    //     outline: 1px red solid;
-    // }
+    body {
+        margin: 0;
+    }
     #page1 {
         // * {
         //     outline: 1px red solid;
@@ -215,11 +215,11 @@
         //     outline: 1px dotted red;
         // }
         display: block;
-        margin: 5px;
+        margin: 3px;
         // size: 297mm 210mm;
-        // width: 1200px;
-        width: 297mm;
-        height: 200mm;
+        width: 1200px;
+        // width: 297mm;
+        // height: 200mm;
         page-break-before: avoid;
         page-break-after: avoid;
         h2 {
