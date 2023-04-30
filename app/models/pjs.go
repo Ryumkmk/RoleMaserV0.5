@@ -139,7 +139,6 @@ func getShiftDayPjNum(f *excelize.File, sheetName string, day string) (Nums []in
 				//出勤時間と退勤時間を取得
 				startString := strings.TrimSpace(timeString[:index])
 				endString := strings.TrimSpace(timeString[index+1:])
-
 				startT := string(startString[0])
 				endT := string(endString[0])
 				// fmt.Printf("%v,%v\n", startT, endT)
