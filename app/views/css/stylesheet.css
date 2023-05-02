@@ -295,6 +295,13 @@
 .wrapper footer .button_solid015 button {
   margin: 0 5px;
 }
+.wrapper footer .trainer-typing {
+  margin: 5px auto;
+}
+.wrapper footer .trainer-typing button {
+  font-size: 12px;
+  padding: 6px 10px;
+}
 .wrapper .sub-space p {
   display: none;
 }

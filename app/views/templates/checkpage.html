@@ -91,7 +91,7 @@
                                 {{if ne .RoleName "parkkeeper1"}}{{else}}{{.PjName}}{{end}}
                                 {{end}}
                             </div>
-                            
+
                             <div class="parkkeeper2">
                                 {{range .Roles}}
                                 {{if ne .RoleName "parkkeeper2"}}{{else}}{{.PjName}}{{end}}
@@ -262,7 +262,7 @@
                                 {{if ne .RoleName "alreception1"}}{{else}}{{.PjName}}{{end}}
                                 {{end}}
                             </div>
-                            
+
 
                             <div class="alreception2">
                                 {{range .Roles}}
@@ -279,7 +279,7 @@
                                 {{if ne .RoleName "chreception1"}}{{else}}{{.PjName}}{{end}}
                                 {{end}}
                             </div>
-                            
+
 
                             <div class="chreception2">
                                 {{range .Roles}}
@@ -296,7 +296,7 @@
                                 {{if ne .RoleName "towel1"}}{{else}}{{.PjName}}{{end}}
                                 {{end}}
                             </div>
-                            
+
 
                             <div class="towel2">
                                 {{range .Roles}}
@@ -389,7 +389,7 @@
                                 {{if ne .RoleName "parkkeeper1P"}}{{else}}{{.PjName}}{{end}}
                                 {{end}}
                             </div>
-                            
+
 
                             <div class="parkkeeper2P">
                                 {{range .Roles}}
@@ -561,7 +561,7 @@
                                 {{if ne .RoleName "alreception1P"}}{{else}}{{.PjName}}{{end}}
                                 {{end}}
                             </div>
-                            
+
 
                             <div class="alreception2P">
                                 {{range .Roles}}
@@ -578,7 +578,7 @@
                                 {{if ne .RoleName "chreception1P"}}{{else}}{{.PjName}}{{end}}
                                 {{end}}
                             </div>
-                            
+
 
                             <div class="chreception2P">
                                 {{range .Roles}}
@@ -595,7 +595,7 @@
                                 {{if ne .RoleName "towel1P"}}{{else}}{{.PjName}}{{end}}
                                 {{end}}
                             </div>
-                            
+
                             <div class="towel2P">
                                 {{range .Roles}}
                                 {{if ne .RoleName "towel2P"}}{{else}}{{.PjName}}{{end}}
@@ -767,6 +767,25 @@
                 </tbody>
             </table>
         </div>
+    </div>
+    <div class="trainer-trainee-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>トレーナー</th>
+                    <th>トレーニー</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range .Roles}}
+                    {{if (strings.Contains .RoleName "trainer")}}
+                        <tr>
+                            <td>{{.PjName}}</td>
+                        </tr>
+                    {{end}}
+                {{end}}
+            </tbody>
+        </table>
     </div>
 </div>
 {{end}}
