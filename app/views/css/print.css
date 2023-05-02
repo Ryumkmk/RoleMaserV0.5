@@ -194,6 +194,7 @@
     white-space: nowrap;
     border: none !important;
     font-size: 13px !important;
+    color: #000000;
   }
   #page1 .trainer-trainee-container tbody td.trainer-name-check {
     margin-right: 2px;

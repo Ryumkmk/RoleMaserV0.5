@@ -313,9 +313,9 @@
                 margin: 0 5px;
             }
         }
-        .trainer-typing{
+        .trainer-typing {
             margin: 5px auto;
-            button{
+            button {
                 font-size: 12px;
                 padding: 6px 10px;
             }
@@ -417,7 +417,13 @@
             box-shadow: 0 15px 30px -5px rgb(0 0 0 / 15%), 0 0 5px rgb(0 0 0 / 10%);
         }
     }
+    .trainer-trainee-container {
+        td {
+            font-weight: 600;
+            color: rgb(221, 120, 120);
+        }
+    }
 }
-#page2{
+#page2 {
     display: none;
 }
