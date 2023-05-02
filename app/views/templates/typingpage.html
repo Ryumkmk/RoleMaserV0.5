@@ -51,19 +51,40 @@
                         </td>
                     </tr>
                     <tr>
-                        <th class="jobName">門番/駐車場</th>
+                        <th class="jobName">門番/駐車場
+                            <div class="balloonoya" onclick="showBalloon('makeImg1')">
+                                <img src="/static/imgs/questionicon.svg" width="14px">
+                                <span class="balloonnone" id="makeImg1">
+                                    第一駐車場は基本１人
+                                    新人は第二駐車場をまずは覚える
+                                    慣れてきた子は第一駐車場２人（新人×先輩）体制で！
+                                    →その時の第二駐車場は先輩PJ1人でやる
+                                    </span>
+                            </div>
+                        </th>
                         <td><input type="text" name="gatekeeper"><span>第一</span></td>
                         <td><input type="text" name="parkkeeper1">
                             <input type="text" name="parkkeeper2"><span>第二</span>
                         </td>
                     </tr>
                     <tr>
-                        <th class="jobName">クローク</th>
+                        <th class="jobName">クローク
+                            <div class="balloonoya" onclick="showBalloon('makeImg2')">
+                                <img src="/static/imgs/questionicon.svg" width="14px">
+                                <span class="balloonnone" id="makeImg2">初めてドリカンをする子はドリンク聞きから！
+                                    慣れてきたら新人が作成（先輩は聞き且つ見守る役）
+                                    大人数（６０名～）はドリカンサブが絶対必要
+                                    少人数の時は入って日が浅い子を優先的にドリカンへ
+                                    →おちついて慣れてもらうため
+                                    </span>
+                            </div>
+                        </th>
                         <td colspan="2"><input type="text" name="cloak"></td>
                     </tr>
                     <tr>
                         <th class="jobName">クロークサブ</th>
                         <td colspan="2"><input type="text" name="cloaksub"></td>
+
                     </tr>
                     <tr>
                         <th class="jobName">コーヒー＆デトックス</th>
@@ -282,7 +303,7 @@
                     </tr>
                 </tbody>
             </table>
-            <footer class = "treiner-typing">
+            <footer class="treiner-typing">
                 <div class="button_solid015 trainer-typing">
                     <button type="button" id="add-btn">追加</button>
                     <button type="button" id="delete-btn">削除</button>

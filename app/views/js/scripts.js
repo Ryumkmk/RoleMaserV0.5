@@ -31,6 +31,15 @@ function checkInstalled() {
     }
 }
 
+function showBalloon(id) {
+    var wObjballoon = document.getElementById(id);
+    if (wObjballoon.className == "balloonnone") {
+        wObjballoon.className = "balloon";
+    } else {
+        wObjballoon.className = "balloonnone";
+    }
+}
+
 window.addEventListener("load", function () {
     checkInstalled();
 });

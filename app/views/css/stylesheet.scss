@@ -79,6 +79,43 @@
         border-bottom: 2px double #53a5e0;
     }
     tbody {
+        th {
+           
+            .balloonoya {
+                position: relative; /* 指定した分だけ相対的に移動 */
+                cursor: pointer; /* カーソルをポインターで表示 */
+                display: inline-block;
+                span{
+                    color: #000d86;
+                }
+                img {
+                    vertical-align: middle;
+                    padding: 2px;
+                  }
+            }
+            .balloonnone {
+                display: none;
+            }
+            .balloon {
+                position: absolute; /* 親要素を基準 */
+                display: inline; /* 要素をインラインとして表示 */
+                padding: 2px; /* テキストの前後の余白 */
+                background-color: rgb(255, 255, 26); /* 背景色（透明度） */
+                width: 180px; /* 吹き出し全体の幅 */
+                left: 130%; /* 表示位置 */
+                font-size: 80%; /* 文字サイズ */
+                border-radius: 5px;
+                &:after {
+                    border-right: 12px solid rgb(255, 255, 26); /* 吹き出し口の幅・色 */
+                    border-top: 10px solid transparent; /* 吹き出し口の高さ１／２ */
+                    border-bottom: 10px solid transparent; /* 吹き出し口の高さ１／２ */
+                    left: -12px; /* 吹き出し口の位置調整 */
+                    top: 5%; /* 吹き出し口の縦位置 */
+                    content: ""; /* コンテンツの挿入 */
+                    position: absolute; /* 親要素を基準 */
+                }
+            }
+        }
         tr {
             .date-print {
                 &:before,
