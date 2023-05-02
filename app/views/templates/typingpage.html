@@ -46,20 +46,28 @@
                         </td>
                     </tr>
                     <tr>
-                        <th class="jobName">リターンリーダー</th>
+                        <th class="jobName">リターンリーダー
+                            <div class="balloonoya" onclick="showBalloon('makeImg1')">
+                                <img src="/static/imgs/questionicon.svg" width="14px">
+                                <span class="balloonnone" id="makeImg1">
+                                    ここはベテランのみ！<br>
+                                    もしくは中堅層PJとベテランPJで組んで指示出しの仕方をあげる
+                                </span>
+                            </div>
+                        </th>
                         <td colspan="2"><input type="text" name="returnleader">
                         </td>
                     </tr>
                     <tr>
                         <th class="jobName">門番/駐車場
-                            <div class="balloonoya" onclick="showBalloon('makeImg1')">
+                            <div class="balloonoya" onclick="showBalloon('makeImg2')">
                                 <img src="/static/imgs/questionicon.svg" width="14px">
-                                <span class="balloonnone" id="makeImg1">
-                                    第一駐車場は基本１人
-                                    新人は第二駐車場をまずは覚える
-                                    慣れてきた子は第一駐車場２人（新人×先輩）体制で！
+                                <span class="balloonnone" id="makeImg2">
+                                    第一駐車場は基本１人<br>
+                                    新人は第二駐車場をまずは覚える<br>
+                                    慣れてきた子は第一駐車場２人(新人×先輩)体制で！<br>
                                     →その時の第二駐車場は先輩PJ1人でやる
-                                    </span>
+                                </span>
                             </div>
                         </th>
                         <td><input type="text" name="gatekeeper"><span>第一</span></td>
@@ -69,14 +77,12 @@
                     </tr>
                     <tr>
                         <th class="jobName">クローク
-                            <div class="balloonoya" onclick="showBalloon('makeImg2')">
+                            <div class="balloonoya" onclick="showBalloon('makeImg3')">
                                 <img src="/static/imgs/questionicon.svg" width="14px">
-                                <span class="balloonnone" id="makeImg2">初めてドリカンをする子はドリンク聞きから！
-                                    慣れてきたら新人が作成（先輩は聞き且つ見守る役）
-                                    大人数（６０名～）はドリカンサブが絶対必要
-                                    少人数の時は入って日が浅い子を優先的にドリカンへ
-                                    →おちついて慣れてもらうため
-                                    </span>
+                                <span class="balloonnone" id="makeImg3">
+                                    新人はまずクロークから！<br>
+                                    大人数の時や新人x中堅PJの時はクロークサブをつける
+                                </span>
                             </div>
                         </th>
                         <td colspan="2"><input type="text" name="cloak"></td>
@@ -87,11 +93,29 @@
 
                     </tr>
                     <tr>
-                        <th class="jobName">コーヒー＆デトックス</th>
+                        <th class="jobName">コーヒー＆デトックス
+                            <div class="balloonoya" onclick="showBalloon('makeImg4')">
+                                <img src="/static/imgs/questionicon.svg" width="14px">
+                                <span class="balloonnone" id="makeImg4">
+                                    アぺや水係がやる事多いと思う
+                                </span>
+                            </div>
+                        </th>
                         <td colspan="2"><input type="text" name="coffee"></td>
                     </tr>
                     <tr>
-                        <th class="jobName">ドリカン両親係</th>
+                        <th class="jobName">ドリカン両親係
+                            <div class="balloonoya" onclick="showBalloon('makeImg5')">
+                                <img src="/static/imgs/questionicon.svg" width="14px">
+                                <span class="balloonnone" id="makeImg5">
+                                    初めてドリカンをする子はドリンク聞きから！<br>
+                                    慣れてきたら新人が作成（先輩は聞き且つ見守る役）<br>
+                                    大人数（６０名～）はドリカンサブが絶対必要<br>
+                                    少人数の時は入って日が浅い子を優先的にドリカンへ
+                                    →おちついて慣れてもらうため
+                                </span>
+                            </div>
+                        </th>
                         <td><input type="text" name="drinkmain"><span>作&郎側</span></td>
                         <td><input type="text" name="drinksub"><span>聞&婦側</span></td>
                     </tr>
@@ -100,12 +124,28 @@
                         <td colspan="2"><input type="text" name="drinksubsub"></td>
                     </tr>
                     <tr>
-                        <th class="jobName">シャンパン＆ワイン</th>
+                        <th class="jobName">シャンパン＆ワイン
+                            <div class="balloonoya" onclick="showBalloon('makeImg6')">
+                                <img src="/static/imgs/questionicon.svg" width="14px">
+                                <span class="balloonnone" id="makeImg6">
+                                    どうしても人が足りない時はクローク係がここもする<br>
+                                    乾杯準備に間に合わせれるよう絶対先輩×新人で！<br>
+                                    不安そうな子がシャンパンデビューする時は絶対見守ってあげる
+                                </span>
+                            </div>
+                        </th>
                         <td><input type="text" name="champagne1"></td>
                         <td><input type="text" name="champagne2"></td>
                     </tr>
                     <tr>
-                        <th class="jobName">シルバー＆ワイン</th>
+                        <th class="jobName">シルバー＆ワイン
+                            <div class="balloonoya" onclick="showBalloon('makeImg7')">
+                                <img src="/static/imgs/questionicon.svg" width="14px">
+                                <span class="balloonnone" id="makeImg7">
+                                    慣れてきた新人PJはワイン係を教えてあげる
+                                </span>
+                            </div>
+                        </th>
                         <td><input type="text" name="silver1">
                         </td>
                         <td><input type="text" name="silver2">
@@ -198,19 +238,45 @@
                         </td>
                     </tr>
                     <tr>
-                        <th class="jobName">リターンリーダー</th>
+                        <th class="jobName">リターンリーダー
+                            <div class="balloonoya" onclick="showBalloon('makeImg11')">
+                                <img src="/static/imgs/questionicon.svg" width="14px">
+                                <span class="balloonnone" id="makeImg11">
+                                    ここはベテランのみ！<br>
+                                    もしくは中堅層PJとベテランPJで組んで指示出しの仕方をあげる
+                                </span>
+                            </div>
+                        </th>
                         <td colspan="2"><input type="text" name="returnleaderP">
                         </td>
                     </tr>
                     <tr>
-                        <th class="jobName">門番/駐車場</th>
+                        <th class="jobName">門番/駐車場
+                            <div class="balloonoya" onclick="showBalloon('makeImg12')">
+                                <img src="/static/imgs/questionicon.svg" width="14px">
+                                <span class="balloonnone" id="makeImg12">
+                                    第一駐車場は基本１人<br>
+                                    新人は第二駐車場をまずは覚える<br>
+                                    慣れてきた子は第一駐車場２人(新人×先輩)体制で！<br>
+                                    →その時の第二駐車場は先輩PJ1人でやる
+                                </span>
+                            </div>
+                        </th>
                         <td><input type="text" name="gatekeeperP"><span>第一</span></td>
                         <td><input type="text" name="parkkeeper1P">
                             <input type="text" name="parkkeeper2P"><span>第二</span>
                         </td>
                     </tr>
                     <tr>
-                        <th class="jobName">クローク</th>
+                        <th class="jobName">クローク
+                            <div class="balloonoya" onclick="showBalloon('makeImg13')">
+                                <img src="/static/imgs/questionicon.svg" width="14px">
+                                <span class="balloonnone" id="makeImg13">
+                                    新人はまずクロークから！<br>
+                                    大人数の時や新人x中堅PJの時はクロークサブをつける
+                                </span>
+                            </div>
+                        </th>
                         <td colspan="2"><input type="text" name="cloakP"></td>
                     </tr>
                     <tr>
@@ -218,11 +284,29 @@
                         <td colspan="2"><input type="text" name="cloaksubP"></td>
                     </tr>
                     <tr>
-                        <th class="jobName">コーヒー＆デトックス</th>
+                        <th class="jobName">コーヒー＆デトックス
+                            <div class="balloonoya" onclick="showBalloon('makeImg14')">
+                                <img src="/static/imgs/questionicon.svg" width="14px">
+                                <span class="balloonnone" id="makeImg14">
+                                    アぺや水係がやる事多いと思う
+                                </span>
+                            </div>
+                        </th>
                         <td colspan="2"><input type="text" name="coffeeP"></td>
                     </tr>
                     <tr>
-                        <th class="jobName">ドリカン両親係</th>
+                        <th class="jobName">ドリカン両親係
+                            <div class="balloonoya" onclick="showBalloon('makeImg15')">
+                                <img src="/static/imgs/questionicon.svg" width="14px">
+                                <span class="balloonnone" id="makeImg15">
+                                    初めてドリカンをする子はドリンク聞きから！<br>
+                                    慣れてきたら新人が作成（先輩は聞き且つ見守る役）<br>
+                                    大人数（６０名～）はドリカンサブが絶対必要<br>
+                                    少人数の時は入って日が浅い子を優先的にドリカンへ
+                                    →おちついて慣れてもらうため
+                                </span>
+                            </div>
+                        </th>
                         <td><input type="text" name="drinkmainP"><span>作&郎側</span></td>
                         <td><input type="text" name="drinksubP"><span>聞&婦側</span></td>
                     </tr>
@@ -231,12 +315,28 @@
                         <td colspan="2"><input type="text" name="drinksubsubP"></td>
                     </tr>
                     <tr>
-                        <th class="jobName">シャンパン＆ワイン</th>
+                        <th class="jobName">シャンパン＆ワイン
+                            <div class="balloonoya" onclick="showBalloon('makeImg16')">
+                                <img src="/static/imgs/questionicon.svg" width="14px">
+                                <span class="balloonnone" id="makeImg16">
+                                    どうしても人が足りない時はクローク係がここもする<br>
+                                    乾杯準備に間に合わせれるよう絶対先輩×新人で！<br>
+                                    不安そうな子がシャンパンデビューする時は絶対見守ってあげる
+                                </span>
+                            </div>
+                        </th>
                         <td><input type="text" name="champagne1P"></td>
                         <td><input type="text" name="champagne2P"></td>
                     </tr>
                     <tr>
-                        <th class="jobName">シルバー＆ワイン</th>
+                        <th class="jobName">シルバー＆ワイン
+                            <div class="balloonoya" onclick="showBalloon('makeImg17')">
+                                <img src="/static/imgs/questionicon.svg" width="14px">
+                                <span class="balloonnone" id="makeImg17">
+                                    慣れてきた新人PJはワイン係を教えてあげる
+                                </span>
+                            </div>
+                        </th>
                         <td><input type="text" name="silver1P">
                         </td>
                         <td><input type="text" name="silver2P">
