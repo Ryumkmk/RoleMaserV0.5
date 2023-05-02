@@ -185,6 +185,24 @@
   #page1 .wrapper .pjs-list .pjs-item .Time {
     display: none;
   }
+  #page1 .trainer-trainee-container thead th {
+    font-size: 12px !important;
+    white-space: nowrap;
+    border-bottom: 3px double black !important;
+  }
+  #page1 .trainer-trainee-container tbody td {
+    white-space: nowrap;
+    border: none !important;
+    font-size: 13px !important;
+  }
+  #page1 .trainer-trainee-container tbody td.trainer-name-check {
+    margin-right: 2px;
+    border-right: 1px dotted black !important;
+  }
+  #page1 .trainer-trainee-container tbody td.trainee-name-check {
+    margin-left: 2px;
+    border-left: 1px dotted black !important;
+  }
   #page2 {
     display: block;
     margin: 10px;

@@ -205,9 +205,32 @@
                 }
             }
         }
-        // .trainer-trainee-container{
+        .trainer-trainee-container{
+            thead{
+                th{
+                    font-size: 12px !important;
+                    white-space: nowrap;
+                    border-bottom: 3px double black !important;
+                }
+            }
+            tbody{
+                td{
+                    white-space: nowrap;
+                    border: none !important;
+                    font-size: 13px !important;  
+                    &.trainer-name-check{
+                        margin-right:2px ;
+                        border-right: 1px dotted black !important;
+                    }
+                    &.trainee-name-check{
+                        margin-left: 2px;
+                        border-left: 1px dotted black !important;
 
-        // }
+                    }
+
+                }
+            }
+        }
     }
     #page2 {
         // * {

@@ -618,8 +618,8 @@
                     {{range .Trainers}}
                     {{if or ( ne .TrainerName "") (ne .TraineeName "")}}
                     <tr>
-                        <td>{{.TrainerName}}</td>
-                        <td>{{.TraineeName}}</td>
+                        <td class = "trainer-name-check">{{.TrainerName}}</td>
+                        <td class = "trainee-name-check">{{.TraineeName}}</td>
                     </tr>
                     {{end}}
                     {{end}}
