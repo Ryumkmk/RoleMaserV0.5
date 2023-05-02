@@ -1,4 +1,26 @@
 
+const tapDeleteBalloon = document.getElementById("tap-delete-balloon");
+var balloonArray = [];
+
+if (tapDeleteBalloon) {
+    tapDeleteBalloon.addEventListener('click', function(event) {
+        // クリックされた要素が"balloonoya"クラスを持つ場合、fadeballon()関数を呼び出さない
+        if (!event.target.closest(".balloonoya")) {
+            fadeballon();
+        }
+    });
+}
+
+function fadeballon() {
+    // console.log(balloonArray)
+    for (let i = 0; i <= balloonArray.length; i++) {
+        var wObjballoon = document.getElementById(balloonArray[i]);
+        if (wObjballoon.className == "balloon") {
+            wObjballoon.className = "balloonnone";
+        } 
+    }
+}
+
 function copyValue(input, targetName, copyName) {
     var targetInput = input.closest(".AM").querySelectorAll("[name='" + targetName + "']")[0];
     var copyInput = input.closest(".AM").querySelectorAll("[name='" + copyName + "']")[0];
@@ -30,15 +52,22 @@ function checkInstalled() {
         document.getElementById("addToHomeScreenButton").style.display = "block";
     }
 }
-
 function showBalloon(id) {
     var wObjballoon = document.getElementById(id);
     if (wObjballoon.className == "balloonnone") {
         wObjballoon.className = "balloon";
+        balloonArray.push(id);
     } else {
         wObjballoon.className = "balloonnone";
+        var index = balloonArray.indexOf(id);
+        if (index !== -1) {
+            balloonArray.splice(index, 1); // idをballoonArrayから削除
+        }
     }
+    // console.log(balloonArray)
 }
+
+
 
 window.addEventListener("load", function () {
     checkInstalled();
