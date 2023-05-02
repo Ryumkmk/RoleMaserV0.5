@@ -606,6 +606,26 @@
                 </tbody>
             </table>
         </div>
+        <div class="trainer-trainee-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>トレーナー</th>
+                        <th>トレーニー</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{range .Trainers}}
+                    {{if or ( ne .TrainerName "") (ne .TraineeName "")}}
+                    <tr>
+                        <td>{{.TrainerName}}</td>
+                        <td>{{.TraineeName}}</td>
+                    </tr>
+                    {{end}}
+                    {{end}}
+                </tbody>
+            </table>
+        </div>
         <footer>
             <div class="button_solid015">
                 <button class="back-button" onclick="history.back()">戻る</button>
@@ -768,24 +788,6 @@
             </table>
         </div>
     </div>
-    <div class="trainer-trainee-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>トレーナー</th>
-                    <th>トレーニー</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{range .Roles}}
-                    {{if (strings.Contains .RoleName "trainer")}}
-                        <tr>
-                            <td>{{.PjName}}</td>
-                        </tr>
-                    {{end}}
-                {{end}}
-            </tbody>
-        </table>
-    </div>
+
 </div>
 {{end}}

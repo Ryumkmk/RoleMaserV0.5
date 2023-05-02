@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"strings"
 
 	"RMV0.5/app/models"
 )
@@ -61,11 +62,17 @@ func cheakPj(w http.ResponseWriter, r *http.Request) {
 	}
 	date := r.PostFormValue("date-form")
 	for n, v := range r.Form {
-		var role models.Role
-		role.PjName = v[0]
-		role.RoleName = n
-		whatJob.Roles = append(whatJob.Roles, role)
+		if strings.Contains(n, "trainer") || strings.Contains(n, "trainee") {
+			models.WhosTrainee(n, v[0], &whatJob.Trainers)
+		} else {
+			var role models.Role
+			role.PjName = v[0]
+			role.RoleName = n
+			whatJob.Roles = append(whatJob.Roles, role)
+		}
 	}
+	// fmt.Println(whatJob.Trainers)
+
 	dateDay := date[2:]
 	dateMonth := date[:1]
 	dateDaySt := ""
@@ -97,7 +104,7 @@ func cheakPj(w http.ResponseWriter, r *http.Request) {
 	// for _, v := range whatJob.Roles {
 	// 	fmt.Println(v.PjName)
 	// }
-	
+
 	models.IsInputPjs(gotpjsName, &whatJob)
 	generateHTML(w, whatJob, "layout", "checkpage")
 }

@@ -14,8 +14,9 @@ import (
 
 // Pjとその仕事の構造体
 type WhatJob struct {
-	Roles []Role
-	Pjs   []Pj
+	Roles    []Role
+	Pjs      []Pj
+	Trainers []Trainer
 }
 
 // Pjの構造体
@@ -33,6 +34,12 @@ type Pj struct {
 type Role struct {
 	RoleName string //仕事の名前
 	PjName   string //仕事に割り振られたPjの名前
+}
+
+type Trainer struct {
+	Key         string //トレイナー、トレイナーのセットがわかるKey
+	TrainerName string //トレイナーの名前
+	TraineeName string //トレイニーの名前
 }
 
 // 日付から出勤するpj一覧を取得する、返り値は(出勤するPjの名前,出勤時間)
@@ -230,5 +237,52 @@ func IsInputPjs(n []string, j *WhatJob) {
 				j.Pjs[i].CheckPM = true
 			}
 		}
+	}
+}
+
+// トレイナー、トレイニーをセットで登録する
+func WhosTrainee(key string, trainer_neeName string, trainers *[]Trainer) {
+	// fmt.Printf("key=%v,name = %v\n", key, trainer_neeName)
+	if strings.Contains(key, "trainer") {
+		if len(*trainers) == 0 {
+			var trainer Trainer
+			trainer.Key = key
+			trainer.TrainerName = trainer_neeName
+			*trainers = append(*trainers, trainer)
+			return
+		}
+		for i, v := range *trainers {
+			if v.Key == key {
+				(*trainers)[i].TrainerName = trainer_neeName
+				return
+			}
+		}
+		var trainer Trainer
+		trainer.Key = key
+		trainer.TrainerName = trainer_neeName
+		*trainers = append(*trainers, trainer)
+		// fmt.Println(trainers)
+		return
+	} else {
+		key = strings.Replace(key, "nee", "ner", 1)
+		if len(*trainers) == 0 {
+			var trainer Trainer
+			trainer.Key = key
+			trainer.TraineeName = trainer_neeName
+			*trainers = append(*trainers, trainer)
+			return
+		}
+		for i, v := range *trainers {
+			if v.Key == key {
+				(*trainers)[i].TraineeName = trainer_neeName
+				return
+			}
+		}
+		var trainer Trainer
+		trainer.Key = key
+		trainer.TraineeName = trainer_neeName
+		*trainers = append(*trainers, trainer)
+		// fmt.Println(trainers)
+		return
 	}
 }
