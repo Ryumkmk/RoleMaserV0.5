@@ -15,7 +15,7 @@
             {{end}}
             {{range .}}
             {{if eq .AmPm "AM"}}
-            <div class="pjs-item Names">{{.Names}}<p class="AmPm">{{.AmPm}}</p>
+            <div class="pjs-item Names">{{.Names}}<p class="AmPm"><span>{{.AmPm}}</span>{{.Time}}</p>
             </div>
             {{end}}
             {{end}}
