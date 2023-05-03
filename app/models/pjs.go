@@ -57,7 +57,6 @@ func GetPjs(month string, day string) (pjsNames []string, time []string, ampm []
 	sheetName := fmt.Sprintf("PJシフト%s月", month)
 	sheetIndex, _ := xf.GetSheetIndex(sheetName)
 	if sheetIndex == -1 {
-
 		//シートが存在しない場合
 		nopj := "Pjを取得出来ませんでした"
 		notime := "日付をもう一度確認して下さい"
