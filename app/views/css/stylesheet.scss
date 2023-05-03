@@ -1,3 +1,33 @@
+body {
+    margin: 0;
+    padding: 0;
+    #loading {
+        /* 画面一杯にローディング画面を広げる */
+        height: 100%;
+        width: 100%;
+        background: #fff;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 100;
+        /* flexboxを使ってローディングアイコンを画面の中央に寄せる */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+}
+
+/* ローディングアイコン */
+.fa-redo-alt {
+    font-size: 200px;
+    color: deepskyblue;
+}
 .wrapper {
     width: 94%;
     margin: 32px auto 32px auto;
@@ -405,12 +435,11 @@
                 margin: 0 0;
                 border-radius: 3px;
             }
-            span{
+            span {
                 background-color: rgba(156, 191, 236, 0.5);
                 margin: 0 1px 0 0;
                 padding: 0 1px;
                 border-radius: 1px;
-                
             }
         }
         .CheckAM {

@@ -1,4 +1,29 @@
 @charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+}
+body #loading {
+  /* 画面一杯にローディング画面を広げる */
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 100;
+  /* flexboxを使ってローディングアイコンを画面の中央に寄せる */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ローディングアイコン */
+.fa-redo-alt {
+  font-size: 200px;
+  color: deepskyblue;
+}
+
 .wrapper {
   width: 94%;
   margin: 32px auto 32px auto;

@@ -3,13 +3,18 @@ const tapDeleteBalloon = document.getElementById("tap-delete-balloon");
 var balloonArray = [];
 
 if (tapDeleteBalloon) {
-    tapDeleteBalloon.addEventListener('click', function(event) {
+    tapDeleteBalloon.addEventListener('click', function (event) {
         // クリックされた要素が"balloonoya"クラスを持つ場合、fadeballon()関数を呼び出さない
         if (!event.target.closest(".balloonoya")) {
             fadeballon();
         }
     });
 }
+$(window).on('load', function () {
+    setTimeout(function() {
+        $('#loading').fadeOut();
+    }, 1000);
+});
 
 function fadeballon() {
     // console.log(balloonArray)
@@ -17,7 +22,7 @@ function fadeballon() {
         var wObjballoon = document.getElementById(balloonArray[i]);
         if (wObjballoon.className == "balloon") {
             wObjballoon.className = "balloonnone";
-        } 
+        }
     }
 }
 
