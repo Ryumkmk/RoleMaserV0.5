@@ -24,11 +24,16 @@
         {{end}}
         {{end}} -->
         </div>
-        <div class="box2">
-            <p class="checked-mes">※赤色は入力済Pj
-                <br>
-                全員入力しましたか？
-            </p>
+        <div class="point-dog">
+            <div class="box2">
+                <p class="checked-mes">※赤色は入力済Pj
+                    <br>
+                    全員入力しましたか？
+                </p>
+            </div>
+            <div>
+                <img src="/static/imgs/check-dog.gif" alt="" width="70px">
+            </div>
         </div>
         <div class="AM">
             <table>
@@ -323,11 +328,16 @@
         {{end}}
         {{end}} -->
         </div>
-        <div class="box2">
-            <p class="checked-mes">※赤色は入力済Pj
-                <br>
-                全員入力しましたか？
-            </p>
+        <div class="point-dog">
+            <div class="box2">
+                <p class="checked-mes">※赤色は入力済Pj
+                    <br>
+                    全員入力しましたか？
+                </p>
+            </div>
+            <div>
+                <img src="/static/imgs/check-dog.gif" alt="" width="70px">
+            </div>
         </div>
         <div class="PM">
             <table>
@@ -347,9 +357,9 @@
                         <th class="jobName">サブPJ</th>
                         <td colspan="2">
                             <div class="subpjP">
-                                    {{range .Roles}}
-                                    {{if ne .RoleName "subpjP"}}{{else}}{{.PjName}}{{end}}
-                                    {{end}}
+                                {{range .Roles}}
+                                {{if ne .RoleName "subpjP"}}{{else}}{{.PjName}}{{end}}
+                                {{end}}
                             </div>
                         </td>
                     </tr>

@@ -32,6 +32,9 @@
     margin: 0;
     padding: 0;
   }
+  #page1 .wrapper .point-dog {
+    display: none !important;
+  }
   #page1 .wrapper tbody tr .jobName {
     width: 350px;
     height: 26px;

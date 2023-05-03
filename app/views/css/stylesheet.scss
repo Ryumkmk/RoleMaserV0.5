@@ -33,6 +33,11 @@ body {
     margin: 32px auto 32px auto;
     line-height: 2;
     text-align: center;
+    .point-dog{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .btn-box {
         button {
             width: 200px;

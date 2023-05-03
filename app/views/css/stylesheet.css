@@ -32,6 +32,11 @@ body #loading {
   /* solid007 */
   /* solid015 */
 }
+.wrapper .point-dog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .wrapper .btn-box button {
   width: 200px;
   height: 40px;
