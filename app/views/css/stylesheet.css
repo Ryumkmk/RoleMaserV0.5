@@ -150,6 +150,9 @@
   background: #2589d0;
   content: "";
 }
+.wrapper tbody tr .tasting-event {
+  background-color: rgba(236, 228, 156, 0.596) !important;
+}
 .wrapper tbody tr td {
   width: 35%;
   border-bottom: 2px #2589d0 dotted;

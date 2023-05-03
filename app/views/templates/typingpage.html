@@ -198,7 +198,9 @@
                 </table>
                 <br>
             </div>
-            <p class="pjs-list-title">出勤PJ一覧</p>
+            <p class="pjs-list-title">
+                出勤PJ一覧
+            </p>
             <div class="pjs-list">
                 {{range .}}
                 {{if eq .AmPm "ダブル"}}
@@ -213,6 +215,10 @@
                 {{end}}
                 {{end}}
             </div>
+            <div class="box2">
+                <p class="checked-mes">※黄色の役割は試食会では不要
+                </p>
+            </div>
             <div class="PM">
                 <table>
                     <tbody>
@@ -225,10 +231,10 @@
                                 {{end}}
                                 {{end}}
                             </th>
-                            <td class="ampm" colspan="2">PM</td>
+                            <td class="ampm" colspan="2">PM or 試食会</td>
                         </tr>
                         <tr>
-                            <th class="jobName">サブPJ</th>
+                            <th class="jobName tasting-event">サブPJ</th>
                             <td colspan="2"><input type="text" name="subpjP">
                             </td>
                         </tr>
@@ -280,7 +286,7 @@
                             <td colspan="2"><input type="text" name="cloakP"></td>
                         </tr>
                         <tr>
-                            <th class="jobName">クロークサブ</th>
+                            <th class="jobName tasting-event">クロークサブ</th>
                             <td colspan="2"><input type="text" name="cloaksubP"></td>
                         </tr>
                         <tr>
@@ -311,11 +317,11 @@
                             <td><input type="text" name="drinksubP"><span>聞&婦側</span></td>
                         </tr>
                         <tr>
-                            <th class="jobName">ドリカンサブ</th>
+                            <th class="jobName tasting-event">ドリカンサブ</th>
                             <td colspan="2"><input type="text" name="drinksubsubP"></td>
                         </tr>
                         <tr>
-                            <th class="jobName">シャンパン＆ワイン
+                            <th class="jobName tasting-event">シャンパン＆ワイン
                                 <div class="balloonoya" onclick="showBalloon('makeImg13')">
                                     <img src="/static/imgs/questionicon.svg" width="14px">
                                     <span class="balloonnone" id="makeImg13">
@@ -358,7 +364,7 @@
 
                         </tr>
                         <tr>
-                            <th class="jobName">洗い場</th>
+                            <th class="jobName tasting-event">洗い場</th>
                             <td><input type="text" name="wash1P"><span>洗い</span>
                             </td>
                             <td><input type="text" name="wash2P"><span>拭き</span>
@@ -376,7 +382,7 @@
 
                         </tr>
                         <tr>
-                            <th class="jobName small-jobname">チャペル誘導係</th>
+                            <th class="jobName small-jobname tasting-event">チャペル誘導係</th>
                             <td class="small-td"><input type="text" name="chreception1P"></td>
                             <td class="small-td"><input type="text" name="chreception2P"></td>
                         </tr>

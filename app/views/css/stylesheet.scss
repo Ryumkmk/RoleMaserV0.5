@@ -108,10 +108,10 @@
                 // letter-spacing: 0.2em;
                 line-height: 1.8em;
 
-                z-index: 1000; 
+                z-index: 1000;
                 &:after {
                     border-right: 12px solid #ff5e13; /* 吹き出し口の幅・色 */
-                    
+
                     border-top: 10px solid transparent; /* 吹き出し口の高さ１／２ */
                     border-bottom: 10px solid transparent; /* 吹き出し口の高さ１／２ */
                     left: -12px; /* 吹き出し口の位置調整 */
@@ -157,6 +157,9 @@
                     background: #2589d0;
                     content: "";
                 }
+            }
+            .tasting-event {
+                background-color: rgba(236, 228, 156, 0.596) !important;
             }
 
             td {
