@@ -92,7 +92,6 @@
                         }
                     }
                     td {
-                        font-weight: 700;
                         font-size: 16px;
                         border-bottom: 1px #000000 solid;
                         border-left: 1px #000000 dotted;
@@ -106,24 +105,18 @@
                             color: #000000;
                         }
                         div {
-                            // width: 76%;
-                            // vertical-align: middle;
                             color: #000000;
                             line-height: 1em;
-                            // white-space: nowrap;
-                            // display: inline-block; /* インラインブロック要素にする */
-                            // vertical-align: center; /* ベースラインに合わせる */
                             padding: 0; /* パディングを0に設定 */
                             margin: 0; /* マージンを0に設定 */
                             border: none;
                             box-shadow: none;
-                            // height: 33px;
+                            font-weight: 300;
                         }
                         &.small-td {
                             border: none;
                             text-align: left;
                             white-space: nowrap;
-                            // border-bottom: 1px dotted black;
                             div {
                                 white-space: nowrap;
                                 overflow: hidden;

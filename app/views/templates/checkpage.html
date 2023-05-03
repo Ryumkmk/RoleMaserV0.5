@@ -347,9 +347,9 @@
                         <th class="jobName">サブPJ</th>
                         <td colspan="2">
                             <div class="subpjP">
-                                {{range .Roles}}
-                                {{if ne .RoleName "subpjP"}}{{else}}{{.PjName}}{{end}}
-                                {{end}}
+                                    {{range .Roles}}
+                                    {{if ne .RoleName "subpjP"}}{{else}}{{.PjName}}{{end}}
+                                    {{end}}
                             </div>
                         </td>
                     </tr>
@@ -618,8 +618,8 @@
                     {{range .Trainers}}
                     {{if or ( ne .TrainerName "") (ne .TraineeName "")}}
                     <tr>
-                        <td class = "trainer-name-check">{{.TrainerName}}</td>
-                        <td class = "trainee-name-check">{{.TraineeName}}</td>
+                        <td class="trainer-name-check">{{.TrainerName}}</td>
+                        <td class="trainee-name-check">{{.TraineeName}}</td>
                     </tr>
                     {{end}}
                     {{end}}

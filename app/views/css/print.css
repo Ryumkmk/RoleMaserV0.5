@@ -87,7 +87,6 @@
     content: "・・・";
   }
   #page1 .wrapper tbody tr td {
-    font-weight: 700;
     font-size: 16px;
     border-bottom: 1px #000000 solid;
     border-left: 1px #000000 dotted;
@@ -108,6 +107,7 @@
     margin: 0; /* マージンを0に設定 */
     border: none;
     box-shadow: none;
+    font-weight: 300;
   }
   #page1 .wrapper tbody tr td.small-td {
     border: none;
