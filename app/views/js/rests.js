@@ -25,8 +25,8 @@ if (window.location.pathname === '/checkPj') {
     let ape2 = isExistName(document.querySelector(".ape2").firstChild.textContent.trim());
     let toiletman = isExistName(document.querySelector(".toiletman").firstChild.textContent.trim());
     let toiletlady = isExistName(document.querySelector(".toiletlady").firstChild.textContent.trim());
-    let wash1 = isExistName(document.querySelector(".wash1").firstChild.textContent.trim());
-    let wash2 = isExistName(document.querySelector(".wash2").firstChild.textContent.trim());
+    // let wash1 = isExistName(document.querySelector(".wash1").firstChild.textContent.trim());
+    // let wash2 = isExistName(document.querySelector(".wash2").firstChild.textContent.trim());
 
     // console.log(existName);
     // rest要素内のp要素に書き込む
@@ -73,8 +73,8 @@ if (window.location.pathname === '/checkPj') {
     let ape2P = isExistNameP(document.querySelector(".ape2P").firstChild.textContent.trim());
     let toiletmanP = isExistNameP(document.querySelector(".toiletmanP").firstChild.textContent.trim());
     let toiletladyP = isExistNameP(document.querySelector(".toiletladyP").firstChild.textContent.trim());
-    let wash1P = isExistName(document.querySelector(".wash1P").firstChild.textContent.trim());
-    let wash2P = isExistName(document.querySelector(".wash2P").firstChild.textContent.trim());
+    // let wash1P = isExistName(document.querySelector(".wash1P").firstChild.textContent.trim());
+    // let wash2P = isExistName(document.querySelector(".wash2P").firstChild.textContent.trim());
 
     let restsubpjP = document.querySelector(".rest-subpjP");
     restsubpjP.textContent += subpjP;
@@ -136,7 +136,6 @@ if (window.location.pathname === '/checkPj') {
             // 現在の部分文字列が既に existName 配列に含まれているかどうかを確認します
             if (existNameP.indexOf(matches[i]) !== -1) {
                 // 含まれている場合、existName 配列が空かどうかを確認します
-
             } else {
                 // 現在の部分文字列が existName 配列に含まれていない場合、現在の部分文字列を existName 配列に追加し、戻り値に現在の部分文字列を追加します
                 existNameP.push(matches[i]);
