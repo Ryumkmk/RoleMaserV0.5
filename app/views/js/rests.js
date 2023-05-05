@@ -77,6 +77,7 @@ if (window.location.pathname === '/checkPj') {
     // let wash2P = isExistName(document.querySelector(".wash2P").firstChild.textContent.trim());
 
     let restsubpjP = document.querySelector(".rest-subpjP");
+    // console.log(restsubpjP);
     restsubpjP.textContent += subpjP;
     let restleaderP = document.querySelector(".rest-leaderP");
     restleaderP.textContent += leaderP;
@@ -119,6 +120,7 @@ if (window.location.pathname === '/checkPj') {
         }
         // トリムされた名前の文字列を戻します
         // console.log(returnName.trim());
+        // console.log("Done!");
         return returnName.trim();
     }
 
