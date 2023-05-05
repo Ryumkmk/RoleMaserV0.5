@@ -78,7 +78,7 @@ function showBalloon(id) {
 
 
 window.addEventListener("load", function () {
-    if (window.location.pathname === '/top') {
+    if (window.location.pathname === '/') {
         checkInstalled();
     }
 });
