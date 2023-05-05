@@ -3,13 +3,8 @@
   margin: 0;
 }
 @media print {
-  body {
-    margin: 0;
-  }
   #page1 {
-    margin: 0;
     page-break-after: always;
-    display: block;
     width: 1200px;
   }
   #page1 .wrapper {
@@ -29,22 +24,15 @@
   #page1 .wrapper .ampm {
     font-size: 18px;
     font-weight: 700;
-    margin: 0;
-    padding: 0;
   }
   #page1 .wrapper .point-dog {
     display: none !important;
   }
   #page1 .wrapper tbody tr .jobName {
-    width: 350px;
-    height: 26px;
+    height: 27px;
     font-size: 13px;
-    font-weight: 700;
-    position: relative;
-    padding: 0.3em 0 0.3em 1em;
     line-height: 1em;
     border-bottom: 1px solid #000000;
-    color: #000000;
     background-color: rgb(255, 255, 255);
     border-radius: 0px;
     white-space: nowrap;
@@ -90,14 +78,12 @@
     content: "・・・";
   }
   #page1 .wrapper tbody tr td {
-    font-size: 16px;
     border-bottom: 1px #000000 solid;
     border-left: 1px #000000 dotted;
     border-right: 1px #000000 solid;
     background-color: rgb(255, 255, 255);
     border-radius: 0px;
     text-align: center;
-    position: relative;
   }
   #page1 .wrapper tbody tr td .dotted {
     display: inline;
@@ -138,26 +124,16 @@
   }
   #page1 .wrapper tbody tr td.ampm {
     border-top: 1px dotted black;
-    border-bottom: 1px solid #000000;
-    border-radius: 0px;
   }
   #page1 .wrapper tbody tr .date-print {
-    border-bottom: 1px solid #000000;
     border-left: 1px solid #000000;
     border-top: 1px dotted black;
     font-size: 18px;
-    border-radius: 0px;
   }
-  #page1 .wrapper .AM {
+  #page1 .wrapper .AMPM-container {
     width: 48%;
     border-bottom: none;
     margin-right: 5px;
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-  }
-  #page1 .wrapper .PM {
-    width: 48%;
-    margin-left: 0px;
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
   }
@@ -166,9 +142,6 @@
   }
   #page1 .wrapper .pjs-list {
     display: block;
-    margin: 0px;
-    padding: 0px;
-    background-color: rgb(255, 255, 255);
   }
   #page1 .wrapper .pjs-list .pjs-item {
     font-size: 10px;
@@ -230,7 +203,6 @@
   }
   #page2 .rest .rest-ampm-container h3 {
     position: relative;
-    text-align: left;
     font-size: 24px;
     padding: 0 1em;
     margin: 0px auto 8px auto;
@@ -242,7 +214,6 @@
     right: -20%;
     position: absolute;
     transform: translateY(-50%);
-    display: inline-block;
     content: url(/static/imgs/shiba.svg);
   }
   #page2 .rest .rest-ampm-container h3:after {
@@ -252,24 +223,13 @@
     content: "Zz";
   }
   #page2 .rest .rest-ampm-container table.rest-tbl-design {
-    margin: 0 auto;
-    border: none;
-    border-collapse: separate;
     border-spacing: 0 0px;
-    background: #ffffff;
     border-top: solid 1px #000000;
   }
   #page2 .rest .rest-ampm-container table.rest-tbl-design th {
-    vertical-align: middle;
     height: 53px;
-    width: 124px;
     border-bottom: solid 1px #000000;
-    margin: 0;
-    text-align: center;
-    color: #333;
-    font-size: 16px;
     position: relative;
-    font-weight: 600;
   }
   #page2 .rest .rest-ampm-container table.rest-tbl-design th:before {
     right: 98%;
@@ -280,7 +240,6 @@
     background-image: url(/static/imgs/coffee.svg);
     width: 40px;
     height: 40px;
-    display: inline-block;
   }
   #page2 .rest .rest-ampm-container table.rest-tbl-design th p {
     font-weight: 500;
@@ -302,9 +261,6 @@
   #page2 .rest .rest-ampm-container table.rest-tbl-design td.td-title {
     font-family: none;
     text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-    position: relative;
     font-weight: 600;
   }
 }/*# sourceMappingURL=print.css.map */
