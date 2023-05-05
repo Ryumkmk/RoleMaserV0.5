@@ -268,7 +268,6 @@
     text-align: center;
     color: #333;
     font-size: 16px;
-    font-weight: bold;
     position: relative;
     font-weight: 600;
   }
@@ -291,13 +290,6 @@
   }
   #page2 .rest .rest-ampm-container table.rest-tbl-design td {
     width: 80%;
-    font-family: "Chakra Petch", sans-serif;
-    font-family: "Kaisei Opti", serif;
-    font-family: "Klee One", cursive;
-    font-family: "M PLUS Rounded 1c", sans-serif;
-    font-family: "Noto Serif JP", serif;
-    font-family: "Pacifico", cursive;
-    font-family: "Roboto Condensed", sans-serif;
     font-family: "Zen Old Mincho", serif;
     font-size: 16px;
     padding-left: 15px;
