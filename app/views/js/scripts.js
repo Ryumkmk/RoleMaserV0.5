@@ -10,6 +10,7 @@ if (tapDeleteBalloon) {
         }
     });
 }
+
 $(window).on('load', function () {
     setTimeout(function() {
         $('#loading').fadeOut();
@@ -18,12 +19,14 @@ $(window).on('load', function () {
 
 function fadeballon() {
     // console.log(balloonArray)
-    for (let i = 0; i <= balloonArray.length; i++) {
+    for (let i = 0; i <= balloonArray.length-1; i++) {
         var wObjballoon = document.getElementById(balloonArray[i]);
         if (wObjballoon.className == "balloon") {
             wObjballoon.className = "balloonnone";
+            
         }
     }
+    balloonArray.splice(0, balloonArray.length); // balloonArrayを空の配列にする
 }
 
 function copyValue(input, targetName, copyName) {
@@ -75,7 +78,9 @@ function showBalloon(id) {
 
 
 window.addEventListener("load", function () {
-    checkInstalled();
+    if (window.location.pathname === '/top') {
+        checkInstalled();
+    }
 });
 
 

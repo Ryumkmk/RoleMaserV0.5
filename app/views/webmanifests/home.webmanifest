@@ -1,13 +1,6 @@
 {
     "name": "RoleMaster",
     "short_name": "RoleMaster",
-    "icons": [
-        {
-            "src": "/RoleMaster.png",
-            "sizes": "514x514",
-            "type": "image/png"
-        }
-    ],
     "start_url": "/",
     "display": "standalone"
 }
