@@ -24,6 +24,56 @@ body #loading {
   color: deepskyblue;
 }
 
+.attendancelist-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.attendancelist-page .attendancelist-title {
+  display: flex;
+}
+.attendancelist-page h2 {
+  position: relative;
+  padding: 8px 15px;
+  background: #def3ff;
+  border-radius: 20px;
+}
+.attendancelist-page h2:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f111";
+  font-weight: 900;
+  position: absolute;
+  font-size: 15px;
+  left: -40px;
+  bottom: 0;
+  color: #def3ff;
+}
+.attendancelist-page h2:after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f111";
+  font-weight: 900;
+  position: absolute;
+  font-size: 23px;
+  left: -23px;
+  bottom: 0;
+  color: #def3ff;
+}
+.attendancelist-page th {
+  border-bottom: double 5px #516ab6;
+}
+.attendancelist-page td {
+  width: 35%;
+  border-bottom: 2px #2589d0 dotted;
+  background-color: rgba(156, 191, 236, 0.596);
+  border-radius: 5px;
+  text-align: center !important;
+}
+.attendancelist-page input {
+  border: 1px double #a0a0a0;
+  box-shadow: 0 0 0 1px #ccc inset;
+  border-radius: 4px;
+}
+
 .wrapper {
   width: 94%;
   margin: 32px auto 32px auto;
@@ -31,6 +81,24 @@ body #loading {
   text-align: center;
   /* solid007 */
   /* solid015 */
+}
+.wrapper .attendance-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+}
+.wrapper .attendance-form .pjname-input {
+  border-bottom: 2px #2589d0 dotted;
+  background-color: rgba(156, 191, 236, 0.596);
+  border-radius: 5px;
+  text-align: center;
+  padding: 0 10px;
+  margin-right: 5px;
+}
+.wrapper .attendance-form .pjname-input input {
+  width: 60px;
 }
 .wrapper .point-dog {
   display: flex;
@@ -450,7 +518,7 @@ body #loading {
   outline: none;
   position: relative;
   display: inline-block;
-  margin: 18px auto 18px auto;
+  margin: 18px 0 18px 0;
   padding: 5px 15px;
   transition: 0.3s ease-in-out;
   font-weight: 300;

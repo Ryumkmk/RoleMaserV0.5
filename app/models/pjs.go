@@ -42,6 +42,12 @@ type Trainer struct {
 	TraineeName string //トレイニーの名前
 }
 
+type AttendanceList struct {
+	PjName             string   //Pj名前
+	AttendanceDaysList []string //出勤日一覧
+	AttendanceTimeList []string //出勤時間一覧
+}
+
 // 日付から出勤するpj一覧を取得する、返り値は(出勤するPjの名前,出勤時間)
 func GetPjs(month string, day string) (pjsNames []string, time []string, ampm []string) {
 
@@ -127,7 +133,6 @@ func getShiftDayPjNum(f *excelize.File, sheetName string, day string) (Nums []in
 	//8:30-16:00のフォーマットの文字列を取得するためのRegex
 	re := regexp.MustCompile(`\d{1,2}:\d{2}-\d{1,2}:\d{2}`)
 	if dayInt == -1 {
-
 		//出勤日が存在しない場合
 		return nil, nil, nil
 	} else {
@@ -284,4 +289,62 @@ func WhosTrainee(key string, trainer_neeName string, trainers *[]Trainer) {
 		// fmt.Println(trainers)
 		return
 	}
+}
+
+// pj名前から出勤日と時間を取得
+func GetAttendanceList(pjName string) (days []string, times []string) {
+	//エクセルのすべての行の情報
+	var allAtendanceList []string
+	var alltimes []string
+	//xlsx（シフト）ファイルを読み込む
+	f := ReadXlsxFile()
+	xf, err := excelize.OpenFile(config.Config.Xlsxpath + "/" + f.Name())
+	if err != nil {
+		log.Println(err)
+	}
+	defer xf.Close()
+	cols, err := xf.GetCols("PJシフト5月")
+	if err != nil {
+		log.Println(err)
+	}
+	rows, err := xf.GetRows("PJシフト5月")
+	if err != nil {
+		log.Println(err)
+	}
+	//xlsxファイルの三列目が全てのPj名
+	pjsNames := cols[2]
+	//出勤するPjの行番号を取得する
+	for i, v := range pjsNames {
+		if v == pjName {
+			// fmt.Println(v,pjName,i)
+			allAtendanceList = rows[i]
+		}
+	}
+	re := regexp.MustCompile(`\d{1,2}:\d{2}-\d{1,2}:\d{2}`)
+	//出勤する時間だけを取得
+	var alldays []string
+	for i, v := range allAtendanceList {
+		matches := re.FindStringSubmatch(v)
+		if len(matches) > 0 {
+			//出勤する日にちと、出勤する時間をすべて取得
+			alldays = append(alldays, rows[5][i])
+			alltimes = append(alltimes, matches...)
+		}
+	}
+	uniqueDays := make(map[string]bool)
+	for i, day := range alldays {
+		if !uniqueDays[day] {
+			fmt.Println(i, day)
+			//二列使うエクセルがあり、出勤する日にちと時間が重複するので、重複を削除し再び格納する
+			days = append(days, day)
+			times = append(times, alltimes[i])
+			uniqueDays[day] = true
+		}
+	}
+	if len(days) == 0 || len(times) == 0 {
+		days = append(days, "?")
+		times = append(times, "名前を確認して下さい")
+	}
+	// fmt.Println(days, uniqueDays)
+	return days, times
 }

@@ -1,0 +1,34 @@
+{{define "content"}}
+<div class="wrapper">
+    <div class="attendancelist-page">
+        <table>
+            <div class="attendancelist-title">
+                <div>
+                    <img src="/static/imgs/full-of-motivation.gif" alt="" width="100px">
+                </div>
+                <div>
+                    <h2>{{.PjName}}</h2>
+                </div>
+            </div>
+            <thead>
+                <tr>
+                    <th>出勤日</th>
+                    <th>出勤時間</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range $index, $element := .AttendanceDaysList}}
+                <tr>
+                    <td>5月{{$element}}日</td>
+                    <td>{{index $.AttendanceTimeList $index}}</td>
+                </tr>
+                {{end}}
+            </tbody>
+        </table>
+    </div>
+    <div class="button_solid015">
+        <!-- <a class="top-button button_solid015" href="/top">Top</a> -->
+        <button onclick="history.back()">戻る</button>
+    </div>
+</div>
+{{end}}

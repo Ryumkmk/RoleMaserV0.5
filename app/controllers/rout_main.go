@@ -108,3 +108,11 @@ func cheakPj(w http.ResponseWriter, r *http.Request) {
 	models.IsInputPjs(gotpjsName, &whatJob)
 	generateHTML(w, whatJob, "layout", "checkpage")
 }
+
+func attendancelist(w http.ResponseWriter, r *http.Request) {
+	var List models.AttendanceList
+	List.PjName = r.FormValue("pjName")
+	List.AttendanceDaysList, List.AttendanceTimeList = models.GetAttendanceList(List.PjName)
+	fmt.Println(List)
+	generateHTML(w, List, "layout", "attendancelist")
+}

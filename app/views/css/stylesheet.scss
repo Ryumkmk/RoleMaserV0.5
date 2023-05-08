@@ -28,12 +28,83 @@ body {
     font-size: 200px;
     color: deepskyblue;
 }
+.attendancelist-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .attendancelist-title{
+        display: flex;
+    }
+    h2 {
+        position: relative;
+        padding: 8px 15px;
+        background: #def3ff;
+        border-radius: 20px;
+        &:before {
+            font-family: "Font Awesome 5 Free";
+            content: "\f111";
+            font-weight: 900;
+            position: absolute;
+            font-size: 15px;
+            left: -40px;
+            bottom: 0;
+            color: #def3ff;
+        }
+        &:after {
+            font-family: "Font Awesome 5 Free";
+            content: "\f111";
+            font-weight: 900;
+            position: absolute;
+            font-size: 23px;
+            left: -23px;
+            bottom: 0;
+            color: #def3ff;
+        }
+    }
+    th{
+        border-bottom: double 5px #516ab6;
+    }
+    td {
+        width: 35%;
+        border-bottom: 2px #2589d0 dotted;
+        background-color: rgba(156, 191, 236, 0.596);
+        border-radius: 5px;
+        text-align: center !important;
+    }
+    input{
+        border: 1px double #a0a0a0;
+        box-shadow: 0 0 0 1px #ccc inset;
+        border-radius: 4px;
+    }
+}
 .wrapper {
     width: 94%;
     margin: 32px auto 32px auto;
     line-height: 2;
     text-align: center;
-    .point-dog{
+    // * {
+    //     outline: 1px red solid;
+    // }
+
+    .attendance-form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 45px;
+        .pjname-input {
+            border-bottom: 2px #2589d0 dotted;
+            background-color: rgba(156, 191, 236, 0.596);
+            border-radius: 5px;
+            text-align: center;
+            padding: 0 10px;
+            margin-right: 5px;
+            input {
+                width: 60px;
+            }
+        }
+    }
+    .point-dog {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -484,7 +555,7 @@ body {
         outline: none;
         position: relative;
         display: inline-block;
-        margin: 18px auto 18px auto;
+        margin: 18px 0 18px 0;
         padding: 5px 15px;
         transition: 0.3s ease-in-out;
         font-weight: 300;
