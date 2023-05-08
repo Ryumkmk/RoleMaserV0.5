@@ -113,6 +113,6 @@ func attendancelist(w http.ResponseWriter, r *http.Request) {
 	var List models.AttendanceList
 	List.PjName = r.FormValue("pjName")
 	List.AttendanceDaysList, List.AttendanceTimeList = models.GetAttendanceList(List.PjName)
-	fmt.Println(List)
+	// fmt.Println(List)
 	generateHTML(w, List, "layout", "attendancelist")
 }

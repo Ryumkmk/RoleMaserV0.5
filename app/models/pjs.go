@@ -334,7 +334,7 @@ func GetAttendanceList(pjName string) (days []string, times []string) {
 	uniqueDays := make(map[string]bool)
 	for i, day := range alldays {
 		if !uniqueDays[day] {
-			fmt.Println(i, day)
+			// fmt.Println(i, day)
 			//二列使うエクセルがあり、出勤する日にちと時間が重複するので、重複を削除し再び格納する
 			days = append(days, day)
 			times = append(times, alltimes[i])
