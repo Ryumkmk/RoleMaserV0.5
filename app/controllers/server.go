@@ -24,11 +24,12 @@ func StartMainServer() error {
 	files := http.FileServer(http.Dir(config.Config.Static))
 	http.Handle("/static/", http.StripPrefix("/static/", files))
 
-	http.HandleFunc("/top", index)
+	// http.HandleFunc("/top", index)
 	http.HandleFunc("/upload", upload)
 	http.HandleFunc("/delete", delete)
 	http.HandleFunc("/", index)
 	http.HandleFunc("/typingpage", typingpage)
+	http.HandleFunc("/attendancelist", attendancelist)
 
 	http.HandleFunc("/checkPj", cheakPj)
 	fmt.Println("Stated Server")
