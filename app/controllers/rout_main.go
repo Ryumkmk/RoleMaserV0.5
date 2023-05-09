@@ -39,7 +39,7 @@ func typingpage(w http.ResponseWriter, r *http.Request) {
 	dd := r.PostFormValue("day")
 	var pjs []models.Pj
 
-	gotpjsName, gotpjsTime, gotpjsAmPm := models.GetPjs(mm, dd)
+	gotpjsName, gotpjsTime, gotpjsAmPm, guest := models.GetPjs(mm, dd)
 	for i, v := range gotpjsName {
 		var pj models.Pj
 		pj.Names = v
@@ -48,6 +48,7 @@ func typingpage(w http.ResponseWriter, r *http.Request) {
 		pj.Date = fmt.Sprintf("%s月%s日", mm, dd)
 		pj.CheckAM = false
 		pj.CheckPM = false
+		pj.Guest = guest
 		pj.IsNewPj()
 		pjs = append(pjs, pj)
 	}
@@ -89,7 +90,7 @@ func cheakPj(w http.ResponseWriter, r *http.Request) {
 			dateMonthSt += string(ch)
 		}
 	}
-	gotpjsName, gotpjsTime, gotpjsAmPm := models.GetPjs(dateMonthSt, dateDaySt)
+	gotpjsName, gotpjsTime, gotpjsAmPm, _ := models.GetPjs(dateMonthSt, dateDaySt)
 	// fmt.Println(len(gotpjsName), len(gotpjsTime))
 	for i, v := range gotpjsName {
 		var pj models.Pj

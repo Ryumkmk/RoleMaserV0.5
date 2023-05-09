@@ -5,7 +5,12 @@
             <!-- <a class="top-button button_solid015" href="/top">Top</a> -->
             <button onclick="history.back()">戻る</button>
         </div>
-        <p class="pjs-list-title">出勤PJ一覧</p>
+        <p class="pjs-list-title">出勤PJ一覧<br>
+            {{range $i,$pj := .}}
+            {{if eq $i 0}}
+            ゲスト数:{{$pj.Guest}}
+            {{end}}
+            {{end}}</p>
         <div class="pjs-list">
             {{range .}}
             {{if or (eq .AmPm "ダブル") (eq .AmPm "日付をもう一度確認して下さい")}}
@@ -198,9 +203,12 @@
                 </table>
                 <br>
             </div>
-            <p class="pjs-list-title">
-                出勤PJ一覧
-            </p>
+            <p class="pjs-list-title">出勤PJ一覧<br>
+                {{range $i,$pj := .}}
+                {{if eq $i 0}}
+                ゲスト数:{{$pj.Guest}}
+                {{end}}
+                {{end}}</p>
             <div class="pjs-list">
                 {{range .}}
                 {{if eq .AmPm "ダブル"}}
