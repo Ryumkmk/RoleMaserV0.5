@@ -22,7 +22,8 @@ type WhatJob struct {
 // Pjの構造体
 type Pj struct {
 	Date    string //出勤日付
-	Guest   string //ゲスト数
+	Amguest string //Amゲスト数
+	Pmguest string //Pmゲスト数
 	Names   string //出勤Pj名
 	Time    string //出勤時間
 	AmPm    string //午前か午後
@@ -50,7 +51,7 @@ type AttendanceList struct {
 }
 
 // 日付から出勤するpj一覧を取得する、返り値は(出勤するPjの名前,出勤時間)
-func GetPjs(month string, day string) (pjsNames []string, time []string, ampm []string, guest string) {
+func GetPjs(month string, day string) (pjsNames []string, time []string, ampm []string, amguest string, pmguest string) {
 
 	//xlsx（シフト）ファイルを読み込む
 	f := ReadXlsxFile()
@@ -71,12 +72,12 @@ func GetPjs(month string, day string) (pjsNames []string, time []string, ampm []
 		pjsNames = append(pjsNames, nopj)
 		time = append(time, notime)
 		ampm = append(ampm, noampm)
-		return pjsNames, time, ampm, ""
+		return pjsNames, time, ampm, "", ""
 	} else {
 
 		//シートが存在する場合
 		allPjsNames := getAllPjsNames(xf, sheetName)
-		Num, time, ampm, guest := getShiftDayPjNum(xf, sheetName, day)
+		Num, time, ampm, amguest, pmguest := getShiftDayPjNum(xf, sheetName, day)
 		if Num == nil {
 
 			//出勤日が存在しない場合
@@ -97,7 +98,7 @@ func GetPjs(month string, day string) (pjsNames []string, time []string, ampm []
 				}
 			}
 		}
-		return pjsNames, time, ampm, guest
+		return pjsNames, time, ampm, amguest, pmguest
 	}
 }
 
@@ -125,7 +126,7 @@ func getAllShiftDays(f *excelize.File, sheetName string) []string {
 }
 
 // 引数の日にちからその日出勤するPjのIdと出勤時間を取得
-func getShiftDayPjNum(f *excelize.File, sheetName string, day string) (Nums []int, time []string, ampm []string, guest string) {
+func getShiftDayPjNum(f *excelize.File, sheetName string, day string) (Nums []int, time []string, ampm []string, amguest string, pmguest string) {
 	cols, err := f.GetCols(sheetName)
 	if err != nil {
 		log.Println(err)
@@ -136,12 +137,11 @@ func getShiftDayPjNum(f *excelize.File, sheetName string, day string) (Nums []in
 	re := regexp.MustCompile(`\d{1,2}:\d{2}-\d{1,2}:\d{2}`)
 	if dayInt == -1 {
 		//出勤日が存在しない場合
-		return nil, nil, nil, ""
+		return nil, nil, nil, "", ""
 	} else {
 
 		//出勤日が存在する場合
 		col := cols[dayInt]
-		guest = col[7]
 		for i, v := range col {
 			matches := re.FindStringSubmatch(v)
 			if len(matches) > 0 {
@@ -158,16 +158,21 @@ func getShiftDayPjNum(f *excelize.File, sheetName string, day string) (Nums []in
 				// fmt.Printf("%v,%v\n", startT, endT)
 				if (startT == "8" || startT == "9" || startT == "0") && (endT == "2") {
 					ampm = append(ampm, "ダブル")
+					amguest = cols[dayInt][7]
+					pmguest = cols[dayInt+1][7]
+
 				} else if (startT == "8" || startT == "9" || startT == "0") && (endT == "1") {
 					ampm = append(ampm, "AM")
+					amguest = cols[dayInt][7]
 				} else {
 					ampm = append(ampm, "PM")
+					pmguest = cols[dayInt+1][7]
 				}
 				time = append(time, timeString)
 			}
 		}
 		// fmt.Println(time)
-		return Nums, time, ampm, guest
+		return Nums, time, ampm, amguest, pmguest
 	}
 }
 

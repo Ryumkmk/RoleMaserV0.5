@@ -8,7 +8,7 @@
         <p class="pjs-list-title">出勤PJ一覧<br>
             {{range $i,$pj := .}}
             {{if eq $i 0}}
-            ゲスト数:{{$pj.Guest}}
+            ゲスト数:{{$pj.Amguest}}
             {{end}}
             {{end}}</p>
         <div class="pjs-list">
@@ -206,7 +206,7 @@
             <p class="pjs-list-title">出勤PJ一覧<br>
                 {{range $i,$pj := .}}
                 {{if eq $i 0}}
-                ゲスト数:{{$pj.Guest}}
+                ゲスト数:{{$pj.Pmguest}}
                 {{end}}
                 {{end}}</p>
             <div class="pjs-list">
