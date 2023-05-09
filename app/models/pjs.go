@@ -27,7 +27,7 @@ type Pj struct {
 	AmPm    string //午前か午後
 	CheckAM bool   //AM入力済チェック
 	CheckPM bool   //PM入力済チェック
-
+	New     string //新人かどうか
 }
 
 // 仕事の構造体
@@ -347,4 +347,23 @@ func GetAttendanceList(pjName string) (days []string, times []string) {
 	}
 	// fmt.Println(days, uniqueDays)
 	return days, times
+}
+
+// 新人かどうか
+func (p *Pj) IsNewPj() {
+	f := ReadXlsxFile()
+	xf, err := excelize.OpenFile(config.Config.Xlsxpath + "/" + f.Name())
+	if err != nil {
+		log.Println(err)
+	}
+	defer xf.Close()
+	allpjs := getAllPjsNames(xf, "PJシフト5月")
+
+	for i, v := range allpjs {
+		if i >= 29 {
+			if p.Names == v {
+				p.New = ",N"
+			}
+		}
+	}
 }
