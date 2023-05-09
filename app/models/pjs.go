@@ -370,7 +370,7 @@ func (p *Pj) IsNewPj() {
 	for i, v := range allpjs {
 		if i >= 29 {
 			if p.Names == v {
-				p.New = ",N"
+				p.New = ";N"
 			}
 		}
 	}
