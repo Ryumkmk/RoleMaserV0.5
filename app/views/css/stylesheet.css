@@ -489,6 +489,10 @@ body #loading {
   padding: 0 1px;
   border-radius: 1px;
 }
+.wrapper .pjs-list .pjs-item span.newpj-mark {
+  background: none !important;
+  color: #ff3939;
+}
 .wrapper .pjs-list .CheckAM {
   background-color: rgba(255, 217, 217, 0.822);
 }

@@ -14,13 +14,15 @@
         <div class="pjs-list">
             {{range .}}
             {{if or (eq .AmPm "ダブル") (eq .AmPm "日付をもう一度確認して下さい")}}
-            <div class="pjs-item Names">{{.Names}}{{.New}}<p class="AmPm"><span>{{.AmPm}}</span>{{.Time}}</p>
+            <div class="pjs-item Names">{{.Names}}<span class="newpj-mark">{{.New}}</span>
+                <p class="AmPm"><span>{{.AmPm}}</span>{{.Time}}</p>
             </div>
             {{end}}
             {{end}}
             {{range .}}
             {{if eq .AmPm "AM"}}
-            <div class="pjs-item Names">{{.Names}}{{.New}}<p class="AmPm"><span>{{.AmPm}}</span>{{.Time}}</p>
+            <div class="pjs-item Names">{{.Names}}<span class="newpj-mark">{{.New}}</span>
+                <p class="AmPm"><span>{{.AmPm}}</span>{{.Time}}</p>
             </div>
             {{end}}
             {{end}}
@@ -212,13 +214,15 @@
             <div class="pjs-list">
                 {{range .}}
                 {{if eq .AmPm "ダブル"}}
-                <div class="pjs-item Names">{{.Names}}{{.New}}<p class="AmPm"><span>{{.AmPm}}</span>{{.Time}}</p>
+                <div class="pjs-item Names">{{.Names}}<span class="newpj-mark">{{.New}}</span>
+                    <p class="AmPm"><span>{{.AmPm}}</span>{{.Time}}</p>
                 </div>
                 {{end}}
                 {{end}}
                 {{range .}}
                 {{if eq .AmPm "PM"}}
-                <div class="pjs-item Names">{{.Names}}{{.New}}<p class="AmPm"><span>{{.AmPm}}</span>{{.Time}}</p>
+                <div class="pjs-item Names">{{.Names}}<span class="newpj-mark">{{.New}}</span>
+                    <p class="AmPm"><span>{{.AmPm}}</span>{{.Time}}</p>
                 </div>
                 {{end}}
                 {{end}}

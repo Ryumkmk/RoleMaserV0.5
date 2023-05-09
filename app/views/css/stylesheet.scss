@@ -516,6 +516,10 @@ body {
                 margin: 0 1px 0 0;
                 padding: 0 1px;
                 border-radius: 1px;
+                &.newpj-mark{
+                background: none !important;
+                color: #ff3939;
+                }
             }
         }
         .CheckAM {
