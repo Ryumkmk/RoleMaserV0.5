@@ -8,9 +8,10 @@ import (
 )
 
 type ConfigList struct {
-	Port     string
-	Static   string
-	Xlsxpath string
+	Port      string
+	Static    string
+	Sheetname string
+	Xlsxpath  string
 }
 
 var Config ConfigList
@@ -25,8 +26,9 @@ func LoadConfig() {
 		log.Fatalln(err)
 	}
 	Config = ConfigList{
-		Port:   cfg.Section("web").Key("port").MustString("8080"),
-		Static: cfg.Section("web").Key("static").String(),
+		Port:      cfg.Section("web").Key("port").MustString("8080"),
+		Static:    cfg.Section("web").Key("static").String(),
+		Sheetname: cfg.Section("web").Key("sheetname").String(),
 	}
 	Config.Xlsxpath = xlsx.GetXlsxPath()
 	// fmt.Println(Config.Xlsxpath)

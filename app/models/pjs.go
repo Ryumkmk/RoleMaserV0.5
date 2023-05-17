@@ -311,11 +311,11 @@ func GetAttendanceList(pjName string) (days []string, times []string) {
 		log.Println(err)
 	}
 	defer xf.Close()
-	cols, err := xf.GetCols("PJシフト5月")
+	cols, err := xf.GetCols(config.Config.Sheetname)
 	if err != nil {
 		log.Println(err)
 	}
-	rows, err := xf.GetRows("PJシフト5月")
+	rows, err := xf.GetRows(config.Config.Sheetname)
 	if err != nil {
 		log.Println(err)
 	}
@@ -365,7 +365,7 @@ func (p *Pj) IsNewPj() {
 		log.Println(err)
 	}
 	defer xf.Close()
-	allpjs := getAllPjsNames(xf, "PJシフト5月")
+	allpjs := getAllPjsNames(xf, config.Config.Sheetname)
 
 	for i, v := range allpjs {
 		if i >= 29 {
