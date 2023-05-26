@@ -67,29 +67,29 @@
                             content: "〇";
                         }
                     }
-                    .small-jobname {
-                        // outline: 1px red solid;
-                        font-size: 8px;
-                        border: none;
-                        color: #000000;
-                        // display: inline;
-                        text-align: left;
-                        position: relative;
-                        padding: 0;
-                        padding-left: 10px;
-                        &:before {
-                            position: absolute;
+                    // .small-jobname {
+                    //     // outline: 1px red solid;
+                    //     font-size: 8px;
+                    //     border: none;
+                    //     color: #000000;
+                    //     // display: inline;
+                    //     text-align: left;
+                    //     position: relative;
+                    //     padding: 0;
+                    //     padding-left: 10px;
+                    //     &:before {
+                    //         position: absolute;
 
-                            transform: rotate(15deg);
-                            content: "☆";
-                        }
-                        &:after {
-                            transform: rotate(0deg);
-                            top: auto;
-                            left: auto;
-                            content: "・・・";
-                        }
-                    }
+                    //         transform: rotate(15deg);
+                    //         content: "☆";
+                    //     }
+                    //     &:after {
+                    //         transform: rotate(0deg);
+                    //         top: auto;
+                    //         left: auto;
+                    //         content: "・・・";
+                    //     }
+                    // }
                     td {
                         // font-size: 16px;
                         border-bottom: 1px #000000 solid;
@@ -112,20 +112,20 @@
                             box-shadow: none;
                             font-weight: 300;
                         }
-                        &.small-td {
-                            border: none;
-                            text-align: left;
-                            white-space: nowrap;
-                            div {
-                                white-space: nowrap;
-                                overflow: hidden;
-                                text-overflow: ellipsis;
-                                display: inline-block;
-                                &:after{
-                                    content: "\00A0\00A0";
-                                }
-                            }
-                        }
+                        // &.small-td {
+                        //     border: none;
+                        //     text-align: left;
+                        //     white-space: nowrap;
+                        //     div {
+                        //         white-space: nowrap;
+                        //         overflow: hidden;
+                        //         text-overflow: ellipsis;
+                        //         display: inline-block;
+                        //         &:after{
+                        //             content: "\00A0\00A0";
+                        //         }
+                        //     }
+                        // }
 
                         span {
                             line-height: 1em;
