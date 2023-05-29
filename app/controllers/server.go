@@ -20,6 +20,7 @@ func generateHTML(w http.ResponseWriter, data interface{}, filenames ...string) 
 	templates.ExecuteTemplate(w, "layout", data)
 }
 
+// ログイン状態のセッション情報をクッキーから取得
 func session(w http.ResponseWriter, r *http.Request) (sess models.Session, err error) {
 	cookie, err := r.Cookie("_cookie")
 	if err == nil {
@@ -31,7 +32,7 @@ func session(w http.ResponseWriter, r *http.Request) (sess models.Session, err e
 	return sess, err
 }
 
-// アプリを起動する関数
+// アプリを起動する
 func StartMainServer() error {
 	files := http.FileServer(http.Dir(config.Config.Static))
 	http.Handle("/static/", http.StripPrefix("/static/", files))

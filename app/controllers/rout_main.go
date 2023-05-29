@@ -13,19 +13,22 @@ import (
 func top(w http.ResponseWriter, r *http.Request) {
 	_, err := session(w, r)
 	if err != nil {
+		//未ログイン情報ならloginページへ飛ぶ
 		http.Redirect(w, r, "/login", http.StatusFound)
-		// generateHTML(w, nil, "layout", "top")
 	} else {
+		//ログイン状態ならTopを作成
 		generateHTML(w, nil, "layout", "top")
 	}
 }
 
-// アクセス時のHtmlを生成
+// 初期アクセスページ
 func index(w http.ResponseWriter, r *http.Request) {
 	_, err := session(w, r)
 	if err != nil {
+		//未ログイン情報ならloginページへ飛ぶ
 		http.Redirect(w, r, "/login", http.StatusFound)
 	} else {
+		//ログイン状態ならTopページへ飛ぶ
 		http.Redirect(w, r, "/top", http.StatusFound)
 	}
 }

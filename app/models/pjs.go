@@ -19,6 +19,13 @@ type WhatJob struct {
 	Trainers []Trainer
 }
 
+type Wedding struct {
+	ID    int
+	Date  string
+	Ampm  string
+	Guest int
+}
+
 // Pjの構造体
 type Pj struct {
 	Date    string //出勤日付
