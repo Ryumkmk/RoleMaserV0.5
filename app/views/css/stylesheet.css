@@ -24,7 +24,67 @@ body #signup-form-content {
 body .form-signin {
   max-width: 330px;
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 64px auto;
+  width: 70%;
+  border-bottom: 2px #2589d0 dotted;
+  background-color: rgba(156, 191, 236, 0.596);
+  border-radius: 5px;
+  text-align: center !important;
+}
+body .form-signin .button_solid007 {
+  text-align: center;
+}
+body .form-signin .button_solid007 p {
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #2589d0;
+  letter-spacing: 0.04rem;
+  display: inline-block;
+  position: relative;
+}
+body .form-signin .button_solid007 p:before, body .form-signin .button_solid007 p:after {
+  display: inline-block;
+  position: absolute;
+  top: 45%;
+  width: 20px;
+  height: 3px;
+  border-radius: 5px;
+  background-color: #2589d0;
+  content: "";
+}
+body .form-signin .button_solid007 p:before {
+  left: -30px;
+  transform: rotate(50deg);
+}
+body .form-signin .button_solid007 p:after {
+  right: -30px;
+  transform: rotate(-50deg);
+}
+body .form-signin .button_solid007 label {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   margin: 0 auto;
+  max-width: 240px;
+  padding: 10px 25px;
+  color: #fff;
+  transition: 0.3s ease-in-out;
+  font-weight: 600;
+  background: #2589d0;
+  filter: drop-shadow(0px 2px 4px #ccc);
+  border-radius: 3px;
+}
+body .form-signin .button_solid007 label:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.1);
+}
+body .form-signin .btn {
+  margin: 0 auto;
+  width: 50%;
 }
 body .form-signin .checkbox {
   font-weight: normal;

@@ -1,13 +1,13 @@
 {{ define "content" }}
-<h1 class="text-center">login</h1>
+<!-- <h1 class="text-center">ログイン</h1> -->
 <form class="form-signin center" role="form" action="/authenticate" method="post">
   <h2 class="form-signin-heading">
-    <i class="fa fa-comments-o">
-      RoleMaster
-    </i>
+    <div class="button_solid007">
+      <p>ログイン</p>
+    </div>
   </h2>
   <input type="text" name="name" class="form-control" placeholder="ユーザー名" required autofocus>
-  <input type="text" name="password" class="form-control" placeholder="パスワード">
+  <input type="text" name="password" class="form-control" placeholder="パスワード" required>
   <br/>
   <button class="btn btn-lg btn-primary btn-block" type="submit">ログイン</button>
   <br/>

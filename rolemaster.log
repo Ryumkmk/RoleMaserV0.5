@@ -1,0 +1,4 @@
+2023/05/29 17:22:28 rout_auth.go:51: sql: no rows in result set
+2023/05/29 17:22:28 server.go:3217: http: superfluous response.WriteHeader call from RMV0.5/app/controllers.authenticate (rout_auth.go:69)
+2023/05/29 17:22:37 rout_auth.go:51: sql: no rows in result set
+2023/05/29 17:22:37 server.go:3217: http: superfluous response.WriteHeader call from RMV0.5/app/controllers.authenticate (rout_auth.go:69)
