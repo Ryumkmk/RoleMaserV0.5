@@ -80,7 +80,7 @@ function checkInstalled() {
 
 
 window.addEventListener("load", function () {
-    if (window.location.pathname === '/') {
+    if (window.location.pathname === '/top') {
         checkInstalled();
     }
 });
