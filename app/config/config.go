@@ -13,7 +13,6 @@ type ConfigList struct {
 	Static    string
 	Sheetname string
 	Xlsxpath  string
-
 	LogFile   string
 	SQLDriver string
 	DbName    string
