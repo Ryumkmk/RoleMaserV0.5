@@ -30,7 +30,7 @@ func upload(w http.ResponseWriter, r *http.Request) {
 	defer f.Close()
 
 	io.Copy(f, file)
-	http.Redirect(w, r, "/top", 302)
+	http.Redirect(w, r, "/top", http.StatusFound)
 }
 
 // xlsxファイルを削除
@@ -44,5 +44,5 @@ func delete(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println(err)
 	}
-	http.Redirect(w, r, "/", 302)
+	http.Redirect(w, r, "/", http.StatusFound)
 }

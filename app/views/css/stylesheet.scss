@@ -21,6 +21,41 @@ body {
         -ms-flex-align: center;
         align-items: center;
     }
+
+    #signup-form-content {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .form-signin {
+        max-width: 330px;
+        padding: 15px;
+        margin: 0 auto;
+        .checkbox {
+            font-weight: normal;
+        }
+        .form-signin-heading,.checkbox {
+            margin-bottom: 10px;
+        }
+        .form-control {
+            position: relative;
+            height: auto;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 10px;
+            font-size: 16px;
+        }
+        &:focus {
+            z-index: 2;
+            background-color: #ccffcc;
+        }
+        input[type="password"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+    }
 }
 
 /* ローディングアイコン */
@@ -32,7 +67,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    .attendancelist-title{
+    .attendancelist-title {
         display: flex;
     }
     h2 {
@@ -61,7 +96,7 @@ body {
             color: #def3ff;
         }
     }
-    th{
+    th {
         border-bottom: double 5px #516ab6;
     }
     td {
@@ -71,7 +106,7 @@ body {
         border-radius: 5px;
         text-align: center !important;
     }
-    input{
+    input {
         border: 1px double #a0a0a0;
         box-shadow: 0 0 0 1px #ccc inset;
         border-radius: 4px;
@@ -516,9 +551,9 @@ body {
                 margin: 0 1px 0 0;
                 padding: 0 1px;
                 border-radius: 1px;
-                &.newpj-mark{
-                background: none !important;
-                color: #ff3939;
+                &.newpj-mark {
+                    background: none !important;
+                    color: #ff3939;
                 }
             }
         }

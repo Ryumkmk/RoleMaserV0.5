@@ -11,22 +11,23 @@ import (
 
 // TopページのHtmlを生成
 func top(w http.ResponseWriter, r *http.Request) {
-	file := models.ReadXlsxFile()
-	fmt.Println(file.Name())
-	generateHTML(w, file.Name(), "layout", "top")
-
+	_, err := session(w, r)
+	if err != nil {
+		http.Redirect(w, r, "/login", http.StatusFound)
+		// generateHTML(w, nil, "layout", "top")
+	} else {
+		generateHTML(w, nil, "layout", "top")
+	}
 }
 
 // アクセス時のHtmlを生成
 func index(w http.ResponseWriter, r *http.Request) {
-
-	f := models.ReadXlsxFile()
-	if f == nil {
-		generateHTML(w, nil, "layout", "upload")
+	_, err := session(w, r)
+	if err != nil {
+		http.Redirect(w, r, "/login", http.StatusFound)
 	} else {
-		generateHTML(w, f.Name(), "layout", "top")
+		http.Redirect(w, r, "/top", http.StatusFound)
 	}
-
 }
 
 // 入力ページのHtmlを生成
