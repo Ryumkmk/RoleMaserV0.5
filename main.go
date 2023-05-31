@@ -1,10 +1,9 @@
 package main
 
-import "RMV0.5/app/controllers"
+import "RMV0.5/app/models"
 
 func main() {
 
-	controllers.StartMainServer()
-	// y := models.SplitPjsInSameRole("パンダ、ペリー")
-	// fmt.Println(y)
+	// controllers.StartMainServer()
+	models.InsertAllRowsShifts("5月シフト")
 }
