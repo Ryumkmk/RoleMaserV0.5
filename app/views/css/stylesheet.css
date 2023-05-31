@@ -165,7 +165,7 @@ body .form-signin input[type=password] {
   border-radius: 4px;
 }
 
-.wrapper {
+.page {
   width: 94%;
   margin: 32px auto 32px auto;
   line-height: 2;
@@ -173,14 +173,14 @@ body .form-signin input[type=password] {
   /* solid007 */
   /* solid015 */
 }
-.wrapper .attendance-form {
+.page .attendance-form {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   height: 45px;
 }
-.wrapper .attendance-form .pjname-input {
+.page .attendance-form .pjname-input {
   border-bottom: 2px #2589d0 dotted;
   background-color: rgba(156, 191, 236, 0.596);
   border-radius: 5px;
@@ -188,15 +188,15 @@ body .form-signin input[type=password] {
   padding: 0 10px;
   margin-right: 5px;
 }
-.wrapper .attendance-form .pjname-input input {
+.page .attendance-form .pjname-input input {
   width: 60px;
 }
-.wrapper .point-dog {
+.page .point-dog {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.wrapper .btn-box button {
+.page .btn-box button {
   width: 200px;
   height: 40px;
   padding: 8px;
@@ -210,26 +210,26 @@ body .form-signin input[type=password] {
           user-select: none;
   cursor: pointer;
 }
-.wrapper .btn-box button:hover {
+.page .btn-box button:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.1);
 }
-.wrapper .more {
+.page .more {
   display: none;
 }
-.wrapper .more ul {
+.page .more ul {
   margin: 16px;
   padding: 0;
   list-style: none;
   display: inline-block;
 }
-.wrapper .more ul li {
+.page .more ul li {
   color: #010101; /*文字色*/
   background: #eaf3ff; /*背景色*/
   border-bottom: solid 3px #516ab6; /*下線*/
   border-radius: 4px;
 }
-.wrapper .more.appear {
+.page .more.appear {
   display: block;
 }
 @keyframes fadeIn {
@@ -242,7 +242,7 @@ body .form-signin input[type=password] {
     transform: none;
   }
 }
-.wrapper .print-button {
+.page .print-button {
   text-decoration: none;
   color: #000655;
   position: relative;
@@ -260,31 +260,31 @@ body .form-signin input[type=password] {
   border-radius: 50px;
   border: none;
 }
-.wrapper .print-button:hover {
+.page .print-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.1);
 }
-.wrapper .AM {
+.page .AM {
   padding-bottom: 30px;
   margin-bottom: 30px;
   border-bottom: 2px double #53a5e0;
 }
-.wrapper tbody th .balloonoya {
+.page tbody th .balloonoya {
   position: relative; /* 指定した分だけ相対的に移動 */
   cursor: pointer; /* カーソルをポインターで表示 */
   display: inline-block;
 }
-.wrapper tbody th .balloonoya span {
+.page tbody th .balloonoya span {
   color: #000000;
 }
-.wrapper tbody th .balloonoya img {
+.page tbody th .balloonoya img {
   vertical-align: middle;
   padding: 2px;
 }
-.wrapper tbody th .balloonnone {
+.page tbody th .balloonnone {
   display: none;
 }
-.wrapper tbody th .balloon {
+.page tbody th .balloon {
   position: absolute; /* 親要素を基準 */
   display: inline; /* 要素をインラインとして表示 */
   padding: 2px; /* テキストの前後の余白 */
@@ -297,7 +297,7 @@ body .form-signin input[type=password] {
   line-height: 1.8em;
   z-index: 1000;
 }
-.wrapper tbody th .balloon:after {
+.page tbody th .balloon:after {
   border-right: 12px solid #ff5e13; /* 吹き出し口の幅・色 */
   border-top: 10px solid transparent; /* 吹き出し口の高さ１／２ */
   border-bottom: 10px solid transparent; /* 吹き出し口の高さ１／２ */
@@ -306,10 +306,10 @@ body .form-signin input[type=password] {
   content: ""; /* コンテンツの挿入 */
   position: absolute; /* 親要素を基準 */
 }
-.wrapper tbody tr .date-print:before, .wrapper tbody tr .date-print:after {
+.page tbody tr .date-print:before, .page tbody tr .date-print:after {
   display: none;
 }
-.wrapper tbody tr .jobName {
+.page tbody tr .jobName {
   width: 30%;
   font-size: 11px;
   position: relative;
@@ -319,7 +319,7 @@ body .form-signin input[type=password] {
   background-color: rgba(156, 191, 236, 0.596);
   border-radius: 5px;
 }
-.wrapper tbody tr .jobName:before {
+.page tbody tr .jobName:before {
   position: absolute;
   top: 0;
   left: 0.3em;
@@ -329,7 +329,7 @@ body .form-signin input[type=password] {
   background: #2589d0;
   content: "";
 }
-.wrapper tbody tr .jobName:after {
+.page tbody tr .jobName:after {
   position: absolute;
   transform: rotate(15deg);
   top: 0.6em;
@@ -339,23 +339,23 @@ body .form-signin input[type=password] {
   background: #2589d0;
   content: "";
 }
-.wrapper tbody tr .tasting-event {
+.page tbody tr .tasting-event {
   background-color: rgba(236, 228, 156, 0.596) !important;
 }
-.wrapper tbody tr td {
+.page tbody tr td {
   width: 35%;
   border-bottom: 2px #2589d0 dotted;
   background-color: rgba(156, 191, 236, 0.596);
   border-radius: 5px;
   text-align: left;
 }
-.wrapper tbody tr td .dotted {
+.page tbody tr td .dotted {
   display: none;
 }
-.wrapper tbody tr td.ampm {
+.page tbody tr td.ampm {
   text-align: center;
 }
-.wrapper tbody tr td input {
+.page tbody tr td input {
   width: 80%;
   border: none;
   border: 1px double #a0a0a0;
@@ -368,31 +368,31 @@ body .form-signin input[type=password] {
   -moz-appearance: none;
   padding: 2px 0 2px 2px;
 }
-.wrapper tbody tr td input:hover {
+.page tbody tr td input:hover {
   border: 1px double #6dfff3;
 }
-.wrapper tbody tr td input:focus {
+.page tbody tr td input:focus {
   outline: 0;
   box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
 }
-.wrapper tbody tr td div {
+.page tbody tr td div {
   color: rgb(221, 120, 120);
   font-weight: 550;
 }
-.wrapper tbody tr td span {
+.page tbody tr td span {
   font-size: 11px;
   font-weight: 500;
   padding-left: 6px;
   color: black;
   border-left: 1px dotted #000d86;
 }
-.wrapper .heading-018 {
+.page .heading-018 {
   border: 2px solid #2589d0;
   box-shadow: 5px 5px #2589d0;
   color: #2589d0;
   display: inline-block;
 }
-.wrapper .maintitle {
+.page .maintitle {
   font-family: "Chakra Petch", sans-serif;
   font-family: "M PLUS Rounded 1c", sans-serif;
   font-family: "Noto Serif JP", serif;
@@ -401,7 +401,7 @@ body .form-signin input[type=password] {
   display: flex;
   justify-content: center;
 }
-.wrapper .file-name-title {
+.page .file-name-title {
   position: relative;
   background: #2589d0;
   box-shadow: 0px 0px 0px 5px #2589d0;
@@ -410,7 +410,7 @@ body .form-signin input[type=password] {
   color: #ffffff;
   display: inline-block;
 }
-.wrapper .file-name-title:after {
+.page .file-name-title:after {
   position: absolute;
   content: "";
   left: -7px;
@@ -420,10 +420,10 @@ body .form-signin input[type=password] {
   border-color: #fff #fff #6e94ad;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
-.wrapper .button_solid007 {
+.page .button_solid007 {
   text-align: center;
 }
-.wrapper .button_solid007 p {
+.page .button_solid007 p {
   margin-bottom: 5px;
   font-weight: 600;
   color: #2589d0;
@@ -431,7 +431,7 @@ body .form-signin input[type=password] {
   display: inline-block;
   position: relative;
 }
-.wrapper .button_solid007 p:before, .wrapper .button_solid007 p:after {
+.page .button_solid007 p:before, .page .button_solid007 p:after {
   display: inline-block;
   position: absolute;
   top: 45%;
@@ -441,15 +441,15 @@ body .form-signin input[type=password] {
   background-color: #2589d0;
   content: "";
 }
-.wrapper .button_solid007 p:before {
+.page .button_solid007 p:before {
   left: -30px;
   transform: rotate(50deg);
 }
-.wrapper .button_solid007 p:after {
+.page .button_solid007 p:after {
   right: -30px;
   transform: rotate(-50deg);
 }
-.wrapper .button_solid007 label {
+.page .button_solid007 label {
   position: relative;
   display: flex;
   justify-content: space-around;
@@ -464,14 +464,14 @@ body .form-signin input[type=password] {
   filter: drop-shadow(0px 2px 4px #ccc);
   border-radius: 3px;
 }
-.wrapper .button_solid007 label:hover {
+.page .button_solid007 label:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.1);
 }
-.wrapper .xlsxUp {
+.page .xlsxUp {
   text-align: center;
 }
-.wrapper .box2 {
+.page .box2 {
   padding: 0.5em 1em;
   margin: 2em 0;
   display: inline-block;
@@ -483,18 +483,18 @@ body .form-signin input[type=password] {
   border-radius: 10px; /*角の丸み*/
   font-size: 12px;
 }
-.wrapper .box2 p {
+.page .box2 p {
   margin: 0;
   padding: 0;
 }
-.wrapper .box2 p.checked-mes {
+.page .box2 p.checked-mes {
   color: rgb(160, 0, 0);
 }
-.wrapper .button_solid015 {
+.page .button_solid015 {
   text-align: center;
   margin: 30px auto;
 }
-.wrapper .button_solid015 button {
+.page .button_solid015 button {
   position: relative;
   display: flex;
   justify-content: space-around;
@@ -510,31 +510,31 @@ body .form-signin input[type=password] {
   border-radius: 50px;
   border: none;
 }
-.wrapper .button_solid015 button:hover {
+.page .button_solid015 button:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.1);
 }
-.wrapper .file-input-button {
+.page .file-input-button {
   display: none;
 }
-.wrapper footer .button_solid015 {
+.page footer .button_solid015 {
   display: flex;
   justify-content: center;
 }
-.wrapper footer .button_solid015 button {
+.page footer .button_solid015 button {
   margin: 0 5px;
 }
-.wrapper footer .trainer-typing {
+.page footer .trainer-typing {
   margin: 5px auto;
 }
-.wrapper footer .trainer-typing button {
+.page footer .trainer-typing button {
   font-size: 12px;
   padding: 6px 10px;
 }
-.wrapper .sub-space p {
+.page .sub-space p {
   display: none;
 }
-.wrapper .pjs-list-title {
+.page .pjs-list-title {
   position: relative;
   background: #dfefff;
   box-shadow: 0px 0px 0px 5px #dfefff;
@@ -542,7 +542,7 @@ body .form-signin input[type=password] {
   width: 30%;
   margin: auto;
 }
-.wrapper .pjs-list-title:after {
+.page .pjs-list-title:after {
   position: absolute;
   content: "";
   left: -7px;
@@ -552,20 +552,20 @@ body .form-signin input[type=password] {
   border-color: #fff #fff #a8d4ff;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
-.wrapper .pjs-list {
+.page .pjs-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-gap: 3px;
   margin: 10px auto;
 }
-.wrapper .pjs-list .pjs-item {
+.page .pjs-list .pjs-item {
   font-size: 16px;
   color: #010101; /*文字色*/
   background-color: rgba(156, 191, 236, 0.5);
   border-bottom: solid 3px #516ab6; /*下線*/
   border-radius: 3px;
 }
-.wrapper .pjs-list .pjs-item .AmPm {
+.page .pjs-list .pjs-item .AmPm {
   font-size: 12px;
   border-top: 2px dotted #7995e7;
   color: #310000;
@@ -574,20 +574,20 @@ body .form-signin input[type=password] {
   margin: 0 0;
   border-radius: 3px;
 }
-.wrapper .pjs-list .pjs-item span {
+.page .pjs-list .pjs-item span {
   background-color: rgba(156, 191, 236, 0.5);
   margin: 0 1px 0 0;
   padding: 0 1px;
   border-radius: 1px;
 }
-.wrapper .pjs-list .pjs-item span.newpj-mark {
+.page .pjs-list .pjs-item span.newpj-mark {
   background: none !important;
   color: #ff3939;
 }
-.wrapper .pjs-list .CheckAM {
+.page .pjs-list .CheckAM {
   background-color: rgba(255, 217, 217, 0.822);
 }
-.wrapper .pjs-list .CheckAM .AmPm {
+.page .pjs-list .CheckAM .AmPm {
   font-size: 12px;
   border-top: 2px dotted #7995e7;
   color: #310000;
@@ -596,10 +596,10 @@ body .form-signin input[type=password] {
   margin: 0 0;
   border-radius: 3px;
 }
-.wrapper .pjs-list .CheckPM {
+.page .pjs-list .CheckPM {
   background-color: rgb(255, 217, 217);
 }
-.wrapper .pjs-list .CheckPM .AmPm {
+.page .pjs-list .CheckPM .AmPm {
   font-size: 12px;
   border-top: 2px dotted #7995e7;
   color: #310000;
@@ -608,7 +608,7 @@ body .form-signin input[type=password] {
   margin: 0 0;
   border-radius: 3px;
 }
-.wrapper .btn-design-1 {
+.page .btn-design-1 {
   border: none;
   outline: none;
   position: relative;
@@ -622,17 +622,17 @@ body .form-signin input[type=password] {
   filter: drop-shadow(0px 2px 4px #ccc);
   border-radius: 50px;
 }
-.wrapper .btn-design-1 input {
+.page .btn-design-1 input {
   color: #fff;
   border: none;
   outline: none;
   background: #2589d0;
 }
-.wrapper .btn-design-1:hover {
+.page .btn-design-1:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.1);
 }
-.wrapper .trainer-trainee-container td {
+.page .trainer-trainee-container td {
   font-weight: 600;
   color: rgb(221, 120, 120);
 }

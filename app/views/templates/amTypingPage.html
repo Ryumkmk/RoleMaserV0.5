@@ -1,0 +1,265 @@
+{{define "content"}}
+<div id="tap-delete-balloon">
+    <div class="button_solid015">
+        <button onclick="history.back()">戻る</button>
+    </div>
+    <p class="pjs-list-title">
+        日付:{{.WITPAM.Date2}}
+        <br>
+        ゲスト数:{{.WITPAM.Guest}}
+        <br>
+        婚礼時間:{{.WITPAM.Ampm}}
+        
+    </p>
+    <br>
+    <p class="pjs-list-title">出勤PJ一覧</p>
+    <div class="pjs-list">
+        {{range .PLITs}}
+        <div class="pjs-item Names">{{.Name}}<span class="newpj-mark">{{.Level}}</span>
+            <p class="AmPm"><span>{{.Ampm}}</span>{{.ShiftTime}}</p>
+        </div>
+        {{end}}
+    </div>
+    <form action="/checkPj" method="post">
+        <div class="AM">
+            <table>
+                <tbody>
+                    <tr>
+                        <th name="date-form" class="jobName date-print">
+                            <input type="hidden" name="date-form" value={{.WITPAM.Date}}>
+                            <input type="hidden" name="datetype2" value={{.WITPAM.Date2}}>
+                            <input type="hidden" name="am-form" value={{.WITPAM.Ampm}}>
+                            {{.WITPAM.Date2}}
+                        </th>
+                        <td class="ampm" colspan="2">
+                            {{.WITPAM.Ampm}}
+                            </td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">サブPJ</th>
+                        <td colspan="2"><input type="text" name="サブPJ"
+                            value = "{{range .RIITPsAM}}{{if eq .RoleName "サブPJ"}}{{.PjName}} {{end}}{{end}}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">リーダー</th>
+                        <td colspan="2"><input type="text" name="リーダー" 
+                            value = "{{range .RIITPsAM}}{{if eq .RoleName "リーダー"}}{{.PjName}} {{end}}{{end}}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">リターンリーダー
+                            <div class="balloonoya" onclick="showBalloon('makeImg1')">
+                                <img src="/static/imgs/questionicon.svg" width="14px">
+                                <span class="balloonnone" id="makeImg1">
+                                    ここはベテランのみ！<br>
+                                    もしくは中堅層PJとベテランPJで組んで指示出しの仕方をあげる
+                                </span>
+                            </div>
+                        </th>
+                        <td colspan="2"><input type="text" name="リターンリーダー"
+                            value = "{{range .RIITPsAM}}{{if eq .RoleName "リターンリーダー"}}{{.PjName}} {{end}}{{end}}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">門番/駐車場
+                            <div class="balloonoya" onclick="showBalloon('makeImg2')">
+                                <img src="/static/imgs/questionicon.svg" width="14px">
+                                <span class="balloonnone" id="makeImg2">
+                                    第一駐車場は基本１人<br>
+                                    新人は第二駐車場をまずは覚える<br>
+                                    慣れてきた子は第一駐車場２人(新人×先輩)体制で！<br>
+                                    →その時の第二駐車場は先輩PJ1人でやる
+                                </span>
+                            </div>
+                        </th>
+                        <td><input type="text" name="門番＆第一"
+                            value = "{{range .RIITPsAM}}{{if eq .RoleName "門番＆第一"}}{{.PjName}} {{end}}{{end}}"><span>第一</span></td>
+                        <td><input type="text" name="門番＆第二"
+                            value = "{{range .RIITPsAM}}{{if eq .RoleName "門番＆第二"}}{{.PjName}} {{end}}{{end}}"><span>第二</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">クローク
+                            <div class="balloonoya" onclick="showBalloon('makeImg3')">
+                                <img src="/static/imgs/questionicon.svg" width="14px">
+                                <span class="balloonnone" id="makeImg3">
+                                    新人はまずクロークから！<br>
+                                    大人数の時や新人x中堅PJの時はクロークサブをつける
+                                </span>
+                            </div>
+                        </th>
+                        <td colspan="2"><input type="text" name="クローク"
+                            value = "{{range .RIITPsAM}}{{if eq .RoleName "クローク"}}{{.PjName}} {{end}}{{end}}"></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">クロークサブ</th>
+                        <td colspan="2"><input type="text" name="クロークサブ"
+                            value = "{{range .RIITPsAM}}{{if eq .RoleName "クロークサブ"}}{{.PjName}} {{end}}{{end}}"></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">コーヒー＆デトックス
+                            <div class="balloonoya" onclick="showBalloon('makeImg4')">
+                                <img src="/static/imgs/questionicon.svg" width="14px">
+                                <span class="balloonnone" id="makeImg4">
+                                    アぺや水係がやる事多いと思う
+                                </span>
+                            </div>
+                        </th>
+                        <td colspan="2"><input type="text" name="コーヒー"
+                            value = "{{range .RIITPsAM}}{{if eq .RoleName "コーヒー"}}{{.PjName}} {{end}}{{end}}"></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">ドリカン両親係
+                            <div class="balloonoya" onclick="showBalloon('makeImg5')">
+                                <img src="/static/imgs/questionicon.svg" width="14px">
+                                <span class="balloonnone" id="makeImg5">
+                                    初めてドリカンをする子はドリンク聞きから！<br>
+                                    慣れてきたら新人が作成（先輩は聞き且つ見守る役）<br>
+                                    大人数（６０名～）はドリカンサブが絶対必要<br>
+                                    少人数の時は入って日が浅い子を優先的にドリカンへ
+                                    →おちついて慣れてもらうため
+                                </span>
+                            </div>
+                        </th>
+                        <td><input type="text" name="ドリカン＆作"
+                            value = "{{range .RIITPsAM}}{{if eq .RoleName "ドリカン＆作"}}{{.PjName}} {{end}}{{end}}"><span>作&郎側</span></td>
+                        <td><input type="text" name="ドリカン＆聞"
+                            value = "{{range .RIITPsAM}}{{if eq .RoleName "ドリカン＆聞"}}{{.PjName}} {{end}}{{end}}"><span>聞&婦側</span></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">ドリカンサブ</th>
+                        <td colspan="2"><input type="text" name="ドリカンサブ"
+                            value = "{{range .RIITPsAM}}{{if eq .RoleName "ドリカンサブ"}}{{.PjName}} {{end}}{{end}}"></td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">シャンパン＆ワイン
+                            <div class="balloonoya" onclick="showBalloon('makeImg6')">
+                                <img src="/static/imgs/questionicon.svg" width="14px">
+                                <span class="balloonnone" id="makeImg6">
+                                    どうしても人が足りない時はクローク係がここもする<br>
+                                    乾杯準備に間に合わせれるよう絶対先輩×新人で！<br>
+                                    不安そうな子がシャンパンデビューする時は絶対見守ってあげる
+                                </span>
+                            </div>
+                        </th>
+                        <td colspan="2"><input type="text" name="シャンパン&ワイン"
+                            value = "{{range .RIITPsAM}}{{if eq .RoleName "シャンパン&ワイン"}}{{.PjName}} {{end}}{{end}}"></td>
+                        <!-- <td><input type="text" name="シャンパン&ワイン"></td> -->
+                    </tr>
+                    <tr>
+                        <th class="jobName">シルバー＆ワイン
+                            <div class="balloonoya" onclick="showBalloon('makeImg7')">
+                                <img src="/static/imgs/questionicon.svg" width="14px">
+                                <span class="balloonnone" id="makeImg7">
+                                    慣れてきた新人PJはワイン係を教えてあげる
+                                </span>
+                            </div>
+                        </th>
+                        <td colspan="2"><input type="text" name="シルバー＆ワイン"
+                            value = "{{range .RIITPsAM}}{{if eq .RoleName "シルバー＆ワイン"}}{{.PjName}} {{end}}{{end}}">
+                        </td>
+                        <!-- <td><input type="text" name="シルバー＆ワイン"> -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class=" jobName">アペ＆水</th>
+                        <td colspan="2"><input type="text" name="アペ＆水"
+                            value = "{{range .RIITPsAM}}{{if eq .RoleName "アペ＆水"}}{{.PjName}} {{end}}{{end}}">
+                        </td>
+                        <!-- <td><input type="text" name="アペ＆水"> -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">トイレタバコチェック＆ガーデンヒーター</th>
+                        <td><input type="text" name="トイレタバコ男"
+                            value = "{{range .RIITPsAM}}{{if eq .RoleName "トイレタバコ男"}}{{.PjName}} {{end}}{{end}}"><span>男性＆タバコ</span></td>
+                        <td><input type="text" name="トイレタバコ女"
+                            value = "{{range .RIITPsAM}}{{if eq .RoleName "トイレタバコ女"}}{{.PjName}} {{end}}{{end}}"><span>女性＆多目的</span></td>
+
+                    </tr>
+                    <tr>
+                        <th class="jobName">洗い場</th>
+                        <td><input type="text" name="洗い場洗い"
+                            value = "{{range .RIITPsAM}}{{if eq .RoleName "洗い場洗い"}}{{.PjName}} {{end}}{{end}}"><span>洗い</span>
+                        </td>
+                        <td><input type="text" name="洗い場拭き"
+                            value = "{{range .RIITPsAM}}{{if eq .RoleName "洗い場拭き"}}{{.PjName}} {{end}}{{end}}"><span>拭き</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+        </div>
+        <div class="trainer-trainee-typing">
+            <table>
+                <thead>
+                    <tr>
+                        <th>トレーナー</th>
+                        <th>トレーニー</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <tr>
+                        <td><input name="trainer0"></td>
+                        <td><input name="trainee0"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <footer class="treiner-typing">
+                <div class="button_solid015 trainer-typing">
+                    <button type="button" id="add-btn">追加</button>
+                    <button type="button" id="delete-btn">削除</button>
+                </div>
+            </footer>
+        </div>
+        <div class="btn-design-1">
+            <input type="submit" value="確認">
+        </div>
+    </form>
+
+</div>
+<script>
+    var rowNum = 1;
+    $(function () {
+        var rowNum = getCookie("rowNum") || 1;
+        for (var i = 1; i < rowNum; i++) {
+            addRow(i);
+        }
+
+        $("#add-btn").on("click", function () {
+            addRow(rowNum);
+            rowNum++;
+            setCookie("rowNum", rowNum);
+        });
+
+        $("#delete-btn").on("click", function () {
+            $("#table-body tr:last").remove();
+            rowNum--;
+            setCookie("rowNum", rowNum);
+        });
+    });
+
+    function addRow(rowNum) {
+        var newRow = $("<tr>");
+        newRow.append("<td><input name='trainer" + rowNum + "'></td>");
+        newRow.append("<td><input name='trainee" + rowNum + "'></td>");
+        $("#table-body").append(newRow);
+    }
+
+    function setCookie(name, value) {
+        document.cookie = name + "=" + value + "; path=/";
+    }
+
+    function getCookie(name) {
+        var value = "; " + document.cookie;
+        var parts = value.split("; " + name + "=");
+        if (parts.length == 2) {
+            return parts.pop().split(";").shift();
+        }
+        return null;
+    }
+
+</script>
+
+{{end}}

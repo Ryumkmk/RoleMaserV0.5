@@ -1,6 +1,4 @@
 {{define "content"}}
-<div class="wrapper">
-
     <h1 class="maintitle heading-018">RoleMaster</h1>
     <!-- 
     <div class="button_solid007">
@@ -29,6 +27,23 @@
             <p>作りたいシフトの日付を入力してね</p>
         </div>
         <div class="selectdiv">
+            <div class="cp_ipselect cp_sl01">
+                <select name="year" required>
+                    <option value="" hidden>年</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <!-- <option value="6">2026</option>
+                    <option value="7">2027</option>
+                    <option value="8">2028</option>
+                    <option value="9">2029</option>
+                    <option value="10">2030</option>
+                    <option value="11">2031</option>
+                    <option value="12">2032</option> -->
+                </select>
+            </div>
             <div class="cp_ipselect cp_sl01">
                 <select name="month" required>
                     <option value="" hidden>月</option>
@@ -83,8 +98,6 @@
                 </select>
             </div>
         </div>
-
-
         <div class="btn-design-1">
             <input type="submit" value="役割分担表を作る">
         </div>
@@ -116,5 +129,4 @@
             </ul>
         </div>
     </div>
-</div>
 {{end}}

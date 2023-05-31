@@ -1,0 +1,318 @@
+{{define "content"}}
+<div id="page1">
+    <div class="page">
+        <footer>
+            <div class="button_solid015">
+                <button class="back-button" onclick="history.back()">戻る</button>
+                <button class="print-button" onclick="window.print()">印刷</button>
+            </div>
+        </footer>
+        <p class="pjs-list-title">出勤PJ一覧</p>
+        <div class="pjs-list">
+            {{range .PLITs}}
+            <div class="pjs-item Names">{{.Name}}<span class="newpj-mark">{{.Level}}</span>
+                <p class="AmPm"><span>{{.Ampm}}</span>{{.ShiftTime}}</p>
+            </div>
+            {{end}}
+        </div>
+        <div class="point-dog">
+            <div class="box2">
+                <p class="checked-mes">※赤色は入力済Pj
+                    <br>
+                    全員入力しましたか？
+                </p>
+            </div>
+            <div>
+                <img src="/static/imgs/check-dog.gif" alt="" width="70px">
+            </div>
+        </div>
+        <div class="AM AMPM-container">
+            <table>
+                <tbody>
+                    <tr>
+                        <th class="jobName date-print">
+                            {{.WITPAM.Date2}}
+                        </th>
+                        <td class="ampm am-rest" colspan="2">{{.WITPAM.Ampm}}</td>
+                        <td class="ampm pm-rest" hidden>none</td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">サブPJ</th>
+                        <td colspan="2">
+                            <div class="subpj">
+                                {{range .RIITPsAM}}{{if eq .RoleName "サブPJ"}}{{.PjName}} {{end}}{{end}}
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th class="jobName in">リーダー</th>
+                        <td colspan="2">
+                            <div class="leader">
+                                {{range .RIITPsAM}}{{if eq .RoleName "リーダー"}}{{.PjName}} {{end}}{{end}}
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="jobName in">リターンリーダー</th>
+                        <td colspan="2">
+                            <div class="returnleader">
+                                {{range .RIITPsAM}}{{if eq .RoleName "リターンリーダー"}}{{.PjName}} {{end}}{{end}}
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="jobName in">門番/駐車場</th>
+                        <td>
+                            <div class="gatekeeper">
+                                {{range .RIITPsAM}}{{if eq .RoleName "門番＆第一"}}{{.PjName}} {{end}}{{end}}
+                                <span>第一</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="gatekeeper2">
+                                {{range .RIITPsAM}}{{if eq .RoleName "門番＆第二"}}{{.PjName}} {{end}}{{end}}
+                                <span>第二</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th class="jobName">クローク
+                            <br>
+                            &Wt迎賓
+                        </th>
+                        <td colspan="2">
+                            <div class="cloak">
+                                {{range .RIITPsAM}}{{if eq .RoleName "クローク"}}{{.PjName}} {{end}}{{end}}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">クロークサブ
+                            <br>
+                            &Wt迎賓
+                        </th>
+                        <td colspan="2">
+                            <div class="cloaksub">
+                                {{range .RIITPsAM}}{{if eq .RoleName "クロークサブ"}}{{.PjName}} {{end}}{{end}}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">コーヒー＆<br>デトックス</th>
+                        <td colspan="2">
+                            <div class="coffee">
+                                {{range .RIITPsAM}}{{if eq .RoleName "コーヒー"}}{{.PjName}} {{end}}{{end}}
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">ドリカン両親係</th>
+                        <td>
+                            <div class="drinkmain">
+                                {{range .RIITPsAM}}{{if eq .RoleName "ドリカン＆作"}}{{.PjName}} {{end}}{{end}}
+                                <span>作&郎側</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="drinksub">
+                                {{range .RIITPsAM}}{{if eq .RoleName "ドリカン＆聞"}}{{.PjName}} {{end}}{{end}}
+                                <span>聞&婦側</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">ドリカンサブ</th>
+                        <td colspan="2">
+                            <div class="drinksubsub">
+                                {{range .RIITPsAM}}{{if eq .RoleName "ドリカンサブ"}}{{.PjName}} {{end}}{{end}}
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">シャンパン＆ワイン
+                            <br>
+                            &チャペル誘導
+                        </th>
+                        <td colspan="2">
+                            <div class="champagne">
+                                {{range .RIITPsAM}}{{if eq .RoleName "シャンパン&ワイン"}}{{.PjName}} {{end}}{{end}}
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">シルバー＆ワイン
+                            <br>
+                            &おしぼり回収
+                        </th>
+                        <td colspan="2">
+                            <div class="silver">
+                                {{range .RIITPsAM}}{{if eq .RoleName "シルバー＆ワイン"}}{{.PjName}} {{end}}{{end}}
+
+                            </div>
+                            <span class="towel-check">おしぼり回収チェック □</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class=" jobName">アペ＆水
+                            <br>
+                            &アルコール係
+                        </th>
+                        <td colspan="2">
+                            <div class="ape">
+                                {{range .RIITPsAM}}{{if eq .RoleName "アペ＆水"}}{{.PjName}} {{end}}{{end}}
+
+                            </div>
+                        </td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="jobName">トイレタバコチェック＆<br>ガーデンヒーター</th>
+                        <td>
+                            <div class="toiletman">
+                                {{range .RIITPsAM}}{{if eq .RoleName "トイレタバコ男"}}{{.PjName}} {{end}}{{end}}
+                                <span>男性＆タバコ</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="toiletlady">
+                                {{range .RIITPsAM}}{{if eq .RoleName "トイレタバコ女"}}{{.PjName}} {{end}}{{end}}
+                                <span>女性＆多目的</span>
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th class="jobName">洗い場</th>
+                        <td>
+                            <div class="wash1">
+                                {{range .RIITPsAM}}{{if eq .RoleName "洗い場洗い"}}{{.PjName}} {{end}}{{end}}
+                                <span>洗い</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="wash2">
+                                {{range .RIITPsAM}}{{if eq .RoleName "洗い場拭き"}}{{.PjName}} {{end}}{{end}}
+                                <span>拭き</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="trainer-trainee-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>トレーナー</th>
+                        <th>トレーニー</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{range .TTs}}
+                    {{if or ( ne .Trainer "") (ne .Trainee "")}}
+                    <tr>
+                        <td class="trainer-name-check">{{.Trainer}}</td>
+                        <td class="trainee-name-check">{{.Trainee}}</td>
+                    </tr>
+                    {{end}}
+                    {{end}}
+                </tbody>
+            </table>
+        </div>
+        <footer>
+            <div class="button_solid015">
+                <button class="back-button" onclick="history.back()">戻る</button>
+                <button class="print-button" onclick="window.print()">印刷</button>
+            </div>
+        </footer>
+    </div>
+</div>
+</div>
+<div id="page2">
+    <!-- <h2>休憩リスト</h2> -->
+    <div class="rest">
+        <div class="rest-am rest-ampm-container">
+            <h3>AM</h3>
+            <table class="rest-tbl-design">
+                <tbody>
+                    <tr>
+                        <th>休憩時間</th>
+                        <td class="td-title">休憩メンバー</td>
+                    </tr>
+                    <tr>
+                        <th>10:00-10:45
+                            <p>挙式中</p>
+                        </th>
+                        <td class="rest-drink"></td>
+                    </tr>
+                    <tr>
+                        <th>10:30-11:15
+                            <p>ガーデン～乾杯</p>
+                        </th>
+                        <td class="rest-coffee"></td>
+                    </tr>
+                    <tr>
+                        <th>11:00-11:45
+                            <p>プルミエ～ポワソン</p>
+
+                        </th>
+                        <td class="rest-gatekeeper"></td>
+                    </tr>
+                    <tr>
+                        <th>11:30-12:15
+                            <p>ポワソン～</p>
+
+                        </th>
+                        <td class="rest-cloak"></td>
+                    </tr>
+                    <tr>
+                        <th>12:00-12:45
+                            <p>ビアンド～</p>
+
+                        </th>
+                        <td class="rest-ape"></td>
+                    </tr>
+                    <tr>
+                        <th>12:30-13:15
+                            <p>デザート～</p>
+
+                        </th>
+                        <td class="rest-silver"></td>
+                    </tr>
+                    <tr>
+                        <th>13:00-13:45
+                            <p>クライマックス</p>
+
+                        </th>
+                        <td class="rest-champagne"></td>
+                    </tr>
+                    <tr>
+                        <th>13:30-14:15
+                            <p>お見送り</p>
+
+                        </th>
+                        <td class="rest-leader"></td>
+                    </tr>
+                    <tr>
+                        <th>14:00-14:45
+                            <p>リターン</p>
+
+                        </th>
+                        <td class="rest-subpj"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{{end}}

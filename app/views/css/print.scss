@@ -1,181 +1,29 @@
 @page {
     margin: 0;
-    // size: 297mm 210mm;
 }
 
 @media print {
     #page1 {
+        // * {
+        //     outline: 1px red solid;
+        // }
         page-break-after: always;
-        // display: block;
+        display: flex;
+        justify-content: center;
         width: 1200px;
-        .wrapper {
-            width: 100% !important;
-            line-height: 1.8;
-            .box2 {
-                display: none;
-            }
-            .top-button {
-                display: none;
-            }
-            footer {
-                display: none;
-            }
-            .ampm {
-                font-size: 18px;
-                font-weight: 700;
-                // margin: 0;
-                // padding: 0;
-            }
-            .point-dog{
-                display: none !important;
-            }
+        line-height: 1.8;
+        .page {
             display: flex;
-            tbody {
-                tr {
-                    .jobName {
-                        // width: 350px;
-                        height: 27px;
-                        font-size: 13px;
-                        // font-weight: 700;
-                        // position: relative;
-                        // padding: 0.3em 0 0.3em 1em;
-                        line-height: 1em;
-                        border-bottom: 1px solid #000000;
-                        // border-top: 1px solid #000000;
-                        // color: #000000;
-                        background-color: rgb(255, 255, 255);
-                        border-radius: 0px;
-                        white-space: nowrap;
-                        &:before {
-                            position: absolute;
-                            top: 0;
-                            left: 0.3em;
-                            transform: rotate(55deg);
-                            height: 0px;
-                            width: 0px;
-                            background: #000000;
-                            content: "●";
-                        }
-                        &:after {
-                            position: absolute;
-                            transform: rotate(15deg);
-                            top: 0.6em;
-                            left: 0;
-                            height: 0px;
-                            width: 0px;
-                            background: #000000;
-                            content: "〇";
-                        }
-                    }
-                    // .small-jobname {
-                    //     // outline: 1px red solid;
-                    //     font-size: 8px;
-                    //     border: none;
-                    //     color: #000000;
-                    //     // display: inline;
-                    //     text-align: left;
-                    //     position: relative;
-                    //     padding: 0;
-                    //     padding-left: 10px;
-                    //     &:before {
-                    //         position: absolute;
-
-                    //         transform: rotate(15deg);
-                    //         content: "☆";
-                    //     }
-                    //     &:after {
-                    //         transform: rotate(0deg);
-                    //         top: auto;
-                    //         left: auto;
-                    //         content: "・・・";
-                    //     }
-                    // }
-                    td {
-                        // font-size: 16px;
-                        border-bottom: 1px #000000 solid;
-                        border-left: 1px #000000 dotted;
-                        border-right: 1px #000000 solid;
-                        background-color: rgb(255, 255, 255);
-                        border-radius: 0px;
-                        text-align: center;
-                        // position: relative;
-                        .dotted {
-                            display: inline;
-                            color: #000000;
-                        }
-                        div {
-                            color: #000000;
-                            line-height: 1em;
-                            padding: 0; /* パディングを0に設定 */
-                            margin: 0; /* マージンを0に設定 */
-                            border: none;
-                            box-shadow: none;
-                            font-weight: 300;
-                        }
-                        // &.small-td {
-                        //     border: none;
-                        //     text-align: left;
-                        //     white-space: nowrap;
-                        //     div {
-                        //         white-space: nowrap;
-                        //         overflow: hidden;
-                        //         text-overflow: ellipsis;
-                        //         display: inline-block;
-                        //         &:after{
-                        //             content: "\00A0\00A0";
-                        //         }
-                        //     }
-                        // }
-
-                        span {
-                            line-height: 1em;
-                            display: inline-block; /* インラインブロック要素にする */
-                            vertical-align: center; /* ベースラインに合わせる */
-                            font-size: 12px;
-                            font-weight: 700;
-                            padding: 1px 3px; /* パディングを0に設定 */
-                            margin: 0; /* マージンを0に設定 */
-                            border: 1px dotted #000000;
-                        }
-                        &.ampm {
-                            border-top: 1px dotted black;
-                            // border-bottom: 1px solid #000000;
-                            // border-radius: 0px;
-                        }
-                    }
-
-                    .date-print {
-                        // border-bottom: 1px solid #000000;
-                        border-left: 1px solid #000000;
-                        border-top: 1px dotted black;
-                        font-size: 18px;
-                        // border-radius: 0px;
-                    }
-                }
+            width: auto !important;
+            button {
+                display: none;
             }
-            .AMPM-container {
-                width: 48%;
-                border-bottom: none;
-                margin-right: 5px;
-                margin-bottom: 0 !important;
-                padding-bottom: 0 !important;
-            }
-
-            // .PM {
-            //     width: 48%;
-            //     margin-left: 0px;
-            //     margin-bottom: 0 !important;
-            //     padding-bottom: 0 !important;
-            // }
-
             .pjs-list-title {
                 display: none;
             }
             .pjs-list {
                 display: block;
-                // margin: 0px;
-                // padding: 0px;
-                // background-color: rgb(255, 255, 255);
+                margin-right: 5px;
                 .pjs-item {
                     font-size: 10px;
                     border-bottom: none;
@@ -190,40 +38,122 @@
                     &.Check {
                         background-color: rgb(255, 255, 255);
                     }
-                    .Time {
+                    span {
                         display: none;
-                        // line-height: 1.2em;
+                    }
+                }
+            }
+            .point-dog {
+                display: none !important;
+            }
+            .AMPM-container {
+                width: 500px;
+                border-bottom: none;
+                // margin-right: 0 auto;
+                margin-bottom: 0 !important;
+                padding-bottom: 0 !important;
+
+                tbody {
+                    tr {
+                        .jobName {
+                            height: 27px;
+                            font-size: 13px;
+                            line-height: 1em;
+                            border-bottom: 1px solid #000000;
+                            background-color: rgb(255, 255, 255);
+                            border-radius: 0px;
+                            white-space: nowrap;
+                            &:before {
+                                position: absolute;
+                                top: 0;
+                                left: 0.3em;
+                                transform: rotate(55deg);
+                                height: 0px;
+                                width: 0px;
+                                background: #000000;
+                                content: "●";
+                            }
+                            &:after {
+                                position: absolute;
+                                transform: rotate(15deg);
+                                top: 0.6em;
+                                left: 0;
+                                height: 0px;
+                                width: 0px;
+                                background: #000000;
+                                content: "〇";
+                            }
+                        }
+                        td {
+                            border-bottom: 1px #000000 solid;
+                            border-left: 1px #000000 dotted;
+                            border-right: 1px #000000 solid;
+                            background-color: rgb(255, 255, 255);
+                            border-radius: 0px;
+                            text-align: center;
+                            .dotted {
+                                display: inline;
+                                color: #000000;
+                            }
+                            div {
+                                color: #000000;
+                                line-height: 1em;
+                                padding: 0; /* パディングを0に設定 */
+                                margin: 0; /* マージンを0に設定 */
+                                border: none;
+                                box-shadow: none;
+                                font-weight: 300;
+                            }
+                            span {
+                                line-height: 1em;
+                                display: inline-block; /* インラインブロック要素にする */
+                                vertical-align: center; /* ベースラインに合わせる */
+                                font-size: 12px;
+                                font-weight: 700;
+                                padding: 1px 3px; /* パディングを0に設定 */
+                                margin: 0; /* マージンを0に設定 */
+                                border: 1px dotted #000000;
+                            }
+                            &.ampm {
+                                border-top: 1px dotted black;
+                            }
+                        }
+
+                        .date-print {
+                            border-left: 1px solid #000000;
+                            border-top: 1px dotted black;
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+            .trainer-trainee-container {
+                thead {
+                    th {
+                        font-size: 12px !important;
+                        white-space: nowrap;
+                        border-bottom: 3px double black !important;
+                    }
+                }
+                tbody {
+                    td {
+                        white-space: nowrap;
+                        border: none !important;
+                        font-size: 13px !important;
+                        color: #000000;
+                        &.trainer-name-check {
+                            margin-right: 2px;
+                            border-right: 1px dotted black !important;
+                        }
+                        &.trainee-name-check {
+                            margin-left: 2px;
+                            border-left: 1px dotted black !important;
+                        }
                     }
                 }
             }
         }
-        .trainer-trainee-container{
-            thead{
-                th{
-                    font-size: 12px !important;
-                    white-space: nowrap;
-                    border-bottom: 3px double black !important;
-                }
-            }
-            tbody{
-                td{
-                    white-space: nowrap;
-                    border: none !important;
-                    font-size: 13px !important;  
-                    color: #000000;
-                    &.trainer-name-check{
-                        margin-right:2px ;
-                        border-right: 1px dotted black !important;
-                    }
-                    &.trainee-name-check{
-                        margin-left: 2px;
-                        border-left: 1px dotted black !important;
-
-                    }
-
-                }
-            }
-        }
+        
     }
     #page2 {
         // * {
@@ -273,23 +203,12 @@
                 }
                 table {
                     &.rest-tbl-design {
-                        // margin: 0 auto;
-                        // border: none;
-                        // border-collapse: separate;
                         border-spacing: 0 0px;
-                        // background: #ffffff;
                         border-top: solid 1px #000000;
                         th {
-                            // vertical-align: middle;
                             height: 53px;
-                            // width: 124px;
                             border-bottom: solid 1px #000000;
-                            // margin: 0;
-                            // text-align: center;
-                            // color: #333;
-                            // font-size: 16px;
                             position: relative;
-                            // font-weight: 600;
                             &:before {
                                 right: 98%;
                                 top: 50%;
@@ -299,7 +218,6 @@
                                 background-image: url(/static/imgs/coffee.svg);
                                 width: 40px;
                                 height: 40px;
-                                // display: inline-block;
                             }
                             p {
                                 font-weight: 500;
@@ -321,9 +239,6 @@
                             &.td-title {
                                 font-family: none;
                                 text-align: center;
-                                // font-size: 16px;
-                                // font-weight: bold;
-                                // position: relative;
                                 font-weight: 600;
                             }
                         }

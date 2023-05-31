@@ -1,67 +1,202 @@
 package models
 
 import (
-	"fmt"
-	"io/fs"
 	"log"
-	"os"
 	"regexp"
 	"strings"
-
-	"RMV0.5/app/config"
-	"github.com/xuri/excelize/v2"
 )
-
-// Pjとその仕事の構造体
-type WhatJob struct {
-	Roles    []Role
-	Pjs      []Pj
-	Trainers []Trainer
-}
-
-type Wedding struct {
-	ID    int
-	Date  string
-	Ampm  string
-	Guest int
-}
 
 // Pjの構造体
 type Pj struct {
-	Date    string //出勤日付
-	Amguest string //Amゲスト数
-	Pmguest string //Pmゲスト数
-	Names   string //出勤Pj名
-	Time    string //出勤時間
-	AmPm    string //午前か午後
-	CheckAM bool   //AM入力済チェック
-	CheckPM bool   //PM入力済チェック
-	New     string //新人かどうか
+	ID           int
+	Name         string
+	Level        string
+	Gatekeeper   string
+	Toilet       string
+	Cloak        string
+	Silver       string
+	Wash         string
+	Ape          string
+	Coffee       string
+	Champagne    string
+	Drinkcounter string
+	Leader       string
 }
 
-// 仕事の構造体
-type Role struct {
-	RoleName string //仕事の名前
-	PjName   string //仕事に割り振られたPjの名前
+type PjListInTyping struct {
+	Name      string
+	Level     string
+	ShiftTime string
+	Ampm      string
 }
 
-type Trainer struct {
-	Key         string //トレイナー、トレイナーのセットがわかるKey
-	TrainerName string //トレイナーの名前
-	TraineeName string //トレイニーの名前
+type TrainerTrainee struct {
+	Key     string
+	Trainer string
+	Trainee string
 }
 
-type AttendanceList struct {
-	PjName             string   //Pj名前
-	AttendanceDaysList []string //出勤日一覧
-	AttendanceTimeList []string //出勤時間一覧
+type DataInTypingPage struct {
+	PLITs    []PjListInTyping
+	WITPAM   WeddingInTypingPage
+	WITPPM   WeddingInTypingPage
+	RIITPsAM []RoleInfoInTypingPage
+	RIITPsPM []RoleInfoInTypingPage
+	TTs      []TrainerTrainee
 }
+
+// 全てのPjをデートベースから取得
+func GetAllPjsByDB() (pjs []Pj, err error) {
+
+	cmd := `select * from pjs`
+	rows, err := Db.Query(cmd)
+	if err != nil {
+		log.Println(err)
+	}
+	for rows.Next() {
+		var pj Pj
+		err = rows.Scan(
+			&pj.ID,
+			&pj.Name,
+			&pj.Level,
+			&pj.Gatekeeper,
+			&pj.Toilet,
+			&pj.Cloak,
+			&pj.Silver,
+			&pj.Wash,
+			&pj.Ape,
+			&pj.Coffee,
+			&pj.Champagne,
+			&pj.Drinkcounter,
+			&pj.Leader,
+		)
+		if err != nil {
+			log.Println(err)
+		}
+		pjs = append(pjs, pj)
+	}
+	rows.Close()
+	return pjs, err
+}
+
+// 同じ文字列を文字列スライスから削除
+func removeDuplicates(slice []string) []string {
+	encountered := map[string]bool{}
+	result := []string{}
+
+	for _, item := range slice {
+		if !encountered[item] {
+			encountered[item] = true
+			result = append(result, item)
+		}
+	}
+
+	return result
+}
+
+// AMPM、ダブルか判定する
+func isAmpm(shifttime string) (ampm string) {
+	//-が現れる位置を取得
+	index := strings.Index(shifttime, "-")
+	//出勤時間と退勤時間を取得
+	startString := strings.TrimSpace(shifttime[:index])
+	endString := strings.TrimSpace(shifttime[index+1:])
+	startT := string(startString[0])
+	endT := string(endString[0])
+	endT2 := string(endString[1])
+	// fmt.Printf("%v,%v\n", startT, endT)
+	if (startT == "8" || startT == "9" || startT == "0") && (endT == "2" || endT2 == "9") {
+		return "ダブル"
+
+	} else if (startT == "8" || startT == "9" || startT == "0") && (endT == "1") {
+		return "AM"
+	} else if (startT == "1") && (endT == "2") {
+		return "PM"
+	} else {
+		return "試食会"
+	}
+}
+
+// 日付でデータベースから出勤PJ一覧を取得
+func GetPjsByDateFromDB(date string) (pLITs []PjListInTyping, err error) {
+	cmd := `SELECT 
+				p.name,p.level,s.shifttime,s.ampm
+			FROM
+    			shifts AS s
+        	INNER JOIN
+    			pjs AS p ON s.pj_id = p.id
+			WHERE date = ?;`
+	rows, err := Db.Query(cmd, date)
+	if err != nil {
+		log.Println(err)
+	}
+	defer rows.Close()
+	for rows.Next() {
+		var PLIT PjListInTyping
+		rows.Scan(
+			&PLIT.Name,
+			&PLIT.Level,
+			&PLIT.ShiftTime,
+			&PLIT.Ampm,
+		)
+		pLITs = append(pLITs, PLIT)
+	}
+	return pLITs, err
+}
+
+// Weddingの日付とAMPMからその日の役割とそれに対応するPJを取得
+func (w *WeddingInTypingPage) GetRoleInfoByDateFromDB() (rIITPs []RoleInfoInTypingPage, err error) {
+	cmd := `SELECT 
+    			r.name,p.name
+			FROM
+    			role_info AS ri
+        	INNER JOIN
+    			weddings AS w ON ri.wedding_id = w.id
+        	INNER JOIN
+    			pjs AS p ON ri.pj_id = p.id
+        	INNER JOIN
+    			roles AS r ON ri.role_id = r.id
+    		where w.date = ? and w.ampm = ?;`
+	rows, err := Db.Query(cmd, w.Date, w.Ampm)
+	if err != nil {
+		log.Println(err)
+	}
+	defer rows.Close()
+	for rows.Next() {
+		var rIITP RoleInfoInTypingPage
+		rows.Scan(
+			&rIITP.RoleName,
+			&rIITP.PjName,
+		)
+		rIITPs = append(rIITPs, rIITP)
+	}
+	return rIITPs, err
+}
+
+// 同じ役割に二人以上のPJがいる場合、それを分割する
+func splitPjsInSameRole(input string) (result []string) {
+	re := regexp.MustCompile(`[\p{Hiragana}\p{Katakana}\wー]+`)
+	result = re.FindAllString(input, -1)
+	return result
+}
+
 
 // 日付から出勤するpj一覧を取得する、返り値は(出勤するPjの名前,出勤時間)
+/*
 func GetPjs(month string, day string) (pjsNames []string, time []string, ampm []string, amguest string, pmguest string) {
 
 	//xlsx（シフト）ファイルを読み込む
-	f := ReadXlsxFile()
+	files, err := os.ReadDir("./pjシフト.xlsx")
+	if err != nil {
+		log.Println(err)
+	}
+	var file fs.DirEntry
+	for _, f := range files {
+		if strings.HasSuffix(f.Name(), ".xlsx") {
+			file = f
+		}
+	}
+	return nil
 	xf, err := excelize.OpenFile(config.Config.Xlsxpath + "/" + f.Name())
 	if err != nil {
 		log.Println(err)
@@ -83,7 +218,7 @@ func GetPjs(month string, day string) (pjsNames []string, time []string, ampm []
 	} else {
 
 		//シートが存在する場合
-		allPjsNames := getAllPjsNames(xf, sheetName)
+		allPjsNames := getAllPjsByDBNames(xf, sheetName)
 		Num, time, ampm, amguest, pmguest := getShiftDayPjNum(xf, sheetName, day)
 		if Num == nil {
 
@@ -109,8 +244,11 @@ func GetPjs(month string, day string) (pjsNames []string, time []string, ampm []
 	}
 }
 
+*/
+
+/*
 // 全てのPjの名前の文字列スライスを取得する
-func getAllPjsNames(f *excelize.File, sheetName string) []string {
+func getAllPjsByDBNames(f *excelize.File, sheetName string) []string {
 	cols, err := f.GetCols(sheetName)
 	if err != nil {
 		log.Println(err)
@@ -372,7 +510,7 @@ func (p *Pj) IsNewPj() {
 		log.Println(err)
 	}
 	defer xf.Close()
-	allpjs := getAllPjsNames(xf, config.Config.Sheetname)
+	allpjs := getAllPjsByDBNames(xf, config.Config.Sheetname)
 
 	for i, v := range allpjs {
 		if i >= 29 {
@@ -382,3 +520,5 @@ func (p *Pj) IsNewPj() {
 		}
 	}
 }
+
+*/
