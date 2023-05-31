@@ -1,0 +1,30 @@
+{{define "content"}}
+<!-- {{.}} -->
+<div class="shift-list-container">
+    <div class="shift-list-title">
+        <img src="/static/imgs/full-of-motivation.gif" alt="" width="100px">
+    </div>
+    <div class="shift-list-table">
+        <table>
+            <tbody>
+                <tr>
+                    <td class="td-title">出勤日</td>
+                    <!-- <th class="th-title">出勤日</th> -->
+                    <td class="td-title">出勤時間</td>
+                    <td class="td-title">出勤情報</td>
+                </tr>
+                {{range .}}
+                <tr>
+                    <td>{{.Date}}</td>
+                    <td>{{.ShiftTime}}</td>
+                    <td>{{.Ampm}}</td>
+                </tr>
+                {{end}}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="button_solid015">
+    <button class="back-button" onclick="history.back()">戻る</button>
+</div>
+{{end}}

@@ -102,12 +102,31 @@
             <input type="submit" value="役割分担表を作る">
         </div>
     </form>
-    <form class="attendance-form" action="/attendancelist" method="post">
+    
+    <form class="attendance-form" action="/shiftlist" method="post">
         <div class="pjname-input">
             <input type="text" name="pjName" required>
         </div>
+
+            <div class="cp_ipselect cp_sl01">
+                <select name="month" required>
+                    <option value="" hidden>月</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+            </div>
         <div class="btn-design-1">
-            <input type="submit" value="今月の出勤">
+            <input type="submit" value="出勤情報">
         </div>
     </form>
     

@@ -986,3 +986,32 @@ net/http.(*conn).serve(0xc0003a81b0, {0xe16550, 0xc00029ce40})
 	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
 created by net/http.(*Server).Serve
 	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed
+2023/05/31 18:42:11 shifts.go:108: sql: expected 2 arguments, got 1
+2023/05/31 18:42:11 server.go:3217: http: panic serving [::1]:51607: runtime error: invalid memory address or nil pointer dereference
+goroutine 7 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files/Go/src/net/http/server.go:1854 +0xbf
+panic({0x112b1e0, 0x155a710})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x263
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files/Go/src/database/sql/sql.go:3274 +0xa1
+database/sql.(*Rows).Close(0xc0000b1400?)
+	C:/Program Files/Go/src/database/sql/sql.go:3270 +0x1d
+panic({0x112b1e0, 0x155a710})
+	C:/Program Files/Go/src/runtime/panic.go:884 +0x213
+database/sql.(*Rows).Next(0x0)
+	C:/Program Files/Go/src/database/sql/sql.go:2951 +0x27
+RMV0.5/app/models.GetAllShiftByName({0xc00010a0f0?, 0x1192794?}, {0xfb4896?, 0xc000134059?})
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/models/shifts.go:112 +0x154
+RMV0.5/app/controllers.shiftlist({0x1245fe0, 0xc00013e000}, 0xffffffffffffffff?)
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/rout_main.go:215 +0xec
+net/http.HandlerFunc.ServeHTTP(0xc00013e000?, {0x1245fe0?, 0xc00013e000?}, 0x1196525?)
+	C:/Program Files/Go/src/net/http/server.go:2122 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x0?, {0x1245fe0, 0xc00013e000}, 0xc00011a000)
+	C:/Program Files/Go/src/net/http/server.go:2500 +0x149
+net/http.serverHandler.ServeHTTP({0x1244cb8?}, {0x1245fe0, 0xc00013e000}, 0xc00011a000)
+	C:/Program Files/Go/src/net/http/server.go:2936 +0x316
+net/http.(*conn).serve(0xc0002ca000, {0x12467d0, 0xc00029ee40})
+	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed

@@ -202,13 +202,19 @@ func cheakPj(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-/*
-func attendancelist(w http.ResponseWriter, r *http.Request) {
-	var List models.AttendanceList
-	List.PjName = r.FormValue("pjName")
-	List.AttendanceDaysList, List.AttendanceTimeList = models.GetAttendanceList(List.PjName)
-	// fmt.Println(List)
-	generateHTML(w, List, "layout", "attendancelist")
+func shiftlist(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		log.Println(err)
+	}
+	mm := r.PostFormValue("month")
+	if len(mm) == 1 {
+		mm = "0" + mm
+	}
+	name := r.PostFormValue("pjName")
+	shifts, err := models.GetAllShiftByName(name, mm)
+	if err != nil {
+		log.Println(err)
+	}
+	generateHTML(w, shifts, "layout", "shiftlist")
 }
-
-*/

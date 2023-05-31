@@ -47,7 +47,7 @@ func StartMainServer() error {
 	http.HandleFunc("/", index)
 	http.HandleFunc("/logout", logout)
 	http.HandleFunc("/typingpage", typingpage)
-	// http.HandleFunc("/attendancelist", attendancelist)
+	http.HandleFunc("/shiftlist", shiftlist)
 	http.HandleFunc("/checkPj", cheakPj)
 
 	// http.HandleFunc("/allpjs", allpjs)

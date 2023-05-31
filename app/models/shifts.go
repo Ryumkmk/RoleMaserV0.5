@@ -92,3 +92,32 @@ func (s *Shift) insertRowToShiftsDB() (err error) {
 	}
 	return err
 }
+
+// 名前から出勤情報全てを表示
+func GetAllShiftByName(name string, month string) (shifts []Shift, err error) {
+	cmd := `SELECT 
+				date_format(date,'%m月%d日'),s.shifttime,s.ampm
+			FROM
+				shifts AS s
+					INNER JOIN
+				pjs AS p ON p.id = s.pj_id
+			WHERE
+				p.name = ? and date_format(s.date,'%m') = ?;`
+	rows, err := Db.Query(cmd, name, month)
+	if err != nil {
+		log.Println(err)
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var shift Shift
+		rows.Scan(
+			&shift.Date,
+			&shift.ShiftTime,
+			&shift.Ampm,
+		)
+		shifts = append(shifts, shift)
+	}
+	return shifts, err
+
+}

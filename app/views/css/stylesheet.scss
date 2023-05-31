@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+
     #loading {
         /* 画面一杯にローディング画面を広げる */
         height: 100%;
@@ -70,7 +71,7 @@ body {
                     transform: rotate(-50deg);
                 }
             }
-    
+
             label {
                 position: relative;
                 display: flex;
@@ -85,21 +86,22 @@ body {
                 background: #2589d0;
                 filter: drop-shadow(0px 2px 4px #ccc);
                 border-radius: 3px;
-    
+
                 &:hover {
                     transform: translateY(-2px);
                     box-shadow: 0 15px 30px -5px rgb(0 0 0 / 15%), 0 0 5px rgb(0 0 0 / 10%);
                 }
             }
         }
-        .btn{
+        .btn {
             margin: 0 auto;
             width: 50%;
         }
         .checkbox {
             font-weight: normal;
         }
-        .form-signin-heading,.checkbox {
+        .form-signin-heading,
+        .checkbox {
             margin-bottom: 10px;
         }
         .form-control {
@@ -110,7 +112,6 @@ body {
             box-sizing: border-box;
             padding: 10px;
             font-size: 16px;
-            
         }
         &:focus {
             z-index: 2;
@@ -186,7 +187,7 @@ body {
     // * {
     //     outline: 1px red solid;
     // }
-    
+
     .attendance-form {
         display: flex;
         flex-direction: row;
@@ -684,6 +685,27 @@ body {
             font-weight: 600;
             color: rgb(221, 120, 120);
         }
+    }
+    .shift-list-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .shift-list-table {
+            margin: 15px auto;
+            td {
+                &.td-title {
+                    font-size: larger;
+                    font-weight: 700;
+                }
+                font-weight: 550;
+                padding: 1px 4px;
+                text-align: center;
+                white-space: nowrap;
+            }
+        }
+        // * {
+        //     outline: 1px red solid;
+        // }
     }
 }
 #page2 {

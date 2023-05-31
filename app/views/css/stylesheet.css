@@ -89,7 +89,8 @@ body .form-signin .btn {
 body .form-signin .checkbox {
   font-weight: normal;
 }
-body .form-signin .form-signin-heading, body .form-signin .checkbox {
+body .form-signin .form-signin-heading,
+body .form-signin .checkbox {
   margin-bottom: 10px;
 }
 body .form-signin .form-control {
@@ -635,6 +636,24 @@ body .form-signin input[type=password] {
 .page .trainer-trainee-container td {
   font-weight: 600;
   color: rgb(221, 120, 120);
+}
+.page .shift-list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.page .shift-list-container .shift-list-table {
+  margin: 15px auto;
+}
+.page .shift-list-container .shift-list-table td {
+  font-weight: 550;
+  padding: 1px 4px;
+  text-align: center;
+  white-space: nowrap;
+}
+.page .shift-list-container .shift-list-table td.td-title {
+  font-size: larger;
+  font-weight: 700;
 }
 
 #page2 {
