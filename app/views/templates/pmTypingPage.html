@@ -175,7 +175,7 @@
                         <td><input type="text" name="トイレタバコ男P"
                             value = "{{range .RIITPsPM}}{{if eq .RoleName "トイレタバコ男P"}}{{.PjName}} {{end}}{{end}}"><span>男性＆タバコ</span></td>
                         <td><input type="text" name="トイレタバコ女P"
-                            value = "{{range .RIITPsPM}}{{if eq .RoleName "トイレタバコ女"}}{{.PjName}} {{end}}{{end}}"><span>女性＆多目的</span></td>
+                            value = "{{range .RIITPsPM}}{{if eq .RoleName "トイレタバコ女P"}}{{.PjName}} {{end}}{{end}}"><span>女性＆多目的</span></td>
 
                     </tr>
                     <tr>
@@ -219,47 +219,4 @@
     </form>
 
 </div>
-<script>
-    var rowNum = 1;
-    $(function () {
-        var rowNum = getCookie("rowNum") || 1;
-        for (var i = 1; i < rowNum; i++) {
-            addRow(i);
-        }
-
-        $("#add-btn").on("click", function () {
-            addRow(rowNum);
-            rowNum++;
-            setCookie("rowNum", rowNum);
-        });
-
-        $("#delete-btn").on("click", function () {
-            $("#table-body tr:last").remove();
-            rowNum--;
-            setCookie("rowNum", rowNum);
-        });
-    });
-
-    function addRow(rowNum) {
-        var newRow = $("<tr>");
-        newRow.append("<td><input name='trainer" + rowNum + "'></td>");
-        newRow.append("<td><input name='trainee" + rowNum + "'></td>");
-        $("#table-body").append(newRow);
-    }
-
-    function setCookie(name, value) {
-        document.cookie = name + "=" + value + "; path=/";
-    }
-
-    function getCookie(name) {
-        var value = "; " + document.cookie;
-        var parts = value.split("; " + name + "=");
-        if (parts.length == 2) {
-            return parts.pop().split(";").shift();
-        }
-        return null;
-    }
-
-</script>
-
 {{end}}

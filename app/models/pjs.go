@@ -43,6 +43,7 @@ type DataInTypingPage struct {
 	RIITPsAM []RoleInfoInTypingPage
 	RIITPsPM []RoleInfoInTypingPage
 	TTs      []TrainerTrainee
+	RCS      []RoleCount
 }
 
 // 全てのPjをデートベースから取得
@@ -179,5 +180,3 @@ func splitPjsInSameRole(input string) (result []string) {
 	result = re.FindAllString(input, -1)
 	return result
 }
-
-

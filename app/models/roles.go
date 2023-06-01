@@ -7,9 +7,13 @@ import (
 // 役割の構造体
 type Role struct {
 	ID   int
-	Name string //仕事の名前
+	Name string
 }
 
+type RoleCount struct {
+	Name  string `json:"name"`
+	Count int    `json:"count"`
+}
 type Role_Info struct {
 	ID         int
 	Wedding_ID int
@@ -194,6 +198,36 @@ func (w *WeddingInTypingPage) deleteRowToRoleInfoDB(rolename string) (err error)
 		log.Println(err)
 	}
 	return err
+}
+
+// 名前から、今までどの役割を何回やったかカウントする
+func GetRoleCountFromPast(pjname string) (rCs []RoleCount, err error) {
+	cmd := `SELECT 
+			REGEXP_REPLACE(r.name, 'P$', '') AS counted_name,
+			COUNT(*) AS count
+		FROM
+			pjs AS p
+				JOIN
+			role_info AS ri ON p.id = ri.pj_id
+				JOIN
+			roles AS r ON ri.role_id = r.id
+		WHERE
+			p.name = ?
+		GROUP BY counted_name;`
+	rows, err := Db.Query(cmd, pjname)
+	if err != nil {
+		log.Println(err)
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		rC := RoleCount{}
+		rows.Scan(
+			&rC.Name,
+			&rC.Count)
+		rCs = append(rCs, rC)
+	}
+	return rCs, err
 }
 
 /*

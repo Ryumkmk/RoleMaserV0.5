@@ -15,10 +15,15 @@
     <p class="pjs-list-title">出勤PJ一覧</p>
     <div class="pjs-list">
         {{range .PLITs}}
-        <div class="pjs-item Names">{{.Name}}<span class="newpj-mark">{{.Level}}</span>
+        <div class="pjs-item Names" onclick="getRoleCount('{{.Name}}')">
+            {{.Name}}
+            <span class="newpj-mark">{{.Level}}</span>
             <p class="AmPm"><span>{{.Ampm}}</span>{{.ShiftTime}}</p>
         </div>
         {{end}}
+    </div>
+    <div id="role-counts-display-none" onclick="displayRoleCountsNone()">
+        TestNone
     </div>
     <form action="/checkPj" method="post">
         <div class="AM">
@@ -219,47 +224,5 @@
     </form>
 
 </div>
-<script>
-    var rowNum = 1;
-    $(function () {
-        var rowNum = getCookie("rowNum") || 1;
-        for (var i = 1; i < rowNum; i++) {
-            addRow(i);
-        }
-
-        $("#add-btn").on("click", function () {
-            addRow(rowNum);
-            rowNum++;
-            setCookie("rowNum", rowNum);
-        });
-
-        $("#delete-btn").on("click", function () {
-            $("#table-body tr:last").remove();
-            rowNum--;
-            setCookie("rowNum", rowNum);
-        });
-    });
-
-    function addRow(rowNum) {
-        var newRow = $("<tr>");
-        newRow.append("<td><input name='trainer" + rowNum + "'></td>");
-        newRow.append("<td><input name='trainee" + rowNum + "'></td>");
-        $("#table-body").append(newRow);
-    }
-
-    function setCookie(name, value) {
-        document.cookie = name + "=" + value + "; path=/";
-    }
-
-    function getCookie(name) {
-        var value = "; " + document.cookie;
-        var parts = value.split("; " + name + "=");
-        if (parts.length == 2) {
-            return parts.pop().split(";").shift();
-        }
-        return null;
-    }
-
-</script>
 
 {{end}}

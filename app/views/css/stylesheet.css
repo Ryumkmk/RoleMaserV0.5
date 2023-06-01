@@ -173,6 +173,7 @@ body .form-signin input[type=password] {
   text-align: center;
   /* solid007 */
   /* solid015 */
+  position: relative;
 }
 .page .attendance-form {
   display: flex;
@@ -608,6 +609,40 @@ body .form-signin input[type=password] {
   padding: 0 0;
   margin: 0 0;
   border-radius: 3px;
+}
+.page #role-counts-display-none {
+  display: none;
+}
+.page #role-counts-display {
+  position: absolute;
+  padding: 2px;
+  background-color: rgb(213, 232, 255);
+  border: 3px solid #516ab6;
+  width: 90%;
+  height: 50vh;
+  font-size: 80%;
+  font-weight: 500;
+  left: 5%;
+  top: 10%;
+  border-radius: 5px;
+  line-height: 1.8em;
+  z-index: 1000;
+}
+.page #role-counts-display .rolecount-title {
+  font-size: 200%;
+  padding: 20px 0 10px 0;
+  width: 40%;
+  margin: 5px auto;
+  border-bottom: solid 3px #516ab6;
+  white-space: nowrap;
+}
+.page #role-counts-display .rolecount-container {
+  background-color: rgba(156, 191, 236, 0.28);
+  border-bottom: dotted 2px #516ab6;
+  border-radius: 5px;
+  width: 50%;
+  margin: 2px auto;
+  font-weight: 500;
 }
 .page .btn-design-1 {
   border: none;

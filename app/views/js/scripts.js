@@ -36,16 +36,95 @@ if (window.location.pathname === '/typingpage') {
         }
         // console.log(balloonArray)
     }
+
 }
 
+var rowNum = 1;
+$(function () {
+    var rowNum = getCookie("rowNum") || 1;
+    for (var i = 1; i < rowNum; i++) {
+        addRow(i);
+    }
 
+    $("#add-btn").on("click", function () {
+        addRow(rowNum);
+        rowNum++;
+        setCookie("rowNum", rowNum);
+    });
+
+    $("#delete-btn").on("click", function () {
+        $("#table-body tr:last").remove();
+        rowNum--;
+        setCookie("rowNum", rowNum);
+    });
+});
+
+function addRow(rowNum) {
+    var newRow = $("<tr>");
+    newRow.append("<td><input name='trainer" + rowNum + "'></td>");
+    newRow.append("<td><input name='trainee" + rowNum + "'></td>");
+    $("#table-body").append(newRow);
+}
+
+function setCookie(name, value) {
+    document.cookie = name + "=" + value + "; path=/";
+}
+
+function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) {
+        return parts.pop().split(";").shift();
+    }
+    return null;
+}
 $(window).on('load', function () {
     setTimeout(function () {
         $('#loading').fadeOut();
     }, 1000);
 });
 
+function getRoleCount(pjname) {
+    // Ajaxリクエストを行い、サーバー側の関数にpjnameを渡す
+    $.ajax({
+        url: "/getRoleCount",
+        type: "GET",
+        data: {
+            pjname: pjname
+        },
+        success: function (response) {
+            // 取得した結果を表示する処理をここに記述する
+            // console.log(response.RoleCounts);
+            displayRoleCounts(response.RoleCounts, pjname);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+function displayRoleCounts(roleCounts, pjname) {
+    var roleCountsElement = document.getElementById("role-counts-display-none");
+    roleCountsElement.setAttribute("id", "role-counts-display");
+    roleCountsElement.innerHTML = ""; // 一旦中身をクリア
+    //名前のタイトルDIVを生成
+    var title = document.createElement("div");
+    title.textContent = pjname;
+    title.setAttribute("class", "rolecount-title");
+    roleCountsElement.appendChild(title);
 
+    for (var i = 0; i < roleCounts.length; i++) {
+        var roleCount = roleCounts[i];
+        var div = document.createElement("div");
+        div.textContent = roleCount.name + " : " + roleCount.count +" 回";
+        div.setAttribute("class", "rolecount-container");
+        roleCountsElement.appendChild(div);
+    }
+}
+
+function displayRoleCountsNone() {
+    var roleCountsElement = document.getElementById("role-counts-display");
+    roleCountsElement.setAttribute("id", "role-counts-display-none");
+}
 function copyValue(input, targetName, copyName) {
     var targetInput = input.closest(".AM").querySelectorAll("[name='" + targetName + "']")[0];
     var copyInput = input.closest(".AM").querySelectorAll("[name='" + copyName + "']")[0];
