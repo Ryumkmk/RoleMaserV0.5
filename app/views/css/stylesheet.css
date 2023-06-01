@@ -623,10 +623,11 @@ body .form-signin input[type=password] {
 .page .role-counts-yaP #role-counts-displayP {
   position: absolute;
   padding: 2px;
+  color: #b91515;
   background-color: rgb(213, 232, 255);
   border: 3px solid #516ab6;
   width: 90%;
-  height: 50vh;
+  height: 75vh;
   font-size: 80%;
   font-weight: 500;
   left: 5%;
