@@ -1231,3 +1231,7 @@ created by net/http.(*Server).Serve
 2023/06/01 14:14:52 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
 2023/06/01 14:14:53 roles.go:197: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
 2023/06/01 14:14:53 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 15:56:52 rout_auth.go:67: sql: no rows in result set
+2023/06/01 15:56:52 server.go:3217: http: superfluous response.WriteHeader call from RMV0.5/app/controllers.authenticate (rout_auth.go:90)
+2023/06/01 15:56:59 rout_auth.go:67: sql: no rows in result set
+2023/06/01 15:56:59 server.go:3217: http: superfluous response.WriteHeader call from RMV0.5/app/controllers.authenticate (rout_auth.go:90)
