@@ -6,7 +6,6 @@ import (
 	"strings"
 )
 
-// Pjの構造体
 type Pj struct {
 	ID           int
 	Name         string
@@ -47,7 +46,6 @@ type DataInTypingPage struct {
 	RICPs    []RestInCheckPage
 }
 
-// 全てのPjをデートベースから取得
 func GetAllPjsByDB() (pjs []Pj, err error) {
 
 	cmd := `select * from pjs`
@@ -81,7 +79,6 @@ func GetAllPjsByDB() (pjs []Pj, err error) {
 	return pjs, err
 }
 
-// 同じ文字列を文字列スライスから削除
 func removeDuplicates(slice []string) []string {
 	encountered := map[string]bool{}
 	result := []string{}
@@ -96,9 +93,7 @@ func removeDuplicates(slice []string) []string {
 	return result
 }
 
-// AMPM、ダブルか判定する
 func isAmpm(shifttime string) (ampm string) {
-	//-が現れる位置を取得
 	index := strings.Index(shifttime, "-")
 	//出勤時間と退勤時間を取得
 	startString := strings.TrimSpace(shifttime[:index])
@@ -119,7 +114,6 @@ func isAmpm(shifttime string) (ampm string) {
 	}
 }
 
-// 日付でデータベースから出勤PJ一覧を取得
 func GetPjsByDateFromDB(date string) (pLITs []PjListInTyping, err error) {
 	cmd := `SELECT 
 				p.name,p.level,s.shifttime,s.ampm
@@ -146,7 +140,6 @@ func GetPjsByDateFromDB(date string) (pLITs []PjListInTyping, err error) {
 	return pLITs, err
 }
 
-// Weddingの日付とAMPMからその日の役割とそれに対応するPJを取得
 func (w *WeddingInTypingPage) GetRoleInfoByDateFromDB() (rIITPs []RoleInfoInTypingPage, err error) {
 	cmd := `SELECT 
     			r.name,p.name
@@ -175,7 +168,6 @@ func (w *WeddingInTypingPage) GetRoleInfoByDateFromDB() (rIITPs []RoleInfoInTypi
 	return rIITPs, err
 }
 
-// 同じ役割に二人以上のPJがいる場合、それを分割する
 func splitPjsInSameRole(input string) (result []string) {
 	re := regexp.MustCompile(`[\p{Hiragana}\p{Katakana}\wー\s]+`)
 	matches := re.FindAllString(input, -1)

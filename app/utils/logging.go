@@ -6,7 +6,6 @@ import (
 	"os"
 )
 
-// ログファイルの設定
 func LoggingSettings(logFile string) {
 
 	logfile, err := os.OpenFile(logFile, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)

@@ -16,11 +16,8 @@ type Shift struct {
 	Ampm      string
 }
 
-// 日付からシフト情報を取得、返り値は（出勤PJID、出勤時間、AMPM）
 func GetShiftsByDateFromFile(date string, sheetName string) (pj_id []int, shiftTime []string, ampm []string) {
 
-	// date = "2023-06-03"
-	//xlsx（シフト）ファイルを読み込む
 	f, err := excelize.OpenFile("./" + shiftFileName)
 	if err != nil {
 		log.Println(err)
@@ -29,12 +26,10 @@ func GetShiftsByDateFromFile(date string, sheetName string) (pj_id []int, shiftT
 
 	sheetIndex, _ := f.GetSheetIndex(sheetName)
 	if sheetIndex == -1 {
-		//シートが存在しない場合
 		log.Println(sheetIndex)
 		return nil, nil, nil
 	} else {
 
-		//シートが存在する場合
 		re := regexp.MustCompile(`\d{1,2}:\d{2}-\d{1,2}:\d{2}`)
 		rows, err := f.GetRows(sheetName)
 		if err != nil {
@@ -65,7 +60,6 @@ func GetShiftsByDateFromFile(date string, sheetName string) (pj_id []int, shiftT
 	return pj_id, shiftTime, ampm
 }
 
-// シート名前からシフトを構造体に登録※呼び出すと、データベースShiftsにその月のシフト情報を登録する
 func InsertAllRowsShifts(sheetName string) {
 	dates := GetWeddingsDateByFile(sheetName)
 	for _, date := range dates {
@@ -78,12 +72,10 @@ func InsertAllRowsShifts(sheetName string) {
 				Ampm:      ampm[i],
 			}
 			s.insertRowToShiftsDB()
-			// fmt.Println(s)
 		}
 	}
 }
 
-// データベースにShiftsを登録する
 func (s *Shift) insertRowToShiftsDB() (err error) {
 	cmd := `insert into shifts (date,pj_id,shifttime,ampm) values (?,?,?,?)`
 	_, err = Db.Exec(cmd, s.Date, s.Pj_ID, s.ShiftTime, s.Ampm)
@@ -93,7 +85,6 @@ func (s *Shift) insertRowToShiftsDB() (err error) {
 	return err
 }
 
-// 名前から出勤情報全てを表示
 func GetAllShiftByName(name string, month string) (shifts []Shift, err error) {
 	cmd := `SELECT 
 				date_format(date,'%m月%d日'),s.shifttime,s.ampm

@@ -11,7 +11,6 @@ import (
 	"RMV0.5/app/config"
 )
 
-// xlsxファイルをアップロード
 func upload(w http.ResponseWriter, r *http.Request) {
 	file, header, err := r.FormFile("file")
 	if err != nil {
@@ -33,7 +32,6 @@ func upload(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/top", http.StatusFound)
 }
 
-// xlsxファイルを削除
 func delete(w http.ResponseWriter, r *http.Request) {
 	err := r.ParseForm()
 	if err != nil {

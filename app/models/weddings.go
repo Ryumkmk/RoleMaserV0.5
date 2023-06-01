@@ -9,7 +9,6 @@ import (
 	"github.com/xuri/excelize/v2"
 )
 
-// 婚礼情報の構造体
 type Wedding struct {
 	ID    int
 	Date  string
@@ -24,7 +23,6 @@ type WeddingInTypingPage struct {
 	Guest int
 }
 
-// 日付から婚礼情報を取得
 func GetWeddingsByDateFromDB(date string) (wITPs []WeddingInTypingPage) {
 	cmd := `SELECT 
     			date, ampm, guest
@@ -59,9 +57,7 @@ func GetWeddingsByDateFromDB(date string) (wITPs []WeddingInTypingPage) {
 	return wITPs
 }
 
-// シフトから婚礼のある日付を取得
 func GetWeddingsDateByFile(sheetName string) (date []string) {
-	//xlsx（シフト）ファイルを読み込む
 	f, err := excelize.OpenFile("./" + shiftFileName)
 	if err != nil {
 		log.Println(err)
@@ -70,7 +66,6 @@ func GetWeddingsDateByFile(sheetName string) (date []string) {
 
 	sheetIndex, _ := f.GetSheetIndex(sheetName)
 	if sheetIndex == -1 {
-		//シートが存在しない場合
 		log.Println(sheetIndex)
 		return nil
 	} else {
@@ -101,12 +96,10 @@ func InsertAllRowsWeddings(sheetName string) {
 	defer f.Close()
 	sheetIndex, _ := f.GetSheetIndex(sheetName)
 	if sheetIndex == -1 {
-		//シートが存在しない場合
 		log.Println(sheetIndex)
 		return
 	} else {
 
-		//シートが存在する場合
 		rows, err := f.GetRows(sheetName)
 		if err != nil {
 			log.Println(err)
@@ -125,13 +118,11 @@ func InsertAllRowsWeddings(sheetName string) {
 				Guest: guest,
 				Ampm:  ampmRow[i],
 			}
-			// fmt.Println(w)
 			w.insertRowToWeddingsDB()
 		}
 	}
 }
 
-// データベースにWeddingを登録
 func (w *Wedding) insertRowToWeddingsDB() (err error) {
 	cmd := `insert into weddings (date,ampm,guest) values (?,?,?)`
 	_, err = Db.Exec(cmd, w.Date, w.Ampm, w.Guest)
@@ -141,7 +132,6 @@ func (w *Wedding) insertRowToWeddingsDB() (err error) {
 	return err
 }
 
-// 日付とAMPMからWedding_idを取得
 func (w *Wedding) InsertRowToWeddings() (wedding_id int, err error) {
 	cmd := `SELECT 
    				id

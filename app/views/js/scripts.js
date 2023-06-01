@@ -5,14 +5,12 @@ if (window.location.pathname === '/typingpage') {
     var balloonArray = [];
     if (tapDeleteBalloon) {
         tapDeleteBalloon.addEventListener('click', function (event) {
-            // クリックされた要素が"balloonoya"クラスを持つ場合、fadeballon()関数を呼び出さない
             if (!event.target.closest(".balloonoya")) {
                 fadeballon();
             }
         });
     }
     function fadeballon() {
-        // console.log(balloonArray)
         for (let i = 0; i <= balloonArray.length - 1; i++) {
             var wObjballoon = document.getElementById(balloonArray[i]);
             if (wObjballoon.className == "balloon") {
@@ -34,16 +32,12 @@ if (window.location.pathname === '/typingpage') {
                 balloonArray.splice(index, 1); // idをballoonArrayから削除
             }
         }
-        // console.log(balloonArray)
     }
 
     window.onload = function () {
-        // name属性が "pm-form" の要素を取得
         var pmForm = document.getElementsByName("pm-form");
 
-        // 取得した要素が存在し、試食会である場合に処理を実行
         if (pmForm.length > 0 && pmForm[0].value === "試食会") {
-            // class属性が "tasting" の要素に "tasting-color" クラスを追加
             var tastingElements = document.getElementsByClassName("tasting");
             for (var i = 0; i < tastingElements.length; i++) {
                 tastingElements[i].classList.add("tasting-color");
@@ -100,7 +94,6 @@ $(window).on('load', function () {
 });
 
 function getRoleCount(pjname) {
-    // Ajaxリクエストを行い、サーバー側の関数にpjnameを渡す
     $.ajax({
         url: "/getRoleCount",
         type: "GET",
@@ -108,8 +101,6 @@ function getRoleCount(pjname) {
             pjname: pjname
         },
         success: function (response) {
-            // 取得した結果を表示する処理をここに記述する
-            // console.log(response.RoleCounts);
             displayRoleCounts(response.RoleCounts, pjname);
         },
         error: function (error) {
@@ -118,7 +109,6 @@ function getRoleCount(pjname) {
     });
 }
 function getRoleCountP(pjname) {
-    // Ajaxリクエストを行い、サーバー側の関数にpjnameを渡す
     $.ajax({
         url: "/getRoleCount",
         type: "GET",
@@ -126,8 +116,6 @@ function getRoleCountP(pjname) {
             pjname: pjname
         },
         success: function (response) {
-            // 取得した結果を表示する処理をここに記述する
-            // console.log(response.RoleCounts);
             displayRoleCountsP(response.RoleCounts, pjname);
         },
         error: function (error) {
@@ -139,7 +127,6 @@ function displayRoleCounts(roleCounts, pjname) {
     var roleCountsElement = document.getElementById("role-counts-display-none");
     roleCountsElement.setAttribute("id", "role-counts-display");
     roleCountsElement.innerHTML = ""; // 一旦中身をクリア
-    //名前のタイトルDIVを生成
     var title = document.createElement("div");
     title.textContent = pjname;
     title.setAttribute("class", "rolecount-title");
@@ -157,7 +144,6 @@ function displayRoleCountsP(roleCounts, pjname) {
     var roleCountsElement = document.getElementById("role-counts-display-noneP");
     roleCountsElement.setAttribute("id", "role-counts-displayP");
     roleCountsElement.innerHTML = ""; // 一旦中身をクリア
-    //名前のタイトルDIVを生成
     var title = document.createElement("div");
     title.textContent = pjname;
     title.setAttribute("class", "rolecount-titleP");
@@ -197,17 +183,14 @@ function copyValue2(input, targetName, copyName) {
 function confirmDelete(event) {
     event.preventDefault();
     if (confirm("本当に削除しますか？")) {
-        // 削除処理
         document.getElementById("delete-form").submit();
     }
 }
 
 function checkInstalled() {
     if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone == true) {
-        // ホームに追加済み
         document.getElementById("addToHomeScreenButton").style.display = "none";
     } else {
-        // まだ追加されていない
         document.getElementById("addToHomeScreenButton").style.display = "block";
     }
 }

@@ -4,7 +4,6 @@ import (
 	"log"
 )
 
-// 役割の構造体
 type Role struct {
 	ID   int
 	Name string
@@ -21,13 +20,11 @@ type Role_Info struct {
 	Pj_ID      int
 }
 
-// 入力ページで使う役割とそのPJを格納する構造体
 type RoleInfoInTypingPage struct {
 	RoleName string
 	PjName   string
 }
 
-// 役割情報をデータベースに追加、更新する
 func (dITP *DataInTypingPage) UpdateRoleInfoDB() (err error) {
 
 	if len(dITP.WITPAM.Ampm) > 0 && len(dITP.WITPPM.Ampm) > 0 {
@@ -53,24 +50,19 @@ func (dITP *DataInTypingPage) UpdateRoleInfoDB() (err error) {
 	return err
 }
 
-// AMPMで分けて役割情報をデータベースに追加、更新する
 func (w *WeddingInTypingPage) UpdateRoleInfoDBByAmpm(rIITPs []RoleInfoInTypingPage) (err error) {
-	// fmt.Println(rIITPs)
 
 	for _, rITTP := range rIITPs {
-		//役割が新しく振り分けられているかどうか
 		ok, err := w.isRoleInfoExistInDBByInput(rITTP)
 		if err != nil {
 			log.Println(err)
 		}
 		// fmt.Println(ok)
 		if !ok {
-			// 入力フォームが更新されたので、該当の入力フォームの役割をRoleInfoデータベースから削除する
 			err = w.deleteRowToRoleInfoDB(rITTP.RoleName)
 			if err != nil {
 				log.Println(err)
 			}
-			//新しい入力フォームのPjをそれぞれ分割し、それぞれRole_InfoにInsertする
 			splitedPjNames := splitPjsInSameRole(rITTP.PjName)
 			for _, splitedPjName := range splitedPjNames {
 				err = w.insertRowToRoleInfoDB(splitedPjName, rITTP.RoleName)
@@ -88,9 +80,8 @@ func (w *WeddingInTypingPage) UpdateRoleInfoDBByAmpm(rIITPs []RoleInfoInTypingPa
 	return err
 }
 
-// 入力フォームのPjがデータベース登録しているもの一致するかどうか
 func (w *WeddingInTypingPage) isRoleInfoExistInDBByInput(r RoleInfoInTypingPage) (valid bool, err error) {
-	// fmt.Println(w.Date, w.Ampm, r.RoleName, r.PjName)
+
 	valid = true
 	splitedPjNames := splitPjsInSameRole(r.PjName)
 	count, err := w.getRolesCount(r.RoleName)
@@ -114,7 +105,6 @@ func (w *WeddingInTypingPage) isRoleInfoExistInDBByInput(r RoleInfoInTypingPage)
 	return valid, err
 }
 
-// その役割の人数を数える
 func (w *WeddingInTypingPage) getRolesCount(rolename string) (count int, err error) {
 	cmd := `SELECT 
 				count(*)
@@ -132,7 +122,6 @@ func (w *WeddingInTypingPage) getRolesCount(rolename string) (count int, err err
 	return count, err
 }
 
-// データベースにPjが存在するかどうか
 func (w *WeddingInTypingPage) isRoleInfoExistInDB(rolename string, pjname string) (valid bool, err error) {
 	cmd := `SELECT
 				case
@@ -149,7 +138,6 @@ func (w *WeddingInTypingPage) isRoleInfoExistInDB(rolename string, pjname string
 				roles AS r ON ri.role_id = r.id and r.name = ?
 			WHERE
 				p.name = ?;`
-	// fmt.Println(w.Date, w.Ampm, r.RoleName, r.PjName)
 	err = Db.QueryRow(cmd, w.Date, w.Ampm, rolename, pjname).Scan(
 		&valid,
 	)
@@ -159,7 +147,6 @@ func (w *WeddingInTypingPage) isRoleInfoExistInDB(rolename string, pjname string
 	return valid, err
 }
 
-// 新しいRole_InfoをInsert
 func (w *WeddingInTypingPage) insertRowToRoleInfoDB(pjname string, rolename string) (err error) {
 	cmd := `insert into role_info(wedding_id, role_id, pj_id)
 					SELECT
@@ -173,15 +160,12 @@ func (w *WeddingInTypingPage) insertRowToRoleInfoDB(pjname string, rolename stri
 				WHERE
 					r.name = ?;`
 	_, err = Db.Exec(cmd, pjname, w.Date, w.Ampm, rolename)
-	// fmt.Println(r.PjName, w.Date, w.Ampm, r.RoleName)
-	// fmt.Printf("Insert:%s", r.PjName)
 	if err != nil {
 		log.Println(err)
 	}
 	return err
 }
 
-// Role_Infoから役割名で振られた役割の全ての情報を削除
 func (w *WeddingInTypingPage) deleteRowToRoleInfoDB(rolename string) (err error) {
 	cmd := `DELETE ri FROM role_info AS ri
 				JOIN
@@ -198,7 +182,6 @@ func (w *WeddingInTypingPage) deleteRowToRoleInfoDB(rolename string) (err error)
 	return err
 }
 
-// 名前から、今までどの役割を何回やったかカウントする
 func GetRoleCountFromPast(pjname string) (rCs []RoleCount, err error) {
 	cmd := `SELECT 
 				REGEXP_REPLACE(r.name, 'P$', '') AS counted_name,

@@ -747,15 +747,9 @@ body {
                 white-space: nowrap;
             }
         }
-        // * {
-        //     outline: 1px red solid;
-        // }
     }
 }
 #page2 {
-    // * {
-    //     outline: 1px dotted red;
-    // }
     display: block;
     margin: 10px;
     width: 1200px;
@@ -848,9 +842,6 @@ body {
 }
 @media print {
     #page1 {
-        // * {
-        //     outline: 1px red solid;
-        // }
         page-break-after: always;
         display: flex;
         justify-content: center;

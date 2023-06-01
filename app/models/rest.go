@@ -7,10 +7,8 @@ type RestInCheckPage struct {
 	PjName   string
 }
 
-// Pjとその役割を、Pjの重複無しで取得する
 func (w *WeddingInTypingPage) MakeRest() (rICPs []RestInCheckPage, err error) {
 
-	//AMの休憩を取得し、休憩構造体スライスに追加
 	cmdAM := `SELECT
 					r.name,
 					p.name
@@ -48,7 +46,6 @@ func (w *WeddingInTypingPage) MakeRest() (rICPs []RestInCheckPage, err error) {
 		)
 		rICPs = append(rICPs, rICP)
 	}
-	//PMの休憩を取得し、休憩構造体スライスに追加
 
 	cmdPM := `SELECT 
 					r.name, p.name
