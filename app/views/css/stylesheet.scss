@@ -330,6 +330,10 @@ body {
             }
         }
         tr {
+            .tasting-color {
+                display: none;
+
+            }
             .date-print {
                 &:before,
                 &:after {
@@ -345,6 +349,9 @@ body {
                 color: #000000;
                 background-color: rgba(156, 191, 236, 0.596);
                 border-radius: 5px;
+                &.tasting-color {
+                    display: none;
+                }
                 &:before {
                     position: absolute;
                     top: 0;
@@ -365,9 +372,6 @@ body {
                     background: #2589d0;
                     content: "";
                 }
-            }
-            .tasting-event {
-                background-color: rgba(236, 228, 156, 0.596) !important;
             }
 
             td {
@@ -994,13 +998,11 @@ body {
                 }
             }
         }
-        
     }
-    footer{
+    footer {
         display: none !important;
     }
-    #page2{
+    #page2 {
         display: block;
     }
 }
-

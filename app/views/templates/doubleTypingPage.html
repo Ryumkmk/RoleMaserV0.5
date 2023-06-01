@@ -224,7 +224,6 @@
         {{end}}
         {{end}}
     </div>
-   
         <div class="PM">
             <table>
                 <tbody>
@@ -240,8 +239,8 @@
                             </td>
                     </tr>
                     <tr>
-                        <th class="jobName">サブPJ</th>
-                        <td colspan="2"><input type="text" name="サブPJP"
+                        <th class="jobName tasting">サブPJ</th>
+                        <td class = "tasting" colspan="2"><input type="text" name="サブPJP"
                             value = "{{range .RIITPsPM}}{{if eq .RoleName "サブPJP"}}{{.PjName}} {{end}}{{end}}">
                         </td>
                     </tr>
@@ -279,7 +278,7 @@
                         </th>
                         <td><input type="text" name="門番＆第一P"
                             value = "{{range .RIITPsPM}}{{if eq .RoleName "門番＆第一P"}}{{.PjName}} {{end}}{{end}}"><span>第一</span></td>
-                        <td><input type="text" name="門番＆第二P"
+                        <td class = "tasting"><input type="text" name="門番＆第二P"
                             value = "{{range .RIITPsPM}}{{if eq .RoleName "門番＆第二P"}}{{.PjName}} {{end}}{{end}}"><span>第二</span>
                         </td>
                     </tr>
@@ -297,8 +296,8 @@
                             value = "{{range .RIITPsPM}}{{if eq .RoleName "クロークP"}}{{.PjName}} {{end}}{{end}}"></td>
                     </tr>
                     <tr>
-                        <th class="jobName">クロークサブ</th>
-                        <td colspan="2"><input type="text" name="クロークサブP"
+                        <th class="jobName tasting">クロークサブ</th>
+                        <td class = "tasting" colspan="2"><input type="text" name="クロークサブP"
                             value = "{{range .RIITPsPM}}{{if eq .RoleName "クロークサブP"}}{{.PjName}} {{end}}{{end}}"></td>
                     </tr>
                     <tr>
@@ -332,12 +331,12 @@
                             value = "{{range .RIITPsPM}}{{if eq .RoleName "ドリカン＆聞P"}}{{.PjName}} {{end}}{{end}}"><span>聞&婦側</span></td>
                     </tr>
                     <tr>
-                        <th class="jobName">ドリカンサブ</th>
-                        <td colspan="2"><input type="text" name="ドリカンサブP"
+                        <th class="jobName tasting">ドリカンサブ</th>
+                        <td class = "tasting" colspan="2"><input type="text" name="ドリカンサブP"
                             value = "{{range .RIITPsPM}}{{if eq .RoleName "ドリカンサブP"}}{{.PjName}} {{end}}{{end}}"></td>
                     </tr>
                     <tr>
-                        <th class="jobName">シャンパン＆ワイン
+                        <th class="jobName tasting">シャンパン＆ワイン
                             <div class="balloonoya" onclick="showBalloon('makeImg13')">
                                 <img src="/static/imgs/questionicon.svg" width="14px">
                                 <span class="balloonnone" id="makeImg13">
@@ -347,7 +346,7 @@
                                 </span>
                             </div>
                         </th>
-                        <td colspan="2"><input type="text" name="シャンパン&ワインP"
+                        <td class = "tasting" colspan="2"><input type="text" name="シャンパン&ワインP"
                             value = "{{range .RIITPsPM}}{{if eq .RoleName "シャンパン&ワインP"}}{{.PjName}} {{end}}{{end}}"></td>
                         <!-- <td><input type="text" name="シャンパン&ワイン"></td> -->
                     </tr>

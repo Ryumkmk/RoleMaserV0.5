@@ -307,6 +307,9 @@ body .form-signin input[type=password] {
   content: ""; /* コンテンツの挿入 */
   position: absolute; /* 親要素を基準 */
 }
+.page tbody tr .tasting-color {
+  display: none;
+}
 .page tbody tr .date-print:before, .page tbody tr .date-print:after {
   display: none;
 }
@@ -319,6 +322,9 @@ body .form-signin input[type=password] {
   color: #000000;
   background-color: rgba(156, 191, 236, 0.596);
   border-radius: 5px;
+}
+.page tbody tr .jobName.tasting-color {
+  display: none;
 }
 .page tbody tr .jobName:before {
   position: absolute;
@@ -339,9 +345,6 @@ body .form-signin input[type=password] {
   width: 8px;
   background: #2589d0;
   content: "";
-}
-.page tbody tr .tasting-event {
-  background-color: rgba(236, 228, 156, 0.596) !important;
 }
 .page tbody tr td {
   width: 35%;

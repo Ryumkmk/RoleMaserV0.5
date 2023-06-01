@@ -37,6 +37,21 @@ if (window.location.pathname === '/typingpage') {
         // console.log(balloonArray)
     }
 
+    window.onload = function () {
+        // name属性が "pm-form" の要素を取得
+        var pmForm = document.getElementsByName("pm-form");
+
+        // 取得した要素が存在し、試食会である場合に処理を実行
+        if (pmForm.length > 0 && pmForm[0].value === "試食会") {
+            // class属性が "tasting" の要素に "tasting-color" クラスを追加
+            var tastingElements = document.getElementsByClassName("tasting");
+            for (var i = 0; i < tastingElements.length; i++) {
+                tastingElements[i].classList.add("tasting-color");
+            }
+        }
+    };
+
+
 }
 
 var rowNum = 1;
@@ -133,7 +148,7 @@ function displayRoleCounts(roleCounts, pjname) {
     for (var i = 0; i < roleCounts.length; i++) {
         var roleCount = roleCounts[i];
         var div = document.createElement("div");
-        div.textContent = roleCount.name + " : " + roleCount.count +" 回";
+        div.textContent = roleCount.name + " : " + roleCount.count + " 回";
         div.setAttribute("class", "rolecount-container");
         roleCountsElement.appendChild(div);
     }
@@ -151,7 +166,7 @@ function displayRoleCountsP(roleCounts, pjname) {
     for (var i = 0; i < roleCounts.length; i++) {
         var roleCount = roleCounts[i];
         var div = document.createElement("div");
-        div.textContent = roleCount.name + " : " + roleCount.count +" 回";
+        div.textContent = roleCount.name + " : " + roleCount.count + " 回";
         div.setAttribute("class", "rolecount-containerP");
         roleCountsElement.appendChild(div);
     }
