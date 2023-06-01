@@ -117,16 +117,18 @@ func (w *WeddingInTypingPage) isRoleInfoExistInDBByInput(r RoleInfoInTypingPage)
 // その役割の人数を数える
 func (w *WeddingInTypingPage) getRolesCount(rolename string) (count int, err error) {
 	cmd := `SELECT 
-			count(*) 
-		FROM
-			role_info AS ri
-				INNER JOIN
-			weddings AS w ON w.date = ? and w.ampm = ?
-				INNER JOIN
-			pjs AS p ON ri.pj_id = p.id
-				INNER JOIN
-			roles AS r ON ri.role_id = r.id and r.name = ?;`
-	Db.QueryRow(cmd, w.Date, w.Ampm, rolename).Scan(&count)
+				count(*)
+			FROM
+				role_info AS ri
+					INNER JOIN
+				weddings AS w ON w.id = ri.wedding_id
+					INNER JOIN
+				pjs AS p ON ri.pj_id = p.id
+					INNER JOIN
+				roles AS r ON ri.role_id = r.id
+			WHERE
+				w.date = ? and r.name = ? ;`
+	Db.QueryRow(cmd, w.Date, rolename).Scan(&count)
 	return count, err
 }
 
@@ -182,18 +184,18 @@ func (w *WeddingInTypingPage) insertRowToRoleInfoDB(pjname string, rolename stri
 // Role_Infoから役割名で振られた役割の全ての情報を削除
 func (w *WeddingInTypingPage) deleteRowToRoleInfoDB(rolename string) (err error) {
 	cmd := `delete from role_info where (wedding_id,role_id) IN(
-		SELECT 
-		w.id,r.id
-	FROM
-		role_info as ri
-		join
-		roles as r on r.id = ri.role_id
-			JOIN
-		weddings AS w ON w.date = ? and w.ampm = ?
-	WHERE
-		r.name = ?
-		group by w.id);`
-	_, err = Db.Exec(cmd, w.Date, w.Ampm, rolename)
+				SELECT 
+				w.id,r.id
+			FROM
+				role_info as ri
+				join
+				roles as r on r.id = ri.role_id
+					JOIN
+				weddings AS w on ri.wedding_id = w.id
+			WHERE
+				r.name = 'サブPJP' and w.date = '2023-06-03'
+				group by w.id;`
+	_, err = Db.Exec(cmd, rolename, w.Date)
 	if err != nil {
 		log.Println(err)
 	}

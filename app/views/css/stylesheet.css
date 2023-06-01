@@ -713,5 +713,86 @@ body .form-signin input[type=password] {
 }
 
 #page2 {
+  display: block;
+  margin: 10px;
+  width: 1200px;
   display: none;
+}
+#page2 h2 {
+  display: inline;
+  padding: 3px 5px;
+  border-left: 2px solid black;
+}
+#page2 .rest {
+  display: flex;
+  justify-content: space-around;
+}
+#page2 .rest .rest-ampm-container {
+  margin: 10px 20px;
+  width: 460px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#page2 .rest .rest-ampm-container h3 {
+  position: relative;
+  font-size: 24px;
+  padding: 0 1em;
+  margin: 0px auto 8px auto;
+  width: 70%;
+  border-bottom: double 4px black;
+}
+#page2 .rest .rest-ampm-container h3:before {
+  top: 40%;
+  right: -20%;
+  position: absolute;
+  transform: translateY(-50%);
+  content: url(/static/imgs/shiba.svg);
+}
+#page2 .rest .rest-ampm-container h3:after {
+  font-weight: 100;
+  padding-left: 125px;
+  font-size: 21px;
+  content: "Zz";
+}
+#page2 .rest .rest-ampm-container table.rest-tbl-design {
+  border-spacing: 0 0px;
+  border-top: solid 1px #000000;
+}
+#page2 .rest .rest-ampm-container table.rest-tbl-design th {
+  height: 53px;
+  border-bottom: solid 1px #000000;
+  position: relative;
+}
+#page2 .rest .rest-ampm-container table.rest-tbl-design th:before {
+  right: 98%;
+  top: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+  content: "";
+  background-image: url(/static/imgs/coffee.svg);
+  width: 40px;
+  height: 40px;
+}
+#page2 .rest .rest-ampm-container table.rest-tbl-design th p {
+  font-weight: 500;
+  margin: 0 0;
+  white-space: nowrap;
+  border-top: 1px dotted black;
+}
+#page2 .rest .rest-ampm-container table.rest-tbl-design td {
+  width: 80%;
+  font-family: "Zen Old Mincho", serif;
+  font-size: 16px;
+  padding-left: 15px;
+  border-bottom: solid 1px #000000;
+  letter-spacing: 0.05em;
+  border-right: 1px solid black;
+  border-left: 1px dotted black;
+  position: relative;
+}
+#page2 .rest .rest-ampm-container table.rest-tbl-design td.td-title {
+  font-family: none;
+  text-align: center;
+  font-weight: 600;
 }/*# sourceMappingURL=stylesheet.css.map */

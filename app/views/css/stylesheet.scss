@@ -748,5 +748,96 @@ body {
     }
 }
 #page2 {
+    // * {
+    //     outline: 1px dotted red;
+    // }
+    display: block;
+    margin: 10px;
+    width: 1200px;
+    h2 {
+        display: inline;
+        padding: 3px 5px;
+        border-left: 2px solid black;
+    }
+    .rest {
+        display: flex;
+        justify-content: space-around;
+        .rest-ampm-container {
+            margin: 10px 20px;
+            width: 460px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            h3 {
+                position: relative;
+                // text-align: left;
+                font-size: 24px;
+                padding: 0 1em;
+                margin: 0px auto 8px auto;
+                width: 70%;
+                // border-top: dotted 1px black;
+                border-bottom: double 4px black;
+
+                &:before {
+                    top: 40%;
+                    right: -20%;
+                    position: absolute;
+                    transform: translateY(-50%);
+                    // display: inline-block;
+                    content: url(/static/imgs/shiba.svg);
+                }
+                &:after {
+                    font-weight: 100;
+                    padding-left: 125px;
+                    font-size: 21px;
+                    content: "Zz";
+                }
+            }
+            table {
+                &.rest-tbl-design {
+                    border-spacing: 0 0px;
+                    border-top: solid 1px #000000;
+                    th {
+                        height: 53px;
+                        border-bottom: solid 1px #000000;
+                        position: relative;
+                        &:before {
+                            right: 98%;
+                            top: 50%;
+                            position: absolute;
+                            transform: translateY(-50%);
+                            content: "";
+                            background-image: url(/static/imgs/coffee.svg);
+                            width: 40px;
+                            height: 40px;
+                        }
+                        p {
+                            font-weight: 500;
+                            margin: 0 0;
+                            white-space: nowrap;
+                            border-top: 1px dotted black;
+                        }
+                    }
+                    td {
+                        width: 80%;
+                        font-family: "Zen Old Mincho", serif;
+                        font-size: 16px;
+                        padding-left: 15px;
+                        border-bottom: solid 1px #000000;
+                        letter-spacing: 0.05em;
+                        border-right: 1px solid black;
+                        border-left: 1px dotted black;
+                        position: relative;
+                        &.td-title {
+                            font-family: none;
+                            text-align: center;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     display: none;
 }
