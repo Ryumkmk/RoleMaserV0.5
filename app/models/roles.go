@@ -1,7 +1,6 @@
 package models
 
 import (
-	"fmt"
 	"log"
 )
 
@@ -64,7 +63,7 @@ func (w *WeddingInTypingPage) UpdateRoleInfoDBByAmpm(rIITPs []RoleInfoInTypingPa
 		if err != nil {
 			log.Println(err)
 		}
-		fmt.Println(ok)
+		// fmt.Println(ok)
 		if !ok {
 			// 入力フォームが更新されたので、該当の入力フォームの役割をRoleInfoデータベースから削除する
 			err = w.deleteRowToRoleInfoDB(rITTP.RoleName)
