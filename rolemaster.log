@@ -1235,3 +1235,5 @@ created by net/http.(*Server).Serve
 2023/06/01 15:56:52 server.go:3217: http: superfluous response.WriteHeader call from RMV0.5/app/controllers.authenticate (rout_auth.go:90)
 2023/06/01 15:56:59 rout_auth.go:67: sql: no rows in result set
 2023/06/01 15:56:59 server.go:3217: http: superfluous response.WriteHeader call from RMV0.5/app/controllers.authenticate (rout_auth.go:90)
+2023/06/01 20:35:49 rout_auth.go:67: dial tcp 127.0.0.1:3306: connectex: No connection could be made because the target machine actively refused it.
+2023/06/01 20:35:49 server.go:3217: http: superfluous response.WriteHeader call from RMV0.5/app/controllers.authenticate (rout_auth.go:90)

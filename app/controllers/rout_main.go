@@ -34,13 +34,6 @@ func index(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-/*
-func allpjs(w http.ResponseWriter, r *http.Request) {
-	y, _ := models.GetAllPjsByDB()
-	generateHTML(w, y, "layout", "pjs")
-}
-*/
-
 // 入力ページのHtmlを生成
 func typingpage(w http.ResponseWriter, r *http.Request) {
 	err := r.ParseForm()
@@ -58,7 +51,6 @@ func typingpage(w http.ResponseWriter, r *http.Request) {
 		dd = "0" + dd
 	}
 	date := fmt.Sprintf("%s-%s-%s", yy, mm, dd)
-	// fmt.Println(date)
 
 	//日付から婚礼情報を取得
 	wITPs := models.GetWeddingsByDateFromDB(date)
@@ -81,7 +73,6 @@ func typingpage(w http.ResponseWriter, r *http.Request) {
 	for _, wITP := range wITPs {
 		if wITP.Ampm == "AM" {
 			rIITPsAM, err = wITP.GetRoleInfoByDateFromDB()
-			// fmt.Println(rIITPsAM)
 			wITPAM = wITP
 			if err != nil {
 				log.Println(err)
@@ -181,18 +172,26 @@ func cheakPj(w http.ResponseWriter, r *http.Request) {
 
 	//引き渡し用のデータに登録
 	var dITP = models.DataInTypingPage{
-		PLITs:    pLTIs,
 		WITPAM:   wITPAM,
 		WITPPM:   wITPPM,
 		RIITPsAM: rIITPsAM,
 		RIITPsPM: rIITPsPM,
-		TTs:      tTs,
 	}
+
 	//データベース更新
 	err = dITP.UpdateRoleInfoDB()
 	if err != nil {
 		log.Println(err)
 	}
+
+	//DBアップデート処理後に構造体に入れる
+	dITP.TTs = tTs
+	dITP.PLITs = pLTIs
+	dITP.RICPs, err = dITP.WITPAM.MakeRest()
+	if err != nil {
+		log.Println(err)
+	}
+
 	//ダブルならダブル確認ページを生成
 	if len(dITP.WITPAM.Ampm) > 0 && len(dITP.WITPPM.Ampm) > 0 {
 		generateHTML(w, dITP, "layout", "doublecheckpage")
@@ -203,6 +202,7 @@ func cheakPj(w http.ResponseWriter, r *http.Request) {
 		//PM or 試食会AMならPM確認ページを生成
 		generateHTML(w, dITP, "layout", "pmcheckpage")
 	}
+
 }
 
 func shiftlist(w http.ResponseWriter, r *http.Request) {

@@ -44,6 +44,7 @@ type DataInTypingPage struct {
 	RIITPsPM []RoleInfoInTypingPage
 	TTs      []TrainerTrainee
 	RCS      []RoleCount
+	RICPs    []RestInCheckPage
 }
 
 // 全てのPjをデートベースから取得

@@ -459,62 +459,85 @@
                         <th>10:00-10:30
                             <p>挙式中</p>
                         </th>
-                        <td class="rest-drink"></td>
+                        <td class="rest-drink">
+                            {{range .RICPs}}{{if or (eq .RoleName "ドリカン＆作") (eq .RoleName "ドリカン＆聞")}}{{.PjName}} {{end}}{{end}}
+                        </td>
                     </tr>
                     <tr>
                         <th>10:30-11:00
                             <p>ガーデン～乾杯</p>
                         </th>
-                        <td class="rest-coffee"></td>
+                        <td class="rest-coffee">
+                            {{range .RICPs}}{{if eq .RoleName "コーヒー"}}{{.PjName}} {{end}}{{end}}
+                        </td>
                     </tr>
                     <tr>
                         <th>11:00-11:30
                             <p>プルミエ～ポワソン</p>
 
                         </th>
-                        <td class="rest-gatekeeper"></td>
+                        <td class="rest-gatekeeper">
+                            {{range .RICPs}}{{if or (eq .RoleName "門番＆第二") (eq .RoleName "門番＆第一")}}{{.PjName}} {{end}}{{end}}
+                        </td>
                     </tr>
                     <tr>
                         <th>11:30-12:00
                             <p>ポワソン～</p>
 
                         </th>
-                        <td class="rest-cloak"></td>
+                        <td class="rest-cloak">
+                            {{range .RICPs}}{{if or (eq .RoleName "クロークサブ") (or (eq .RoleName "リターンリーダー") (eq .RoleName "クローク"))}}{{.PjName}} {{end}}{{end}}
+                        </td>
                     </tr>
                     <tr>
                         <th>12:00-12:30
                             <p>ビアンド～</p>
 
                         </th>
-                        <td class="rest-ape"></td>
+                        <td class="rest-ape">
+                            {{range .RICPs}}{{if or (eq .RoleName "アペ＆水") (eq .RoleName "トイレタバコ男")}}{{.PjName}} {{end}}{{end}}
+                            
+                        </td>
                     </tr>
                     <tr>
                         <th>12:30-13:00
                             <p>デザート～</p>
 
                         </th>
-                        <td class="rest-silver"></td>
+                        <td class="rest-silver">
+                            {{range .RICPs}}{{if eq .RoleName "シルバー＆ワイン"}}{{.PjName}} {{end}}{{end}}
+
+                        </td>
                     </tr>
                     <tr>
                         <th>13:00-13:30
                             <p>クライマックス</p>
 
                         </th>
-                        <td class="rest-champagne"></td>
+                        <td class="rest-champagne">
+                            {{range .RICPs}}{{if or (eq .RoleName "シャンパン＆ワイン") (eq .RoleName "トイレタバコ女")}}{{.PjName}} {{end}}{{end}}
+                            
+                        </td>
                     </tr>
                     <tr>
                         <th>13:30-14:00
                             <p>お見送り</p>
 
                         </th>
-                        <td class="rest-leader"></td>
+                        <td class="rest-leader">
+                            {{range .RICPs}}{{if eq .RoleName "リーダー"}}{{.PjName}} {{end}}{{end}}
+
+                        </td>
                     </tr>
                     <tr>
                         <th>14:00-14:30
                             <p>リターン</p>
 
                         </th>
-                        <td class="rest-subpj"></td>
+                        <td class="rest-subpj">
+                            {{range .RICPs}}{{if eq .RoleName "サブPJ"}}{{.PjName}} {{end}}{{end}}
+
+                        </td>
 
                     </tr>
                     <tr>
@@ -538,55 +561,82 @@
                         <th>16:00-16:30
                             <p>準備中</p>
                         </th>
-                        <td class="rest-drinkP"></td>
+                        <td class="rest-drinkP">
+                            {{range .RICPs}}{{if or (eq .RoleName "ドリカン＆作P") (eq .RoleName "ドリカン＆聞P")}}{{.PjName}} {{end}}{{end}}
+
+                        </td>
                     </tr>
                     <tr>
                         <th>16:30-17:00
                             <p>迎賓中</p>
                         </th>
-                        <td class="rest-coffeeP"></td>
+                        <td class="rest-coffeeP">
+                            {{range .RICPs}}{{if eq .RoleName "コーヒーP"}}{{.PjName}} {{end}}{{end}}
+
+                        </td>
                     </tr>
                     <tr>
                         <th>17:00-17:30
                             <p>アミューズ～プルミエ</p>
                         </th>
-                        <td class="rest-gatekeeperP"></td>
+                        <td class="rest-gatekeeperP">
+                            {{range .RICPs}}{{if or (eq .RoleName "門番＆第二P") (eq .RoleName "門番＆第一P")}}{{.PjName}} {{end}}{{end}}
+
+                        </td>
                     </tr>
                     <tr>
                         <th>17:30-18:00
                             <p>ポワソン</p>
                         </th>
-                        <td class="rest-cloakP"></td>
+                        <td class="rest-cloakP">
+                            {{range .RICPs}}{{if or (eq .RoleName "クロークサブP") (or (eq .RoleName "リターンリーダーP") (eq .RoleName "クロークP"))}}{{.PjName}} {{end}}{{end}}
+
+                        </td>
                     </tr>
                     <tr>
                         <th>18:00-18:30
                             <p>ビアンド</p>
                         </th>
-                        <td class="rest-apeP"></td>
+                        <td class="rest-apeP">
+                            {{range .RICPs}}{{if or (eq .RoleName "アペ＆水P") (eq .RoleName "トイレタバコ男P")}}{{.PjName}} {{end}}{{end}}
+
+                        </td>
                     </tr>
                     <tr>
                         <th>18:30-19:00
                             <p>デザート|ビュッフェ</p>
                         </th>
-                        <td class="rest-silverP"></td>
+                        <td class="rest-silverP">
+                            {{range .RICPs}}{{if eq .RoleName "シルバー＆ワインP"}}{{.PjName}} {{end}}{{end}}
+
+                        </td>
                     </tr>
                     <tr>
                         <th>19:00-19:30
                             <p>お見送り</p>
                         </th>
-                        <td class="rest-champagneP"></td>
+                        <td class="rest-champagneP">
+                            {{range .RICPs}}{{if or (eq .RoleName "シャンパン＆ワインP") (eq .RoleName "トイレタバコ女P")}}{{.PjName}} {{end}}{{end}}
+
+                        </td>
                     </tr>
                     <tr>
                         <th>19:15-19:45
                             <p>リターン</p>
                         </th>
-                        <td class="rest-leaderP"></td>
+                        <td class="rest-leaderP">
+                            {{range .RICPs}}{{if eq .RoleName "リーダーP"}}{{.PjName}} {{end}}{{end}}
+
+                        </td>
                     </tr>
                     <tr>
                         <th>19:30-20:00
                             <p>リターン</p>
                         </th>
-                        <td class="rest-subpjP"></td>
+                        <td class="rest-subpjP">
+                            {{range .RICPs}}{{if eq .RoleName "サブPJP"}}{{.PjName}} {{end}}{{end}}
+
+                        </td>
                     </tr>
                     <tr>
                         <th>※AM,PMのPjさん
