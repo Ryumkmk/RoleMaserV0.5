@@ -173,7 +173,6 @@ body .form-signin input[type=password] {
   text-align: center;
   /* solid007 */
   /* solid015 */
-  position: relative;
 }
 .page .attendance-form {
   display: flex;
@@ -610,10 +609,18 @@ body .form-signin input[type=password] {
   margin: 0 0;
   border-radius: 3px;
 }
-.page #role-counts-display-none {
+.page #role-counts-display-none,
+.page #role-counts-display-noneP {
   display: none;
 }
-.page #role-counts-display {
+.page .role-counts-ya,
+.page .role-counts-yaP {
+  position: relative;
+}
+.page .role-counts-ya #role-counts-display,
+.page .role-counts-ya #role-counts-displayP,
+.page .role-counts-yaP #role-counts-display,
+.page .role-counts-yaP #role-counts-displayP {
   position: absolute;
   padding: 2px;
   background-color: rgb(213, 232, 255);
@@ -623,12 +630,19 @@ body .form-signin input[type=password] {
   font-size: 80%;
   font-weight: 500;
   left: 5%;
-  top: 10%;
+  top: 0;
   border-radius: 5px;
   line-height: 1.8em;
   z-index: 1000;
 }
-.page #role-counts-display .rolecount-title {
+.page .role-counts-ya #role-counts-display .rolecount-title,
+.page .role-counts-ya #role-counts-display .rolecount-titleP,
+.page .role-counts-ya #role-counts-displayP .rolecount-title,
+.page .role-counts-ya #role-counts-displayP .rolecount-titleP,
+.page .role-counts-yaP #role-counts-display .rolecount-title,
+.page .role-counts-yaP #role-counts-display .rolecount-titleP,
+.page .role-counts-yaP #role-counts-displayP .rolecount-title,
+.page .role-counts-yaP #role-counts-displayP .rolecount-titleP {
   font-size: 200%;
   padding: 20px 0 10px 0;
   width: 40%;
@@ -636,7 +650,14 @@ body .form-signin input[type=password] {
   border-bottom: solid 3px #516ab6;
   white-space: nowrap;
 }
-.page #role-counts-display .rolecount-container {
+.page .role-counts-ya #role-counts-display .rolecount-container,
+.page .role-counts-ya #role-counts-display .rolecount-containerP,
+.page .role-counts-ya #role-counts-displayP .rolecount-container,
+.page .role-counts-ya #role-counts-displayP .rolecount-containerP,
+.page .role-counts-yaP #role-counts-display .rolecount-container,
+.page .role-counts-yaP #role-counts-display .rolecount-containerP,
+.page .role-counts-yaP #role-counts-displayP .rolecount-container,
+.page .role-counts-yaP #role-counts-displayP .rolecount-containerP {
   background-color: rgba(156, 191, 236, 0.28);
   border-bottom: dotted 2px #516ab6;
   border-radius: 5px;

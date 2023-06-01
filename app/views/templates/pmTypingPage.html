@@ -12,15 +12,20 @@
         
     </p>
     <br>
+    <div class = "role-counts-ya">
+        <div id="role-counts-display-none" onclick="displayRoleCountsNone()"></div>
+    </div>
     <p class="pjs-list-title">出勤PJ一覧</p>
     <div class="pjs-list">
         {{range .PLITs}}
-        <div class="pjs-item Names">{{.Name}}<span class="newpj-mark">{{.Level}}</span>
+        <div class="pjs-item Names" onclick="getRoleCount('{{.Name}}')">
+            {{.Name}}
+            <span class="newpj-mark">{{.Level}}</span>
             <p class="AmPm"><span>{{.Ampm}}</span>{{.ShiftTime}}</p>
         </div>
         {{end}}
     </div>
-    <div id="role-counts-display-none" onclick="displayRoleCountsNone()"></div>
+   
 
     <form action="/checkPj" method="post">
         <div class="PM">

@@ -12,17 +12,21 @@
         
     </p>
     <br>
+    <div class = "role-counts-ya">
+        <div id="role-counts-display-none" onclick="displayRoleCountsNone()"></div>
+    </div>
     <p class="pjs-list-title">出勤PJ一覧</p>
     <div class="pjs-list">
         {{range .PLITs}}
         {{if or (eq .Ampm "AM") (eq .Ampm "ダブル")}}
-        <div class="pjs-item Names">{{.Name}}<span class="newpj-mark">{{.Level}}</span>
+        <div class="pjs-item Names" onclick="getRoleCount('{{.Name}}')">
+            {{.Name}}
+            <span class="newpj-mark">{{.Level}}</span>
             <p class="AmPm"><span>{{.Ampm}}</span>{{.ShiftTime}}</p>
         </div>
         {{end}}
         {{end}}
     </div>
-    <div id="role-counts-display-none" onclick="displayRoleCountsNone()"></div>
     
     <form action="/checkPj" method="post">
         <div class="AM">
@@ -205,18 +209,22 @@
         
     </p>
     <br>
+    <div class = "role-counts-yaP">
+        <div id="role-counts-display-noneP" onclick="displayRoleCountsNoneP()"></div>
+    </div>
     <p class="pjs-list-title">出勤PJ一覧</p>
     <div class="pjs-list">
         {{range .PLITs}}
         {{if or (eq .Ampm "試食会") (or (eq .Ampm "PM") (eq .Ampm "ダブル"))}}
-        <div class="pjs-item Names">{{.Name}}<span class="newpj-mark">{{.Level}}</span>
+        <div class="pjs-item Names" onclick="getRoleCountP('{{.Name}}')">
+            {{.Name}}
+            <span class="newpj-mark">{{.Level}}</span>
             <p class="AmPm"><span>{{.Ampm}}</span>{{.ShiftTime}}</p>
         </div>
         {{end}}
         {{end}}
     </div>
-    <div id="role-counts-display-none" onclick="displayRoleCountsNone()"></div>
-
+   
         <div class="PM">
             <table>
                 <tbody>

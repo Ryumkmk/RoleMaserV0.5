@@ -102,6 +102,24 @@ function getRoleCount(pjname) {
         }
     });
 }
+function getRoleCountP(pjname) {
+    // Ajaxリクエストを行い、サーバー側の関数にpjnameを渡す
+    $.ajax({
+        url: "/getRoleCount",
+        type: "GET",
+        data: {
+            pjname: pjname
+        },
+        success: function (response) {
+            // 取得した結果を表示する処理をここに記述する
+            // console.log(response.RoleCounts);
+            displayRoleCountsP(response.RoleCounts, pjname);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
 function displayRoleCounts(roleCounts, pjname) {
     var roleCountsElement = document.getElementById("role-counts-display-none");
     roleCountsElement.setAttribute("id", "role-counts-display");
@@ -120,10 +138,32 @@ function displayRoleCounts(roleCounts, pjname) {
         roleCountsElement.appendChild(div);
     }
 }
+function displayRoleCountsP(roleCounts, pjname) {
+    var roleCountsElement = document.getElementById("role-counts-display-noneP");
+    roleCountsElement.setAttribute("id", "role-counts-displayP");
+    roleCountsElement.innerHTML = ""; // 一旦中身をクリア
+    //名前のタイトルDIVを生成
+    var title = document.createElement("div");
+    title.textContent = pjname;
+    title.setAttribute("class", "rolecount-titleP");
+    roleCountsElement.appendChild(title);
+
+    for (var i = 0; i < roleCounts.length; i++) {
+        var roleCount = roleCounts[i];
+        var div = document.createElement("div");
+        div.textContent = roleCount.name + " : " + roleCount.count +" 回";
+        div.setAttribute("class", "rolecount-containerP");
+        roleCountsElement.appendChild(div);
+    }
+}
 
 function displayRoleCountsNone() {
     var roleCountsElement = document.getElementById("role-counts-display");
     roleCountsElement.setAttribute("id", "role-counts-display-none");
+}
+function displayRoleCountsNoneP() {
+    var roleCountsElement = document.getElementById("role-counts-displayP");
+    roleCountsElement.setAttribute("id", "role-counts-display-noneP");
 }
 function copyValue(input, targetName, copyName) {
     var targetInput = input.closest(".AM").querySelectorAll("[name='" + targetName + "']")[0];

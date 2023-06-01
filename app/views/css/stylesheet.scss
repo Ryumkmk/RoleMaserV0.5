@@ -653,39 +653,46 @@ body {
         grid-gap: 3px;
         margin: 10px auto;
     }
-    #role-counts-display-none {
+    #role-counts-display-none,
+    #role-counts-display-noneP {
         display: none;
     }
-    position: relative;
-    #role-counts-display {
-        position: absolute;
-        padding: 2px;
-        background-color: rgb(213 232 255);
-        border: 3px solid #516ab6;
-        width: 90%;
-        height: 50vh;
-        font-size: 80%;
-        font-weight: 500;
-        left: 5%;
-        top: 10%;
-        border-radius: 5px;
-        line-height: 1.8em;
-        z-index: 1000;
-        .rolecount-title {
-            font-size: 200%;
-            padding: 20px 0 10px 0;
-            width: 40%;
-            margin: 5px auto;
-            border-bottom: solid 3px #516ab6;
-            white-space: nowrap;
-        }
-        .rolecount-container {
-            background-color: rgb(156 191 236 / 28%);
-            border-bottom: dotted 2px #516ab6;
-            border-radius: 5px;
-            width: 50%;
-            margin: 2px auto;
+    .role-counts-ya,
+    .role-counts-yaP {
+        position: relative;
+        #role-counts-display,
+        #role-counts-displayP {
+            position: absolute;
+            padding: 2px;
+            background-color: rgb(213 232 255);
+            border: 3px solid #516ab6;
+            width: 90%;
+            height: 50vh;
+            font-size: 80%;
             font-weight: 500;
+            left: 5%;
+            top: 0;
+            border-radius: 5px;
+            line-height: 1.8em;
+            z-index: 1000;
+            .rolecount-title,
+            .rolecount-titleP {
+                font-size: 200%;
+                padding: 20px 0 10px 0;
+                width: 40%;
+                margin: 5px auto;
+                border-bottom: solid 3px #516ab6;
+                white-space: nowrap;
+            }
+            .rolecount-container,
+            .rolecount-containerP {
+                background-color: rgb(156 191 236 / 28%);
+                border-bottom: dotted 2px #516ab6;
+                border-radius: 5px;
+                width: 50%;
+                margin: 2px auto;
+                font-weight: 500;
+            }
         }
     }
     .btn-design-1 {
