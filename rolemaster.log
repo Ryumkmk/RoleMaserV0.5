@@ -1081,3 +1081,153 @@ net/http.(*conn).serve(0xc00011e630, {0x8b7c50, 0xc00029ce40})
 	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
 created by net/http.(*Server).Serve
 	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed
+2023/06/01 13:44:37 roles.go:202: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:44:37 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:44:58 roles.go:202: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:44:58 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:45:02 roles.go:202: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:45:02 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:45:55 roles.go:203: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:45:55 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:45:56 roles.go:203: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:45:56 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:46:00 roles.go:203: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:46:00 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:47:00 roles.go:203: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:47:00 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:47:04 roles.go:203: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:47:04 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:47:07 roles.go:203: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:47:07 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:47:51 roles.go:203: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:47:51 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:47:53 roles.go:203: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:47:53 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:47:55 roles.go:203: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:47:55 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:48:08 roles.go:203: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:48:08 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:48:10 roles.go:203: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:48:10 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:48:14 roles.go:203: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 13:48:14 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:20 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:20 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:21 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:21 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:22 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:22 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:23 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:23 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:24 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:24 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:25 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:25 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:26 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:26 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:27 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:27 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:29 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:29 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:30 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:30 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:31 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:31 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:31 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:31 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:33 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:33 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:34 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:34 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:35 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:06:35 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:07:54 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:07:54 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:07:55 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:07:55 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:07:56 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:07:56 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:07:57 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:07:57 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:07:58 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:07:58 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:08:00 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:08:00 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:08:01 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:08:01 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:08:01 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:08:01 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:08:03 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:08:03 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:08:04 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:08:04 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:08:04 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:08:04 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:08:05 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:08:05 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:08:06 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:08:06 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:08:07 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:08:07 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:08:08 roles.go:201: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:08:08 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+2023/06/01 14:09:34 roles.go:201: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:34 roles.go:72: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:35 roles.go:201: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:35 roles.go:72: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:36 roles.go:201: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:36 roles.go:72: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:37 roles.go:201: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:37 roles.go:72: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:38 roles.go:201: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:38 roles.go:72: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:39 roles.go:201: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:39 roles.go:72: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:40 roles.go:201: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:40 roles.go:72: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:41 roles.go:201: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:41 roles.go:72: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:42 roles.go:201: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:42 roles.go:72: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:43 roles.go:201: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:43 roles.go:72: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:44 roles.go:201: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:44 roles.go:72: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:45 roles.go:201: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:45 roles.go:72: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:46 roles.go:201: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:46 roles.go:72: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:47 roles.go:201: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:47 roles.go:72: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:48 roles.go:201: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:09:48 roles.go:72: Error 1093 (HY000): You can't specify target table 'role_info' for update in FROM clause
+2023/06/01 14:14:38 roles.go:197: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:38 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:39 roles.go:197: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:39 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:40 roles.go:197: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:40 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:41 roles.go:197: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:41 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:42 roles.go:197: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:42 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:43 roles.go:197: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:43 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:45 roles.go:197: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:45 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:46 roles.go:197: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:46 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:47 roles.go:197: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:47 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:48 roles.go:197: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:48 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:49 roles.go:197: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:49 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:50 roles.go:197: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:50 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:51 roles.go:197: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:51 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:52 roles.go:197: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:52 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:53 roles.go:197: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8
+2023/06/01 14:14:53 roles.go:72: Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS subquery' at line 8

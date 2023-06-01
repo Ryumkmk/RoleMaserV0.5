@@ -153,6 +153,9 @@ func cheakPj(w http.ResponseWriter, r *http.Request) {
 		} else if strings.Contains(n, "pm-form") {
 			//PMならWedding情報をPMを追加
 			wITPPM.Ampm = v[0]
+		} else if strings.Contains(n, "datetype2") {
+			wITPAM.Date2 = v[0]
+			wITPPM.Date2 = v[0]
 		} else {
 			if len(v[0]) > 0 && n[len(n)-1] == 'P' {
 				//PMの役割なら、役割名と入力フォームの値を追加
@@ -175,8 +178,7 @@ func cheakPj(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println()
 	}
-	wITPAM.Date2 = r.PostFormValue("datetype2")
-	wITPPM.Date2 = r.PostFormValue("datetype2")
+
 	//引き渡し用のデータに登録
 	var dITP = models.DataInTypingPage{
 		PLITs:    pLTIs,

@@ -1,6 +1,7 @@
 package models
 
 import (
+	"fmt"
 	"log"
 )
 
@@ -63,7 +64,7 @@ func (w *WeddingInTypingPage) UpdateRoleInfoDBByAmpm(rIITPs []RoleInfoInTypingPa
 		if err != nil {
 			log.Println(err)
 		}
-		// fmt.Println(ok)
+		fmt.Println(ok)
 		if !ok {
 			// 入力フォームが更新されたので、該当の入力フォームの役割をRoleInfoデータベースから削除する
 			err = w.deleteRowToRoleInfoDB(rITTP.RoleName)
@@ -183,18 +184,14 @@ func (w *WeddingInTypingPage) insertRowToRoleInfoDB(pjname string, rolename stri
 
 // Role_Infoから役割名で振られた役割の全ての情報を削除
 func (w *WeddingInTypingPage) deleteRowToRoleInfoDB(rolename string) (err error) {
-	cmd := `delete from role_info where (wedding_id,role_id) IN(
-				SELECT 
-				w.id,r.id
-			FROM
-				role_info as ri
-				join
-				roles as r on r.id = ri.role_id
-					JOIN
-				weddings AS w on ri.wedding_id = w.id
+	cmd := `DELETE ri FROM role_info AS ri
+				JOIN
+			roles AS r ON r.id = ri.role_id
+				JOIN
+			weddings AS w ON ri.wedding_id = w.id 
 			WHERE
-				r.name = 'サブPJP' and w.date = '2023-06-03'
-				group by w.id;`
+			r.name = ?
+			AND w.date = ?;`
 	_, err = Db.Exec(cmd, rolename, w.Date)
 	if err != nil {
 		log.Println(err)

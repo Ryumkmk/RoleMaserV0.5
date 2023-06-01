@@ -176,7 +176,11 @@ func (w *WeddingInTypingPage) GetRoleInfoByDateFromDB() (rIITPs []RoleInfoInTypi
 
 // 同じ役割に二人以上のPJがいる場合、それを分割する
 func splitPjsInSameRole(input string) (result []string) {
-	re := regexp.MustCompile(`[\p{Hiragana}\p{Katakana}\wー]+`)
-	result = re.FindAllString(input, -1)
+	re := regexp.MustCompile(`[\p{Hiragana}\p{Katakana}\wー\s]+`)
+	matches := re.FindAllString(input, -1)
+	for _, match := range matches {
+		pjs := strings.Fields(match)
+		result = append(result, pjs...)
+	}
 	return result
 }
