@@ -6,8 +6,8 @@ if (window.location.pathname === '/checkPj') {
     var existNameP = [];
     let am = isExistName(document.querySelector(".am-rest").firstChild.textContent.trim());
     let pm = isExistName(document.querySelector(".pm-rest").firstChild.textContent.trim());
-    console.log(am);
-    console.log(pm);
+    // console.log(am);
+    // console.log(pm);
     if (am == "AM" && (pm == "PM" || pm == "試食会")) {
         amRest();
         pmRest();

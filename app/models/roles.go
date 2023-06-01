@@ -201,17 +201,21 @@ func (w *WeddingInTypingPage) deleteRowToRoleInfoDB(rolename string) (err error)
 // 名前から、今までどの役割を何回やったかカウントする
 func GetRoleCountFromPast(pjname string) (rCs []RoleCount, err error) {
 	cmd := `SELECT 
-			REGEXP_REPLACE(r.name, 'P$', '') AS counted_name,
-			COUNT(*) AS count
-		FROM
-			pjs AS p
-				JOIN
-			role_info AS ri ON p.id = ri.pj_id
-				JOIN
-			roles AS r ON ri.role_id = r.id
-		WHERE
-			p.name = ?
-		GROUP BY counted_name;`
+				REGEXP_REPLACE(r.name, 'P$', '') AS counted_name,
+				COUNT(*) AS count
+			FROM
+				pjs AS p
+					JOIN
+				role_info AS ri ON p.id = ri.pj_id
+					JOIN
+				roles AS r ON ri.role_id = r.id
+			WHERE
+				p.name = ?
+			GROUP BY counted_name
+			ORDER BY CASE
+				WHEN r.name REGEXP 'P$' THEN r.id - 18
+				ELSE r.id
+			END;`
 	rows, err := Db.Query(cmd, pjname)
 	if err != nil {
 		log.Println(err)
