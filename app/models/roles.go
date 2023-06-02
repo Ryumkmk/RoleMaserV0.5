@@ -10,8 +10,9 @@ type Role struct {
 }
 
 type RoleCount struct {
-	Name  string `json:"name"`
-	Count int    `json:"count"`
+	Name      string `json:"name"`
+	CountAll  int    `json:"countall"`
+	Count3Mon int    `json:"count3mon"`
 }
 type Role_Info struct {
 	ID         int
@@ -185,13 +186,18 @@ func (w *WeddingInTypingPage) deleteRowToRoleInfoDB(rolename string) (err error)
 func GetRoleCountFromPast(pjname string) (rCs []RoleCount, err error) {
 	cmd := `SELECT 
 				REGEXP_REPLACE(r.name, 'P$', '') AS counted_name,
-				COUNT(*) AS count
+				COUNT(*) AS count_all,
+				COUNT(CASE
+					WHEN w.date > DATE_SUB(CURDATE(), INTERVAL 1 MONTH) THEN 1
+				END) AS count_3months
 			FROM
 				pjs AS p
 					JOIN
 				role_info AS ri ON p.id = ri.pj_id
 					JOIN
 				roles AS r ON ri.role_id = r.id
+					JOIN
+				weddings AS w ON w.id = ri.wedding_id
 			WHERE
 				p.name = ?
 			GROUP BY counted_name
@@ -209,7 +215,8 @@ func GetRoleCountFromPast(pjname string) (rCs []RoleCount, err error) {
 		rC := RoleCount{}
 		rows.Scan(
 			&rC.Name,
-			&rC.Count)
+			&rC.CountAll,
+			&rC.Count3Mon)
 		rCs = append(rCs, rC)
 	}
 	return rCs, err

@@ -1,29 +1,11 @@
 {{define "content"}}
+<div id="page-top">
     <h1 class="maintitle heading-018">RoleMaster</h1>
-    <!-- 
-    <div class="button_solid007">
-        <p>現在のシフト</p>
-    </div>
-    <div class="file-name-title">
-        <text>データベース追加済</text>
-    </div>
-     -->
-    <!-- 
-    <form id="delete-form" action="/delete" method="post">
-        <input type="hidden" name="filename" value={{.}}>
-        <div class="button_solid015">
-            <input type="hidden" value="削除" onclick="confirmDelete(event)">
-        </div>
-        <div class="box2">
-            <p>※月が変わったらファイルを削除してください</p>
-        </div>
-    </form>
-    -->
-    <form id="date-form" action="/typingpage" method="post">
-        <div class="hello-dog">
+    <form id="top-makeshift-form-container" action="/typingpage" method="post">
+        <div class="hello-dog cute-img">
             <img src="/static/imgs/hello-everyone.gif" alt="" width="140px">
         </div>
-        <div class="button_solid007">
+        <div class="button_solid007 top-makeshift-form-title">
             <p>作りたいシフトの日付を入力してね</p>
         </div>
         <div class="selectdiv">
@@ -102,40 +84,40 @@
             <input type="submit" value="役割分担表を作る">
         </div>
     </form>
-    
-    <form class="attendance-form" action="/shiftlist" method="post">
-        <div class="pjname-input">
+
+    <form id="top-viewshift-form-container" action="/shiftlist" method="post">
+        <div class="top-viewshift-form-pjname-input">
             <input type="text" name="pjName" required>
         </div>
 
-            <div class="cp_ipselect cp_sl01">
-                <select name="month" required>
-                    <option value="" hidden>月</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                </select>
-            </div>
-        <div class="btn-design-1">
+        <div class="cp_ipselect cp_sl01">
+            <select name="month" required>
+                <option value="" hidden>月</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+        </div>
+        <div class="btn-design-1 top-viewshift-form-button">
             <input type="submit" value="出勤情報">
         </div>
     </form>
-    
+
     <!-- <form class = "logout-btn" action = "/logout" method="post">
         <div class="btn-design-1">
             <input type="submit" value="ログアウト">
         </div>
     </form> -->
-    
+    <!-- 
     <div id="addToHomeScreenButton">
         <div class="btn-box">
             <button>アプリをホームに追加</button>
@@ -147,5 +129,6 @@
                 <li>3.ホームに追加をタップ</li>
             </ul>
         </div>
-    </div>
+    </div> -->
+</div>
 {{end}}

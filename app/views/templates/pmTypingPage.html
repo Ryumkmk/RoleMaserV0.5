@@ -1,228 +1,262 @@
 {{define "content"}}
-<div id="tap-delete-balloon">
-    <div class="button_solid015">
-        <button onclick="history.back()">戻る</button>
-    </div>
-    <p class="pjs-list-title">
-        日付:{{.WITPPM.Date2}}
-        <br>
-        ゲスト数:{{.WITPPM.Guest}}
-        <br>
-        婚礼時間:{{.WITPPM.Ampm}}
-        
-    </p>
-    <br>
-    <div class = "role-counts-ya">
-        <div id="role-counts-display-none" onclick="displayRoleCountsNone()"></div>
-    </div>
-    <p class="pjs-list-title">出勤PJ一覧</p>
-    <div class="pjs-list">
-        {{range .PLITs}}
-        <div class="pjs-item Names" onclick="getRoleCount('{{.Name}}')">
-            {{.Name}}
-            <span class="newpj-mark">{{.Level}}</span>
-            <p class="AmPm"><span>{{.Ampm}}</span>{{.ShiftTime}}</p>
+<div id="page1">
+    <div id="tap-delete-balloon">
+        <div class="button_solid015 back-btn-container">
+            <button class="back-btn" onclick="history.back()">戻る</button>
         </div>
-        {{end}}
-    </div>
-   
-    <form action="/checkPj" method="post">
-        <div class="PM">
-            <table>
-                <tbody>
-                    <tr>
-                        <th name="date-form" class="jobName date-print">
-                            <input type="hidden" name="date-form" value={{.WITPPM.Date}}>
-                            <input type="hidden" name="datetype2" value={{.WITPAM.Date2}}>
-                            <input type="hidden" name="pm-form" value={{.WITPPM.Ampm}}>
-                            {{.WITPPM.Date2}}
-                        </th>
-                        <td class="ampm" colspan="2">
-                            {{.WITPPM.Ampm}}
-                            </td>
-                    </tr>
-                    <tr>
-                        <th class="jobName tasting">サブPJ</th>
-                        <td calss = "tasting"colspan="2"><input type="text" name="サブPJP"
-                            value = "{{range .RIITPsPM}}{{if eq .RoleName "サブPJP"}}{{.PjName}} {{end}}{{end}}">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="jobName">リーダー</th>
-                        <td colspan="2"><input type="text" name="リーダーP" 
-                            value = "{{range .RIITPsPM}}{{if eq .RoleName "リーダーP"}}{{.PjName}} {{end}}{{end}}">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="jobName">リターンリーダー
-                            <div class="balloonoya" onclick="showBalloon('makeImg1')">
-                                <img src="/static/imgs/questionicon.svg" width="14px">
-                                <span class="balloonnone" id="makeImg1">
-                                    ここはベテランのみ！<br>
-                                    もしくは中堅層PJとベテランPJで組んで指示出しの仕方をあげる
-                                </span>
-                            </div>
-                        </th>
-                        <td colspan="2"><input type="text" name="リターンリーダーP"
-                            value = "{{range .RIITPsPM}}{{if eq .RoleName "リターンリーダーP"}}{{.PjName}} {{end}}{{end}}">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="jobName">門番/駐車場
-                            <div class="balloonoya" onclick="showBalloon('makeImg2')">
-                                <img src="/static/imgs/questionicon.svg" width="14px">
-                                <span class="balloonnone" id="makeImg2">
-                                    第一駐車場は基本１人<br>
-                                    新人は第二駐車場をまずは覚える<br>
-                                    慣れてきた子は第一駐車場２人(新人×先輩)体制で！<br>
-                                    →その時の第二駐車場は先輩PJ1人でやる
-                                </span>
-                            </div>
-                        </th>
-                        <td><input type="text" name="門番＆第一P"
-                            value = "{{range .RIITPsPM}}{{if eq .RoleName "門番＆第一P"}}{{.PjName}} {{end}}{{end}}"><span>第一</span></td>
-                        <td class ="tasting" ><input type="text" name="門番＆第二P"
-                            value = "{{range .RIITPsPM}}{{if eq .RoleName "門番＆第二P"}}{{.PjName}} {{end}}{{end}}"><span>第二</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="jobName">クローク
-                            <div class="balloonoya" onclick="showBalloon('makeImg3')">
-                                <img src="/static/imgs/questionicon.svg" width="14px">
-                                <span class="balloonnone" id="makeImg3">
-                                    新人はまずクロークから！<br>
-                                    大人数の時や新人x中堅PJの時はクロークサブをつける
-                                </span>
-                            </div>
-                        </th>
-                        <td colspan="2"><input type="text" name="クロークP"
-                            value = "{{range .RIITPsPM}}{{if eq .RoleName "クロークP"}}{{.PjName}} {{end}}{{end}}"></td>
-                    </tr>
-                    <tr>
-                        <th class="jobName tasting">クロークサブ</th>
-                        <td class = "tasting"colspan="2"><input type="text" name="クロークサブP"
-                            value = "{{range .RIITPsPM}}{{if eq .RoleName "クロークサブP"}}{{.PjName}} {{end}}{{end}}"></td>
-                    </tr>
-                    <tr>
-                        <th class="jobName">コーヒー＆デトックス
-                            <div class="balloonoya" onclick="showBalloon('makeImg4')">
-                                <img src="/static/imgs/questionicon.svg" width="14px">
-                                <span class="balloonnone" id="makeImg4">
-                                    アぺや水係がやる事多いと思う
-                                </span>
-                            </div>
-                        </th>
-                        <td colspan="2"><input type="text" name="コーヒーP"
-                            value = "{{range .RIITPsPM}}{{if eq .RoleName "コーヒーP"}}{{.PjName}} {{end}}{{end}}"></td>
-                    </tr>
-                    <tr>
-                        <th class="jobName">ドリカン両親係
-                            <div class="balloonoya" onclick="showBalloon('makeImg5')">
-                                <img src="/static/imgs/questionicon.svg" width="14px">
-                                <span class="balloonnone" id="makeImg5">
-                                    初めてドリカンをする子はドリンク聞きから！<br>
-                                    慣れてきたら新人が作成（先輩は聞き且つ見守る役）<br>
-                                    大人数（６０名～）はドリカンサブが絶対必要<br>
-                                    少人数の時は入って日が浅い子を優先的にドリカンへ
-                                    →おちついて慣れてもらうため
-                                </span>
-                            </div>
-                        </th>
-                        <td><input type="text" name="ドリカン＆作P"
-                            value = "{{range .RIITPsPM}}{{if eq .RoleName "ドリカン＆作P"}}{{.PjName}} {{end}}{{end}}"><span>作&郎側</span></td>
-                        <td><input type="text" name="ドリカン＆聞P"
-                            value = "{{range .RIITPsPM}}{{if eq .RoleName "ドリカン＆聞P"}}{{.PjName}} {{end}}{{end}}"><span>聞&婦側</span></td>
-                    </tr>
-                    <tr>
-                        <th class="jobName tasting">ドリカンサブ</th>
-                        <td class = "tasting" colspan="2"><input type="text" name="ドリカンサブP"
-                            value = "{{range .RIITPsPM}}{{if eq .RoleName "ドリカンサブP"}}{{.PjName}} {{end}}{{end}}"></td>
-                    </tr>
-                    <tr>
-                        <th class="jobName tasting">シャンパン＆ワイン
-                            <div class="balloonoya" onclick="showBalloon('makeImg6')">
-                                <img src="/static/imgs/questionicon.svg" width="14px">
-                                <span class="balloonnone" id="makeImg6">
-                                    どうしても人が足りない時はクローク係がここもする<br>
-                                    乾杯準備に間に合わせれるよう絶対先輩×新人で！<br>
-                                    不安そうな子がシャンパンデビューする時は絶対見守ってあげる
-                                </span>
-                            </div>
-                        </th>
-                        <td class = "tasting" colspan="2"><input type="text" name="シャンパン&ワインP"
-                            value = "{{range .RIITPsPM}}{{if eq .RoleName "シャンパン&ワインP"}}{{.PjName}} {{end}}{{end}}"></td>
-                        <!-- <td><input type="text" name="シャンパン&ワイン"></td> -->
-                    </tr>
-                    <tr>
-                        <th class="jobName">シルバー＆ワイン
-                            <div class="balloonoya" onclick="showBalloon('makeImg7')">
-                                <img src="/static/imgs/questionicon.svg" width="14px">
-                                <span class="balloonnone" id="makeImg7">
-                                    慣れてきた新人PJはワイン係を教えてあげる
-                                </span>
-                            </div>
-                        </th>
-                        <td colspan="2"><input type="text" name="シルバー＆ワインP"
-                            value = "{{range .RIITPsPM}}{{if eq .RoleName "シルバー＆ワインP"}}{{.PjName}} {{end}}{{end}}">
-                        </td>
-                        <!-- <td><input type="text" name="シルバー＆ワイン"> -->
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class=" jobName">アペ＆水</th>
-                        <td colspan="2"><input type="text" name="アペ＆水P"
-                            value = "{{range .RIITPsPM}}{{if eq .RoleName "アペ＆水P"}}{{.PjName}} {{end}}{{end}}">
-                        </td>
-                        <!-- <td><input type="text" name="アペ＆水"> -->
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="jobName">トイレタバコチェック＆ガーデンヒーター</th>
-                        <td><input type="text" name="トイレタバコ男P"
-                            value = "{{range .RIITPsPM}}{{if eq .RoleName "トイレタバコ男P"}}{{.PjName}} {{end}}{{end}}"><span>男性＆タバコ</span></td>
-                        <td><input type="text" name="トイレタバコ女P"
-                            value = "{{range .RIITPsPM}}{{if eq .RoleName "トイレタバコ女P"}}{{.PjName}} {{end}}{{end}}"><span>女性＆多目的</span></td>
-
-                    </tr>
-                    <tr>
-                        <th class="jobName">洗い場</th>
-                        <td><input type="text" name="洗い場洗いP"
-                            value = "{{range .RIITPsPM}}{{if eq .RoleName "洗い場洗いP"}}{{.PjName}} {{end}}{{end}}"><span>洗い</span>
-                        </td>
-                        <td><input type="text" name="洗い場拭きP"
-                            value = "{{range .RIITPsPM}}{{if eq .RoleName "洗い場拭きP"}}{{.PjName}} {{end}}{{end}}"><span>拭き</span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <p class="pjs-list-title">
+            日付:{{.WITPPM.Date2}}
             <br>
+            ゲスト数:{{.WITPPM.Guest}}
+            <br>
+            婚礼時間:{{.WITPPM.Ampm}}
+        </p>
+        <br>
+        <div class="role-counts-ya">
+            <div id="role-counts-display-none" onclick="displayRoleCountsNone()"></div>
         </div>
-        <div class="trainer-trainee-typing">
-            <table>
-                <thead>
-                    <tr>
-                        <th>トレーナー</th>
-                        <th>トレーニー</th>
-                    </tr>
-                </thead>
-                <tbody id="table-body">
-                    <tr>
-                        <td><input name="trainer0"></td>
-                        <td><input name="trainee0"></td>
-                    </tr>
-                </tbody>
-            </table>
-            <footer class="treiner-typing">
-                <div class="button_solid015 trainer-typing">
-                    <button type="button" id="add-btn">追加</button>
-                    <button type="button" id="delete-btn">削除</button>
-                </div>
-            </footer>
+        <p class="pjs-list-title">出勤PJ一覧</p>
+        <div class="pjs-list">
+            {{range .PLITs}}
+            <div class="pjs-item Names" onclick="getRoleCount('{{.Name}}')">
+                {{.Name}}
+                <span class="newpj-mark">{{.Level}}</span>
+                <p class="AmPm"><span>{{.Ampm}}</span>{{.ShiftTime}}</p>
+            </div>
+            {{end}}
         </div>
-        <div class="btn-design-1">
-            <input type="submit" value="確認">
-        </div>
-    </form>
+        <div class="page1-form-container">
+            <form action="/checkPj" method="post">
+                <table class="page1-form-table">
+                    <thead class="page1-form-thead">
+                        <tr class="page1-form-header-tr">
+                            <th name="date-form" class="page1-form-header-th">
+                                <input type="hidden" name="date-form" value={{.WITPPM.Date}}>
+                                <input type="hidden" name="datetype2" value={{.WITPPM.Date2}}>
+                                <input type="hidden" name="pm-form" value={{.WITPPM.Ampm}}>
+                                {{.WITPPM.Date2}}
+                            </th>
+                            <th class="page1-form-header-th" colspan="2">
+                                {{.WITPPM.Ampm}}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="page1-form-tbody">
+                        <tr class="page1-form-tbody-tr">
+                            <th class="page1-form-tbody-th">サブPJ</th>
+                            <td class="page1-form-tbody-td" colspan="2">
+                                <input type="text" name="サブPJP" value="{{range .RIITPsPM}}{{if eq .RoleName `サブPJP`
+                                    }}{{.PjName}}  {{end}}{{end}}">
+                            </td>
+                        </tr>
 
+                        <tr class="page1-form-tbody-tr">
+                            <th class="page1-form-tbody-th">リーダー</th>
+                            <td class="page1-form-tbody-td" colspan="2">
+                                <input type="text" name="リーダーP" value="{{range .RIITPsPM}}{{if eq .RoleName `リーダーP`
+                                    }}{{.PjName}}  {{end}}{{end}}">
+                            </td>
+                        </tr>
+                        <tr class="page1-form-tbody-tr">
+                            <th class="page1-form-tbody-th">リターンリーダー
+                                <div class="balloonoya" onclick="showBalloon('makeImg1')">
+                                    <img src="/static/imgs/questionicon.svg" width="14px">
+                                    <span class="balloonnone" id="makeImg1">
+                                        ここはベテランのみ！<br>
+                                        もしくは中堅層PJとベテランPJで組んで指示出しの仕方をあげる
+                                    </span>
+                                </div>
+                            </th>
+                            <td class="page1-form-tbody-td" colspan="2">
+                                <input type="text" name="リターンリーダーP" value="{{range .RIITPsPM}}{{if eq .RoleName `
+                                    リターンリーダーP` }}{{.PjName}}  {{end}}{{end}}">
+                            </td>
+                        </tr>
+
+                        <tr class="page1-form-tbody-tr">
+                            <th class="page1-form-tbody-th">門番/駐車場
+                                <div class="balloonoya" onclick="showBalloon('makeImg2')">
+                                    <img src="/static/imgs/questionicon.svg" width="14px">
+                                    <span class="balloonnone" id="makeImg2">
+                                        第一駐車場は基本１人<br>
+                                        新人は第二駐車場をまずは覚える<br>
+                                        慣れてきた子は第一駐車場２人(新人×先輩)体制で！<br>
+                                        →その時の第二駐車場は先輩PJ1人でやる
+                                    </span>
+                                </div>
+                            </th>
+                            <td class="page1-form-tbody-td">
+                                <input type="text" name="門番＆第一P" value="{{range .RIITPsPM}}{{if eq .RoleName ` 門番＆第一P`
+                                    }}{{.PjName}}  {{end}}{{end}}"><span>第一</span>
+                            </td>
+                            <td class="page1-form-tbody-td">
+                                <input type="text" name="門番＆第二P" value="{{range .RIITPsPM}}{{if eq .RoleName ` 門番＆第二P`
+                                    }}{{.PjName}}  {{end}}{{end}}"><span>第二</span>
+                            </td>
+                        </tr>
+
+                        <tr class="page1-form-tbody-tr">
+                            <th class="page1-form-tbody-th">クローク
+                                <div class="balloonoya" onclick="showBalloon('makeImg3')">
+                                    <img src="/static/imgs/questionicon.svg" width="14px">
+                                    <span class="balloonnone" id="makeImg3">
+                                        新人はまずクロークから！<br>
+                                        大人数の時や新人x中堅PJの時はクロークサブをつける
+                                    </span>
+                                </div>
+                            </th>
+                            <td class="page1-form-tbody-td" colspan="2">
+                                <input type="text" name="クローク" value="{{range .RIITPsPM}}{{if eq .RoleName ` クロークP`
+                                    }}{{.PjName}}  {{end}}{{end}}">
+                            </td>
+                        </tr>
+                        <tr class="page1-form-tbody-tr">
+                            <th class="page1-form-tbody-th">クロークサブ</th>
+                            <td class="page1-form-tbody-td" colspan="2">
+                                <input type="text" name="クロークサブP" value="{{range .RIITPsPM}}{{if eq .RoleName ` クロークサブP"
+                                    ` }}{{.PjName}} {{end}}{{end}}">
+                            </td>
+                        </tr>
+
+                        <tr class="page1-form-tbody-tr">
+                            <th class="page1-form-tbody-th">コーヒー＆デトックス
+                                <div class="balloonoya" onclick="showBalloon('makeImg4')">
+                                    <img src="/static/imgs/questionicon.svg" width="14px">
+                                    <span class="balloonnone" id="makeImg4">
+                                        アぺや水係がやる事多いと思う
+                                    </span>
+                                </div>
+                            </th>
+                            <td class="page1-form-tbody-td" colspan="2">
+                                <input type="text" name="コーヒーP" value="{{range .RIITPsPM}}{{if eq .RoleName ` コーヒーP`
+                                    }}{{.PjName}}  {{end}}{{end}}">
+                            </td>
+                        </tr>
+
+                        <tr class="page1-form-tbody-tr">
+                            <th class="page1-form-tbody-th">ドリカン両親係
+                                <div class="balloonoya" onclick="showBalloon('makeImg5')">
+                                    <img src="/static/imgs/questionicon.svg" width="14px">
+                                    <span class="balloonnone" id="makeImg5">
+                                        初めてドリカンをする子はドリンク聞きから！<br>
+                                        慣れてきたら新人が作成（先輩は聞き且つ見守る役）<br>
+                                        大人数（６０名～）はドリカンサブが絶対必要<br>
+                                        少人数の時は入って日が浅い子を優先的にドリカンへ
+                                        →おちついて慣れてもらうため
+                                    </span>
+                                </div>
+                            </th>
+                            <td class="page1-form-tbody-td">
+                                <input type="text" name="ドリカン＆作P" value="{{range .RIITPsPM}}{{if eq .RoleName ` ドリカン＆作P`
+                                    }}{{.PjName}}  {{end}}{{end}}"><span>作&郎側</span>
+                            </td>
+                            <td class="page1-form-tbody-td">
+                                <input type="text" name="ドリカン＆聞P" value="{{range .RIITPsPM}}{{if eq .RoleName ` ドリカン＆聞P`
+                                    }}{{.PjName}}  {{end}}{{end}}"><span>聞&婦側</span>
+                            </td>
+                        </tr>
+                        <tr class="page1-form-tbody-tr">
+                            <th class="page1-form-tbody-th">ドリカンサブ</td>
+                            <td class="page1-form-tbody-td" colspan="2">
+                                <input type="text" name="ドリカンサブP" value="{{range .RIITPsPM}}{{if eq .RoleName ` ドリカンサブP"
+                                    ` }}{{.PjName}} {{end}}{{end}}">
+                            </td>
+                        </tr>
+                        <tr class="page1-form-tbody-tr">
+                            <th class="page1-form-tbody-th">シャンパン＆ワイン
+                                <div class="balloonoya" onclick="showBalloon('makeImg6')">
+                                    <img src="/static/imgs/questionicon.svg" width="14px">
+                                    <span class="balloonnone" id="makeImg6">
+                                        どうしても人が足りない時はクローク係がここもする<br>
+                                        乾杯準備に間に合わせれるよう絶対先輩×新人で！<br>
+                                        不安そうな子がシャンパンデビューする時は絶対見守ってあげる
+                                    </span>
+                                </div>
+                            </th>
+                            <td class="page1-form-tbody-td" colspan="2">
+                                <input type="text" name="シャンパン&ワインP" value="{{range .RIITPsPM}}{{if eq .RoleName `
+                                    シャンパン&ワインP` }}{{.PjName}}  {{end}}{{end}}">
+                            </td>
+                        </tr>
+                        <tr class="page1-form-tbody-tr">
+                            <th class="page1-form-tbody-th">シルバー＆ワイン
+                                <div class="balloonoya" onclick="showBalloon('makeImg7')">
+                                    <img src="/static/imgs/questionicon.svg" width="14px">
+                                    <span class="balloonnone" id="makeImg7">
+                                        慣れてきた新人PJはワイン係を教えてあげる
+                                    </span>
+                                </div>
+                            </th>
+                            <td class="page1-form-tbody-td" colspan="2">
+                                <input type="text" name="シルバー＆ワインP" value="{{range .RIITPsPM}}{{if eq .RoleName `
+                                    シルバー＆ワインP` }}{{.PjName}}  {{end}}{{end}}">
+                            </td>
+
+                        </tr>
+                        <tr class="page1-form-tbody-tr">
+                            <th class="page1-form-tbody-th">アペ＆水</th>
+                            <td class="page1-form-tbody-td" colspan="2">
+                                <input type="text" name="アペ＆水P" value="{{range .RIITPsPM}}{{if eq .RoleName ` アペ＆水P`
+                                    }}{{.PjName}}  {{end}}{{end}}">
+                            </td>
+                        </tr>
+                        <tr class="page1-form-tbody-tr">
+                            <th class="page1-form-tbody-th">トイレタバコチェック＆ガーデンヒーター</th>
+                            <td class="page1-form-tbody-td">
+                                <input type="text" name="トイレタバコ男P" value="{{range .RIITPsPM}}{{if eq .RoleName ` トイレタバコ男P`
+                                    }}{{.PjName}}  {{end}}{{end}}"><span>男性＆タバコ</span>
+                            </td>
+                            <td class="page1-form-tbody-td">
+                                <input type="text" name="トイレタバコ女P" value="{{range .RIITPsPM}}{{if eq .RoleName ` トイレタバコ女P`
+                                    }}{{.PjName}}  {{end}}{{end}}"><span>女性＆多目的</span>
+                            </td>
+
+                        </tr>
+                        <tr class="page1-form-tbody-tr">
+                            <th class="page1-form-tbody-th">洗い場</th>
+                            <td class="page1-form-tbody-td">
+                                <input type="text" name="洗い場洗いP" value="{{range .RIITPsPM}}{{if eq .RoleName ` 洗い場洗いP`
+                                    }}{{.PjName}}  {{end}}{{end}}"><span>洗い</span>
+                            </td>
+                            <td class="page1-form-tbody-td">
+                                <input type="text" name="洗い場拭きP" value="{{range .RIITPsPM}}{{if eq .RoleName ` 洗い場拭きP`
+                                    }}{{.PjName}}  {{end}}{{end}}"><span>拭き</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="trainer-trainee-form-container">
+                    <table class="trainer-trainee-form-table">
+                        <thead class="trainer-trainee-form-thead">
+                            <tr class="trainer-trainee-form-thead-tr">
+                                <th class="trainer-trainee-form-thead-th">トレーナー</th>
+                                <th class="trainer-trainee-form-thead-th">トレーニー</th>
+                            </tr>
+                        </thead>
+                        <tbody id="trainer-trainee-form-tbody">
+                            <tr class="trainer-trainee-form-tbody-tr">
+                                <td class="trainer-trainee-form-tbody-td">
+                                    <input name="trainer0">
+                                </td>
+                                <td class="trainer-trainee-form-tbody-td">
+                                    <input name="trainee0">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <footer class="footer-design">
+                        <div class="footer-design-div">
+                            <button class="btn-design" type="button" id="add-btn">追加</button>
+                            <button class="btn-design" type="button" id="delete-btn">削除</button>
+                        </div>
+                    </footer>
+                </div>
+                <div class="page1-form-confirm-container">
+                    <input class="page1-form-confirm-btn btn-design " type="submit" value="確認">
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
+
 {{end}}

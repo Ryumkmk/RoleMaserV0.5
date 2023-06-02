@@ -1,242 +1,241 @@
 {{define "content"}}
 <div id="page1">
-    <div class="page">
-
-        <footer>
-            <div class="button_solid015">
-                <button class="back-button" onclick="history.back()">戻る</button>
-                <!-- <button class="print-button" onclick="window.print()">印刷</button> -->
-            </div>
-        </footer>
-        <p class="pjs-list-title">出勤PJ一覧</p>
-        <div class="pjs-list">
-            {{range .PLITs}}
-            <div class="pjs-item Names">{{.Name}}<span class="newpj-mark">{{.Level}}</span>
-                <p class="AmPm"><span>{{.Ampm}}</span>{{.ShiftTime}}</p>
-            </div>
-            {{end}}
+    <div class="back-btn-container">
+        <button class="back-btn" onclick="history.back()">戻る</button>
+    </div>
+    <p class="pjs-list-title">出勤PJ一覧</p>
+    <div class="pjs-list">
+        {{range .PLITs}}
+        <div class="pjs-item Names">{{.Name}}<span class="newpj-mark">{{.Level}}</span>
+            <p class="AmPm"><span>{{.Ampm}}</span>{{.ShiftTime}}</p>
         </div>
-
-        <div class="point-dog">
-            <div class="box2">
-                <p class="checked-mes">※赤色は入力済Pj
-                    <br>
-                    全員入力しましたか？
-                </p>
-            </div>
-            <div>
-                <img src="/static/imgs/check-dog.gif" alt="" width="70px">
-            </div>
+        {{end}}
+    </div>
+    <div class="point-dog">
+        <div class="dog-coment">
+            <p class="checked-mes">
+                <!-- ※赤色は入力済Pj -->
+                全員入力しましたか？
+            </p>
         </div>
-        <div class="PM AMPM-container">
-            <table>
-                <tbody>
-                    <tr>
-                        <th class="jobName date-print">
-                            {{.WITPPM.Date2}}
-                        </th>
-                        <td class="ampm am-rest" hidden>none</td>
-                        <td class="ampm pm-rest" colspan="2">{{.WITPPM.Ampm}}</td>
-                    </tr>
-                    <tr>
-                        <th class="jobName">サブPJ</th>
-                        <td colspan="2">
-                            <div class="subpjP">
-                                {{range .RIITPsPM}}{{if eq .RoleName "サブPJP"}}{{.PjName}} {{end}}{{end}}
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th class="jobName in">リーダー</th>
-                        <td colspan="2">
-                            <div class="leaderP">
-                                {{range .RIITPsPM}}{{if eq .RoleName "リーダーP"}}{{.PjName}} {{end}}{{end}}
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="jobName in">リターンリーダー</th>
-                        <td colspan="2">
-                            <div class="returnleaderP">
-                                {{range .RIITPsPM}}{{if eq .RoleName "リターンリーダーP"}}{{.PjName}} {{end}}{{end}}
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="jobName in">門番/駐車場</th>
-                        <td>
-                            <div class="gatekeeperP">
-                                {{range .RIITPsPM}}{{if eq .RoleName "門番＆第一P"}}{{.PjName}} {{end}}{{end}}
-                                <span>第一</span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="gatekeeper2P">
-                                {{range .RIITPsPM}}{{if eq .RoleName "門番＆第二P"}}{{.PjName}} {{end}}{{end}}
-                                <span>第二</span>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th class="jobName">クローク
-                            <br>
-                            &Wt迎賓
-                        </th>
-                        <td colspan="2">
-                            <div class="cloakP">
-                                {{range .RIITPsPM}}{{if eq .RoleName "クロークP"}}{{.PjName}} {{end}}{{end}}
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="jobName">クロークサブ
-                            <br>
-                            &Wt迎賓
-                        </th>
-                        <td colspan="2">
-                            <div class="cloaksubP">
-                                {{range .RIITPsPM}}{{if eq .RoleName "クロークサブP"}}{{.PjName}} {{end}}{{end}}
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="jobName">コーヒー＆<br>デトックス</th>
-                        <td colspan="2">
-                            <div class="coffeeP">
-                                {{range .RIITPsPM}}{{if eq .RoleName "コーヒーP"}}{{.PjName}} {{end}}{{end}}
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="jobName">ドリカン両親係</th>
-                        <td>
-                            <div class="drinkmainP">
-                                {{range .RIITPsPM}}{{if eq .RoleName "ドリカン＆作P"}}{{.PjName}} {{end}}{{end}}
-                                <span>作&郎側</span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="drinksubP">
-                                {{range .RIITPsPM}}{{if eq .RoleName "ドリカン＆聞P"}}{{.PjName}} {{end}}{{end}}
-                                <span>聞&婦側</span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="jobName">ドリカンサブ</th>
-                        <td colspan="2">
-                            <div class="drinksubsubP">
-                                {{range .RIITPsPM}}{{if eq .RoleName "ドリカンサブP"}}{{.PjName}} {{end}}{{end}}
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="jobName">シャンパン＆ワイン
-                            <br>
-                            &チャペル誘導
-                        </th>
-                        <td colspan="2">
-                            <div class="champagneP">
-                                {{range .RIITPsPM}}{{if eq .RoleName "シャンパン&ワインP"}}{{.PjName}} {{end}}{{end}}
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="jobName">シルバー＆ワイン
-                            <br>
-                            &おしぼり回収
-                        </th>
-                        <td colspan="2">
-                            <div class="silverP">
-                                {{range .RIITPsPM}}{{if eq .RoleName "シルバー＆ワインP"}}{{.PjName}} {{end}}{{end}}
-
-                            </div>
-                            <span class="towel-check">おしぼり回収チェック □</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class=" jobName">アペ＆水
-                            <br>
-                            &アルコール係
-                        </th>
-                        <td colspan="2">
-                            <div class="apeP">
-                                {{range .RIITPsPM}}{{if eq .RoleName "アペ＆水P"}}{{.PjName}} {{end}}{{end}}
-
-                            </div>
-                        </td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="jobName">トイレタバコチェック＆<br>ガーデンヒーター</th>
-                        <td>
-                            <div class="toiletmanP">
-                                {{range .RIITPsPM}}{{if eq .RoleName "トイレタバコ男P"}}{{.PjName}} {{end}}{{end}}
-                                <span>男性＆タバコ</span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="toiletladyP">
-                                {{range .RIITPsPM}}{{if eq .RoleName "トイレタバコ女P"}}{{.PjName}} {{end}}{{end}}
-                                <span>女性＆多目的</span>
-                            </div>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <th class="jobName">洗い場</th>
-                        <td>
-                            <div class="wash1P">
-                                {{range .RIITPsPM}}{{if eq .RoleName "洗い場洗いP"}}{{.PjName}} {{end}}{{end}}
-                                <span>洗い</span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="wash2P">
-                                {{range .RIITPsPM}}{{if eq .RoleName "洗い場拭きP"}}{{.PjName}} {{end}}{{end}}
-                                <span>拭き</span>
-                            </div>
-                        </td>
-                    </tr>
-
-                </tbody>
-            </table>
+        <div>
+            <img src="/static/imgs/check-dog.gif" alt="" width="70px">
         </div>
-        <div class="trainer-trainee-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>トレーナー</th>
-                        <th>トレーニー</th>
+    </div>
+    <div class="page1-form-container page1-print-container">
+        <table class="page1-form-table page1-check-table">
+            <thead class="page1-form-thead">
+                <tr class="page1-form-header-tr">
+                    <th name="date-form date-print" class="page1-form-header-th page1-check-header-th">
+                        {{.WITPPM.Date2}}
+                    </th>
+                    <th class="page1-form-header-th ampm am-rest" colspan="2">
+                        {{.WITPPM.Ampm}}
+                    </th>
+                    <td class="ampm pm-rest" hidden></td>
+                </tr>
+            </thead>
+            <tbody class="page1-form-tbody">
+                <tr class="page1-form-tbody-tr">
+                    <th class="page1-form-tbody-th">サブPJ</th>
+                    <td class="page1-form-tbody-td page1-check-tbody-td" colspan="2">
+                        <div class="subpjP">
+                            {{range .RIITPsPM}}{{if eq .RoleName "サブPJP"}}{{.PjName}} {{end}}{{end}}
+                        </div>
+                    </td>
+                </tr>
+                <tr class="page1-form-tbody-tr">
+                    <th class="page1-form-tbody-th">リーダー</th>
+                    <td class="page1-form-tbody-td page1-check-tbody-td" colspan="2">
+                        <div class="leaderP">
+                            {{range .RIITPsPM}}{{if eq .RoleName "リーダーP"}}{{.PjName}} {{end}}{{end}}
+
+                        </div>
+                    </td>
+                </tr>
+                <tr class="page1-form-tbody-tr">
+                    <th class="page1-form-tbody-th">リターンリーダー</th>
+                    <td class="page1-form-tbody-td page1-check-tbody-td" colspan="2">
+                        <div class="returnleaderP">
+                            {{range .RIITPsPM}}{{if eq .RoleName "リターンリーダーP"}}{{.PjName}} {{end}}{{end}}
+
+                        </div>
+                    </td>
+                </tr>
+                <tr class="page1-form-tbody-tr">
+                    <th class="page1-form-tbody-th">門番/駐車場</th>
+                    <td class="page1-form-tbody-td page1-check-tbody-td">
+                        <div class="gatekeeperP">
+                            {{range .RIITPsPM}}{{if eq .RoleName "門番＆第一P"}}{{.PjName}} {{end}}{{end}}
+                            <span>第一</span>
+                        </div>
+                    </td>
+                    <td class="page1-form-tbody-td page1-check-tbody-td">
+                        <div class="gatekeeper2P">
+                            {{range .RIITPsPM}}{{if eq .RoleName "門番＆第二P"}}{{.PjName}} {{end}}{{end}}
+                            <span>第二</span>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="page1-form-tbody-tr">
+                    <th class="page1-form-tbody-th">クローク
+                        <br>
+                        &Wt迎賓
+                    </th>
+                    <td class="page1-form-tbody-td page1-check-tbody-td" colspan="2">
+                        <div class="cloakP">
+                            {{range .RIITPsPM}}{{if eq .RoleName "クロークP"}}{{.PjName}} {{end}}{{end}}
+                        </div>
+                    </td>
+                </tr>
+                <tr class="page1-form-tbody-tr">
+                    <th class="page1-form-tbody-th">クロークサブ
+                        <br>
+                        &Wt迎賓
+                    </th>
+                    <td class="page1-form-tbody-td page1-check-tbody-td" colspan="2">
+                        <div class="cloaksubP">
+                            {{range .RIITPsPM}}{{if eq .RoleName "クロークサブP"}}{{.PjName}} {{end}}{{end}}
+                        </div>
+                    </td>
+                </tr>
+                <tr class="page1-form-tbody-tr">
+                    <th class="page1-form-tbody-th">コーヒー＆<br>デトックス</th>
+                    <td class="page1-form-tbody-td page1-check-tbody-td" colspan="2">
+                        <div class="coffeeP">
+                            {{range .RIITPsPM}}{{if eq .RoleName "コーヒーP"}}{{.PjName}} {{end}}{{end}}
+
+                        </div>
+                    </td>
+                </tr>
+                <tr class="page1-form-tbody-tr">
+                    <th class="page1-form-tbody-th">ドリカン両親係</th>
+                    <td class="page1-form-tbody-td page1-check-tbody-td">
+                        <div class="drinkmainP">
+                            {{range .RIITPsPM}}{{if eq .RoleName "ドリカン＆作P"}}{{.PjName}} {{end}}{{end}}
+                            <span>作&郎側</span>
+                        </div>
+                    </td>
+                    <td class="page1-form-tbody-td page1-check-tbody-td">
+                        <div class="drinksubP">
+                            {{range .RIITPsPM}}{{if eq .RoleName "ドリカン＆聞P"}}{{.PjName}} {{end}}{{end}}
+                            <span>聞&婦側</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="page1-form-tbody-tr">
+                    <th class="page1-form-tbody-th">ドリカンサブ</th>
+                    <td class="page1-form-tbody-td page1-check-tbody-td" colspan="2">
+                        <div class="drinksubsubP">
+                            {{range .RIITPsPM}}{{if eq .RoleName "ドリカンサブP"}}{{.PjName}} {{end}}{{end}}
+
+                        </div>
+                    </td>
+                </tr>
+                <tr class="page1-form-tbody-tr">
+                    <th class="page1-form-tbody-th">シャンパン＆ワイン
+                        <br>
+                        &チャペル誘導
+                    </th>
+                    <td class="page1-form-tbody-td page1-check-tbody-td" colspan="2">
+                        <div class="champagneP">
+                            {{range .RIITPsPM}}{{if eq .RoleName "シャンパン&ワインP"}}{{.PjName}} {{end}}{{end}}
+
+                        </div>
+                    </td>
+                </tr>
+                <tr class="page1-form-tbody-tr">
+                    <th class="page1-form-tbody-th">シルバー＆ワイン
+                        <br>
+                        &おしぼり回収
+                    </th>
+                    <td class="page1-form-tbody-td page1-check-tbody-td" colspan="2">
+                        <div class="silverP">
+                            {{range .RIITPsPM}}{{if eq .RoleName "シルバー＆ワインP"}}{{.PjName}} {{end}}{{end}}
+
+                        </div>
+                        <span class="towel-check">おしぼり回収チェック □</span>
+                    </td>
+                </tr>
+                <tr class="page1-form-tbody-tr">
+                    <th class="page1-form-tbody-th">アペ＆水
+                        <br>
+                        &アルコール係
+                    </th>
+                    <td class="page1-form-tbody-td page1-check-tbody-td" colspan="2">
+                        <div class="apeP">
+                            {{range .RIITPsPM}}{{if eq .RoleName "アペ＆水P"}}{{.PjName}} {{end}}{{end}}
+
+                        </div>
+                    </td>
+                    </td>
+                </tr>
+                <tr class="page1-form-tbody-tr">
+                    <th class="page1-form-tbody-th">トイレタバコチェック＆<br>ガーデンヒーター</th>
+                    <td class="page1-form-tbody-td page1-check-tbody-td">
+                        <div class="toiletmanP">
+                            {{range .RIITPsPM}}{{if eq .RoleName "トイレタバコ男P"}}{{.PjName}} {{end}}{{end}}
+                            <span>男性＆タバコ</span>
+                        </div>
+                    </td>
+                    <td class="page1-form-tbody-td page1-check-tbody-td">
+                        <div class="toiletladyP">
+                            {{range .RIITPsPM}}{{if eq .RoleName "トイレタバコ女P"}}{{.PjName}} {{end}}{{end}}
+                            <span>女性＆多目的</span>
+                        </div>
+                    </td>
+
+                </tr>
+                <tr class="page1-form-tbody-tr">
+                    <th class="page1-form-tbody-th">洗い場</th>
+                    <td class="page1-form-tbody-td page1-check-tbody-td">
+                        <div class="wash1P">
+                            {{range .RIITPsPM}}{{if eq .RoleName "洗い場洗いP"}}{{.PjName}} {{end}}{{end}}
+                            <span>洗い</span>
+                        </div>
+                    </td>
+                    <td class="page1-form-tbody-td page1-check-tbody-td">
+                        <div class="wash2P">
+                            {{range .RIITPsPM}}{{if eq .RoleName "洗い場拭きP"}}{{.PjName}} {{end}}{{end}}
+                            <span>拭き</span>
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <div class="trainer-trainee-form-container">
+            <table class="trainer-trainee-form-table">
+                <thead class="trainer-trainee-form-thead">
+                    <tr class="trainer-trainee-form-thead-tr">
+                        <th class="trainer-trainee-form-thead-th trainer-trainee-check-thead-th">トレーナー</th>
+                        <th class="trainer-trainee-form-thead-th trainer-trainee-check-thead-th">トレーニー</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="trainer-trainee-check-tbody">
                     {{range .TTs}}
                     {{if or ( ne .Trainer "") (ne .Trainee "")}}
-                    <tr>
-                        <td class="trainer-name-check">{{.Trainer}}</td>
-                        <td class="trainee-name-check">{{.Trainee}}</td>
+                    <tr class="trainer-trainee-form-tbody-tr">
+                        <td class="trainer-trainee-form-tbody-td">
+                            {{.Trainer}}
+                        </td>
+                        <td class="trainer-trainee-form-tbody-td">
+                            {{.Trainee}}
+                        </td>
                     </tr>
                     {{end}}
                     {{end}}
                 </tbody>
             </table>
         </div>
-        <footer>
-            <div class="button_solid015">
-                <button class="back-button" onclick="history.back()">戻る</button>
-                <button class="print-button" onclick="window.print()">印刷</button>
-            </div>
-        </footer>
     </div>
-</div>
+    <footer class="footer-design">
+        <div class=" footer-design-div">
+            <button class="btn-design" onclick="history.back()">戻る</button>
+            <button class="btn-design" onclick="window.print()">印刷</button>
+        </div>
+    </footer>
 </div>
 <div id="page2">
     <!-- <h2>休憩リスト</h2> -->

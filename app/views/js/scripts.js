@@ -1,5 +1,4 @@
 
-
 if (window.location.pathname === '/typingpage') {
     const tapDeleteBalloon = document.getElementById("tap-delete-balloon");
     var balloonArray = [];
@@ -46,8 +45,8 @@ if (window.location.pathname === '/typingpage') {
     };
 
 
-}
 
+}
 var rowNum = 1;
 $(function () {
     var rowNum = getCookie("rowNum") || 1;
@@ -62,7 +61,7 @@ $(function () {
     });
 
     $("#delete-btn").on("click", function () {
-        $("#table-body tr:last").remove();
+        $("#trainer-trainee-form-tbody tr:last").remove();
         rowNum--;
         setCookie("rowNum", rowNum);
     });
@@ -70,9 +69,9 @@ $(function () {
 
 function addRow(rowNum) {
     var newRow = $("<tr>");
-    newRow.append("<td><input name='trainer" + rowNum + "'></td>");
-    newRow.append("<td><input name='trainee" + rowNum + "'></td>");
-    $("#table-body").append(newRow);
+    newRow.append("<td class='trainer-trainee-form-tbody-td'><input name='trainer" + rowNum + "'></td>");
+    newRow.append("<td class='trainer-trainee-form-tbody-td'><input name='trainee" + rowNum + "'></td>");
+    $("#trainer-trainee-form-tbody").append(newRow);
 }
 
 function setCookie(name, value) {
@@ -127,35 +126,120 @@ function displayRoleCounts(roleCounts, pjname) {
     var roleCountsElement = document.getElementById("role-counts-display-none");
     roleCountsElement.setAttribute("id", "role-counts-display");
     roleCountsElement.innerHTML = ""; // 一旦中身をクリア
+
     var title = document.createElement("div");
-    title.textContent = pjname;
     title.setAttribute("class", "rolecount-title");
+
+    title.textContent = pjname;
     roleCountsElement.appendChild(title);
+
+    var table = document.createElement("table");
+    table.setAttribute("class", "rolecount-table");
+    var tbody = document.createElement("tbody");
+    tbody.setAttribute("class", "rolecount-tbody");
+
+    var trHeader = document.createElement("tr");
+    trHeader.setAttribute("class", "rolecount-tr-header");
+    var thRole = document.createElement("th");
+    thRole.setAttribute("class", "rolecount-header-th");
+    var thCount3Mon = document.createElement("th");
+    thCount3Mon.setAttribute("class", "rolecount-header-th");
+    var thCountAll = document.createElement("th");
+    thCountAll.setAttribute("class", "rolecount-header-th");
+
+    thRole.textContent = "役割";
+    thCount3Mon.textContent = "過去3ヶ月";
+    thCountAll.textContent = "全期間";
+
+    trHeader.appendChild(thRole);
+    trHeader.appendChild(thCount3Mon);
+    trHeader.appendChild(thCountAll);
+    tbody.appendChild(trHeader);
 
     for (var i = 0; i < roleCounts.length; i++) {
         var roleCount = roleCounts[i];
-        var div = document.createElement("div");
-        div.textContent = roleCount.name + " : " + roleCount.count + " 回";
-        div.setAttribute("class", "rolecount-container");
-        roleCountsElement.appendChild(div);
+
+        var trData = document.createElement("tr");
+        trData.setAttribute("class", "rolecount-tr-data");
+        var tdRole = document.createElement("td");
+        tdRole.setAttribute("class", "rolecount-td-data");
+        var tdCount3Mon = document.createElement("td");
+        tdCount3Mon.setAttribute("class", "rolecount-td-data");
+        var tdCountAll = document.createElement("td");
+        tdCountAll.setAttribute("class", "rolecount-td-data");
+
+
+        tdRole.textContent = roleCount.name;
+        tdCount3Mon.textContent = roleCount.count3mon + " 回";
+        tdCountAll.textContent = roleCount.countall + " 回";
+
+        trData.appendChild(tdRole);
+        trData.appendChild(tdCount3Mon);
+        trData.appendChild(tdCountAll);
+        tbody.appendChild(trData);
     }
+    table.appendChild(tbody);
+    roleCountsElement.appendChild(table);
 }
 function displayRoleCountsP(roleCounts, pjname) {
     var roleCountsElement = document.getElementById("role-counts-display-noneP");
     roleCountsElement.setAttribute("id", "role-counts-displayP");
     roleCountsElement.innerHTML = ""; // 一旦中身をクリア
+
     var title = document.createElement("div");
+    title.setAttribute("class", "rolecount-title");
+
     title.textContent = pjname;
-    title.setAttribute("class", "rolecount-titleP");
     roleCountsElement.appendChild(title);
+
+    var table = document.createElement("table");
+    table.setAttribute("class", "rolecount-table");
+    var tbody = document.createElement("tbody");
+    tbody.setAttribute("class", "rolecount-tbody");
+
+    var trHeader = document.createElement("tr");
+    trHeader.setAttribute("class", "rolecount-tr-header");
+    var thRole = document.createElement("th");
+    thRole.setAttribute("class", "rolecount-header-th");
+    var thCount3Mon = document.createElement("th");
+    thCount3Mon.setAttribute("class", "rolecount-header-th");
+    var thCountAll = document.createElement("th");
+    thCountAll.setAttribute("class", "rolecount-header-th");
+
+    thRole.textContent = "役割";
+    thCount3Mon.textContent = "過去3ヶ月";
+    thCountAll.textContent = "全期間";
+
+    trHeader.appendChild(thRole);
+    trHeader.appendChild(thCount3Mon);
+    trHeader.appendChild(thCountAll);
+    tbody.appendChild(trHeader);
 
     for (var i = 0; i < roleCounts.length; i++) {
         var roleCount = roleCounts[i];
-        var div = document.createElement("div");
-        div.textContent = roleCount.name + " : " + roleCount.count + " 回";
-        div.setAttribute("class", "rolecount-containerP");
-        roleCountsElement.appendChild(div);
+
+        var trData = document.createElement("tr");
+        trData.setAttribute("class", "rolecount-tr-data");
+        var tdRole = document.createElement("td");
+        tdRole.setAttribute("class", "rolecount-td-data");
+        var tdCount3Mon = document.createElement("td");
+        tdCount3Mon.setAttribute("class", "rolecount-td-data");
+        var tdCountAll = document.createElement("td");
+        tdCountAll.setAttribute("class", "rolecount-td-data");
+
+
+        tdRole.textContent = roleCount.name;
+        tdCount3Mon.textContent = roleCount.count3mon + " 回";
+        tdCountAll.textContent = roleCount.countall + " 回";
+
+        trData.appendChild(tdRole);
+        trData.appendChild(tdCount3Mon);
+        trData.appendChild(tdCountAll);
+        tbody.appendChild(trData);
     }
+    table.appendChild(tbody);
+    roleCountsElement.appendChild(table);
+
 }
 
 function displayRoleCountsNone() {
@@ -166,6 +250,24 @@ function displayRoleCountsNoneP() {
     var roleCountsElement = document.getElementById("role-counts-displayP");
     roleCountsElement.setAttribute("id", "role-counts-display-noneP");
 }
+
+
+/*
+$(function () {
+    $("addToHomeScreenButton").on("click", function () {
+        const more = document.querySelector('.more');
+        more.classList.toggle('appear');
+
+        if (btn.textContent == "アプリをホームに追加") {
+            btn.textContent = "やり方";
+        } else {
+            btn.textContent = "アプリをホームに追加";
+        }
+    });
+
+
+});
+
 function copyValue(input, targetName, copyName) {
     var targetInput = input.closest(".AM").querySelectorAll("[name='" + targetName + "']")[0];
     var copyInput = input.closest(".AM").querySelectorAll("[name='" + copyName + "']")[0];
@@ -186,21 +288,23 @@ function confirmDelete(event) {
         document.getElementById("delete-form").submit();
     }
 }
-
+*/
+/*
 function checkInstalled() {
-    if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone == true) {
-        document.getElementById("addToHomeScreenButton").style.display = "none";
-    } else {
-        document.getElementById("addToHomeScreenButton").style.display = "block";
+        if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone == true) {
+            document.getElementById("addToHomeScreenButton").style.display = "none";
+        } else {
+            document.getElementById("addToHomeScreenButton").style.display = "block";
+        }
     }
-}
 
 
 window.addEventListener("load", function () {
-    if (window.location.pathname === '/top') {
-        checkInstalled();
-    }
-});
+        if (window.location.pathname === '/top') {
+            checkInstalled();
+        }
+    });
+*/
 
 
 

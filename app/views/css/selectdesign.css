@@ -29,7 +29,7 @@
 .cp_ipselect.cp_sl01 {
   position: relative;
   border-radius: 2px;
-  border: 2px solid skyblue;
+  border: 2px solid #d8ad57;
   border-radius: 50px;
   background: #ffffff;
 }
@@ -43,10 +43,10 @@
   content: "";
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 6px solid skyblue;
+  border-top: 6px solid #d8ad57;
   pointer-events: none;
 }
 .cp_ipselect.cp_sl01 select {
   padding: 8px 38px 8px 8px;
-  color: #2589d0;
+  color: #d8ad57;
 }

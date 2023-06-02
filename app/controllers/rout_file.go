@@ -1,16 +1,6 @@
 package controllers
 
-import (
-	"fmt"
-	"io"
-	"log"
-	"net/http"
-	"os"
-	"path/filepath"
-
-	"RMV0.5/app/config"
-)
-
+/*
 func upload(w http.ResponseWriter, r *http.Request) {
 	file, header, err := r.FormFile("file")
 	if err != nil {
@@ -44,3 +34,4 @@ func delete(w http.ResponseWriter, r *http.Request) {
 	}
 	http.Redirect(w, r, "/", http.StatusFound)
 }
+*/
