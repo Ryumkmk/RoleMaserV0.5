@@ -231,11 +231,17 @@ body #page #page1 {
   width: 94%;
   margin: 0 auto 64px auto;
 }
-body #page #page1 .back-btn-container {
+body #page #page1 .cute-img {
+  display: flex;
+  justify-content: center;
+}
+body #page #page1 .back-btn-container,
+body #page #page1 .btndesign-2 {
   text-align: center;
   margin: 30px auto;
 }
-body #page #page1 .back-btn-container .back-btn {
+body #page #page1 .back-btn-container .back-btn,
+body #page #page1 .btndesign-2 .back-btn {
   position: relative;
   display: flex;
   justify-content: space-around;
@@ -251,9 +257,34 @@ body #page #page1 .back-btn-container .back-btn {
   border-radius: 50px;
   border: none;
 }
-body #page #page1 .back-btn-container .back-btn:hover {
+body #page #page1 .back-btn-container .back-btn:hover,
+body #page #page1 .btndesign-2 .back-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.1);
+}
+body #page #page1 .form-design {
+  display: flex;
+  flex-direction: column;
+  margin: 64px auto;
+  text-align: center;
+  background-color: #fff1d6;
+  width: 60%;
+  border-radius: 30px;
+  border: 2px dotted #d8ad57;
+}
+body #page #page1 .form-design .form-title {
+  font-size: 40px;
+  font-family: monospace;
+  margin: 0;
+  color: chocolate;
+}
+body #page #page1 .form-design .form-body .form-control {
+  margin: 5px 0;
+  height: 20px;
+  padding: 1px 5px;
+}
+body #page #page1 .form-design .btndesign-2 {
+  margin: 10px 0;
 }
 body #page #page1 .pjs-list-title {
   position: relative;
@@ -379,11 +410,18 @@ body #page #page1 .pjs-list .pjs-item .AmPm span {
 body #page #page1 .page1-form-container {
   margin: 30px 0;
 }
+body #page #page1 .page1-form-container.shiftlist-page-container {
+  display: flex;
+  justify-content: center;
+}
 body #page #page1 .page1-form-container .page1-form-table.page1-check-table {
   width: 100%;
 }
+body #page #page1 .page1-form-container .page1-form-table.shiftlist-page-table {
+  text-align: center;
+}
 body #page #page1 .page1-form-container .page1-form-table .page1-form-thead .page1-form-header-tr .page1-form-header-th {
-  padding: 0.3em 0 0.2em 1em;
+  padding: 1px 15px;
   border-bottom: 2px solid #d8ad57;
   color: #000000;
   background-color: rgb(255, 245, 227);

@@ -252,7 +252,12 @@ body {
         #page1 {
             width: 94%;
             margin: 0 auto 64px auto;
-            .back-btn-container {
+            .cute-img{
+                display: flex;
+                justify-content: center;
+            }
+            .back-btn-container,
+            .btndesign-2 {
                 text-align: center;
                 margin: 30px auto;
                 .back-btn {
@@ -274,6 +279,35 @@ body {
                         transform: translateY(-2px);
                         box-shadow: 0 15px 30px -5px rgb(0 0 0 / 15%), 0 0 5px rgb(0 0 0 / 10%);
                     }
+                }
+            }
+            .form-design {
+                // * {
+                //     outline: 1px red dotted;
+                // }
+                display: flex;
+                flex-direction: column;
+                margin: 64px auto;
+                text-align: center;
+                background-color: #fff1d6;
+                width: 60%;
+                border-radius: 30px;
+                border: 2px dotted #d8ad57;
+                .form-title {
+                    font-size: 40px;
+                    font-family: monospace;
+                    margin: 0;
+                    color: chocolate;
+                }
+                .form-body {
+                    .form-control {
+                        margin: 5px 0;
+                        height: 20px;
+                        padding: 1px 5px;
+                    }
+                }
+                .btndesign-2{
+                    margin: 10px 0;
                 }
             }
             .pjs-list-title {
@@ -390,14 +424,21 @@ body {
             }
             .page1-form-container {
                 margin: 30px 0;
+                &.shiftlist-page-container{
+                    display: flex;
+                    justify-content: center;
+                }
                 .page1-form-table {
                     &.page1-check-table {
                         width: 100%;
                     }
+                    &.shiftlist-page-table{
+                        text-align: center;
+                    }
                     .page1-form-thead {
                         .page1-form-header-tr {
                             .page1-form-header-th {
-                                padding: 0.3em 0 0.2em 1em;
+                                padding: 1px 15px;
                                 border-bottom: 2px solid #d8ad57;
                                 color: #000000;
                                 background-color: rgb(255 245 227);

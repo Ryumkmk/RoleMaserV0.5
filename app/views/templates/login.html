@@ -1,16 +1,16 @@
 {{ define "content" }}
-<!-- <h1 class="text-center">ログイン</h1> -->
-<form class="form-signin center" role="form" action="/authenticate" method="post">
-  <h2 class="form-signin-heading">
-    <div class="button_solid007">
+<div id="page1" class="loging-page ">
+  <form class="login-form form-design" role="form" action="/authenticate" method="post">
+    <div class="form-title">
       <p>ログイン</p>
     </div>
-  </h2>
-  <input type="text" name="name" class="form-control" placeholder="ユーザー名" required autofocus>
-  <input type="text" name="password" class="form-control" placeholder="パスワード" required>
-  <br/>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">ログイン</button>
-  <br/>
-  <!-- <a class="lead pull-right" href="/signup">登録</a> -->
-</form>
+    <div class="form-body">
+      <input type="text" name="name" class="form-control" placeholder="ユーザー名" required autofocus>
+      <input type="text" name="password" class="form-control" placeholder="パスワード" required>
+    </div>
+    <div class="btndesign-2">
+      <button class="back-btn" type="submit">ログイン</button>
+    </div>
+  </form>
+</div>
 {{end}}
