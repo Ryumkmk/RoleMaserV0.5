@@ -81,7 +81,7 @@ func typingpage(w http.ResponseWriter, r *http.Request) {
 		RIITPsAM: rIITPsAM,
 		RIITPsPM: rIITPsPM,
 	}
-
+	// fmt.Println(dITP)
 	if len(wITPs) == 2 {
 		generateHTML(w, dITP, "layout", "doubleTypingPage")
 	} else {

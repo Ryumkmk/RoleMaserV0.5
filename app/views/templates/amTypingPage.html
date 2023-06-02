@@ -53,8 +53,8 @@
                         <tr class="page1-form-tbody-tr">
                             <th class="page1-form-tbody-th">リーダー</th>
                             <td class="page1-form-tbody-td" colspan="2">
-                                <input type="text" name="リーダー" value="{{range .RIITPsAM}}{{if eq .RoleName `リーダー`
-                                    }}{{.PjName}}  {{end}}{{end}}">
+                                <input type="text" name="リーダー" 
+                                value="{{range .RIITPsAM}}{{if eq .RoleName `リーダー`}}{{.PjName}}  {{end}}{{end}}">
                             </td>
                         </tr>
                         <tr class="page1-form-tbody-tr">
@@ -68,8 +68,8 @@
                                 </div>
                             </th>
                             <td class="page1-form-tbody-td" colspan="2">
-                                <input type="text" name="リターンリーダー" value="{{range .RIITPsAM}}{{if eq .RoleName `
-                                    リターンリーダー` }}{{.PjName}}  {{end}}{{end}}">
+                                <input type="text" name="リターンリーダー"
+                                    value="{{range .RIITPsAM}}{{if eq .RoleName `リターンリーダー`}}{{.PjName}}  {{end}}{{end}}">
                             </td>
                         </tr>
 
@@ -86,12 +86,12 @@
                                 </div>
                             </th>
                             <td class="page1-form-tbody-td">
-                                <input type="text" name="門番＆第一" value="{{range .RIITPsAM}}{{if eq .RoleName ` 門番＆第一`
-                                    }}{{.PjName}}  {{end}}{{end}}"><span>第一</span>
+                                <input type="text" name="門番＆第一" 
+                                value="{{range .RIITPsAM}}{{if eq .RoleName `門番＆第一`}}{{.PjName}}  {{end}}{{end}}"><span>第一</span>
                             </td>
                             <td class="page1-form-tbody-td">
-                                <input type="text" name="門番＆第二" value="{{range .RIITPsAM}}{{if eq .RoleName ` 門番＆第二`
-                                    }}{{.PjName}}  {{end}}{{end}}"><span>第二</span>
+                                <input type="text" name="門番＆第二" 
+                                value="{{range .RIITPsAM}}{{if eq .RoleName `門番＆第二`}}{{.PjName}}  {{end}}{{end}}"><span>第二</span>
                             </td>
                         </tr>
 
@@ -106,15 +106,14 @@
                                 </div>
                             </th>
                             <td class="page1-form-tbody-td" colspan="2">
-                                <input type="text" name="クローク" value="{{range .RIITPsAM}}{{if eq .RoleName ` クローク`
+                                <input type="text" name="クローク" value="{{range .RIITPsAM}}{{if eq .RoleName `クローク`
                                     }}{{.PjName}}  {{end}}{{end}}">
                             </td>
                         </tr>
                         <tr class="page1-form-tbody-tr">
                             <th class="page1-form-tbody-th">クロークサブ</th>
                             <td class="page1-form-tbody-td" colspan="2">
-                                <input type="text" name="クロークサブ" value="{{range .RIITPsAM}}{{if eq .RoleName ` クロークサブ" `
-                                    }}{{.PjName}} {{end}}{{end}}">
+                                <input type="text" name="クロークサブ" value="{{range .RIITPsAM}}{{if eq .RoleName `クロークサブ`}}{{.PjName}} {{end}}{{end}}">
                             </td>
                         </tr>
 
@@ -128,7 +127,7 @@
                                 </div>
                             </th>
                             <td class="page1-form-tbody-td" colspan="2">
-                                <input type="text" name="コーヒー" value="{{range .RIITPsAM}}{{if eq .RoleName ` コーヒー`
+                                <input type="text" name="コーヒー" value="{{range .RIITPsAM}}{{if eq .RoleName `コーヒー`
                                     }}{{.PjName}}  {{end}}{{end}}">
                             </td>
                         </tr>
@@ -147,19 +146,18 @@
                                 </div>
                             </th>
                             <td class="page1-form-tbody-td">
-                                <input type="text" name="ドリカン＆作" value="{{range .RIITPsAM}}{{if eq .RoleName ` ドリカン＆作`
+                                <input type="text" name="ドリカン＆作" value="{{range .RIITPsAM}}{{if eq .RoleName `ドリカン＆作`
                                     }}{{.PjName}}  {{end}}{{end}}"><span>作&郎側</span>
                             </td>
                             <td class="page1-form-tbody-td">
-                                <input type="text" name="ドリカン＆聞" value="{{range .RIITPsAM}}{{if eq .RoleName ` ドリカン＆聞`
+                                <input type="text" name="ドリカン＆聞" value="{{range .RIITPsAM}}{{if eq .RoleName `ドリカン＆聞`
                                     }}{{.PjName}}  {{end}}{{end}}"><span>聞&婦側</span>
                             </td>
                         </tr>
                         <tr class="page1-form-tbody-tr">
                             <th class="page1-form-tbody-th">ドリカンサブ</td>
                             <td class="page1-form-tbody-td" colspan="2">
-                                <input type="text" name="ドリカンサブ" value="{{range .RIITPsAM}}{{if eq .RoleName ` ドリカンサブ" `
-                                    }}{{.PjName}} {{end}}{{end}}">
+                                <input type="text" name="ドリカンサブ" value="{{range .RIITPsAM}}{{if eq .RoleName `ドリカンサブ`}}{{.PjName}} {{end}}{{end}}">
                             </td>
                         </tr>
                         <tr class="page1-form-tbody-tr">
@@ -174,8 +172,7 @@
                                 </div>
                             </th>
                             <td class="page1-form-tbody-td" colspan="2">
-                                <input type="text" name="シャンパン&ワイン" value="{{range .RIITPsAM}}{{if eq .RoleName `
-                                    シャンパン&ワイン` }}{{.PjName}}  {{end}}{{end}}">
+                                <input type="text" name="シャンパン&ワイン" value="{{range .RIITPsAM}}{{if eq .RoleName `シャンパン&ワイン`}}{{.PjName}}  {{end}}{{end}}">
                             </td>
                         </tr>
                         <tr class="page1-form-tbody-tr">
@@ -188,26 +185,25 @@
                                 </div>
                             </th>
                             <td class="page1-form-tbody-td" colspan="2">
-                                <input type="text" name="シルバー＆ワイン" value="{{range .RIITPsAM}}{{if eq .RoleName `
-                                    シルバー＆ワイン` }}{{.PjName}}  {{end}}{{end}}">
+                                <input type="text" name="シルバー＆ワイン" value="{{range .RIITPsAM}}{{if eq .RoleName `シルバー＆ワイン`}}{{.PjName}}  {{end}}{{end}}">
                             </td>
 
                         </tr>
                         <tr class="page1-form-tbody-tr">
                             <th class="page1-form-tbody-th">アペ＆水</th>
                             <td class="page1-form-tbody-td" colspan="2">
-                                <input type="text" name="アペ＆水" value="{{range .RIITPsAM}}{{if eq .RoleName ` アペ＆水`
+                                <input type="text" name="アペ＆水" value="{{range .RIITPsAM}}{{if eq .RoleName `アペ＆水`
                                     }}{{.PjName}}  {{end}}{{end}}">
                             </td>
                         </tr>
                         <tr class="page1-form-tbody-tr">
                             <th class="page1-form-tbody-th">トイレタバコチェック＆ガーデンヒーター</th>
                             <td class="page1-form-tbody-td">
-                                <input type="text" name="トイレタバコ男" value="{{range .RIITPsAM}}{{if eq .RoleName ` トイレタバコ男`
+                                <input type="text" name="トイレタバコ男" value="{{range .RIITPsAM}}{{if eq .RoleName `トイレタバコ男`
                                     }}{{.PjName}}  {{end}}{{end}}"><span>男性＆タバコ</span>
                             </td>
                             <td class="page1-form-tbody-td">
-                                <input type="text" name="トイレタバコ女" value="{{range .RIITPsAM}}{{if eq .RoleName ` トイレタバコ女`
+                                <input type="text" name="トイレタバコ女" value="{{range .RIITPsAM}}{{if eq .RoleName `トイレタバコ女`
                                     }}{{.PjName}}  {{end}}{{end}}"><span>女性＆多目的</span>
                             </td>
 
@@ -215,12 +211,10 @@
                         <tr class="page1-form-tbody-tr">
                             <th class="page1-form-tbody-th">洗い場</th>
                             <td class="page1-form-tbody-td">
-                                <input type="text" name="洗い場洗い" value="{{range .RIITPsAM}}{{if eq .RoleName ` 洗い場洗い`
-                                    }}{{.PjName}}  {{end}}{{end}}"><span>洗い</span>
+                                <input type="text" name="洗い場洗い" value="{{range .RIITPsAM}}{{if eq .RoleName `洗い場洗い`}}{{.PjName}}  {{end}}{{end}}"><span>洗い</span>
                             </td>
                             <td class="page1-form-tbody-td">
-                                <input type="text" name="洗い場拭き" value="{{range .RIITPsAM}}{{if eq .RoleName ` 洗い場拭き`
-                                    }}{{.PjName}}  {{end}}{{end}}"><span>拭き</span>
+                                <input type="text" name="洗い場拭き" value="{{range .RIITPsAM}}{{if eq .RoleName `洗い場拭き`}}{{.PjName}}  {{end}}{{end}}"><span>拭き</span>
                             </td>
                         </tr>
                     </tbody>
