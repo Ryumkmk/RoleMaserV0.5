@@ -10,7 +10,6 @@ import (
 	"RMV0.5/app/models"
 )
 
-// Htmlを生成する関数
 func generateHTML(w http.ResponseWriter, data interface{}, filenames ...string) {
 	var files []string
 	for _, file := range filenames {
@@ -20,7 +19,6 @@ func generateHTML(w http.ResponseWriter, data interface{}, filenames ...string) 
 	templates.ExecuteTemplate(w, "layout", data)
 }
 
-// ログイン状態のセッション情報をクッキーから取得
 func session(w http.ResponseWriter, r *http.Request) (sess models.Session, err error) {
 	cookie, err := r.Cookie("_cookie")
 	if err == nil {
@@ -32,17 +30,15 @@ func session(w http.ResponseWriter, r *http.Request) (sess models.Session, err e
 	return sess, err
 }
 
-// アプリを起動する
 func StartMainServer() error {
 	files := http.FileServer(http.Dir(config.Config.Static))
 	http.Handle("/static/", http.StripPrefix("/static/", files))
 
-	// http.HandleFunc("/top", index)
 	http.HandleFunc("/signup", signup)
 	http.HandleFunc("/login", login)
 	http.HandleFunc("/authenticate", authenticate)
-	http.HandleFunc("/upload", upload)
-	http.HandleFunc("/delete", delete)
+	// http.HandleFunc("/upload", upload)
+	// http.HandleFunc("/delete", delete)
 	http.HandleFunc("/top", top)
 	http.HandleFunc("/", index)
 	http.HandleFunc("/logout", logout)
@@ -50,8 +46,6 @@ func StartMainServer() error {
 	http.HandleFunc("/shiftlist", shiftlist)
 	http.HandleFunc("/checkPj", cheakPj)
 	http.HandleFunc("/getRoleCount", getRoleCount)
-
-	// http.HandleFunc("/allpjs", allpjs)
 
 	fmt.Println("Stated Server")
 	port := os.Getenv("PORT")
