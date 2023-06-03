@@ -1575,3 +1575,18 @@ net/http.(*conn).serve(0xc0002ca000, {0xaa8390, 0xc00029ee40})
 	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
 created by net/http.(*Server).Serve
 	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed
+2023/06/03 23:40:02 roles.go:146: sql: expected 23 destination arguments in Scan, not 1
+2023/06/03 23:40:02 roles.go:101: sql: expected 23 destination arguments in Scan, not 1
+2023/06/03 23:40:02 roles.go:60: sql: expected 23 destination arguments in Scan, not 1
+2023/06/03 23:40:04 roles.go:146: sql: expected 23 destination arguments in Scan, not 1
+2023/06/03 23:40:04 roles.go:101: sql: expected 23 destination arguments in Scan, not 1
+2023/06/03 23:40:04 roles.go:60: sql: expected 23 destination arguments in Scan, not 1
+2023/06/03 23:40:06 roles.go:146: sql: expected 23 destination arguments in Scan, not 1
+2023/06/03 23:40:06 roles.go:101: sql: expected 23 destination arguments in Scan, not 1
+2023/06/03 23:40:06 roles.go:60: sql: expected 23 destination arguments in Scan, not 1
+2023/06/03 23:40:08 roles.go:146: sql: expected 23 destination arguments in Scan, not 1
+2023/06/03 23:40:08 roles.go:101: sql: expected 23 destination arguments in Scan, not 1
+2023/06/03 23:40:08 roles.go:60: sql: expected 23 destination arguments in Scan, not 1
+2023/06/03 23:40:09 roles.go:146: sql: expected 23 destination arguments in Scan, not 1
+2023/06/03 23:40:09 roles.go:101: sql: expected 23 destination arguments in Scan, not 1
+2023/06/03 23:40:09 roles.go:60: sql: expected 23 destination arguments in Scan, not 1

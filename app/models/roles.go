@@ -54,6 +54,7 @@ func (dITP *DataInTypingPage) UpdateRoleInfoDB() (err error) {
 func (w *WeddingInTypingPage) UpdateRoleInfoDBByAmpm(rIITPs []RoleInfoInTypingPage) (err error) {
 
 	for _, rITTP := range rIITPs {
+		
 		ok, err := w.isRoleInfoExistInDBByInput(rITTP)
 		if err != nil {
 			log.Println(err)
@@ -84,7 +85,12 @@ func (w *WeddingInTypingPage) UpdateRoleInfoDBByAmpm(rIITPs []RoleInfoInTypingPa
 func (w *WeddingInTypingPage) isRoleInfoExistInDBByInput(r RoleInfoInTypingPage) (valid bool, err error) {
 
 	valid = true
+	if r.PjName == "NONE" {
+		valid = false
+		return valid, err
+	}
 	splitedPjNames := splitPjsInSameRole(r.PjName)
+	// fmt.Println(r.RoleName, splitedPjNames)
 	count, err := w.getRolesCount(r.RoleName)
 	if err != nil {
 		log.Println()
@@ -132,13 +138,14 @@ func (w *WeddingInTypingPage) isRoleInfoExistInDB(rolename string, pjname string
 			FROM
 				role_info AS ri
 					INNER JOIN
-					weddings AS w ON w.date = ? and w.ampm = ?
+					weddings AS w ON ri.wedding_id = w.id
 					INNER JOIN
 				pjs AS p ON ri.pj_id = p.id
 					INNER JOIN
-				roles AS r ON ri.role_id = r.id and r.name = ?
+				roles AS r ON ri.role_id = r.id 
 			WHERE
-				p.name = ?;`
+				w.date = ? and w.ampm = ?
+				and r.name = ? and p.name = ?;`
 	err = Db.QueryRow(cmd, w.Date, w.Ampm, rolename, pjname).Scan(
 		&valid,
 	)
