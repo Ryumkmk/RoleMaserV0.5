@@ -99,7 +99,8 @@ func GetAllShiftByName(name string, month string) (shifts []Shift, err error) {
 					INNER JOIN
 				pjs AS p ON p.id = s.pj_id
 			WHERE
-				p.name = ? and date_format(s.date,'%m') = ?;`
+				p.name = ? and date_format(s.date,'%m') = ?
+				order by s.date;`
 	rows, err := Db.Query(cmd, name, month)
 	if err != nil {
 		log.Println(err)
