@@ -160,16 +160,18 @@ func GetAllPjsShiftByDateFromDB(date string, year string, month string, day stri
 
 func DeletePjShiftFromDB(date string, pjname string) (err error) {
 	cmd := `DELETE FROM shifts 
-				WHERE
-					(date , pj_id) IN (SELECT 
-						s.date, p.id
+			WHERE
+				(date , pj_id) IN (SELECT 
+					date, pj_id
+				FROM
+					(SELECT 
+						s.date, p.id AS pj_id
 					FROM
 						shifts AS s
-							JOIN
-						pjs AS p ON p.id = s.pj_id
+					JOIN pjs AS p ON p.id = s.pj_id
 					
 					WHERE
-						s.date = ? AND p.name = ?);`
+						s.date = ? AND p.name = ?) AS subquery);`
 
 	_, err = Db.Exec(cmd, date, pjname)
 	if err != nil {

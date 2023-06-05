@@ -39,7 +39,6 @@ func deletepjshift(w http.ResponseWriter, r *http.Request) {
 
 	date := r.PostFormValue("date")
 	pjname := r.PostFormValue("pjname")
-
 	err = models.DeletePjShiftFromDB(date, pjname)
 	if err != nil {
 		log.Println(err)
@@ -62,7 +61,6 @@ func addpjshift(w http.ResponseWriter, r *http.Request) {
 	ampm := r.PostFormValue("ampm")
 
 	re := regexp.MustCompile(`\d{1,2}:\d{2}-\d{1,2}:\d{2}`)
-	fmt.Println(date, pjname, shifttime, ampm)
 	if re.FindStringSubmatch(shifttime) == nil {
 		http.Redirect(w, r, redirectURL, http.StatusFound)
 		return
