@@ -85,7 +85,7 @@ func (w *WeddingInTypingPage) UpdateRoleInfoDBByAmpm(rIITPs []RoleInfoInTypingPa
 func (w *WeddingInTypingPage) isRoleInfoExistInDBByInput(r RoleInfoInTypingPage) (valid bool, err error) {
 
 	valid = true
-	if r.PjName == "NONE" {
+	if r.PjName == "" {
 		valid = false
 		return valid, err
 	}

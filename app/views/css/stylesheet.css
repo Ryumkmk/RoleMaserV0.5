@@ -553,89 +553,152 @@ body #page #page1 .footer-design .footer-design-div .btn-design {
   border: none;
 }
 body #page #page2 {
-  display: block;
-  margin: 10px;
-  width: 1200px;
   display: none;
 }
-body #page #page2 h2 {
-  display: inline;
-  padding: 3px 5px;
-  border-left: 2px solid black;
-}
-body #page #page2 .rest {
-  display: flex;
-  justify-content: space-around;
-}
-body #page #page2 .rest .rest-ampm-container {
-  margin: 10px 20px;
-  width: 460px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-body #page #page2 .rest .rest-ampm-container h3 {
-  position: relative;
-  font-size: 24px;
-  padding: 0 1em;
-  margin: 0px auto 8px auto;
-  width: 70%;
-  border-bottom: double 4px black;
-}
-body #page #page2 .rest .rest-ampm-container h3:before {
-  top: 40%;
-  right: -20%;
-  position: absolute;
-  transform: translateY(-50%);
-  content: url(/static/imgs/shiba.svg);
-}
-body #page #page2 .rest .rest-ampm-container h3:after {
-  font-weight: 100;
-  padding-left: 125px;
-  font-size: 21px;
-  content: "Zz";
-}
-body #page #page2 .rest .rest-ampm-container table.rest-tbl-design {
-  border-spacing: 0 0px;
-  border-top: solid 1px #000000;
-}
-body #page #page2 .rest .rest-ampm-container table.rest-tbl-design th {
-  height: 53px;
-  border-bottom: solid 1px #000000;
-  position: relative;
-}
-body #page #page2 .rest .rest-ampm-container table.rest-tbl-design th:before {
-  right: 98%;
-  top: 50%;
-  position: absolute;
-  transform: translateY(-50%);
-  content: "";
-  background-image: url(/static/imgs/coffee.svg);
-  width: 40px;
-  height: 40px;
-}
-body #page #page2 .rest .rest-ampm-container table.rest-tbl-design th p {
-  font-weight: 500;
-  margin: 0 0;
-  white-space: nowrap;
-  border-top: 1px dotted black;
-}
-body #page #page2 .rest .rest-ampm-container table.rest-tbl-design td {
-  width: 80%;
-  font-family: "Zen Old Mincho", serif;
-  font-size: 16px;
-  padding-left: 15px;
-  border-bottom: solid 1px #000000;
-  letter-spacing: 0.05em;
-  border-right: 1px solid black;
-  border-left: 1px dotted black;
-  position: relative;
-}
-body #page #page2 .rest .rest-ampm-container table.rest-tbl-design td.td-title {
-  font-family: none;
-  text-align: center;
-  font-weight: 600;
-}
-body #page #page2 {
-  display: none;
+
+@media print {
+  #page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    -webkit-print-color-adjust: exact; /* Chrome, Safari */
+    color-adjust: exact; /* Firefox */
+    filter: grayscale(100%); /* IE, Edge */
+  }
+  #page #page1 {
+    page-break-after: always;
+    width: 1220px !important;
+    line-height: 1.8;
+    display: flex;
+    justify-content: center;
+  }
+  #page #page1 .back-btn-container {
+    display: none;
+  }
+  #page #page1 .pjs-list-title {
+    display: none;
+  }
+  #page #page1 .pjs-list {
+    display: block !important;
+  }
+  #page #page1 .pjs-list .pjs-item {
+    font-size: 10px !important;
+    background: none !important;
+    white-space: nowrap;
+    border: none !important;
+  }
+  #page #page1 .pjs-list .pjs-item .newpj-mark {
+    display: none;
+  }
+  #page #page1 .pjs-list .pjs-item .AmPm {
+    display: none;
+  }
+  #page #page1 .point-dog {
+    display: none !important;
+  }
+  #page #page1 .page1-form-container {
+    display: flex;
+  }
+  #page #page1 .page1-form-container * {
+    background: none !important;
+    border-radius: 0 !important;
+    text-align: center;
+  }
+  #page #page1 .page1-form-container .page1-form-table {
+    border: 1px solid;
+    width: 470px !important;
+  }
+  #page #page1 .page1-form-container .page1-form-table .page1-form-tbody-td {
+    border-left: 1px solid;
+  }
+  #page #page1 .page1-form-container .page1-form-table .page1-form-tbody-td span {
+    border: 1px solid;
+  }
+  #page #page1 .page1-form-container .towel-check {
+    font-size: 14px;
+  }
+  #page #page1 .page1-form-container .trainer-trainee-form-container {
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  #page #page1 .page1-form-container .trainer-trainee-form-container .trainer-trainee-form-tbody-td {
+    font-size: 11px;
+  }
+  #page #page1 .footer-design {
+    display: none;
+  }
+  #page #page2 {
+    display: block !important;
+    margin: 10px;
+    width: 1200px;
+  }
+  #page #page2 h2 {
+    display: inline;
+    padding: 3px 5px;
+    border-left: 2px solid black;
+  }
+  #page #page2 .rest {
+    display: flex;
+    justify-content: space-around;
+  }
+  #page #page2 .rest .rest-ampm-container {
+    margin: 10px 20px;
+    width: 460px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #page #page2 .rest .rest-ampm-container h3 {
+    position: relative;
+    font-size: 24px;
+    padding: 0 1em;
+    margin: 0px auto 8px auto;
+    width: 70%;
+    border-bottom: double 4px black;
+  }
+  #page #page2 .rest .rest-ampm-container h3:before {
+    top: 40%;
+    right: -20%;
+    position: absolute;
+    transform: translateY(-50%);
+    content: url(/static/imgs/shiba.svg);
+  }
+  #page #page2 .rest .rest-ampm-container h3:after {
+    font-weight: 100;
+    padding-left: 125px;
+    font-size: 21px;
+    content: "Zz";
+  }
+  #page #page2 .rest .rest-ampm-container table.rest-tbl-design {
+    border-spacing: 0 0px;
+    border-top: solid 1px #000000;
+  }
+  #page #page2 .rest .rest-ampm-container table.rest-tbl-design th {
+    height: 53px;
+    border-bottom: solid 1px #000000;
+    position: relative;
+    border-left: 1px solid;
+  }
+  #page #page2 .rest .rest-ampm-container table.rest-tbl-design th p {
+    font-weight: 500;
+    margin: 0 0;
+    white-space: nowrap;
+    border-top: 1px dotted black;
+  }
+  #page #page2 .rest .rest-ampm-container table.rest-tbl-design td {
+    width: 80%;
+    font-family: "Zen Old Mincho", serif;
+    font-size: 16px;
+    padding-left: 15px;
+    border-bottom: solid 1px #000000;
+    letter-spacing: 0.05em;
+    border-right: 1px solid black;
+    border-left: 1px dotted black;
+    position: relative;
+  }
+  #page #page2 .rest .rest-ampm-container table.rest-tbl-design td.td-title {
+    font-family: none;
+    text-align: center;
+    font-weight: 600;
+  }
 }/*# sourceMappingURL=stylesheet.css.map */

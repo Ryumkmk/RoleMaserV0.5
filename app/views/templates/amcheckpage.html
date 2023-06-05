@@ -81,7 +81,7 @@
                 <tr class="page1-form-tbody-tr">
                     <th class="page1-form-tbody-th">クローク
                         <br>
-                        &Wt迎賓
+                        ＆Wt迎賓
                     </th>
                     <td class="page1-form-tbody-td page1-check-tbody-td" colspan="2">
                         <div class="cloak">
@@ -92,7 +92,7 @@
                 <tr class="page1-form-tbody-tr">
                     <th class="page1-form-tbody-th">クロークサブ
                         <br>
-                        &Wt迎賓
+                        ＆Wt迎賓
                     </th>
                     <td class="page1-form-tbody-td page1-check-tbody-td" colspan="2">
                         <div class="cloaksub">
@@ -114,13 +114,13 @@
                     <td class="page1-form-tbody-td page1-check-tbody-td">
                         <div class="drinkmain">
                             {{range .RIITPsAM}}{{if eq .RoleName "ドリカン＆作"}}{{.PjName}} {{end}}{{end}}
-                            <span>作&郎側</span>
+                            <span>作＆郎側</span>
                         </div>
                     </td>
                     <td class="page1-form-tbody-td page1-check-tbody-td">
                         <div class="drinksub">
                             {{range .RIITPsAM}}{{if eq .RoleName "ドリカン＆聞"}}{{.PjName}} {{end}}{{end}}
-                            <span>聞&婦側</span>
+                            <span>聞＆婦側</span>
                         </div>
                     </td>
                 </tr>
@@ -136,11 +136,11 @@
                 <tr class="page1-form-tbody-tr">
                     <th class="page1-form-tbody-th">シャンパン＆ワイン
                         <br>
-                        &チャペル誘導
+                        ＆チャペル誘導
                     </th>
                     <td class="page1-form-tbody-td page1-check-tbody-td" colspan="2">
                         <div class="champagne">
-                            {{range .RIITPsAM}}{{if eq .RoleName "シャンパン&ワイン"}}{{.PjName}} {{end}}{{end}}
+                            {{range .RIITPsAM}}{{if eq .RoleName "シャンパン＆ワイン"}}{{.PjName}} {{end}}{{end}}
 
                         </div>
                     </td>
@@ -148,7 +148,7 @@
                 <tr class="page1-form-tbody-tr">
                     <th class="page1-form-tbody-th">シルバー＆ワイン
                         <br>
-                        &おしぼり回収
+                        ＆おしぼり回収
                     </th>
                     <td class="page1-form-tbody-td page1-check-tbody-td" colspan="2">
                         <div class="silver">
@@ -161,12 +161,11 @@
                 <tr class="page1-form-tbody-tr">
                     <th class="page1-form-tbody-th">アペ＆水
                         <br>
-                        &アルコール係
+                        ＆アルコール係
                     </th>
                     <td class="page1-form-tbody-td page1-check-tbody-td" colspan="2">
                         <div class="ape">
                             {{range .RIITPsAM}}{{if eq .RoleName "アペ＆水"}}{{.PjName}} {{end}}{{end}}
-
                         </div>
                     </td>
                     </td>
@@ -185,7 +184,6 @@
                             <span>女性＆多目的</span>
                         </div>
                     </td>
-
                 </tr>
                 <tr class="page1-form-tbody-tr">
                     <th class="page1-form-tbody-th">洗い場</th>
@@ -202,7 +200,6 @@
                         </div>
                     </td>
                 </tr>
-
             </tbody>
         </table>
         <div class="trainer-trainee-form-container">
@@ -253,9 +250,7 @@
                             <p>挙式中</p>
                         </th>
                         <td class="rest-drink">
-                            {{range .RICPs}}{{if or (eq .RoleName "ドリカン＆作") (eq .RoleName "ドリカン＆聞")}}{{.PjName}}
-                            {{end}}{{end}}
-
+                            {{range .RICPs}}{{if or (eq .RoleName "ドリカン＆作") (eq .RoleName "ドリカン＆聞")}}{{.PjName}} {{end}}{{end}}
                         </td>
                     </tr>
                     <tr class="page1-form-tbody-tr">
@@ -264,40 +259,30 @@
                         </th>
                         <td class="rest-coffee">
                             {{range .RICPs}}{{if eq .RoleName "コーヒー"}}{{.PjName}} {{end}}{{end}}
-
                         </td>
                     </tr>
                     <tr class="page1-form-tbody-tr">
                         <th>11:00-11:45
                             <p>プルミエ～ポワソン</p>
-
                         </th>
                         <td class="rest-gatekeeper">
-                            {{range .RICPs}}{{if or (eq .RoleName "門番＆第二") (eq .RoleName "門番＆第一")}}{{.PjName}}
-                            {{end}}{{end}}
-
+                            {{range .RICPs}}{{if or (eq .RoleName "門番＆第二") (eq .RoleName "門番＆第一")}}{{.PjName}} {{end}}{{end}}
                         </td>
                     </tr>
                     <tr class="page1-form-tbody-tr">
                         <th>11:30-12:15
                             <p>ポワソン～</p>
-
                         </th>
                         <td class="rest-cloak">
-                            {{range .RICPs}}{{if or (eq .RoleName "クロークサブ") (or (eq .RoleName "リターンリーダー") (eq .RoleName
-                            "クローク"))}}{{.PjName}} {{end}}{{end}}
-
+                            {{range .RICPs}}{{if or (eq .RoleName "クロークサブ") (or (eq .RoleName "リターンリーダー") (eq .RoleName "クローク"))}}{{.PjName}} {{end}}{{end}}
                         </td>
                     </tr>
                     <tr class="page1-form-tbody-tr">
                         <th>12:00-12:45
                             <p>ビアンド～</p>
-
                         </th>
                         <td class="rest-ape">
-                            {{range .RICPs}}{{if or (eq .RoleName "アペ＆水") (eq .RoleName "トイレタバコ男")}}{{.PjName}}
-                            {{end}}{{end}}
-
+                            {{range .RICPs}}{{if or (eq .RoleName "アペ＆水") (eq .RoleName "トイレタバコ男")}}{{.PjName}} {{end}}{{end}}
                         </td>
                     </tr>
                     <tr class="page1-form-tbody-tr">
@@ -307,45 +292,36 @@
                         </th>
                         <td class="rest-silver">
                             {{range .RICPs}}{{if eq .RoleName "シルバー＆ワイン"}}{{.PjName}} {{end}}{{end}}
-
                         </td>
                     </tr>
                     <tr class="page1-form-tbody-tr">
                         <th>13:00-13:45
                             <p>クライマックス</p>
-
                         </th>
                         <td class="rest-champagne">
-                            {{range .RICPs}}{{if or (eq .RoleName "シャンパン＆ワイン") (eq .RoleName "トイレタバコ女")}}{{.PjName}}
-                            {{end}}{{end}}
-
+                            {{range .RICPs}}{{if or (eq .RoleName "シャンパン＆ワイン") (eq .RoleName "トイレタバコ女")}}{{.PjName}} {{end}}{{end}}
                         </td>
                     </tr>
                     <tr class="page1-form-tbody-tr">
                         <th>13:30-14:15
                             <p>お見送り</p>
-
                         </th>
                         <td class="rest-leader">
                             {{range .RICPs}}{{if eq .RoleName "リーダー"}}{{.PjName}} {{end}}{{end}}
-
                         </td>
                     </tr>
                     <tr class="page1-form-tbody-tr">
                         <th>14:00-14:45
                             <p>リターン</p>
-
                         </th>
                         <td class="rest-subpj">
                             {{range .RICPs}}{{if eq .RoleName "サブPJ"}}{{.PjName}} {{end}}{{end}}
-
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
-
 </div>
 
 {{end}}

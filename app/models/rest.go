@@ -1,6 +1,8 @@
 package models
 
-import "log"
+import (
+	"log"
+)
 
 type RestInCheckPage struct {
 	RoleName string
@@ -80,5 +82,6 @@ func (w *WeddingInTypingPage) MakeRest() (rICPs []RestInCheckPage, err error) {
 		)
 		rICPs = append(rICPs, rICP)
 	}
+	// fmt.Println(rICPs)
 	return rICPs, err
 }

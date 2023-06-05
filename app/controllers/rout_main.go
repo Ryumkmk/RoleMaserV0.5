@@ -141,14 +141,14 @@ func cheakPj(w http.ResponseWriter, r *http.Request) {
 			} else if n[len(n)-1] == 'P' {
 				rIITPPM := models.RoleInfoInTypingPage{
 					RoleName: n,
-					PjName:   "NONE",
+					PjName:   "",
 				}
 				rIITPsPM = append(rIITPsPM, rIITPPM)
 
 			} else {
 				rIITPAM := models.RoleInfoInTypingPage{
 					RoleName: n,
-					PjName:   "NONE",
+					PjName:   "",
 				}
 				rIITPsAM = append(rIITPsAM, rIITPAM)
 			}
