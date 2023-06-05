@@ -27,7 +27,7 @@
         </div>
         <div class="page1-form-container">
             <form action="/checkPj" method="post">
-                <table class="page1-form-table">
+                <table class="form-table-design">
                     <thead class="page1-form-thead">
                         <tr class="page1-form-header-tr">
                             <th name="date-form" class="page1-form-header-th">
@@ -218,19 +218,19 @@
                 </p>
                 <br>
                 <div class="role-counts-ya">
-                    <div id="role-counts-display-none" onclick="displayRoleCountsNone()"></div>
+                    <div id="role-counts-display-noneP" onclick="displayRoleCountsNoneP()"></div>
                 </div>
                 <p class="pjs-list-title">出勤PJ一覧</p>
                 <div class="pjs-list">
                     {{range .PLITs}}
-                    <div class="pjs-item Names" onclick="getRoleCount('{{.Name}}')">
+                    <div class="pjs-item Names" onclick="getRoleCountP('{{.Name}}')">
                         {{.Name}}
                         <span class="newpj-mark">{{.Level}}</span>
                         <p class="AmPm"><span>{{.Ampm}}</span>{{.ShiftTime}}</p>
                     </div>
                     {{end}}
                 </div>
-                <table class="page1-form-table">
+                <table class="form-table-design">
                     <thead class="page1-form-thead">
                         <tr class="page1-form-header-tr">
                             <th name="date-form" class="page1-form-header-th">

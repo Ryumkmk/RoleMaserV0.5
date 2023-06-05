@@ -21,6 +21,11 @@ body #page #page-top {
   display: flex;
   flex-direction: column;
 }
+body #page #page-top .width-design {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+}
 body #page #page-top .maintitle {
   font-family: "Chakra Petch", sans-serif;
   font-family: "M PLUS Rounded 1c", sans-serif;
@@ -46,98 +51,37 @@ body #page #page-top #top-makeshift-form-container {
 body #page #page-top #top-makeshift-form-container .cute-img {
   margin: auto;
 }
-body #page #page-top #top-makeshift-form-container .top-makeshift-form-title.button_solid007 {
-  text-align: center;
-}
-body #page #page-top #top-makeshift-form-container .top-makeshift-form-title.button_solid007 p {
-  margin-bottom: 5px;
-  font-weight: 600;
-  color: #d8ad57;
-  letter-spacing: 0.04rem;
-  display: inline-block;
-  position: relative;
-}
-body #page #page-top #top-makeshift-form-container .top-makeshift-form-title.button_solid007 p:before, body #page #page-top #top-makeshift-form-container .top-makeshift-form-title.button_solid007 p:after {
-  display: inline-block;
-  position: absolute;
-  top: 45%;
-  width: 20px;
-  height: 3px;
-  border-radius: 5px;
-  background-color: #d8ad57;
-  content: "";
-}
-body #page #page-top #top-makeshift-form-container .top-makeshift-form-title.button_solid007 p:before {
-  left: -30px;
-  transform: rotate(50deg);
-}
-body #page #page-top #top-makeshift-form-container .top-makeshift-form-title.button_solid007 p:after {
-  right: -30px;
-  transform: rotate(-50deg);
-}
-body #page #page-top #top-makeshift-form-container .btn-design-1 {
-  outline: none;
-  margin: 18px auto;
-  padding: 5px 15px;
-  font-weight: 300;
-  background: #d8ad57;
-  filter: drop-shadow(0px 2px 4px #ccc);
-  border-radius: 50px;
-  width: 30%;
-  filter: drop-shadow(0px 2px 4px #ccc);
-  border-radius: 50px;
-}
-body #page #page-top #top-makeshift-form-container .btn-design-1 input {
-  color: #fff;
+body #page #page-top .btn-design-1 {
   border: none;
   outline: none;
-  background: #d8ad57;
-}
-body #page #page-top #top-makeshift-form-container .btn-design-1:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.1);
-}
-body #page #page-top #top-viewshift-form-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  height: 45px;
-}
-body #page #page-top #top-viewshift-form-container .top-viewshift-form-pjname-input {
-  border-bottom: 2px #d8ad57 dotted;
-  background-color: rgb(255, 245, 227);
-  border-radius: 5px;
-  text-align: center;
-  margin-right: 5px;
-  padding: 2px 10px;
-}
-body #page #page-top #top-viewshift-form-container .top-viewshift-form-pjname-input input {
-  width: 60px;
-}
-body #page #page-top #top-viewshift-form-container .top-viewshift-form-button.btn-design-1 {
-  border: none;
-  outline: none;
-  position: relative;
-  display: inline-block;
-  margin: 18px 0 18px 0;
+  margin: 18px auto 18px auto;
   padding: 5px 15px;
   transition: 0.3s ease-in-out;
   font-weight: 300;
   font-size: 12px;
   background: #d8ad57;
+  width: -moz-fit-content;
+  width: fit-content;
   filter: drop-shadow(0px 2px 4px #ccc);
   border-radius: 50px;
 }
-body #page #page-top #top-viewshift-form-container .top-viewshift-form-button.btn-design-1 input {
+body #page #page-top .btn-design-1 input {
   color: #fff;
   border: none;
   outline: none;
   background: #d8ad57;
 }
-body #page #page-top #top-viewshift-form-container .top-viewshift-form-button.btn-design-1:hover {
+body #page #page-top .btn-design-1:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.1);
+}
+body #page #page-top #top-viewshift-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body #page #page-top #top-viewshift-form-container .top-viewshift-form {
+  display: flex;
 }
 body #page #page-top .form-signin {
   max-width: 330px;
@@ -414,90 +358,6 @@ body #page #page1 .page1-form-container.shiftlist-page-container {
   display: flex;
   justify-content: center;
 }
-body #page #page1 .page1-form-container .page1-form-table.page1-check-table {
-  width: 100%;
-}
-body #page #page1 .page1-form-container .page1-form-table.shiftlist-page-table {
-  text-align: center;
-}
-body #page #page1 .page1-form-container .page1-form-table .page1-form-thead .page1-form-header-tr .page1-form-header-th {
-  padding: 1px 15px;
-  border-bottom: 2px solid #d8ad57;
-  color: #000000;
-  background-color: rgb(255, 245, 227);
-  border-radius: 5px;
-}
-body #page #page1 .page1-form-container .page1-form-table .page1-form-thead .page1-form-header-tr .page1-form-header-th.page1-check-header-th {
-  width: 100px;
-}
-body #page #page1 .page1-form-container .page1-form-table .page1-form-thead .page1-form-header-tr .page1-form-header-th.tasting-color {
-  display: none;
-}
-body #page #page1 .page1-form-container .page1-form-table .page1-form-tbody .page1-form-tbody-tr {
-  margin: 10px 0;
-}
-body #page #page1 .page1-form-container .page1-form-table .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-th {
-  font-size: 11px;
-  border-bottom: 2px solid #d8ad57;
-  background-color: rgb(255, 245, 227);
-  border-radius: 3px;
-}
-body #page #page1 .page1-form-container .page1-form-table .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-th .balloonoya {
-  position: relative; /* 指定した分だけ相対的に移動 */
-  cursor: pointer; /* カーソルをポインターで表示 */
-  display: inline-block;
-}
-body #page #page1 .page1-form-container .page1-form-table .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-th .balloonoya span {
-  color: #000000;
-}
-body #page #page1 .page1-form-container .page1-form-table .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-th .balloonoya img {
-  vertical-align: middle;
-  padding: 2px;
-}
-body #page #page1 .page1-form-container .page1-form-table .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-th .balloonnone {
-  display: none;
-}
-body #page #page1 .page1-form-container .page1-form-table .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-th .balloon {
-  position: absolute; /* 親要素を基準 */
-  display: inline; /* 要素をインラインとして表示 */
-  padding: 2px; /* テキストの前後の余白 */
-  background-color: rgb(255, 255, 26); /* 背景色（透明度） */
-  border: 1px solid #ff5e13;
-  width: 240px; /* 吹き出し全体の幅 */
-  left: 100%; /* 表示位置 */
-  font-size: 80%; /* 文字サイズ */
-  border-radius: 3px;
-  line-height: 1.8em;
-  z-index: 1000;
-}
-body #page #page1 .page1-form-container .page1-form-table .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-th .balloon:after {
-  border-right: 12px solid #ff5e13; /* 吹き出し口の幅・色 */
-  border-top: 10px solid transparent; /* 吹き出し口の高さ１／２ */
-  border-bottom: 10px solid transparent; /* 吹き出し口の高さ１／２ */
-  left: -12px; /* 吹き出し口の位置調整 */
-  top: 0%; /* 吹き出し口の縦位置 */
-  content: ""; /* コンテンツの挿入 */
-  position: absolute; /* 親要素を基準 */
-}
-body #page #page1 .page1-form-container .page1-form-table .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-td {
-  border-bottom: 2px #d8ad57 dotted;
-  background-color: rgb(255, 245, 227);
-  border-radius: 5px;
-  padding: 4px 0 4px 5px;
-}
-body #page #page1 .page1-form-container .page1-form-table .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-td.page1-check-tbody-td {
-  color: #4145ff;
-}
-body #page #page1 .page1-form-container .page1-form-table .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-td input {
-  width: 85%;
-  padding: 2px 0 2px 5px;
-}
-body #page #page1 .page1-form-container .page1-form-table .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-td span {
-  font-size: 11px;
-  border: 1px dotted #d8ad57 dotted;
-  padding: 1px 5px;
-  white-space: nowrap;
-}
 body #page #page1 .page1-form-container .trainer-trainee-form-container {
   display: flex;
   flex-direction: column;
@@ -554,6 +414,145 @@ body #page #page1 .footer-design .footer-design-div .btn-design {
 }
 body #page #page2 {
   display: none;
+}
+body .underline {
+  border-top: 3px double #d8ad57;
+  width: 80%;
+  margin: 10px auto;
+}
+body .form-title {
+  text-align: center;
+}
+body .form-title p {
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #d8ad57;
+  letter-spacing: 0.04rem;
+  display: inline-block;
+  position: relative;
+}
+body .form-title p:before, body .form-title p:after {
+  display: inline-block;
+  position: absolute;
+  top: 45%;
+  width: 20px;
+  height: 3px;
+  border-radius: 5px;
+  background-color: #d8ad57;
+  content: "";
+}
+body .form-title p:before {
+  left: -30px;
+  transform: rotate(50deg);
+}
+body .form-title p:after {
+  right: -30px;
+  transform: rotate(-50deg);
+}
+body .form-table-design.page1-check-table {
+  width: 100%;
+}
+body .form-table-design.shiftlist-page-table {
+  text-align: center;
+  margin: 10px auto;
+}
+body .form-table-design .page1-form-thead .page1-form-header-tr .page1-form-header-th {
+  padding: 1px 15px;
+  border-bottom: 2px solid #d8ad57;
+  color: #000000;
+  background-color: rgb(255, 245, 227);
+  border-radius: 5px;
+}
+body .form-table-design .page1-form-thead .page1-form-header-tr .page1-form-header-th.page1-check-header-th {
+  width: 100px;
+}
+body .form-table-design .page1-form-thead .page1-form-header-tr .page1-form-header-th.tasting-color {
+  display: none;
+}
+body .form-table-design .page1-form-tbody .page1-form-tbody-tr {
+  margin: 10px 0;
+}
+body .form-table-design .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-th {
+  font-size: 11px;
+  border-bottom: 2px solid #d8ad57;
+  background-color: rgb(255, 245, 227);
+  border-radius: 3px;
+}
+body .form-table-design .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-th .balloonoya {
+  position: relative; /* 指定した分だけ相対的に移動 */
+  cursor: pointer; /* カーソルをポインターで表示 */
+  display: inline-block;
+}
+body .form-table-design .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-th .balloonoya span {
+  color: #000000;
+}
+body .form-table-design .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-th .balloonoya img {
+  vertical-align: middle;
+  padding: 2px;
+}
+body .form-table-design .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-th .balloonnone {
+  display: none;
+}
+body .form-table-design .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-th .balloon {
+  position: absolute; /* 親要素を基準 */
+  display: inline; /* 要素をインラインとして表示 */
+  padding: 2px; /* テキストの前後の余白 */
+  background-color: rgb(255, 255, 26); /* 背景色（透明度） */
+  border: 1px solid #ff5e13;
+  width: 240px; /* 吹き出し全体の幅 */
+  left: 100%; /* 表示位置 */
+  font-size: 80%; /* 文字サイズ */
+  border-radius: 3px;
+  line-height: 1.8em;
+  z-index: 1000;
+}
+body .form-table-design .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-th .balloon:after {
+  border-right: 12px solid #ff5e13; /* 吹き出し口の幅・色 */
+  border-top: 10px solid transparent; /* 吹き出し口の高さ１／２ */
+  border-bottom: 10px solid transparent; /* 吹き出し口の高さ１／２ */
+  left: -12px; /* 吹き出し口の位置調整 */
+  top: 0%; /* 吹き出し口の縦位置 */
+  content: ""; /* コンテンツの挿入 */
+  position: absolute; /* 親要素を基準 */
+}
+body .form-table-design .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-td {
+  border-bottom: 2px #d8ad57 dotted;
+  background-color: rgb(255, 245, 227);
+  border-radius: 5px;
+  padding: 4px 0 4px 5px;
+}
+body .form-table-design .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-td.page1-check-tbody-td {
+  color: #4145ff;
+}
+body .form-table-design .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-td input {
+  width: 85%;
+  padding: 2px 0 2px 5px;
+}
+body .form-table-design .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-td span {
+  font-size: 11px;
+  border: 1px dotted #d8ad57 dotted;
+  padding: 1px 5px;
+  white-space: nowrap;
+}
+body .single-input-design {
+  border-bottom: 2px #d8ad57 dotted;
+  background-color: rgb(255, 245, 227);
+  border-radius: 5px;
+  text-align: center;
+  padding: 2px 10px;
+  margin: auto;
+}
+body .single-input-design input {
+  width: 60px;
+}
+body .flex-design {
+  display: flex;
+  justify-content: center;
+}
+body #addpjshift {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media print {

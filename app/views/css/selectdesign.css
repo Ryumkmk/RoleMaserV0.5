@@ -5,8 +5,7 @@
 }
 .cp_ipselect {
   overflow: hidden;
-  width: 20%;
-  margin: 0 5px;
+  margin: 3px 5px;
   text-align: center;
 }
 .cp_ipselect select {

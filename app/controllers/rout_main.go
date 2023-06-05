@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 	"strings"
@@ -34,14 +33,9 @@ func typingpage(w http.ResponseWriter, r *http.Request) {
 	}
 	yy := r.PostFormValue("year")
 	mm := r.PostFormValue("month")
-	if len(mm) == 1 {
-		mm = "0" + mm
-	}
 	dd := r.PostFormValue("day")
-	if len(dd) == 1 {
-		dd = "0" + dd
-	}
-	date := fmt.Sprintf("%s-%s-%s", yy, mm, dd)
+
+	date := models.ChangeDateFormatToDBFormat(yy, mm, dd)
 
 	wITPs := models.GetWeddingsByDateFromDB(date)
 	if len(wITPs) == 0 {
@@ -203,4 +197,37 @@ func shiftlist(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 	}
 	generateHTML(w, shifts, "layout", "shiftlist")
+}
+
+func changeshift(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		log.Println(err)
+	}
+	yy := r.PostFormValue("year")
+	mm := r.PostFormValue("month")
+	dd := r.PostFormValue("day")
+	var date string
+	if len(yy) != 0 {
+		date = models.ChangeDateFormatToDBFormat(yy, mm, dd)
+	} else {
+		date = r.URL.Query().Get("date")
+
+	}
+	wITP := models.GetWeddingsByDateFromDB(date)
+	if len(wITP) == 0 {
+		http.Redirect(w, r, "/top", http.StatusFound)
+		return
+	}
+	pLITs, err := models.GetAllPjsShiftByDateFromDB(date, yy, mm, dd)
+	sIICP := models.ShiftInfoInChangePage{
+		WITP:  wITP[0],
+		PLITs: pLITs,
+	}
+	if err != nil {
+		log.Println(err)
+	}
+
+	generateHTML(w, sIICP, "layout", "changeshift")
+
 }

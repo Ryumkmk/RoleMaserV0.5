@@ -1,6 +1,7 @@
 package models
 
 import (
+	"fmt"
 	"log"
 	"regexp"
 	"strings"
@@ -14,6 +15,11 @@ type Shift struct {
 	Pj_ID     int
 	ShiftTime string
 	Ampm      string
+}
+
+type ShiftInfoInChangePage struct {
+	WITP  WeddingInTypingPage
+	PLITs []PjListInTyping
 }
 
 func GetShiftsByDateFromFile(date string, sheetName string) (pj_id []int, shiftTime []string, ampm []string) {
@@ -111,4 +117,76 @@ func GetAllShiftByName(name string, month string) (shifts []Shift, err error) {
 	}
 	return shifts, err
 
+}
+func ChangeDateFormatToDBFormat(year string, month string, day string) (date string) {
+
+	if len(month) == 1 {
+		month = "0" + month
+	}
+	if len(day) == 1 {
+		day = "0" + day
+	}
+	return fmt.Sprintf("%s-%s-%s", year, month, day)
+}
+
+func GetAllPjsShiftByDateFromDB(date string, year string, month string, day string) (pLITs []PjListInTyping, err error) {
+	cmd := `SELECT 
+				p.name,
+				s.shifttime,
+                s.ampm
+			FROM
+				shifts AS s
+					JOIN
+				pjs AS p ON p.id = s.pj_id
+			WHERE
+				s.date = ?;`
+	rows, err := Db.Query(cmd, date)
+	if err != nil {
+		log.Println(err)
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var pLIT PjListInTyping
+		rows.Scan(
+			&pLIT.Name,
+			&pLIT.ShiftTime,
+			&pLIT.Ampm)
+		pLITs = append(pLITs, pLIT)
+	}
+	return pLITs, err
+}
+
+func DeletePjShiftFromDB(date string, pjname string) (err error) {
+	cmd := `DELETE FROM shifts 
+				WHERE
+					(date , pj_id) IN (SELECT 
+						s.date, p.id
+					FROM
+						shifts AS s
+							JOIN
+						pjs AS p ON p.id = s.pj_id
+					
+					WHERE
+						s.date = ? AND p.name = ?);`
+
+	_, err = Db.Exec(cmd, date, pjname)
+	if err != nil {
+		log.Println(err)
+	}
+	return err
+}
+
+func AddPjShiftFromDB(date string, pjname string, shifttime string, ampm string) (err error) {
+	cmd := `insert shifts (date,pj_id,shifttime,ampm) values (
+				?,
+				(select p.id from pjs as p where p.name = ?),
+				?,
+				?);`
+
+	_, err = Db.Exec(cmd, date, pjname, shifttime, ampm)
+	if err != nil {
+		log.Println(err)
+	}
+	return err
 }

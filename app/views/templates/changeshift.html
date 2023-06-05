@@ -1,0 +1,87 @@
+{{define "content"}}
+<div id="page-top">
+    <div>
+        <form action="/top">
+            <div class="btn-design-1">
+                <input type="submit" value="戻る"></input>
+            </div>
+        </form>
+    </div>
+    <div>
+        <table class="form-table-design shiftlist-page-table">
+            <thead class="page1-form-thead">
+                <tr class="page1-form-header-tr">
+                    <th class="page1-form-header-th">名前</th>
+                    <th class="page1-form-header-th">出勤時間</th>
+                    <th class="page1-form-header-th">出勤情報</th>
+                </tr>
+            </thead>
+            <tbody class="page1-form-tbody">
+                <div class="form-title">
+                    <p>{{.WITP.Date}}</p>
+                </div>
+                {{range .PLITs}}
+                <tr class="page1-form-tbody-tr">
+                    <td class="page1-form-tbody-td">{{.Name}}</td>
+                    <td class="page1-form-tbody-td">{{.ShiftTime}}</td>
+                    <td class="page1-form-tbody-td">{{.Ampm}}</td>
+                </tr>
+                {{end}}
+            </tbody>
+        </table>
+    </div>
+    <div class="underline"></div>
+    <div class="delete-form-container">
+        <div class="form-title">
+            <p>あだ名を入力してシフトを削除</p>
+        </div>
+        <form action="/deletepjshift" method="post" id="deletepjshift">
+            <input type="hidden" name="date" value="{{.WITP.Date}}">
+            <div class="cp_ipselect cp_sl01 width-design">
+                <select name="pjname" required>
+                    <option value="" hidden>あだ名</option>
+                    {{range .PLITs}}
+                    <option value="{{.Name}}">{{.Name}}</option>
+                    {{end}}
+                </select>
+            </div>
+            <div class="btn-design-1">
+                <input type="submit" value="削除"></input>
+            </div>
+        </form>
+    </div>
+    <div class="underline"></div>
+    <div class="add-form-container">
+        <form action="/addpjshift" method="post" id="addpjshift">
+            <input type="hidden" name="date" value="{{.WITP.Date}}">
+            <div class="form-title">
+                <p>出勤時間は<br>
+                    [08:30-21:00]<br>
+                    半角形式で入力してください</p>
+            </div>
+            <div class="flex-design">
+                <div class="single-input-design">
+                    <input type="text" name="pjname" placeholder="ローラ" required>
+                </div>
+                <div class="single-input-design">
+                    <input type="text" name="shifttime"
+                        pattern="^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]-(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$"
+                        placeholder="08:30-21:00">
+                </div>
+                <div class="cp_ipselect cp_sl01">
+                    <select name="ampm" required>
+                        <option value="" hidden></option>
+                        <option value="AM">AM</option>
+                        <option value="PM">PM</option>
+                        <option value="ダブル">ダブル</option>
+                        <option value="試食会">試食会</option>
+                    </select>
+                </div>
+            </div>
+            <div class="btn-design-1">
+                <input type="submit" value="追加"></input>
+            </div>
+        </form>
+    </div>
+</div>
+{{end}}
