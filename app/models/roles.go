@@ -195,7 +195,7 @@ func GetRoleCountFromPast(pjname string) (rCs []RoleCount, err error) {
 				REGEXP_REPLACE(r.name, 'P$', '') AS counted_name,
 				COUNT(*) AS count_all,
 				COUNT(CASE
-					WHEN w.date > DATE_SUB(CURDATE(), INTERVAL 1 MONTH) THEN 1
+					WHEN w.date > DATE_SUB(CURDATE(), INTERVAL 3 MONTH) THEN 1
 				END) AS count_3months
 			FROM
 				pjs AS p
