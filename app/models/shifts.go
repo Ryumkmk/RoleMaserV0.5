@@ -46,6 +46,7 @@ func GetShiftsByDateFromFile(date string, sheetName string) (pj_id []int, shiftT
 		for i, v := range row {
 			if v == date {
 				dateColNum = i
+				break
 			}
 		}
 		cols, err := f.GetCols(sheetName)
