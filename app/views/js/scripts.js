@@ -180,7 +180,33 @@ function displayRoleCounts(roleCounts, pjname) {
     }
     table.appendChild(tbody);
     roleCountsElement.appendChild(table);
+
+    var uptitle = document.createElement("div");
+    uptitle.setAttribute("class", "to-updatepj");
+
+    var form = document.createElement("form");
+    form.setAttribute("action", "/updatepj");
+    form.setAttribute("method", "POST");
+
+    var inputname = document.createElement("input");
+    inputname.setAttribute("type", "hidden");
+    inputname.setAttribute("name", "pjname");
+    inputname.setAttribute("value", pjname);
+
+    var input = document.createElement("input");
+    input.setAttribute("type", "submit");
+    input.setAttribute("value", "一人前チェックシートを見る");
+
+    var btndesign = document.createElement("div");
+    btndesign.setAttribute("class", "btn-design-1");
+    
+    form.appendChild(inputname);
+    form.appendChild(btndesign);
+    btndesign.appendChild(input);
+    uptitle.appendChild(form);
+    roleCountsElement.appendChild(uptitle);
 }
+
 function displayRoleCountsP(roleCounts, pjname) {
     var roleCountsElement = document.getElementById("role-counts-display-noneP");
     roleCountsElement.setAttribute("id", "role-counts-displayP");

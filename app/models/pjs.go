@@ -177,3 +177,66 @@ func splitPjsInSameRole(input string) (result []string) {
 	}
 	return result
 }
+
+func GetPjInfoFromDB(pjname string) (pj Pj, err error) {
+
+	cmd := `SELECT 
+				*
+			FROM
+				pjs AS p
+			WHERE
+				p.name = ?;`
+
+	err = Db.QueryRow(cmd, pjname).Scan(
+		&pj.ID,
+		&pj.Name,
+		&pj.Level,
+		&pj.Gatekeeper,
+		&pj.Toilet,
+		&pj.Cloak,
+		&pj.Silver,
+		&pj.Wash,
+		&pj.Ape,
+		&pj.Coffee,
+		&pj.Champagne,
+		&pj.Drinkcounter,
+		&pj.Leader,
+	)
+	if err != nil {
+		log.Println(err)
+	}
+	return pj, err
+}
+
+func (p *Pj) UpdatePjDb() (err error) {
+	cmd := `UPDATE pjs 
+			SET 
+			level = ?,
+			gatekeeper = ?,
+			toilet = ?,
+			cloak = ?,
+			silver = ?,
+			wash = ?,
+			ape = ?,
+			champagne = ?,
+			drinkcounter = ?,
+			leader = ?
+			where name = ?;`
+	_, err = Db.Exec(
+		cmd,
+		p.Level,
+		p.Gatekeeper,
+		p.Toilet,
+		p.Cloak,
+		p.Silver,
+		p.Wash,
+		p.Ape,
+		p.Champagne,
+		p.Drinkcounter,
+		p.Leader,
+		p.Name)
+	if err != nil {
+		log.Println(err)
+	}
+	return err
+}

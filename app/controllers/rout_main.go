@@ -231,3 +231,49 @@ func changeshift(w http.ResponseWriter, r *http.Request) {
 	generateHTML(w, sIICP, "layout", "changeshift")
 
 }
+
+func updatepj(w http.ResponseWriter, r *http.Request) {
+	if err := r.ParseForm(); err != nil {
+		log.Println(err)
+	}
+	pjname := r.PostFormValue("pjname")
+	pj, err := models.GetPjInfoFromDB(pjname)
+	if err != nil {
+		log.Println(err)
+		http.Redirect(w, r, "top", http.StatusFound)
+		return
+	}
+
+	for n, v := range r.Form {
+		switch n {
+		case "Level":
+			pj.Level = v[0]
+		case "Gatekeeper":
+			pj.Gatekeeper = v[0]
+		case "Toilet":
+			pj.Toilet = v[0]
+		case "Cloak":
+			pj.Cloak = v[0]
+		case "Silver":
+			pj.Silver = v[0]
+		case "Wash":
+			pj.Wash = v[0]
+		case "Ape":
+			pj.Ape = v[0]
+		case "Coffee":
+			pj.Coffee = v[0]
+		case "Champagne":
+			pj.Champagne = v[0]
+		case "Drinkcounter":
+			pj.Drinkcounter = v[0]
+		case "Leader":
+			pj.Leader = v[0]
+		}
+	}
+
+	if err := pj.UpdatePjDb(); err != nil {
+		log.Println(err)
+	}
+
+	generateHTML(w, pj, "layout", "updatepj")
+}

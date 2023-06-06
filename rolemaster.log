@@ -2704,3 +2704,43 @@ net/http.(*conn).serve(0xc00011e480, {0x1529990, 0xc00029ee40})
 	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
 created by net/http.(*Server).Serve
 	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed
+2023/06/06 14:26:01 pjs.go:206: sql: no rows in result set
+2023/06/06 14:26:02 rout_main.go:243: sql: no rows in result set
+2023/06/06 14:26:02 pjs.go:206: sql: no rows in result set
+2023/06/06 14:26:02 rout_main.go:243: sql: no rows in result set
+2023/06/06 14:29:57 pjs.go:206: sql: no rows in result set
+2023/06/06 14:29:57 rout_main.go:243: sql: no rows in result set
+2023/06/06 14:29:57 pjs.go:206: sql: no rows in result set
+2023/06/06 14:29:57 rout_main.go:243: sql: no rows in result set
+2023/06/06 14:35:16 pjs.go:206: sql: no rows in result set
+2023/06/06 14:35:16 rout_main.go:243: sql: no rows in result set
+2023/06/06 14:35:16 pjs.go:206: sql: no rows in result set
+2023/06/06 14:35:16 rout_main.go:243: sql: no rows in result set
+2023/06/06 14:49:27 pjs.go:206: sql: no rows in result set
+2023/06/06 14:49:27 rout_main.go:243: sql: no rows in result set
+2023/06/06 14:49:28 pjs.go:206: sql: no rows in result set
+2023/06/06 14:49:28 rout_main.go:243: sql: no rows in result set
+2023/06/06 14:49:45 pjs.go:206: sql: no rows in result set
+2023/06/06 14:49:45 rout_main.go:243: sql: no rows in result set
+2023/06/06 14:49:45 pjs.go:206: sql: no rows in result set
+2023/06/06 14:49:45 rout_main.go:243: sql: no rows in result set
+2023/06/06 14:55:08 pjs.go:206: sql: no rows in result set
+2023/06/06 14:55:08 rout_main.go:243: sql: no rows in result set
+2023/06/06 14:55:09 pjs.go:206: sql: no rows in result set
+2023/06/06 14:55:09 rout_main.go:243: sql: no rows in result set
+2023/06/06 15:07:17 pjs.go:206: sql: no rows in result set
+2023/06/06 15:07:17 rout_main.go:243: sql: no rows in result set
+2023/06/06 15:07:17 pjs.go:206: sql: no rows in result set
+2023/06/06 15:07:17 rout_main.go:243: sql: no rows in result set
+2023/06/06 15:41:52 pjs.go:206: sql: no rows in result set
+2023/06/06 15:41:52 rout_main.go:249: sql: no rows in result set
+2023/06/06 15:41:52 pjs.go:206: sql: no rows in result set
+2023/06/06 15:41:52 rout_main.go:249: sql: no rows in result set
+2023/06/06 15:42:14 pjs.go:206: sql: no rows in result set
+2023/06/06 15:42:14 rout_main.go:249: sql: no rows in result set
+2023/06/06 15:43:22 pjs.go:206: sql: no rows in result set
+2023/06/06 15:43:22 rout_main.go:249: sql: no rows in result set
+2023/06/06 15:43:41 pjs.go:206: sql: no rows in result set
+2023/06/06 15:43:41 rout_main.go:249: sql: no rows in result set
+2023/06/06 15:55:21 pjs.go:206: sql: no rows in result set
+2023/06/06 15:55:21 rout_main.go:249: sql: no rows in result set

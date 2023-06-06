@@ -92,7 +92,7 @@
         </div>
         <div class="top-viewshift-form">
             <div class="single-input-design">
-                <input type="text" name="pjName" required>
+                <input type="text" name="pjName" required placeholder="あだ名">
             </div>
             <div class="cp_ipselect cp_sl01">
                 <select name="month" required>
@@ -117,7 +117,21 @@
         </div>
         <div class = "underline"></div>
     </form>
-
+    <form id="top-updatepj-form-container" action="/updatepj" method="post">
+        <div class="form-title">
+            <p>名前を入力して<br>
+                一人前チェックシートを更新</p>
+        </div>
+        <div class="top-updatepj-form">
+            <div class="single-input-design width-design">
+                <input type="text" name="pjname" required placeholder="あだ名">
+            </div>
+        </div>
+        <div class="btn-design-1 top-updatepj-form-button">
+            <input type="submit" value="PJチェックシート">
+        </div>
+        <div class = "underline"></div>
+    </form>
     <form id="top-change-shift-form-container" action="/changeshift" method="post">
         <div class="form-title">
             <p>日付を入力してシフトを変更</p>

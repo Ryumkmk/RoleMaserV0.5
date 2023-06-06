@@ -49,6 +49,7 @@ func StartMainServer() error {
 	http.HandleFunc("/changeshift", changeshift)
 	http.HandleFunc("/deletepjshift", deletepjshift)
 	http.HandleFunc("/addpjshift", addpjshift)
+	http.HandleFunc("/updatepj", updatepj)
 
 	fmt.Println("Stated Server")
 	port := os.Getenv("PORT")

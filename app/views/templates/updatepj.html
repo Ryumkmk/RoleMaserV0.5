@@ -1,0 +1,162 @@
+{{define "content"}}
+<div id="page1">
+    <div>
+        <form action="/top">
+            <div class="btn-design-1">
+                <input type="submit" value="戻る"></input>
+            </div>
+        </form>
+    </div>
+    <div class="underline"></div>
+    <form action="/updatepj" method="post">
+        <div class="form-title big-form-title">
+            <input value="{{.Name}}" name="pjname" hidden>
+            <p>
+                {{.Name}}
+            </p>
+        </div>
+        <div class="updatepj-container">
+            <div class="updatepj-items">
+                <h3>レベル</h3>
+                <div class="cp_ipselect cp_sl01 select-div">
+                    <select name="Level" required>
+                        <option value="{{.Level}}" hidden>{{if eq .Level "S"}}一人前{{else}}研修{{end}}</option>
+                        <option value="S">一人前</option>
+                        <option value="N">研修</option>
+                    </select>
+                </div>
+            </div>
+            <div class="updatepj-items">
+                <h3>リーダー</h3>
+                <div class="cp_ipselect cp_sl01 select-div">
+                    <select name="Leader" required>
+                        <option value="{{.Leader}}" hidden>{{.Leader}}</option>
+                        <option value="X">X</option>
+                        <option value="〇">〇</option>
+                        <option value="◎">◎</option>
+                        <option value="☆">☆</option>
+                    </select>
+                </div>
+            </div>
+            <div class="updatepj-items">
+                <h3>門番</h3>
+                <div class="cp_ipselect cp_sl01 select-div">
+                    <select name="Gatekeeper" required>
+                        <option value="{{.Gatekeeper}}" hidden>{{.Gatekeeper}}</option>
+                        <option value="X">X</option>
+                        <option value="〇">〇</option>
+                        <option value="◎">◎</option>
+                        <option value="☆">☆</option>
+                    </select>
+                </div>
+            </div>
+            <div class="updatepj-items">
+                <h3>クローク</h3>
+                <div class="cp_ipselect cp_sl01 select-div">
+                    <select name="Cloak" required>
+                        <option value="{{.Cloak}}" hidden>{{.Cloak}}</option>
+                        <option value="X">X</option>
+                        <option value="〇">〇</option>
+                        <option value="◎">◎</option>
+                        <option value="☆">☆</option>
+                    </select>
+                </div>
+            </div>
+            <div class="updatepj-items">
+                <h3>コーヒー</h3>
+                <div class="cp_ipselect cp_sl01 select-div">
+                    <select name="Coffee" required>
+                        <option value="{{.Coffee}}" hidden>{{.Coffee}}</option>
+                        <option value="X">X</option>
+                        <option value="〇">〇</option>
+                        <option value="◎">◎</option>
+                        <option value="☆">☆</option>
+                    </select>
+                </div>
+            </div>
+            <div class="updatepj-items">
+                <h3>ドリカン</h3>
+                <div class="cp_ipselect cp_sl01 select-div">
+                    <select name="Drinkcounter" required>
+                        <option value="{{.Drinkcounter}}" hidden>{{.Drinkcounter}}</option>
+                        <option value="X">X</option>
+                        <option value="〇">〇</option>
+                        <option value="◎">◎</option>
+                        <option value="☆">☆</option>
+                    </select>
+                </div>
+            </div>
+            <div class="updatepj-items">
+                <h3>シャンパン</h3>
+                <div class="cp_ipselect cp_sl01 select-div">
+                    <select name="Champagne" required>
+                        <option value="{{.Champagne}}" hidden>{{.Champagne}}</option>
+                        <option value="X">X</option>
+                        <option value="〇">〇</option>
+                        <option value="◎">◎</option>
+                        <option value="☆">☆</option>
+                    </select>
+                </div>
+            </div>
+            <div class="updatepj-items">
+                <h3>シルバー</h3>
+                <div class="cp_ipselect cp_sl01 select-div">
+                    <select name="Silver" required>
+                        <option value="{{.Silver}}" hidden>{{.Silver}}</option>
+                        <option value="X">X</option>
+                        <option value="〇">〇</option>
+                        <option value="◎">◎</option>
+                        <option value="☆">☆</option>
+                    </select>
+                </div>
+            </div>
+            <div class="updatepj-items">
+                <h3>アペ</h3>
+                <div class="cp_ipselect cp_sl01 select-div">
+                    <select name="Ape" required>
+                        <option value="{{.Ape}}" hidden>{{.Ape}}</option>
+                        <option value="X">X</option>
+                        <option value="〇">〇</option>
+                        <option value="◎">◎</option>
+                        <option value="☆">☆</option>
+                    </select>
+                </div>
+            </div>
+            <div class="updatepj-items">
+                <h3>トイレ</h3>
+                <div class="cp_ipselect cp_sl01 select-div">
+                    <select name="Toilet" required>
+                        <option value="{{.Toilet}}" hidden>{{.Toilet}}</option>
+                        <option value="X">X</option>
+                        <option value="〇">〇</option>
+                        <option value="◎">◎</option>
+                        <option value="☆">☆</option>
+                    </select>
+                </div>
+            </div>
+            <div class="updatepj-items">
+                <h3>洗い場</h3>
+                <div class="cp_ipselect cp_sl01 select-div">
+                    <select name="Wash" required>
+                        <option value="{{.Wash}}" hidden>{{.Wash}}</option>
+                        <option value="X">X</option>
+                        <option value="〇">〇</option>
+                        <option value="◎">◎</option>
+                        <option value="☆">☆</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="btn-design-1">
+            <input type="submit" value="更新">
+        </div>
+    </form>
+    <div class="underline"></div>
+    <div class="form-title">
+        <p>X : まだやったことない<br>
+            〇 : やったことある<br>
+            ◎ : 一人で出来る！<br>
+            ☆ : 人に教えれる！</p>
+    </div>
+</div>
+{{end}}
