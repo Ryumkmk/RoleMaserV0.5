@@ -524,6 +524,9 @@ body .form-table-design .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody
 }
 body .form-table-design .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-td.page1-check-tbody-td {
   color: #4145ff;
+  border-left: 1px black solid;
+  border-right: 1px black solid;
+  width: 200px;
 }
 body .form-table-design .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-td input {
   width: 85%;
@@ -630,7 +633,7 @@ body #addpjshift {
   #page #page2 {
     page-break-after: always;
     display: block !important;
-    margin: 10px;
+    margin: 30px 10px 0 10px;
     width: 1200px;
   }
   #page #page2 h2 {

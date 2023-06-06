@@ -193,20 +193,28 @@ func (w *WeddingInTypingPage) deleteRowToRoleInfoDB(rolename string) (err error)
 func GetRoleCountFromPast(pjname string) (rCs []RoleCount, err error) {
 	cmd := `SELECT 
 				REGEXP_REPLACE(r.name, 'P$', '') AS counted_name,
-				COUNT(*) AS count_all,
+				COUNT(ri.role_id) AS count_all,
 				COUNT(CASE
-					WHEN w.date > DATE_SUB(CURDATE(), INTERVAL 3 MONTH) THEN 1
+					WHEN
+						w.date > DATE_SUB(CURDATE(), INTERVAL 3 MONTH)
+							AND w.date < NOW()
+					THEN
+						1
 				END) AS count_3months
 			FROM
-				pjs AS p
-					JOIN
-				role_info AS ri ON p.id = ri.pj_id
-					JOIN
-				roles AS r ON ri.role_id = r.id
-					JOIN
+				roles AS r
+					LEFT JOIN
+				role_info AS ri ON r.id = ri.role_id
+					AND ri.pj_id = (SELECT 
+						id
+					FROM
+						pjs
+					WHERE
+						name = ?)
+					LEFT JOIN
+				pjs AS p ON p.id = ri.pj_id
+					LEFT JOIN
 				weddings AS w ON w.id = ri.wedding_id
-			WHERE
-				p.name = ?
 			GROUP BY counted_name
 			ORDER BY CASE
 				WHEN r.name REGEXP 'P$' THEN r.id - 18

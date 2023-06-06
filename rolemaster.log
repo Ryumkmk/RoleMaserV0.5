@@ -2374,3 +2374,333 @@ net/http.(*conn).serve(0xc00031c480, {0xab97d0, 0xc00029ee40})
 	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
 created by net/http.(*Server).Serve
 	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed
+2023/06/06 13:32:16 server.go:3217: http: panic serving [::1]:53837: template: doubleTypingPage.html:21: unexpected "=" in operand
+goroutine 40 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files/Go/src/net/http/server.go:1854 +0xbf
+panic({0x802400, 0xc0004044d0})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x263
+html/template.Must(...)
+	C:/Program Files/Go/src/html/template/template.go:368
+RMV0.5/app/controllers.generateHTML({0x9291a0?, 0xc0000000e0}, {0x8561c0, 0xc0001e2600}, {0xc00008d880?, 0x2, 0x461e1e?})
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/server.go:17 +0x237
+RMV0.5/app/controllers.typingpage({0x9291a0, 0xc0000000e0}, 0xffffffffffffffff?)
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/rout_main.go:80 +0x7a5
+net/http.HandlerFunc.ServeHTTP(0xc0000000e0?, {0x9291a0?, 0xc0000000e0?}, 0xc0003e81b8?)
+	C:/Program Files/Go/src/net/http/server.go:2122 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x0?, {0x9291a0, 0xc0000000e0}, 0xc0001e2200)
+	C:/Program Files/Go/src/net/http/server.go:2500 +0x149
+net/http.serverHandler.ServeHTTP({0x927e78?}, {0x9291a0, 0xc0000000e0}, 0xc0001e2200)
+	C:/Program Files/Go/src/net/http/server.go:2936 +0x316
+net/http.(*conn).serve(0xc0002ca120, {0x929990, 0xc00029ee40})
+	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed
+2023/06/06 13:32:16 server.go:3217: http: panic serving [::1]:53836: template: doubleTypingPage.html:21: unexpected "=" in operand
+goroutine 31 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files/Go/src/net/http/server.go:1854 +0xbf
+panic({0x802400, 0xc000404950})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x263
+html/template.Must(...)
+	C:/Program Files/Go/src/html/template/template.go:368
+RMV0.5/app/controllers.generateHTML({0x9291a0?, 0xc0000002a0}, {0x8561c0, 0xc0001e2c00}, {0xc000091880?, 0x2, 0x461e1e?})
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/server.go:17 +0x237
+RMV0.5/app/controllers.typingpage({0x9291a0, 0xc0000002a0}, 0xffffffffffffffff?)
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/rout_main.go:80 +0x7a5
+net/http.HandlerFunc.ServeHTTP(0xc0000002a0?, {0x9291a0?, 0xc0000002a0?}, 0xc00024c6c0?)
+	C:/Program Files/Go/src/net/http/server.go:2122 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x0?, {0x9291a0, 0xc0000002a0}, 0xc0001e2800)
+	C:/Program Files/Go/src/net/http/server.go:2500 +0x149
+net/http.serverHandler.ServeHTTP({0x927e78?}, {0x9291a0, 0xc0000002a0}, 0xc0001e2800)
+	C:/Program Files/Go/src/net/http/server.go:2936 +0x316
+net/http.(*conn).serve(0xc00011c000, {0x929990, 0xc00029ee40})
+	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed
+2023/06/06 13:32:16 server.go:3217: http: panic serving [::1]:53905: template: doubleTypingPage.html:21: unexpected "=" in operand
+goroutine 115 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files/Go/src/net/http/server.go:1854 +0xbf
+panic({0x802400, 0xc0001110e0})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x263
+html/template.Must(...)
+	C:/Program Files/Go/src/html/template/template.go:368
+RMV0.5/app/controllers.generateHTML({0x9291a0?, 0xc0004b6460}, {0x8561c0, 0xc0004a8e00}, {0xc0004d3880?, 0x2, 0x461e1e?})
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/server.go:17 +0x237
+RMV0.5/app/controllers.typingpage({0x9291a0, 0xc0004b6460}, 0xffffffffffffffff?)
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/rout_main.go:80 +0x7a5
+net/http.HandlerFunc.ServeHTTP(0xc0004b6460?, {0x9291a0?, 0xc0004b6460?}, 0x878825?)
+	C:/Program Files/Go/src/net/http/server.go:2122 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x0?, {0x9291a0, 0xc0004b6460}, 0xc0004a8a00)
+	C:/Program Files/Go/src/net/http/server.go:2500 +0x149
+net/http.serverHandler.ServeHTTP({0x927e78?}, {0x9291a0, 0xc0004b6460}, 0xc0004a8a00)
+	C:/Program Files/Go/src/net/http/server.go:2936 +0x316
+net/http.(*conn).serve(0xc0002ca510, {0x929990, 0xc00029ee40})
+	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed
+2023/06/06 13:32:29 server.go:3217: http: panic serving [::1]:53917: template: doubleTypingPage.html:21: unexpected "=" in operand
+goroutine 62 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files/Go/src/net/http/server.go:1854 +0xbf
+panic({0x802400, 0xc000404de0})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x263
+html/template.Must(...)
+	C:/Program Files/Go/src/html/template/template.go:368
+RMV0.5/app/controllers.generateHTML({0x9291a0?, 0xc000000460}, {0x8561c0, 0xc0001e3200}, {0xc000091880?, 0x2, 0x461e1e?})
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/server.go:17 +0x237
+RMV0.5/app/controllers.typingpage({0x9291a0, 0xc000000460}, 0xffffffffffffffff?)
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/rout_main.go:80 +0x7a5
+net/http.HandlerFunc.ServeHTTP(0xc000000460?, {0x9291a0?, 0xc000000460?}, 0xc0003e8f80?)
+	C:/Program Files/Go/src/net/http/server.go:2122 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x0?, {0x9291a0, 0xc000000460}, 0xc0001e2d00)
+	C:/Program Files/Go/src/net/http/server.go:2500 +0x149
+net/http.serverHandler.ServeHTTP({0x927e78?}, {0x9291a0, 0xc000000460}, 0xc0001e2d00)
+	C:/Program Files/Go/src/net/http/server.go:2936 +0x316
+net/http.(*conn).serve(0xc0004aa750, {0x929990, 0xc00029ee40})
+	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed
+2023/06/06 13:32:29 server.go:3217: http: panic serving [::1]:53918: template: doubleTypingPage.html:21: unexpected "=" in operand
+goroutine 63 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files/Go/src/net/http/server.go:1854 +0xbf
+panic({0x802400, 0xc000405280})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x263
+html/template.Must(...)
+	C:/Program Files/Go/src/html/template/template.go:368
+RMV0.5/app/controllers.generateHTML({0x9291a0?, 0xc000000620}, {0x8561c0, 0xc0001e3600}, {0xc00008d880?, 0x2, 0x461e1e?})
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/server.go:17 +0x237
+RMV0.5/app/controllers.typingpage({0x9291a0, 0xc000000620}, 0xffffffffffffffff?)
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/rout_main.go:80 +0x7a5
+net/http.HandlerFunc.ServeHTTP(0xc000000620?, {0x9291a0?, 0xc000000620?}, 0x878825?)
+	C:/Program Files/Go/src/net/http/server.go:2122 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x0?, {0x9291a0, 0xc000000620}, 0xc0001e2e00)
+	C:/Program Files/Go/src/net/http/server.go:2500 +0x149
+net/http.serverHandler.ServeHTTP({0x927e78?}, {0x9291a0, 0xc000000620}, 0xc0001e2e00)
+	C:/Program Files/Go/src/net/http/server.go:2936 +0x316
+net/http.(*conn).serve(0xc0004aa7e0, {0x929990, 0xc00029ee40})
+	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed
+2023/06/06 13:32:29 server.go:3217: http: panic serving [::1]:53919: template: doubleTypingPage.html:21: unexpected "=" in operand
+goroutine 118 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files/Go/src/net/http/server.go:1854 +0xbf
+panic({0x802400, 0xc000111d50})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x263
+html/template.Must(...)
+	C:/Program Files/Go/src/html/template/template.go:368
+RMV0.5/app/controllers.generateHTML({0x9291a0?, 0xc0004b6620}, {0x8561c0, 0xc0004a9300}, {0xc0004d3880?, 0x2, 0x461e1e?})
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/server.go:17 +0x237
+RMV0.5/app/controllers.typingpage({0x9291a0, 0xc0004b6620}, 0xffffffffffffffff?)
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/rout_main.go:80 +0x7a5
+net/http.HandlerFunc.ServeHTTP(0xc0004b6620?, {0x9291a0?, 0xc0004b6620?}, 0xc0003f8b10?)
+	C:/Program Files/Go/src/net/http/server.go:2122 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x0?, {0x9291a0, 0xc0004b6620}, 0xc0004a8f00)
+	C:/Program Files/Go/src/net/http/server.go:2500 +0x149
+net/http.serverHandler.ServeHTTP({0x927e78?}, {0x9291a0, 0xc0004b6620}, 0xc0004a8f00)
+	C:/Program Files/Go/src/net/http/server.go:2936 +0x316
+net/http.(*conn).serve(0xc0002ca990, {0x929990, 0xc00029ee40})
+	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed
+2023/06/06 13:32:30 server.go:3217: http: panic serving [::1]:53921: template: doubleTypingPage.html:21: unexpected "=" in operand
+goroutine 65 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files/Go/src/net/http/server.go:1854 +0xbf
+panic({0x802400, 0xc000405600})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x263
+html/template.Must(...)
+	C:/Program Files/Go/src/html/template/template.go:368
+RMV0.5/app/controllers.generateHTML({0x9291a0?, 0xc00014c0e0}, {0x8561c0, 0xc0001e3a00}, {0xc0004cf880?, 0x2, 0x461e1e?})
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/server.go:17 +0x237
+RMV0.5/app/controllers.typingpage({0x9291a0, 0xc00014c0e0}, 0xffffffffffffffff?)
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/rout_main.go:80 +0x7a5
+net/http.HandlerFunc.ServeHTTP(0xc00014c0e0?, {0x9291a0?, 0xc00014c0e0?}, 0x873ede?)
+	C:/Program Files/Go/src/net/http/server.go:2122 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x0?, {0x9291a0, 0xc00014c0e0}, 0xc000120200)
+	C:/Program Files/Go/src/net/http/server.go:2500 +0x149
+net/http.serverHandler.ServeHTTP({0x927e78?}, {0x9291a0, 0xc00014c0e0}, 0xc000120200)
+	C:/Program Files/Go/src/net/http/server.go:2936 +0x316
+net/http.(*conn).serve(0xc0004aaa20, {0x929990, 0xc00029ee40})
+	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed
+2023/06/06 13:32:30 server.go:3217: http: panic serving [::1]:53922: template: doubleTypingPage.html:21: unexpected "=" in operand
+goroutine 45 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files/Go/src/net/http/server.go:1854 +0xbf
+panic({0x802400, 0xc000405b50})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x263
+html/template.Must(...)
+	C:/Program Files/Go/src/html/template/template.go:368
+RMV0.5/app/controllers.generateHTML({0x9291a0?, 0xc0000008c0}, {0x8561c0, 0xc0001e3e00}, {0xc0004d3880?, 0x2, 0x461e1e?})
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/server.go:17 +0x237
+RMV0.5/app/controllers.typingpage({0x9291a0, 0xc0000008c0}, 0xffffffffffffffff?)
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/rout_main.go:80 +0x7a5
+net/http.HandlerFunc.ServeHTTP(0xc0000008c0?, {0x9291a0?, 0xc0000008c0?}, 0x873ede?)
+	C:/Program Files/Go/src/net/http/server.go:2122 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x0?, {0x9291a0, 0xc0000008c0}, 0xc0004a9400)
+	C:/Program Files/Go/src/net/http/server.go:2500 +0x149
+net/http.serverHandler.ServeHTTP({0x927e78?}, {0x9291a0, 0xc0000008c0}, 0xc0004a9400)
+	C:/Program Files/Go/src/net/http/server.go:2936 +0x316
+net/http.(*conn).serve(0xc00012c120, {0x929990, 0xc00029ee40})
+	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed
+2023/06/06 13:32:30 server.go:3217: http: panic serving [::1]:53923: template: doubleTypingPage.html:21: unexpected "=" in operand
+goroutine 47 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files/Go/src/net/http/server.go:1854 +0xbf
+panic({0x802400, 0xc0001eab20})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x263
+html/template.Must(...)
+	C:/Program Files/Go/src/html/template/template.go:368
+RMV0.5/app/controllers.generateHTML({0x9291a0?, 0xc000000a80}, {0x8561c0, 0xc000484300}, {0xc0004d3880?, 0x2, 0x3f5970?})
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/server.go:17 +0x237
+RMV0.5/app/controllers.typingpage({0x9291a0, 0xc000000a80}, 0xffffffffffffffff?)
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/rout_main.go:80 +0x7a5
+net/http.HandlerFunc.ServeHTTP(0x6138612d39663262?, {0x9291a0?, 0xc000000a80?}, 0x324a423458433244?)
+	C:/Program Files/Go/src/net/http/server.go:2122 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x0?, {0x9291a0, 0xc000000a80}, 0xc0001e3f00)
+	C:/Program Files/Go/src/net/http/server.go:2500 +0x149
+net/http.serverHandler.ServeHTTP({0x927e78?}, {0x9291a0, 0xc000000a80}, 0xc0001e3f00)
+	C:/Program Files/Go/src/net/http/server.go:2936 +0x316
+net/http.(*conn).serve(0xc00012c2d0, {0x929990, 0xc00029ee40})
+	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed
+2023/06/06 13:32:56 server.go:3217: http: panic serving [::1]:53954: template: doubleTypingPage.html:21: unexpected "{" in parenthesized pipeline
+goroutine 7 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files/Go/src/net/http/server.go:1854 +0xbf
+panic({0x1302400, 0xc000110480})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x263
+html/template.Must(...)
+	C:/Program Files/Go/src/html/template/template.go:368
+RMV0.5/app/controllers.generateHTML({0x14291a0?, 0xc00013e000}, {0x13561c0, 0xc00011a400}, {0xc00008d880?, 0x2, 0xef5970?})
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/server.go:17 +0x237
+RMV0.5/app/controllers.typingpage({0x14291a0, 0xc00013e000}, 0xffffffffffffffff?)
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/rout_main.go:80 +0x7a5
+net/http.HandlerFunc.ServeHTTP(0xc00013e000?, {0x14291a0?, 0xc00013e000?}, 0x137c324?)
+	C:/Program Files/Go/src/net/http/server.go:2122 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x0?, {0x14291a0, 0xc00013e000}, 0xc00011a000)
+	C:/Program Files/Go/src/net/http/server.go:2500 +0x149
+net/http.serverHandler.ServeHTTP({0x1427e78?}, {0x14291a0, 0xc00013e000}, 0xc00011a000)
+	C:/Program Files/Go/src/net/http/server.go:2936 +0x316
+net/http.(*conn).serve(0xc0002ce000, {0x1429990, 0xc00029ce40})
+	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed
+2023/06/06 13:32:56 server.go:3217: http: panic serving [::1]:53955: template: doubleTypingPage.html:21: unexpected "{" in parenthesized pipeline
+goroutine 8 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files/Go/src/net/http/server.go:1854 +0xbf
+panic({0x1302400, 0xc0001108e0})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x263
+html/template.Must(...)
+	C:/Program Files/Go/src/html/template/template.go:368
+RMV0.5/app/controllers.generateHTML({0x14291a0?, 0xc00013e1c0}, {0x13561c0, 0xc00011a900}, {0xc000317880?, 0x2, 0xf61e1e?})
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/server.go:17 +0x237
+RMV0.5/app/controllers.typingpage({0x14291a0, 0xc00013e1c0}, 0xffffffffffffffff?)
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/rout_main.go:80 +0x7a5
+net/http.HandlerFunc.ServeHTTP(0xc00013e1c0?, {0x14291a0?, 0xc00013e1c0?}, 0xc00010a8a0?)
+	C:/Program Files/Go/src/net/http/server.go:2122 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x0?, {0x14291a0, 0xc00013e1c0}, 0xc00030e000)
+	C:/Program Files/Go/src/net/http/server.go:2500 +0x149
+net/http.serverHandler.ServeHTTP({0x1427e78?}, {0x14291a0, 0xc00013e1c0}, 0xc00030e000)
+	C:/Program Files/Go/src/net/http/server.go:2936 +0x316
+net/http.(*conn).serve(0xc0002ce090, {0x1429990, 0xc00029ce40})
+	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed
+2023/06/06 13:32:56 server.go:3217: http: panic serving [::1]:53957: template: doubleTypingPage.html:21: unexpected "{" in parenthesized pipeline
+goroutine 22 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files/Go/src/net/http/server.go:1854 +0xbf
+panic({0x1302400, 0xc0002de1c0})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x263
+html/template.Must(...)
+	C:/Program Files/Go/src/html/template/template.go:368
+RMV0.5/app/controllers.generateHTML({0x14291a0?, 0xc0002d4000}, {0x13561c0, 0xc0000d8f00}, {0xc000091880?, 0x2, 0xef5970?})
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/server.go:17 +0x237
+RMV0.5/app/controllers.typingpage({0x14291a0, 0xc0002d4000}, 0xffffffffffffffff?)
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/rout_main.go:80 +0x7a5
+net/http.HandlerFunc.ServeHTTP(0xc0002d4000?, {0x14291a0?, 0xc0002d4000?}, 0xc00021fcd0?)
+	C:/Program Files/Go/src/net/http/server.go:2122 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x0?, {0x14291a0, 0xc0002d4000}, 0xc0000d8b00)
+	C:/Program Files/Go/src/net/http/server.go:2500 +0x149
+net/http.serverHandler.ServeHTTP({0x1427e78?}, {0x14291a0, 0xc0002d4000}, 0xc0000d8b00)
+	C:/Program Files/Go/src/net/http/server.go:2936 +0x316
+net/http.(*conn).serve(0xc00011e480, {0x1429990, 0xc00029ce40})
+	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed
+2023/06/06 13:33:04 server.go:3217: http: panic serving [::1]:53976: template: doubleTypingPage.html:21: unexpected "{" in parenthesized pipeline
+goroutine 7 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files/Go/src/net/http/server.go:1854 +0xbf
+panic({0x1402400, 0xc000110480})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x263
+html/template.Must(...)
+	C:/Program Files/Go/src/html/template/template.go:368
+RMV0.5/app/controllers.generateHTML({0x15291a0?, 0xc00013e000}, {0x14561c0, 0xc00011a400}, {0xc00008d880?, 0x2, 0xff5970?})
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/server.go:17 +0x237
+RMV0.5/app/controllers.typingpage({0x15291a0, 0xc00013e000}, 0xffffffffffffffff?)
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/rout_main.go:80 +0x7a5
+net/http.HandlerFunc.ServeHTTP(0xc00013e000?, {0x15291a0?, 0xc00013e000?}, 0x1473ede?)
+	C:/Program Files/Go/src/net/http/server.go:2122 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x0?, {0x15291a0, 0xc00013e000}, 0xc00011a000)
+	C:/Program Files/Go/src/net/http/server.go:2500 +0x149
+net/http.serverHandler.ServeHTTP({0x1527e78?}, {0x15291a0, 0xc00013e000}, 0xc00011a000)
+	C:/Program Files/Go/src/net/http/server.go:2936 +0x316
+net/http.(*conn).serve(0xc0002ca000, {0x1529990, 0xc00029ee40})
+	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed
+2023/06/06 13:33:04 server.go:3217: http: panic serving [::1]:53977: template: doubleTypingPage.html:21: unexpected "{" in parenthesized pipeline
+goroutine 8 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files/Go/src/net/http/server.go:1854 +0xbf
+panic({0x1402400, 0xc0001108e0})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x263
+html/template.Must(...)
+	C:/Program Files/Go/src/html/template/template.go:368
+RMV0.5/app/controllers.generateHTML({0x15291a0?, 0xc00013e1c0}, {0x14561c0, 0xc00011a900}, {0xc000317880?, 0x2, 0x1061e1e?})
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/server.go:17 +0x237
+RMV0.5/app/controllers.typingpage({0x15291a0, 0xc00013e1c0}, 0xffffffffffffffff?)
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/rout_main.go:80 +0x7a5
+net/http.HandlerFunc.ServeHTTP(0xc00013e1c0?, {0x15291a0?, 0xc00013e1c0?}, 0x1478b59?)
+	C:/Program Files/Go/src/net/http/server.go:2122 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x0?, {0x15291a0, 0xc00013e1c0}, 0xc00030e000)
+	C:/Program Files/Go/src/net/http/server.go:2500 +0x149
+net/http.serverHandler.ServeHTTP({0x1527e78?}, {0x15291a0, 0xc00013e1c0}, 0xc00030e000)
+	C:/Program Files/Go/src/net/http/server.go:2936 +0x316
+net/http.(*conn).serve(0xc0002ca090, {0x1529990, 0xc00029ee40})
+	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed
+2023/06/06 13:33:04 server.go:3217: http: panic serving [::1]:53979: template: doubleTypingPage.html:21: unexpected "{" in parenthesized pipeline
+goroutine 22 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files/Go/src/net/http/server.go:1854 +0xbf
+panic({0x1402400, 0xc0002dc1c0})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x263
+html/template.Must(...)
+	C:/Program Files/Go/src/html/template/template.go:368
+RMV0.5/app/controllers.generateHTML({0x15291a0?, 0xc0002d2000}, {0x14561c0, 0xc0000d8f00}, {0xc000091880?, 0x2, 0xff5970?})
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/server.go:17 +0x237
+RMV0.5/app/controllers.typingpage({0x15291a0, 0xc0002d2000}, 0xffffffffffffffff?)
+	C:/Users/luiha/OneDrive/デスクトップ/MyPrograming/MyGo/rolemaster0.5/RoleMaserV0.5/app/controllers/rout_main.go:80 +0x7a5
+net/http.HandlerFunc.ServeHTTP(0xc0002d2000?, {0x15291a0?, 0xc0002d2000?}, 0xc00021fd18?)
+	C:/Program Files/Go/src/net/http/server.go:2122 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x0?, {0x15291a0, 0xc0002d2000}, 0xc0000d8b00)
+	C:/Program Files/Go/src/net/http/server.go:2500 +0x149
+net/http.serverHandler.ServeHTTP({0x1527e78?}, {0x15291a0, 0xc0002d2000}, 0xc0000d8b00)
+	C:/Program Files/Go/src/net/http/server.go:2936 +0x316
+net/http.(*conn).serve(0xc00011e480, {0x1529990, 0xc00029ee40})
+	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed

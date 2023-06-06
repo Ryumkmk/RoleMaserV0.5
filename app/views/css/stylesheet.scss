@@ -551,6 +551,9 @@ body {
                     padding: 4px 0 4px 5px;
                     &.page1-check-tbody-td {
                         color: #4145ff;
+                        border-left: 1px black solid;
+                        border-right: 1px black solid;
+                        width: 200px;
                     }
                     input {
                         width: 85%;
@@ -664,7 +667,7 @@ body {
         #page2 {
             page-break-after: always;
             display: block !important;
-            margin: 10px;
+            margin: 30px 10px 0 10px;
             width: 1200px;
             h2 {
                 display: inline;
