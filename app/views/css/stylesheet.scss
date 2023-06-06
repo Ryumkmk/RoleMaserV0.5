@@ -552,9 +552,8 @@ body {
                     padding: 4px 0 4px 5px;
                     &.page1-check-tbody-td {
                         color: #4145ff;
-                        border-left: 1px black solid;
-                        border-right: 1px black solid;
-                        width: 200px;
+                        font-family: "Zen Old Mincho", serif;
+                        font-size: 16px;
                     }
                     input {
                         width: 85%;
@@ -595,6 +594,7 @@ body {
     // * {
     //     outline: 1px red solid;
     // }
+
     #page {
         display: flex;
         flex-direction: column;

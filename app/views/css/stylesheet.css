@@ -525,9 +525,8 @@ body .form-table-design .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody
 }
 body .form-table-design .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-td.page1-check-tbody-td {
   color: #4145ff;
-  border-left: 1px black solid;
-  border-right: 1px black solid;
-  width: 200px;
+  font-family: "Zen Old Mincho", serif;
+  font-size: 16px;
 }
 body .form-table-design .page1-form-tbody .page1-form-tbody-tr .page1-form-tbody-td input {
   width: 85%;
