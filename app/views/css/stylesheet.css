@@ -296,13 +296,14 @@ body #page #page1 .role-counts-ya #role-counts-display .rolecount-title,
 body #page #page1 .role-counts-ya #role-counts-displayP .rolecount-title,
 body #page #page1 .role-counts-yaP #role-counts-display .rolecount-title,
 body #page #page1 .role-counts-yaP #role-counts-displayP .rolecount-title {
-  font-size: 200%;
+  font-size: 250%;
   padding: 20px 0 10px 0;
   width: 30%;
   margin: 5px auto;
   border-bottom: double 4px #d8ad57;
   white-space: nowrap;
   color: #000000;
+  text-align: center;
 }
 body #page #page1 .role-counts-ya #role-counts-display .rolecount-table,
 body #page #page1 .role-counts-ya #role-counts-displayP .rolecount-table,
