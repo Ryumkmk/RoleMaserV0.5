@@ -53,9 +53,11 @@ $(function () {
     $("#add-btn").on("click", function () {
         addRow(rowNum);
         rowNum++;
+
     });
 
     $("#delete-btn").on("click", function () {
+        console.log("rowNum: " + rowNum);
         $("#trainer-trainee-form-tbody tr:last").remove();
         rowNum--;
     });
