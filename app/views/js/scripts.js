@@ -49,7 +49,7 @@ if (window.location.pathname === '/typingpage') {
 }
 var rowNum = 20;
 $(function () {
-
+    var rowNum = 20;
     $("#add-btn").on("click", function () {
         addRow(rowNum);
         rowNum++;
@@ -67,7 +67,6 @@ function addRow(rowNum) {
     newRow.append("<td class='trainer-trainee-form-tbody-td'><input name='trainee" + rowNum + "'></td>");
     $("#trainer-trainee-form-tbody").append(newRow);
 }
-
 
 $(window).on('load', function () {
     setTimeout(function () {

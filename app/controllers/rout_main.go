@@ -106,7 +106,6 @@ func cheakPj(w http.ResponseWriter, r *http.Request) {
 
 	for n, v := range r.Form {
 		if strings.Contains(n, "trainer") || strings.Contains(n, "trainee") {
-
 			if strings.Contains(n, "trainer") {
 				key := string(n[7:])
 				tT := models.TrainerTrainee{
