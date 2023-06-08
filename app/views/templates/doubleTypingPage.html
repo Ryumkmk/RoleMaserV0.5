@@ -1,9 +1,12 @@
 {{define "content"}}
 <div id="page1">
     <div id="tap-delete-balloon">
-        <div class="button_solid015 back-btn-container">
-            <button class="back-btn" onclick="history.back()">戻る</button>
-        </div>
+        <footer class="footer-design">
+            <div class="footer-design-div">
+                <button class="btn-design" onclick="history.back()">戻る</button>
+                <button class="btn-design" type="button" onclick= "location.reload()" id="delete-btn">更新</button>
+            </div>
+        </footer>
         <p class="pjs-list-title">
             日付:{{.WITPAM.Date2}}
             <br>
@@ -439,7 +442,6 @@
                         <div class="footer-design-div">
                             <button class="btn-design" type="button" id="add-btn">追加</button>
                             <button class="btn-design" type="button" id="delete-btn">削除</button>
-                            <button class="btn-design" type="button" onclick= "location.reload()" id="delete-btn">更新</button>
                         </div>
                     </footer>
                 </div>
