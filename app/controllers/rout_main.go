@@ -67,6 +67,10 @@ func typingpage(w http.ResponseWriter, r *http.Request) {
 			}
 		}
 	}
+	tTs, err := models.GetAllTrainersTraineesFromDB(date)
+	if err != nil {
+		log.Println(err)
+	}
 
 	var dITP = models.DataInTypingPage{
 		PLITs:    pLTIs,
@@ -74,8 +78,8 @@ func typingpage(w http.ResponseWriter, r *http.Request) {
 		WITPPM:   wITPPM,
 		RIITPsAM: rIITPsAM,
 		RIITPsPM: rIITPsPM,
+		TTs:      tTs,
 	}
-	// fmt.Println(dITP)
 	if len(wITPs) == 2 {
 		generateHTML(w, dITP, "layout", "doubleTypingPage")
 	} else {
@@ -101,14 +105,19 @@ func cheakPj(w http.ResponseWriter, r *http.Request) {
 	var tTs []models.TrainerTrainee
 
 	for n, v := range r.Form {
-		if strings.Contains(n, "trainer") {
-			key := string(n[len(n)-1])
-			tT := models.TrainerTrainee{
-				Key:     key,
-				Trainer: v[0],
-				Trainee: r.PostFormValue("trainee" + key),
+		if strings.Contains(n, "trainer") || strings.Contains(n, "trainee") {
+
+			if strings.Contains(n, "trainer") {
+				key := string(n[7:])
+				tT := models.TrainerTrainee{
+					Key:     key,
+					Trainer: v[0],
+					Trainee: r.PostFormValue("trainee" + key),
+				}
+				if len(tT.Trainer) > 0 && len(tT.Trainee) > 0 {
+					tTs = append(tTs, tT)
+				}
 			}
-			tTs = append(tTs, tT)
 		} else if strings.Contains(n, "date-form") {
 			wITPAM.Date = v[0]
 			wITPPM.Date = v[0]
@@ -158,14 +167,15 @@ func cheakPj(w http.ResponseWriter, r *http.Request) {
 		WITPPM:   wITPPM,
 		RIITPsAM: rIITPsAM,
 		RIITPsPM: rIITPsPM,
+		TTs:      tTs,
 	}
 
-	err = dITP.UpdateRoleInfoDB()
-	if err != nil {
+	if err = dITP.UpdateRoleInfoDB(); err != nil {
 		log.Println(err)
 	}
-
-	dITP.TTs = tTs
+	if err = models.UpdateTrainerPjDB(dITP.WITPAM.Date, dITP.TTs); err != nil {
+		log.Println(err)
+	}
 	dITP.PLITs = pLTIs
 	dITP.RICPs, err = dITP.WITPAM.MakeRest()
 	if err != nil {

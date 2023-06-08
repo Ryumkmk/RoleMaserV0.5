@@ -228,14 +228,16 @@
                             </tr>
                         </thead>
                         <tbody id="trainer-trainee-form-tbody">
-                            <tr class="trainer-trainee-form-tbody-tr">
-                                <td class="trainer-trainee-form-tbody-td">
-                                    <input name="trainer0">
-                                </td>
-                                <td class="trainer-trainee-form-tbody-td">
-                                    <input name="trainee0">
-                                </td>
-                            </tr>
+                            {{range $i, $tt := .TTs}}
+                                <tr class="trainer-trainee-form-tbody-tr">
+                                    <td class="trainer-trainee-form-tbody-td">
+                                        <input name="trainer{{$i}}" value="{{$tt.Trainer}}">
+                                    </td>
+                                    <td class="trainer-trainee-form-tbody-td">
+                                        <input name="trainee{{$i}}" value="{{$tt.Trainee}}">
+                                    </td>
+                                </tr>
+                            {{end}}
                         </tbody>
                     </table>
                     <footer class="footer-design">

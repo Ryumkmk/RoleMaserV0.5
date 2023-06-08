@@ -47,23 +47,17 @@ if (window.location.pathname === '/typingpage') {
 
 
 }
-var rowNum = 1;
+var rowNum = 20;
 $(function () {
-    var rowNum = getCookie("rowNum") || 1;
-    for (var i = 1; i < rowNum; i++) {
-        addRow(i);
-    }
 
     $("#add-btn").on("click", function () {
         addRow(rowNum);
         rowNum++;
-        setCookie("rowNum", rowNum);
     });
 
     $("#delete-btn").on("click", function () {
         $("#trainer-trainee-form-tbody tr:last").remove();
         rowNum--;
-        setCookie("rowNum", rowNum);
     });
 });
 
@@ -74,18 +68,7 @@ function addRow(rowNum) {
     $("#trainer-trainee-form-tbody").append(newRow);
 }
 
-function setCookie(name, value) {
-    document.cookie = name + "=" + value + "; path=/";
-}
 
-function getCookie(name) {
-    var value = "; " + document.cookie;
-    var parts = value.split("; " + name + "=");
-    if (parts.length == 2) {
-        return parts.pop().split(";").shift();
-    }
-    return null;
-}
 $(window).on('load', function () {
     setTimeout(function () {
         $('#loading').fadeOut();
@@ -301,61 +284,6 @@ function displayRoleCountsNoneP() {
     var roleCountsElement = document.getElementById("role-counts-displayP");
     roleCountsElement.setAttribute("id", "role-counts-display-noneP");
 }
-
-
-/*
-$(function () {
-    $("addToHomeScreenButton").on("click", function () {
-        const more = document.querySelector('.more');
-        more.classList.toggle('appear');
-
-        if (btn.textContent == "アプリをホームに追加") {
-            btn.textContent = "やり方";
-        } else {
-            btn.textContent = "アプリをホームに追加";
-        }
-    });
-
-
-});
-
-function copyValue(input, targetName, copyName) {
-    var targetInput = input.closest(".AM").querySelectorAll("[name='" + targetName + "']")[0];
-    var copyInput = input.closest(".AM").querySelectorAll("[name='" + copyName + "']")[0];
-    targetInput.value = input.value;
-    copyInput.value = input.value;
-}
-
-function copyValue2(input, targetName, copyName) {
-    var targetInput = input.closest(".PM").querySelectorAll("[name='" + targetName + "']")[0];
-    var copyInput = input.closest(".PM").querySelectorAll("[name='" + copyName + "']")[0];
-    targetInput.value = input.value;
-    copyInput.value = input.value;
-}
-
-function confirmDelete(event) {
-    event.preventDefault();
-    if (confirm("本当に削除しますか？")) {
-        document.getElementById("delete-form").submit();
-    }
-}
-*/
-/*
-function checkInstalled() {
-        if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone == true) {
-            document.getElementById("addToHomeScreenButton").style.display = "none";
-        } else {
-            document.getElementById("addToHomeScreenButton").style.display = "block";
-        }
-    }
-
-
-window.addEventListener("load", function () {
-        if (window.location.pathname === '/top') {
-            checkInstalled();
-        }
-    });
-*/
 
 
 

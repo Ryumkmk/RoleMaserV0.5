@@ -54,7 +54,7 @@ func (dITP *DataInTypingPage) UpdateRoleInfoDB() (err error) {
 func (w *WeddingInTypingPage) UpdateRoleInfoDBByAmpm(rIITPs []RoleInfoInTypingPage) (err error) {
 
 	for _, rITTP := range rIITPs {
-		
+
 		ok, err := w.isRoleInfoExistInDBByInput(rITTP)
 		if err != nil {
 			log.Println(err)

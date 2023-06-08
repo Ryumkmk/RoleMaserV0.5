@@ -240,3 +240,64 @@ func (p *Pj) UpdatePjDb() (err error) {
 	}
 	return err
 }
+
+func UpdateTrainerPjDB(date string, tTs []TrainerTrainee) (err error) {
+
+	if err = deleteTrainerTraineeDB(date); err != nil {
+		log.Println(err)
+	}
+	for _, tT := range tTs {
+		if err = tT.insertTrainerTraineeDB(date); err != nil {
+			log.Println(err)
+		}
+	}
+	return err
+}
+
+func GetAllTrainersTraineesFromDB(date string) (tTs []TrainerTrainee, err error) {
+	cmd := `SELECT 
+			(select p.name from pjs as p where t.trainer_pj_id = p.id),
+			(select p.name from pjs as p where t.trainee_pj_id = p.id)
+		FROM
+			trainers as t
+			where t.date = ?;`
+	rows, err := Db.Query(cmd, date)
+	if err != nil {
+		log.Println(err)
+	}
+	defer rows.Close()
+	for rows.Next() {
+		var tT TrainerTrainee
+		rows.Scan(
+			&tT.Trainer,
+			&tT.Trainee,
+		)
+		tTs = append(tTs, tT)
+	}
+	return tTs, err
+}
+
+func (tT *TrainerTrainee) insertTrainerTraineeDB(date string) (err error) {
+	cmd := `INSERT INTO trainers (date, trainer_pj_id, trainee_pj_id)
+			SELECT ?, p1.id, p2.id
+			FROM pjs AS p1, pjs AS p2
+			WHERE p1.name = ? AND p2.name = ?
+			AND p1.name IS NOT NULL AND p2.name IS NOT NULL;`
+
+	_, err = Db.Exec(cmd, date, tT.Trainer, tT.Trainee)
+	if err != nil {
+		log.Println(err)
+	}
+	return err
+}
+
+func deleteTrainerTraineeDB(date string) (err error) {
+	cmd := `DELETE FROM trainers 
+			WHERE
+				date = ?;`
+	_, err = Db.Exec(cmd, date)
+	if err != nil {
+		log.Println(err)
+	}
+	return err
+}
