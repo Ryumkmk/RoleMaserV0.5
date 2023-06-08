@@ -260,7 +260,8 @@ func GetAllTrainersTraineesFromDB(date string) (tTs []TrainerTrainee, err error)
 			(select p.name from pjs as p where t.trainee_pj_id = p.id)
 		FROM
 			trainers as t
-			where t.date = ?;`
+			where t.date = ?
+			order by id;`
 	rows, err := Db.Query(cmd, date)
 	if err != nil {
 		log.Println(err)
