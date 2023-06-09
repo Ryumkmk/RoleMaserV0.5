@@ -141,7 +141,8 @@ func GetAllPjsShiftByDateFromDB(date string, year string, month string, day stri
 					JOIN
 				pjs AS p ON p.id = s.pj_id
 			WHERE
-				s.date = ?;`
+				s.date = ?
+				order by p.id;`
 	rows, err := Db.Query(cmd, date)
 	if err != nil {
 		log.Println(err)

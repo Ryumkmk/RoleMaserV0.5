@@ -213,6 +213,11 @@ func changeshift(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println(err)
 	}
+	password := r.PostFormValue("password")
+	if password != "4649" {
+		http.Redirect(w, r, "/top", http.StatusFound)
+		return
+	}
 	yy := r.PostFormValue("year")
 	mm := r.PostFormValue("month")
 	dd := r.PostFormValue("day")
