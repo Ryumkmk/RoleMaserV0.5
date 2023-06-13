@@ -76,7 +76,7 @@ $(window).on('load', function () {
     }, 1000);
 });
 
-function getRoleCount(pjname) {
+function getRoleCount(obj,pjname) {
     $.ajax({
         url: "/getRoleCount",
         type: "GET",
@@ -84,31 +84,23 @@ function getRoleCount(pjname) {
             pjname: pjname
         },
         success: function (response) {
-            displayRoleCounts(response.RoleCounts, pjname);
+            displayRoleCounts(obj,response.RoleCounts, pjname);
         },
         error: function (error) {
             console.log(error);
         }
     });
 }
-function getRoleCountP(pjname) {
-    $.ajax({
-        url: "/getRoleCount",
-        type: "GET",
-        data: {
-            pjname: pjname
-        },
-        success: function (response) {
-            displayRoleCountsP(response.RoleCounts, pjname);
-        },
-        error: function (error) {
-            console.log(error);
-        }
-    });
-}
-function displayRoleCounts(roleCounts, pjname) {
-    var roleCountsElement = document.getElementById("role-counts-display-none");
-    roleCountsElement.setAttribute("id", "role-counts-display");
+
+function displayRoleCounts(obj,roleCounts, pjname) {
+
+    if (obj.endsWith("P")) {
+        var roleCountsElement = document.getElementById("role-counts-display-noneP");
+        roleCountsElement.setAttribute("id", "role-counts-displayP");
+    } else {
+        var roleCountsElement = document.getElementById("role-counts-display-none");
+        roleCountsElement.setAttribute("id", "role-counts-display");
+    }
     roleCountsElement.innerHTML = ""; // 一旦中身をクリア
 
     var title = document.createElement("div");
@@ -191,100 +183,17 @@ function displayRoleCounts(roleCounts, pjname) {
     roleCountsElement.appendChild(uptitle);
 }
 
-function displayRoleCountsP(roleCounts, pjname) {
-    var roleCountsElement = document.getElementById("role-counts-display-noneP");
-    roleCountsElement.setAttribute("id", "role-counts-displayP");
-    roleCountsElement.innerHTML = ""; // 一旦中身をクリア
-
-    var title = document.createElement("div");
-    title.setAttribute("class", "rolecount-title");
-
-    title.textContent = pjname;
-    roleCountsElement.appendChild(title);
-
-    var table = document.createElement("table");
-    table.setAttribute("class", "rolecount-table");
-    var tbody = document.createElement("tbody");
-    tbody.setAttribute("class", "rolecount-tbody");
-
-    var trHeader = document.createElement("tr");
-    trHeader.setAttribute("class", "rolecount-tr-header");
-    var thRole = document.createElement("th");
-    thRole.setAttribute("class", "rolecount-header-th");
-    var thCount3Mon = document.createElement("th");
-    thCount3Mon.setAttribute("class", "rolecount-header-th");
-    var thCountAll = document.createElement("th");
-    thCountAll.setAttribute("class", "rolecount-header-th");
-
-    thRole.textContent = "役割";
-    thCount3Mon.textContent = "過去3ヶ月";
-    thCountAll.textContent = "全期間";
-
-    trHeader.appendChild(thRole);
-    trHeader.appendChild(thCount3Mon);
-    trHeader.appendChild(thCountAll);
-    tbody.appendChild(trHeader);
-
-    for (var i = 0; i < roleCounts.length; i++) {
-        var roleCount = roleCounts[i];
-
-        var trData = document.createElement("tr");
-        trData.setAttribute("class", "rolecount-tr-data");
-        var tdRole = document.createElement("td");
-        tdRole.setAttribute("class", "rolecount-td-data");
-        var tdCount3Mon = document.createElement("td");
-        tdCount3Mon.setAttribute("class", "rolecount-td-data");
-        var tdCountAll = document.createElement("td");
-        tdCountAll.setAttribute("class", "rolecount-td-data");
-
-
-        tdRole.textContent = roleCount.name;
-        tdCount3Mon.textContent = roleCount.count3mon + " 回";
-        tdCountAll.textContent = roleCount.countall + " 回";
-
-        trData.appendChild(tdRole);
-        trData.appendChild(tdCount3Mon);
-        trData.appendChild(tdCountAll);
-        tbody.appendChild(trData);
+function displayRoleCountsNone(obj) {
+    if (obj.endsWith("P")) {
+        var roleCountsElement = document.getElementById(obj);
+        roleCountsElement.setAttribute("id", "role-counts-display-noneP");
+    } else {
+        var roleCountsElement = document.getElementById("role-counts-display");
+        roleCountsElement.setAttribute("id", "role-counts-display-none");
     }
-    table.appendChild(tbody);
-    roleCountsElement.appendChild(table);
-
-    var uptitle = document.createElement("div");
-    uptitle.setAttribute("class", "to-updatepj");
-
-    var form = document.createElement("form");
-    form.setAttribute("action", "/updatepj");
-    form.setAttribute("method", "POST");
-
-    var inputname = document.createElement("input");
-    inputname.setAttribute("type", "hidden");
-    inputname.setAttribute("name", "pjname");
-    inputname.setAttribute("value", pjname);
-
-    var input = document.createElement("input");
-    input.setAttribute("type", "submit");
-    input.setAttribute("value", "一人前チェックシートを見る");
-
-    var btndesign = document.createElement("div");
-    btndesign.setAttribute("class", "btn-design-1");
-
-    form.appendChild(inputname);
-    form.appendChild(btndesign);
-    btndesign.appendChild(input);
-    uptitle.appendChild(form);
-    roleCountsElement.appendChild(uptitle);
 
 }
 
-function displayRoleCountsNone() {
-    var roleCountsElement = document.getElementById("role-counts-display");
-    roleCountsElement.setAttribute("id", "role-counts-display-none");
-}
-function displayRoleCountsNoneP() {
-    var roleCountsElement = document.getElementById("role-counts-displayP");
-    roleCountsElement.setAttribute("id", "role-counts-display-noneP");
-}
 
 
 
