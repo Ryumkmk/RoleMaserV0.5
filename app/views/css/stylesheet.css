@@ -289,7 +289,9 @@ body #page #page1 .point-dog .dog-coment .checked-mes {
   color: #4145ff;
 }
 body #page #page1 #role-counts-display-none,
-body #page #page1 #role-counts-display-noneP {
+body #page #page1 #role-counts-display-noneP,
+body #page #page1 #rest-typing-display-none,
+body #page #page1 #rest-typing-display-noneP {
   display: none;
 }
 body #page #page1 .role-counts-ya,
@@ -476,6 +478,9 @@ body .form-title p:before {
 body .form-title p:after {
   right: -30px;
   transform: rotate(-50deg);
+}
+body .form-table-design {
+  margin: 0 auto;
 }
 body .form-table-design.page1-check-table {
   width: 100%;

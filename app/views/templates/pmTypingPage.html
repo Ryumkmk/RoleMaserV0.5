@@ -29,7 +29,7 @@
             {{end}}
         </div>
         <div class="page1-form-container">
-            <form action="/checkPj" method="post">
+            <form id = "typing-form">
                 <table class="form-table-design">
                     <thead class="page1-form-thead">
                         <tr class="page1-form-header-tr">
@@ -239,7 +239,87 @@
                     </footer>
                 </div>
                 <div class="page1-form-confirm-container">
-                    <input class="page1-form-confirm-btn btn-design " type="submit" value="確定">
+                    <input class="page1-form-confirm-btn btn-design" type="button" value="休憩を作成" onclick="submitForm('rest-typing-display-noneP','{{.WITPPM.Date}}')">
+                </div>
+            </form>
+        </div>
+        <div id="rest-typing-display-noneP">
+            <form action = "/checkPj" method="post" id = "rest-form-pm">
+                <div class="rest-am rest-ampm-container">
+                    <table class="form-table-design">
+                        <thead class="page1-form-thead">
+                            <tr class="page1-form-header-tr">
+                                <th class="page1-form-header-th">
+                                    休憩時間
+                                </th>
+                                <th class="page1-form-header-th" colspan="2">
+                                    休憩メンバー
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="page1-form-tbody">
+                            <tr class="page1-form-tbody-tr">
+                                <th class="page1-form-tbody-th">16:00-16:45</th>
+                                <td class="page1-form-tbody-td" colspan="2">
+                                    <input name = "rest-drinkP" id = "rest-drinkP" type="text">
+                                </td>
+                            </tr>
+                            <tr class="page1-form-tbody-tr">
+                                <th class="page1-form-tbody-th">16:30-17:15</th>
+                                <td class="page1-form-tbody-td" colspan="2">
+                                    <input name = "rest-coffeeP" id = "rest-coffeeP" type="text">
+                                </td>
+                            </tr>
+                            <tr class="page1-form-tbody-tr">
+                                <th class="page1-form-tbody-th">17:00-17:45</th>
+                                <td class="page1-form-tbody-td" colspan="2">
+                                    <input name = "rest-gatekeeperP" id = "rest-gatekeeperP" type="text">
+                                </td>
+                            </tr>
+                            <tr class="page1-form-tbody-tr">
+                                <th class="page1-form-tbody-th">17:30-18:15</th>
+                                <td class="page1-form-tbody-td" colspan="2">
+                                    <input name = "rest-cloakP" id = "rest-cloakP" type="text">
+                                </td>
+                            </tr>
+                            <tr class="page1-form-tbody-tr">
+                                <th class="page1-form-tbody-th">18:00-18:45</th>
+                                <td class="page1-form-tbody-td" colspan="2">
+                                    <input name = "rest-apeP" id = "rest-apeP" type="text">
+                                </td>
+                            </tr>
+                            <tr class="page1-form-tbody-tr">
+                            <th class="page1-form-tbody-th">18:30-19:15</th>
+                                <td class="page1-form-tbody-td" colspan="2">
+                                    <input name = "rest-silverP" id = "rest-silverP" type="text">
+                                </td>
+                            </tr>
+                            <tr class="page1-form-tbody-tr">
+                                <th class="page1-form-tbody-th">19:00-19:45</th>
+                                <td class="page1-form-tbody-td" colspan="2">
+                                    <input name = "rest-champagneP" id = "rest-champagneP" type="text">
+                                </td>
+                            </tr>
+                            <tr class="page1-form-tbody-tr">
+                                <th class="page1-form-tbody-th">19:15-20:00</th>
+                                <td class="page1-form-tbody-td" colspan="2">
+                                    <input name = "rest-leaderP" id = "rest-leaderP" type="text">
+                                </td>
+                            </tr>
+                            <tr class="page1-form-tbody-tr">
+                            <th class="page1-form-tbody-th">19:30-20:15</th>
+                                <td class="page1-form-tbody-td" colspan="2">
+                                    <input name = "rest-subpjP" id = "rest-subpjP" type="text">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <input name="date" type ="hidden" value ={{.WITPPM.Date}}>
+                <input name="ampmPM" type ="hidden" value ={{.WITPPM.Ampm}}>
+                <input type="hidden" name="datetype2" value={{.WITPPM.Date2}}>
+                <div class="btn-design-1">
+                    <input type="submit" value="確定">
                 </div>
             </form>
         </div>

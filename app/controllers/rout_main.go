@@ -98,89 +98,61 @@ func cheakPj(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 	}
 
-	var rIITPsAM []models.RoleInfoInTypingPage
-	var rIITPsPM []models.RoleInfoInTypingPage
 	var wITPAM models.WeddingInTypingPage
 	var wITPPM models.WeddingInTypingPage
-	var tTs []models.TrainerTrainee
+	var rIITPsAM []models.RoleInfoInTypingPage
+	var rIITPsPM []models.RoleInfoInTypingPage
+	var rICPs []models.RestInCheckPage
+
+	date := r.PostFormValue("date")
+	wITPAM.Date = date
+	wITPPM.Date = date
 
 	for n, v := range r.Form {
-		if strings.Contains(n, "trainer") || strings.Contains(n, "trainee") {
-			if strings.Contains(n, "trainer") {
-				key := string(n[7:])
-				tT := models.TrainerTrainee{
-					Key:     key,
-					Trainer: v[0],
-					Trainee: r.PostFormValue("trainee" + key),
-				}
-				if len(tT.Trainer) > 0 && len(tT.Trainee) > 0 {
-					tTs = append(tTs, tT)
-				}
-			}
-		} else if strings.Contains(n, "date-form") {
-			wITPAM.Date = v[0]
-			wITPPM.Date = v[0]
-		} else if strings.Contains(n, "am-form") {
-			wITPAM.Ampm = v[0]
-		} else if strings.Contains(n, "pm-form") {
-			wITPPM.Ampm = v[0]
-		} else if strings.Contains(n, "datetype2") {
+		if strings.Contains(n, "datetype2") {
+
 			wITPAM.Date2 = v[0]
 			wITPPM.Date2 = v[0]
-		} else {
-			if len(v[0]) > 0 && n[len(n)-1] == 'P' {
-				rIITPPM := models.RoleInfoInTypingPage{
-					RoleName: n,
-					PjName:   v[0],
-				}
-				rIITPsPM = append(rIITPsPM, rIITPPM)
-			} else if len(v[0]) > 0 {
-				rIITPAM := models.RoleInfoInTypingPage{
-					RoleName: n,
-					PjName:   v[0],
-				}
-				rIITPsAM = append(rIITPsAM, rIITPAM)
-			} else if n[len(n)-1] == 'P' {
-				rIITPPM := models.RoleInfoInTypingPage{
-					RoleName: n,
-					PjName:   "",
-				}
-				rIITPsPM = append(rIITPsPM, rIITPPM)
-
-			} else {
-				rIITPAM := models.RoleInfoInTypingPage{
-					RoleName: n,
-					PjName:   "",
-				}
-				rIITPsAM = append(rIITPsAM, rIITPAM)
+		} else if strings.Contains(n, "date") {
+			continue
+		} else if strings.Contains(n, "ampmAM") {
+			wITPAM.Ampm = v[0]
+			rIITPsAM, err = wITPAM.GetRoleInfoByDateFromDB()
+			if err != nil {
+				log.Println(err)
 			}
+		} else if strings.Contains(n, "ampmPM") {
+			wITPPM.Ampm = v[0]
+			rIITPsPM, err = wITPPM.GetRoleInfoByDateFromDB()
+			if err != nil {
+				log.Println(err)
+			}
+		} else {
+			var rICP = models.RestInCheckPage{
+				RoleName: n,
+				PjName:   v[0],
+			}
+			rICPs = append(rICPs, rICP)
 		}
+
 	}
-	pLTIs, err := models.GetPjsByDateFromDB(wITPAM.Date)
+	pLTIs, err := models.GetPjsByDateFromDB(date)
 	if err != nil {
 		log.Println()
 	}
-
+	tTs, err := models.GetAllTrainersTraineesFromDB(date)
+	if err != nil {
+		log.Println(err)
+	}
 	var dITP = models.DataInTypingPage{
+		PLITs:    pLTIs,
 		WITPAM:   wITPAM,
 		WITPPM:   wITPPM,
 		RIITPsAM: rIITPsAM,
 		RIITPsPM: rIITPsPM,
 		TTs:      tTs,
+		RICPs:    rICPs,
 	}
-
-	if err = dITP.UpdateRoleInfoDB(); err != nil {
-		log.Println(err)
-	}
-	if err = models.UpdateTrainerPjDB(dITP.WITPAM.Date, dITP.TTs); err != nil {
-		log.Println(err)
-	}
-	dITP.PLITs = pLTIs
-	dITP.RICPs, err = dITP.WITPAM.MakeRest()
-	if err != nil {
-		log.Println(err)
-	}
-
 	if len(dITP.WITPAM.Ampm) > 0 && len(dITP.WITPPM.Ampm) > 0 {
 		generateHTML(w, dITP, "layout", "doublecheckpage")
 	} else if len(dITP.WITPAM.Ampm) > 0 {

@@ -37,8 +37,6 @@ func StartMainServer() error {
 	http.HandleFunc("/signup", signup)
 	http.HandleFunc("/login", login)
 	http.HandleFunc("/authenticate", authenticate)
-	// http.HandleFunc("/upload", upload)
-	// http.HandleFunc("/delete", delete)
 	http.HandleFunc("/top", top)
 	http.HandleFunc("/", index)
 	http.HandleFunc("/logout", logout)
@@ -50,6 +48,8 @@ func StartMainServer() error {
 	http.HandleFunc("/deletepjshift", deletepjshift)
 	http.HandleFunc("/addpjshift", addpjshift)
 	http.HandleFunc("/updatepj", updatepj)
+	http.HandleFunc("/uploadPj", uploadPj)
+	http.HandleFunc("/makeresttypingpage", makeresttypingpage)
 
 	fmt.Println("Stated Server")
 	port := os.Getenv("PORT")

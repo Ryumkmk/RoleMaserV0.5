@@ -76,15 +76,33 @@ $(window).on('load', function () {
     }, 1000);
 });
 
-function getRoleCount(obj,pjname) {
+function submitForm(obj, date) {
+    var form = document.getElementById("typing-form");
+    var formData = $(form).serialize(); // フォームデータのシリアライズ
+
     $.ajax({
-        url: "/getRoleCount",
+        url: "/uploadPj",
+        type: "POST",
+        data: formData,
+        success: function () {
+            makeresttypingForm(obj, date);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+
+}
+
+function makeresttypingForm(obj, date) {
+    $.ajax({
+        url: "/makeresttypingpage",
         type: "GET",
         data: {
-            pjname: pjname
+            date: date
         },
         success: function (response) {
-            displayRoleCounts(obj,response.RoleCounts, pjname);
+            displayRestTypingPage(obj, response.RICPs);
         },
         error: function (error) {
             console.log(error);
@@ -92,11 +110,102 @@ function getRoleCount(obj,pjname) {
     });
 }
 
-function displayRoleCounts(obj,roleCounts, pjname) {
+function displayRestTypingPage(obj, RICPs) {
+    if (obj.endsWith("D")) {
+        displayRestTypingPageByAmpm("P", RICPs)
+        displayRestTypingPageByAmpm("", RICPs)
+    } else if (obj.endsWith("P")) {
+        displayRestTypingPageByAmpm("P", RICPs)
+    } else {
+        displayRestTypingPageByAmpm("", RICPs)
+    }
+}
+function displayRestTypingPageByAmpm(obj, RICPs) {
 
-    if (obj.endsWith("P")) {
-        var roleCountsElement = document.getElementById("role-counts-display-noneP");
-        roleCountsElement.setAttribute("id", "role-counts-displayP");
+    var restTypingElement = document.getElementById("rest" + obj);
+    if (restTypingElement) {
+        var inputs = restTypingElement.querySelectorAll("input[type='text']");
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].value = "";
+        }
+    } else {
+        restTypingElement = document.getElementById("rest-typing-display-none"+obj);
+        restTypingElement.setAttribute("id", "rest" + obj);
+        var inputs = restTypingElement.querySelectorAll("input[type='text']");
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].value = "";
+        }
+    }
+    for (var i = 0; i < RICPs.length; i++) {
+        var rICP = RICPs[i];
+        switch (rICP.RoleName) {
+            case "ドリカン＆作" + obj:
+            case "ドリカン＆聞" + obj:
+                var restDrink = document.getElementById("rest-drink" + obj);
+                restDrink.value += rICP.PjName + " ";
+                break;
+            case "コーヒー" + obj:
+                var restCoffee = document.getElementById("rest-coffee" + obj);
+                restCoffee.value += rICP.PjName + " ";
+                break;
+            case "門番＆第二" + obj:
+            case "門番＆第一" + obj:
+                var restGatekeeper = document.getElementById("rest-gatekeeper" + obj);
+                restGatekeeper.value += rICP.PjName + " ";
+                break;
+            case "クロークサブ" + obj:
+            case "リターンリーダー" + obj:
+            case "クローク" + obj:
+                var restCloak = document.getElementById("rest-cloak" + obj);
+                restCloak.value += rICP.PjName + " ";
+                break;
+            case "アペ＆水" + obj:
+            case "トイレタバコ男" + obj:
+                var restApe = document.getElementById("rest-ape" + obj);
+                restApe.value += rICP.PjName + " ";
+                break;
+            case "シルバー＆ワイン" + obj:
+                var restSilver = document.getElementById("rest-silver" + obj);
+                restSilver.value += rICP.PjName + " ";
+                break;
+            case "シャンパン＆ワイン" + obj:
+            case "トイレタバコ女" + obj:
+                var restChampagne = document.getElementById("rest-champagne" + obj);
+                restChampagne.value += rICP.PjName + " ";
+                break;
+            case "リーダー" + obj:
+                var restLeader = document.getElementById("rest-leader" + obj);
+                restLeader.value += rICP.PjName + " ";
+                break;
+            case "サブPJ" + obj:
+                var restSubPj = document.getElementById("rest-subpj" + obj);
+                restSubPj.value += rICP.PjName + " ";
+                break;
+        }
+    }
+}
+
+function getRoleCount(obj, pjname) {
+    $.ajax({
+        url: "/getRoleCount",
+        type: "GET",
+        data: {
+            pjname: pjname
+        },
+        success: function (response) {
+            displayRoleCounts(obj, response.RoleCounts, pjname);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function displayRoleCounts(obj, roleCounts, pjname) {
+
+    if (obj.endsWith("" + obj)) {
+        var roleCountsElement = document.getElementById("role-counts-display-none" + obj);
+        roleCountsElement.setAttribute("id", "role-counts-display" + obj);
     } else {
         var roleCountsElement = document.getElementById("role-counts-display-none");
         roleCountsElement.setAttribute("id", "role-counts-display");
@@ -184,9 +293,9 @@ function displayRoleCounts(obj,roleCounts, pjname) {
 }
 
 function displayRoleCountsNone(obj) {
-    if (obj.endsWith("P")) {
+    if (obj.endsWith("" + obj)) {
         var roleCountsElement = document.getElementById(obj);
-        roleCountsElement.setAttribute("id", "role-counts-display-noneP");
+        roleCountsElement.setAttribute("id", "role-counts-display-none" + obj);
     } else {
         var roleCountsElement = document.getElementById("role-counts-display");
         roleCountsElement.setAttribute("id", "role-counts-display-none");

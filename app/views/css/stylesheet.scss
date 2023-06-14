@@ -81,7 +81,7 @@ body {
                     margin: auto;
                 }
             }
-           
+
             #top-viewshift-form-container {
                 display: flex;
                 flex-direction: column;
@@ -302,7 +302,9 @@ body {
                 }
             }
             #role-counts-display-none,
-            #role-counts-display-noneP {
+            #role-counts-display-noneP,
+            #rest-typing-display-none,
+            #rest-typing-display-noneP {
                 display: none;
             }
             .role-counts-ya,
@@ -506,6 +508,7 @@ body {
             text-align: center;
             margin: 10px auto;
         }
+        margin: 0 auto;
         .page1-form-thead {
             .page1-form-header-tr {
                 .page1-form-header-th {

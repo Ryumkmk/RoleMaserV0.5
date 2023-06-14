@@ -253,8 +253,7 @@
                             <p>準備中</p>
                         </th>
                         <td class="rest-drinkP">
-                            {{range .RICPs}}{{if or (eq .RoleName "ドリカン＆作P") (eq .RoleName "ドリカン＆聞P")}}{{.PjName}} {{end}}{{end}}
-
+                            {{range .RICPs}}{{if eq .RoleName "rest-drinkP"}}{{.PjName}} {{end}}{{end}}
                         </td>
                     </tr>
                     <tr>
@@ -262,8 +261,7 @@
                             <p>迎賓中</p>
                         </th>
                         <td class="rest-coffeeP">
-                            {{range .RICPs}}{{if eq .RoleName "コーヒーP"}}{{.PjName}} {{end}}{{end}}
-
+                            {{range .RICPs}}{{if eq .RoleName "rest-coffeeP"}}{{.PjName}} {{end}}{{end}}                        </td>
                         </td>
                     </tr>
                     <tr>
@@ -271,8 +269,7 @@
                             <p>アミューズ～プルミエ</p>
                         </th>
                         <td class="rest-gatekeeperP">
-                            {{range .RICPs}}{{if or (eq .RoleName "門番＆第二P") (eq .RoleName "門番＆第一P")}}{{.PjName}} {{end}}{{end}}
-
+                            {{range .RICPs}}{{if eq .RoleName "rest-gatekeeperP"}}{{.PjName}} {{end}}{{end}}                        </td>
                         </td>
                     </tr>
                     <tr>
@@ -280,8 +277,7 @@
                             <p>ポワソン</p>
                         </th>
                         <td class="rest-cloakP">
-                            {{range .RICPs}}{{if or (eq .RoleName "クロークサブP") (or (eq .RoleName "リターンリーダーP") (eq .RoleName "クロークP"))}}{{.PjName}} {{end}}{{end}}
-
+                            {{range .RICPs}}{{if eq .RoleName "rest-cloakP"}}{{.PjName}} {{end}}{{end}}                        </td>
                         </td>
                     </tr>
                     <tr>
@@ -289,8 +285,7 @@
                             <p>ビアンド</p>
                         </th>
                         <td class="rest-apeP">
-                            {{range .RICPs}}{{if or (eq .RoleName "アペ＆水P") (eq .RoleName "トイレタバコ男P")}}{{.PjName}} {{end}}{{end}}
-
+                            {{range .RICPs}}{{if eq .RoleName "rest-apeP"}}{{.PjName}} {{end}}{{end}}                        </td>
                         </td>
                     </tr>
                     <tr>
@@ -298,8 +293,7 @@
                             <p>デザート|ビュッフェ</p>
                         </th>
                         <td class="rest-silverP">
-                            {{range .RICPs}}{{if eq .RoleName "シルバー＆ワインP"}}{{.PjName}} {{end}}{{end}}
-
+                            {{range .RICPs}}{{if eq .RoleName "rest-silverP"}}{{.PjName}} {{end}}{{end}}                        </td>
                         </td>
                     </tr>
                     <tr>
@@ -307,8 +301,7 @@
                             <p>お見送り</p>
                         </th>
                         <td class="rest-champagneP">
-                            {{range .RICPs}}{{if or (eq .RoleName "シャンパン＆ワインP") (eq .RoleName "トイレタバコ女P")}}{{.PjName}} {{end}}{{end}}
-
+                            {{range .RICPs}}{{if eq .RoleName "rest-champagneP"}}{{.PjName}} {{end}}{{end}}                        </td>
                         </td>
                     </tr>
                     <tr>
@@ -316,8 +309,7 @@
                             <p>リターン</p>
                         </th>
                         <td class="rest-leaderP">
-                            {{range .RICPs}}{{if eq .RoleName "リーダーP"}}{{.PjName}} {{end}}{{end}}
-
+                            {{range .RICPs}}{{if eq .RoleName "rest-leaderP"}}{{.PjName}} {{end}}{{end}}                        </td>
                         </td>
                     </tr>
                     <tr>
@@ -325,8 +317,7 @@
                             <p>リターン</p>
                         </th>
                         <td class="rest-subpjP">
-                            {{range .RICPs}}{{if eq .RoleName "サブPJP"}}{{.PjName}} {{end}}{{end}}
-
+                            {{range .RICPs}}{{if eq .RoleName "rest-subpjP"}}{{.PjName}} {{end}}{{end}}                        </td>
                         </td>
                     </tr>
                 </tbody>
