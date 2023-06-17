@@ -203,9 +203,9 @@ function getRoleCount(obj, pjname) {
 
 function displayRoleCounts(obj, roleCounts, pjname) {
 
-    if (obj.endsWith("" + obj)) {
-        var roleCountsElement = document.getElementById("role-counts-display-none" + obj);
-        roleCountsElement.setAttribute("id", "role-counts-display" + obj);
+    if (obj.endsWith("P")) {
+        var roleCountsElement = document.getElementById("role-counts-display-noneP");
+        roleCountsElement.setAttribute("id", "role-counts-displayP");
     } else {
         var roleCountsElement = document.getElementById("role-counts-display-none");
         roleCountsElement.setAttribute("id", "role-counts-display");
@@ -293,9 +293,9 @@ function displayRoleCounts(obj, roleCounts, pjname) {
 }
 
 function displayRoleCountsNone(obj) {
-    if (obj.endsWith("" + obj)) {
+    if (obj.endsWith("P")) {
         var roleCountsElement = document.getElementById(obj);
-        roleCountsElement.setAttribute("id", "role-counts-display-none" + obj);
+        roleCountsElement.setAttribute("id", "role-counts-display-noneP");
     } else {
         var roleCountsElement = document.getElementById("role-counts-display");
         roleCountsElement.setAttribute("id", "role-counts-display-none");
