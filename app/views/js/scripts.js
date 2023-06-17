@@ -129,7 +129,7 @@ function displayRestTypingPageByAmpm(obj, RICPs) {
             inputs[i].value = "";
         }
     } else {
-        restTypingElement = document.getElementById("rest-typing-display-none"+obj);
+        restTypingElement = document.getElementById("rest-typing-display-none" + obj);
         restTypingElement.setAttribute("id", "rest" + obj);
         var inputs = restTypingElement.querySelectorAll("input[type='text']");
         for (var i = 0; i < inputs.length; i++) {
@@ -145,6 +145,8 @@ function displayRestTypingPageByAmpm(obj, RICPs) {
                 restDrink.value += rICP.PjName + " ";
                 break;
             case "コーヒー" + obj:
+            case "洗い場洗い" + obj:
+            case "洗い場拭き" + obj:
                 var restCoffee = document.getElementById("rest-coffee" + obj);
                 restCoffee.value += rICP.PjName + " ";
                 break;
