@@ -205,12 +205,6 @@ func ispjinputeddouble(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println(err)
 	}
-	if len(namesDoublePm) == 0 {
-		namesDoublePm, err = models.GetAllPjsNameNotInputedDouble(date, "試食会")
-		if err != nil {
-			log.Println(err)
-		}
-	}
 	response := struct {
 		AMNames []string
 		PMNames []string
