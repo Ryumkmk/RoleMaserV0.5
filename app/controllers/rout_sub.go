@@ -172,3 +172,58 @@ func addpjshift(w http.ResponseWriter, r *http.Request) {
 	}
 	http.Redirect(w, r, redirectURL, http.StatusFound)
 }
+
+func ispjinputed(w http.ResponseWriter, r *http.Request) {
+	date := r.URL.Query().Get("date")
+	ampm := r.URL.Query().Get("ampm")
+	names, err := models.GetAllPjsNameNotInputed(date, ampm)
+	if err != nil {
+		log.Println(err)
+	}
+	response := struct {
+		Names []string
+	}{
+		Names: names,
+	}
+	jsonResponse, err := json.Marshal(response)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(jsonResponse)
+}
+
+func ispjinputeddouble(w http.ResponseWriter, r *http.Request) {
+	date := r.URL.Query().Get("date")
+	namesDoubleAm, err := models.GetAllPjsNameNotInputedDouble(date, "AM")
+	if err != nil {
+		log.Println(err)
+	}
+	namesDoublePm, err := models.GetAllPjsNameNotInputedDouble(date, "PM")
+	if err != nil {
+		log.Println(err)
+	}
+	if len(namesDoublePm) == 0 {
+		namesDoublePm, err = models.GetAllPjsNameNotInputedDouble(date, "試食会")
+		if err != nil {
+			log.Println(err)
+		}
+	}
+	response := struct {
+		AMNames []string
+		PMNames []string
+	}{
+		AMNames: namesDoubleAm,
+		PMNames: namesDoublePm,
+	}
+	jsonResponse, err := json.Marshal(response)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(jsonResponse)
+}

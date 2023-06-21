@@ -356,7 +356,13 @@ body {
                 grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
                 grid-gap: 3px;
                 margin: 30px 0;
-
+                .pjnotinputed,
+                .pjnotinputedP {
+                    background-color: #ff9595 !important;
+                    .AmPm{
+                        background-color: #ff9595 !important;
+                    }
+                }
                 .pjs-item {
                     font-size: 16px;
                     color: #010101;

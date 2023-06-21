@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
-	"os"
 
 	"RMV0.5/app/config"
 	"RMV0.5/app/models"
@@ -50,8 +49,10 @@ func StartMainServer() error {
 	http.HandleFunc("/updatepj", updatepj)
 	http.HandleFunc("/uploadPj", uploadPj)
 	http.HandleFunc("/makeresttypingpage", makeresttypingpage)
+	http.HandleFunc("/ispjinputed", ispjinputed)
+	http.HandleFunc("/ispjinputeddouble", ispjinputeddouble)
 
 	fmt.Println("Stated Server")
-	port := os.Getenv("PORT")
-	return http.ListenAndServe(":"+port, nil)
+	// port := os.Getenv("PORT")
+	return http.ListenAndServe(":"+config.Config.Port, nil)
 }

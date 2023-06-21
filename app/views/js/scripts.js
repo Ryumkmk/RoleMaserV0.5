@@ -57,7 +57,6 @@ $(function () {
     });
 
     $("#delete-btn").on("click", function () {
-        console.log("rowNum: " + rowNum);
         $("#trainer-trainee-form-tbody tr:last").remove();
         rowNum--;
     });
@@ -76,22 +75,75 @@ $(window).on('load', function () {
     }, 1000);
 });
 
-function submitForm(obj, date) {
+function submitForm(obj, date, ampm) {
     var form = document.getElementById("typing-form");
     var formData = $(form).serialize(); // フォームデータのシリアライズ
-
     $.ajax({
         url: "/uploadPj",
         type: "POST",
         data: formData,
         success: function () {
             makeresttypingForm(obj, date);
+            if (ampm == "ダブル") {
+                ispjinputeddouble(date);
+            } else {
+                ispjinputed(date, ampm);
+            }
         },
         error: function (error) {
             console.log(error);
         }
     });
+}
 
+function ispjinputeddouble(date) {
+    $.ajax({
+        url: "/ispjinputeddouble",
+        type: "GET",
+        data: {
+            date: date,
+        },
+        success: function (response) {
+            displaynotinputedpj(response.AMNames, "");
+            displaynotinputedpj(response.PMNames, "P");
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function ispjinputed(date, ampm) {
+    $.ajax({
+        url: "/ispjinputed",
+        type: "GET",
+        data: {
+            date: date,
+            ampm: ampm,
+        },
+        success: function (response) {
+            displaynotinputedpj(response.Names, "");
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function displaynotinputedpj(names, obj) {
+    var allpjnameElements = document.getElementsByClassName("pjnotinputed" + obj);
+    for (var i = 0; i < allpjnameElements.length; i++) {
+        var element = allpjnameElements[i];
+        element.classList.remove("pjnotinputed" + obj);
+    }
+    if (names !== null) {
+        for (var i = 0; i < names.length; i++) {
+            var nameElement = document.getElementsByClassName(names[i] + "inputed" + obj);
+            if (nameElement.length > 0) {
+                nameElement[0].classList.add("pjnotinputed" + obj);
+            }
+        }
+    }
 }
 
 function makeresttypingForm(obj, date) {

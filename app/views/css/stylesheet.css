@@ -354,6 +354,14 @@ body #page #page1 .pjs-list {
   grid-gap: 3px;
   margin: 30px 0;
 }
+body #page #page1 .pjs-list .pjnotinputed,
+body #page #page1 .pjs-list .pjnotinputedP {
+  background-color: #ff9595 !important;
+}
+body #page #page1 .pjs-list .pjnotinputed .AmPm,
+body #page #page1 .pjs-list .pjnotinputedP .AmPm {
+  background-color: #ff9595 !important;
+}
 body #page #page1 .pjs-list .pjs-item {
   font-size: 16px;
   color: #010101;

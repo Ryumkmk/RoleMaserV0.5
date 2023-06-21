@@ -302,3 +302,80 @@ func deleteTrainerTraineeDB(date string) (err error) {
 	}
 	return err
 }
+
+func GetAllPjsNameNotInputed(date string, ampm string) (names []string, err error) {
+	cmd := `SELECT 
+				p.name
+			FROM
+				shifts AS s
+					JOIN
+				pjs AS p ON p.id = s.pj_id
+			WHERE
+				s.date = ? AND s.ampm = ?
+					AND p.name NOT IN (SELECT 
+						p.name
+					FROM
+						role_info AS ri
+							JOIN
+						weddings AS w ON w.id = ri.wedding_id
+							JOIN
+						pjs AS p ON p.id = ri.pj_id
+					WHERE
+						w.date = ? AND w.ampm = ?
+					GROUP BY p.id)
+			GROUP BY p.id;`
+
+	rows, err := Db.Query(cmd, date, ampm, date, ampm)
+	if err != nil {
+		log.Println(err)
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var name string
+		rows.Scan(
+			&name,
+		)
+		names = append(names, name)
+	}
+	return names, err
+}
+
+func GetAllPjsNameNotInputedDouble(date string, ampm string) (names []string, err error) {
+	cmd := `SELECT 
+				p.name
+			FROM
+				shifts AS s
+					JOIN
+				pjs AS p ON p.id = s.pj_id
+			WHERE
+				s.date = ? AND (s.ampm = ? or s.ampm = 'ダブル')
+					AND p.name NOT IN (SELECT 
+						p.name
+					FROM
+						role_info AS ri
+							JOIN
+						weddings AS w ON w.id = ri.wedding_id
+							JOIN
+						pjs AS p ON p.id = ri.pj_id
+					WHERE
+						w.date = ? AND (w.ampm = ? or w.ampm = 'ダブル')
+					GROUP BY p.id)
+			GROUP BY p.id;`
+
+	rows, err := Db.Query(cmd, date, ampm, date, ampm)
+	if err != nil {
+		log.Println(err)
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var name string
+		rows.Scan(
+			&name,
+		)
+		names = append(names, name)
+	}
+	return names, err
+}
+
