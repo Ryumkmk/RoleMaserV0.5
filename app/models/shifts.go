@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"regexp"
+	"strconv"
 	"strings"
 
 	"github.com/xuri/excelize/v2"
@@ -53,11 +54,15 @@ func GetShiftsByDateFromFile(date string, sheetName string) (pj_id []int, shiftT
 		if err != nil {
 			log.Println(err)
 		}
+
 		col := cols[dateColNum]
+		pjidcol := cols[pjidcolIndex]
+		pjidcol = pjidcol[3:]
 		for i, v := range col {
 			matches := re.FindStringSubmatch(v)
 			if len(matches) > 0 {
-				pj_id = append(pj_id, i-2)
+				id, _ := strconv.Atoi(pjidcol[i-3])
+				pj_id = append(pj_id, id)
 				stj := strings.Join(matches, "")
 				shiftTime = append(shiftTime, stj)
 				ampm = append(ampm, isAmpm(stj))
@@ -80,6 +85,7 @@ func InsertAllRowsShifts(sheetName string) {
 			}
 			s.insertRowToShiftsDB()
 		}
+		// fmt.Println("Doing...")
 	}
 }
 

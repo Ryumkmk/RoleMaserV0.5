@@ -34,9 +34,7 @@ func typingpage(w http.ResponseWriter, r *http.Request) {
 	yy := r.PostFormValue("year")
 	mm := r.PostFormValue("month")
 	dd := r.PostFormValue("day")
-
 	date := models.ChangeDateFormatToDBFormat(yy, mm, dd)
-
 	wITPs := models.GetWeddingsByDateFromDB(date)
 	if len(wITPs) == 0 {
 		http.Redirect(w, r, "/top", http.StatusFound)

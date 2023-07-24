@@ -20,7 +20,8 @@ const (
 	shiftDateRowIndex = 0
 	guestNumRowIndex  = 1
 	ampmRowIndex      = 2
-	shiftFileName = "pjシフト.xlsx"
+	pjidcolIndex      = 0
+	shiftFileName     = "pjシフト.xlsx"
 )
 
 func init() {
