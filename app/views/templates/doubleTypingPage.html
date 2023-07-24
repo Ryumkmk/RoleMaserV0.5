@@ -249,7 +249,8 @@
                 <div class="pjs-list">
                     {{range .PLITs}}
                     {{if or (eq .Ampm "試食会") (or (eq .Ampm "ダブル") (eq .Ampm "PM"))}}
-                    <div class="pjs-item {{.Name}}inputedP" onclick="getRoleCount('role-counts-display-noneP','{{.Name}}')">
+                    <div class="pjs-item {{.Name}}inputedP"
+                        onclick="getRoleCount('role-counts-display-noneP','{{.Name}}')">
                         {{.Name}}
                         <span class="newpj-mark">{{.Level}}</span>
                         <p class="AmPm"><span>{{.Ampm}}</span>{{.ShiftTime}}</p>
@@ -491,6 +492,8 @@
                 <br>
             </form>
         </div>
+        <div id="notInputedpjname"></div>
+        <div id="notInputedpjnameP"></div>
         <form id="rest-form" action="/checkPj" method="post">
             <div id="rest-typing-display-none">
                 <div class="rest-am rest-ampm-container">

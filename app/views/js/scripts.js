@@ -131,19 +131,22 @@ function ispjinputed(date, ampm) {
 }
 
 function displaynotinputedpj(names, obj) {
-    var allpjnameElements = document.getElementsByClassName("pjnotinputed" + obj);
-    for (var i = 0; i < allpjnameElements.length; i++) {
-        var element = allpjnameElements[i];
-        element.classList.remove("pjnotinputed" + obj);
+    var notInputedpjnameElement = document.getElementById("notInputedpjname" + obj);
+    notInputedpjnameElement.innerHTML = ""; // 一旦中身をクリア
+    var list = document.createElement("div");
+    if (obj == "P") {
+        list.textContent += "PM の出勤PJ："
+    } else {
+        list.textContent += "AM の出勤PJ："
     }
-    if (names !== null) {
-        for (var i = 0; i < names.length; i++) {
-            var nameElement = document.getElementsByClassName(names[i] + "inputed" + obj);
-            if (nameElement.length > 0) {
-                nameElement[0].classList.add("pjnotinputed" + obj);
-            }
-        }
+
+    for (var i = 0; i < names.length; i++) {
+        var name = names[i];
+        list.textContent += " ※ " + name;
     }
+    list.textContent += "は未入力ですが宜しいですか？"
+    notInputedpjnameElement.appendChild(list);
+
 }
 
 function makeresttypingForm(obj, date) {
