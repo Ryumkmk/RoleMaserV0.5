@@ -85,7 +85,7 @@ func InsertAllRowsShifts(sheetName string) {
 			}
 			s.insertRowToShiftsDB()
 		}
-		// fmt.Println("Doing...")
+		fmt.Println("Doing...")
 	}
 }
 
