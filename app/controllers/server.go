@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	"os"
 
 	"RMV0.5/app/config"
 	"RMV0.5/app/models"
@@ -53,7 +54,7 @@ func StartMainServer() error {
 	http.HandleFunc("/ispjinputeddouble", ispjinputeddouble)
 
 	fmt.Println("Stated Server")
-	// port := os.Getenv("PORT")
-	// return http.ListenAndServe(":"+port, nil)
-	return http.ListenAndServe(":"+config.Config.Port, nil)
+	port := os.Getenv("PORT")
+	return http.ListenAndServe(":"+port, nil)
+	// return http.ListenAndServe(":"+config.Config.Port, nil)
 }
